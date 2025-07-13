@@ -1,28 +1,28 @@
 # 序文
 
-Welcome to the **Artificial Intelligence Security Verification Standard (AISVS) version 1.0!**
+**人工知能セキュリティ検証標準 (AISVS) バージョン 1.0** へようこそ！
 
 ## はじめに
 
-Established in 2025 through a collaborative community effort, **AISVS** defines the security requirements to consider when **designing, developing, deploying, and operating modern AI models, pipelines, and AI‑enabled services**.
+**AISVS** は 2025 年にコミュニティの共同作業を通じて設立され、**現代の AI モデル、パイプライン、AI 対応サービスを設計、開発、デプロイ、運用** する際に考慮すべきセキュリティ要件を定義しています。
 
-AISVS v1.0 represents the combined work of its project leads, working group, and wider community contributors to produce a pragmatic, testable baseline for securing AI systems.
+AISVS v1.0 は、プロジェクトリーダー、ワーキンググループ、幅広いコミュニティ貢献者の共同作業の成果であり、AI システムを保護するための実用的でテスト可能なベースラインとなります。
 
-Our goal with this release is to make AISVS straightforward to adopt while staying laser‑focused on its defined scope and addressing the rapidly evolving risk landscape unique to AI.
+このリリースの目標は AISVS を簡単に採用できるようにすることであり、定義されたスコープに焦点を絞り、急速に進化する AI 特有のリスク状況に対処することです。
 
-## Key Objectives for AISVS Version 1.0
+## AISVS バージョン 1.0 の主な目的
 
-Version 1.0 will be created with several guiding principles.
+バージョン 1.0 はいくつかの指針に沿って作成されます。
 
 ### 明確なスコープ
 
-Each requirement must align with AISVS’s name and mission:
+各要件は AISVS の名称や使命と合致する必要があります。
 
-* **Artificial Intelligence** – Controls operate at the AI/ML layer (data, model, pipeline, or inference) and are the responsibility of AI practitioners.
-* **Security** – Requirements directly mitigate identified security, privacy, or safety risks.
-* **Verification** – Language is written so conformance can be objectively validated.
-* **Standard** – Sections follow a consistent structure and terminology to form a coherent reference.
+* **人工知能 (Artificial Intelligence)** – コントロールは AI/ML 層 (データ、モデル、パイプライン、推論) で動作し、AI 実務者の責任となります。
+* **セキュリティ (Security)** – 要件は、特定されたセキュリティ、プライバシー、安全性のリスクを直接緩和します。
+* **検証 (Verification)** – 言語は適合性を客観的に検証できるように記述されます。
+* **標準 (Standard)** – セクションは一貫した構造と用語に従い、整然としたリファレンスを形成します。
 
 ---
 
-By following AISVS, organizations can systematically evaluate and strengthen the security posture of their AI solutions, fostering a culture of secure AI engineering.
+AISVS に従うことで、組織は AI ソリューションのセキュリティ態勢を体系的に評価および強化し、安全な AI エンジニアリングの文化を醸成できます。
