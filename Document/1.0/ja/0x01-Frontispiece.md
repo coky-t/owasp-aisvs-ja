@@ -2,18 +2,18 @@
 
 ## 本標準について
 
-The **Artificial Intelligence Security Verification Standard (AISVS)** is a community‑driven catalogue of security requirements that data scientists, MLOps engineers, software architects, developers, testers, security professionals, tool vendors, regulators, and consumers can use to design, build, test, and verify **trustworthy AI‑enabled systems and applications**. It provides a common language for specifying security controls across the AI lifecycle—from data collection and model development to deployment and ongoing monitoring—so that organizations can measure and improve the resilience, privacy, and safety of their AI solutions.
+**人工知能セキュリティ検証標準 (AISVS)** はコミュニティ主導のセキュリティ要件カタログであり、データサイエンティスト、MLOps エンジニア、ソフトウェアアーキテクト、開発者、テスト担当者、セキュリティ専門家、ツールベンダー、規制当局、利用者が、**信頼できる AI 対応システムとアプリケーション** を設計、構築、テスト、検証するために使用できます。データ収集、モデル開発からデプロイメント、継続的なモニタリングに至るまで、AI ライフサイクル全体にわたるセキュリティコントロールを指定するための共通言語を提供することで、組織が AI ソリューションの耐性、プライバシー、安全性を測定および改善できるようにします。
 
 ## 著作権とライセンス
 
-Version 0.1 (First Public Draft - Work In Progress), 2025  
+Version 0.1 (First Public Draft - Work In Progress), 2025
 
 ![license](../images/license.png)
 
 Copyright © 2025 The AISVS Project.  
 
-Released under the [Creative Commons Attribution‑ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).  
-For any reuse or distribution, you must clearly communicate the license terms of this work to others.
+[Creative Commons Attribution‑ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の下で公開されています。
+再利用または配布する場合には、本著作物のライセンス条項を他者に対して明確に伝える必要があります。
 
 ## プロジェクトリーダー
 
@@ -31,4 +31,4 @@ For any reuse or distribution, you must clearly communicate the license terms of
 
 ---
 
-**AISVS** is a brand‑new standard created specifically to address the unique security challenges of artificial‑intelligence systems. While it draws inspiration from broader security best practices, every requirement in AISVS has been developed from the ground up to reflect the AI threat landscape and to help organizations build safer, more resilient AI solutions.
+**AISVS** は人工知能システム特有のセキュリティ課題に対処するために特別に作成されたまったく新しい標準です。幅広いセキュリティベストプラクティスから着想を得ながらも、AISVS のすべての要件は、AI の脅威の状況を反映し、組織がより安全でより耐性のある AI ソリューションを構築できるように、完全新規に開発されています。
