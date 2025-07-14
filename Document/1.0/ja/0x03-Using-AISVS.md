@@ -1,35 +1,35 @@
 # AISVS を使用するには
 
-The Artificial Intelligence Security Verification Standard (AISVS) defines security requirements for modern AI applications and services, focusing on aspects within the control of application developers.
+人工知能セキュリティ検証標準 (AISVS) は現代の AI アプリケーションとサービスのセキュリティ要件を定義しており、アプリケーション開発者が制御できる側面に重点を置いています。
 
-The AISVS is intended for anyone developing or evaluating the security of AI applications, including developers, architects, security engineers, and auditors. This chapter introduces the structure and use of the AISVS, including its verification levels and intended use cases.
+AISVS は、開発者、アーキテクト、セキュリティエンジニア、監査人など、AI アプリケーションのセキュリティを開発または評価するすべての人を対象としています。この章では AISVS の構造と使用方法について、検証レベルと想定されるユースケースを含めて説明します。
 
 ## 人工知能セキュリティ検証レベル
 
-The AISVS defines three ascending levels of security verification. Each level adds depth and complexity, enabling organizations to tailor their security posture to the risk level of their AI systems.
+AISVS は三段階のセキュリティ検証レベルを定義しています。各レベルは深さと複雑さを増していき、組織が AI システムのリスクレベルに合わせてセキュリティ態勢を調整できます。
 
-Organizations may begin at Level 1 and progressively adopt higher levels as security maturity and threat exposure increase.
+組織はレベル 1 から開始し、セキュリティ成熟度と脅威の露出が増加するごとに、段階的に高いレベルを採用していきます。
 
 ### レベルの定義
 
-Each requirement in AISVS v1.0 is assigned to one of the following levels:
+AISVS v1.0 の各要件は以下のいずれかのレベルに割り当てられます。
 
 #### レベル 1 要件
 
-Level 1 includes the most critical and foundational security requirements. These focus on preventing common attacks that do not rely on other preconditions or vulnerabilities. Most Level 1 controls are either straightforward to implement or essential enough to justify the effort.
+レベル 1 は最も重要で基本的なセキュリティ要件を含みます。これらは他の前提条件や脆弱性に依存しない一般的な攻撃の防止に重点を置いています。レベル 1 コントロールのほとんどは、実装が容易であるか、その労力を正当化するのに十分なほど不可欠です。
 
 #### レベル 2 要件
 
-Level 2 addresses more advanced or less common attacks, as well as layered defenses against widespread threats. These requirements may involve more complex logic or target specific attack prerequisites.
+レベル 2 はより高度な攻撃やあまり一般的でない攻撃、および広範な脅威に対する多層防御に対応します。これらの要件は、より複雑なロジックや、特定のターゲットに対する攻撃を前提条件とすることがあります。
 
 #### レベル 3 要件
 
-Level 3 includes controls that are typically harder to implement or situational in applicability. These often represent defense-in-depth mechanisms or mitigations against niche, targeted, or high-complexity attacks.
+レベル 3 は、一般的に実装が困難であったり、状況に応じて適用可能であるコントロールを含みます。これらは、ニッチな攻撃、標的型攻撃、高度に複雑な攻撃に対する多層防御や緩和策を表すことがよくあります。
 
 ### ロール (D/V)
 
-Each AISVS requirement is marked according to the primary audience:
+AISVS の各要件は主な対象者に応じてマークされています。
 
-* D – Developer-focused requirements
-* V – Verifier/auditor-focused requirements
-* D/V – Relevant to both developers and verifiers
+* D – 開発者 (Developer) 向け要件
+* V – 検証者 (Verifier)/監査者向け要件
+* D/V – 開発者と検証者の両者に関連
