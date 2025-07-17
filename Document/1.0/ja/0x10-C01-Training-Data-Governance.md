@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Training data must be sourced, handled, and maintained in a way that preserves provenance, security, quality, and fairness. Doing so fulfils legal duties and reduces risks of bias, poisoning, or privacy breaches throughout the AI lifecycle.
+Training data must be sourced, handled, and maintained in a way that preserves provenance, security, quality, and fairness. Doing so fulfils legal duties and reduces risks of bias, poisoning, or privacy breaches that show up during training that could effect the entire AI lifecycle.
 
 ---
 
@@ -23,7 +23,7 @@ Maintain a verifiable inventory of all datasets, accept only trusted sources, an
 
 ## C1.2 トレーニングデータのセキュリティと完全性 (Training Data Security & Integrity)
 
-Restrict access, encrypt at rest and in transit, and validate integrity to block tampering or theft.
+Restrict access, encrypt at rest and in transit, and validate integrity to block tampering or theft of training data.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
@@ -37,7 +37,7 @@ Restrict access, encrypt at rest and in transit, and validate integrity to block
 
 ## C1.3 表現の完全性と公平性 (Representation Completeness & Fairness)
 
-Detect demographic skews and apply mitigation so the model's error rates are equitable across groups.
+Detect demographic biases and apply mitigation so the model's error rates are fair across groups.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
@@ -50,7 +50,7 @@ Detect demographic skews and apply mitigation so the model's error rates are equ
 
 ## C1.4 トレーニングデータラベリングの品質、完全性、セキュリティ (Training Data Labeling Quality, Integrity, and Security)
 
-Protect labels with encryption and require dual review for critical classes.
+Protect labels and require technical review for critical data.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
