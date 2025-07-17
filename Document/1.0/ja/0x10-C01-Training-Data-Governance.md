@@ -8,16 +8,16 @@
 
 ## C1.1 トレーニングデータの来歴 (Training Data Provenance)
 
-Maintain a verifiable inventory of all datasets, accept only trusted sources, and log every change for auditability.
+すべてのデータセットの検証可能なインベントリを維持し、信頼できるソースのみを受け入れ、監査可能なようにすべての変更をログ記録します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.1.1** | **Verify that** an up-to-date inventory of every training-data source (origin, steward/owner, licence, collection method, intended use constraints, and processing history) is maintained. | 1 | D/V |
-| **1.1.2** | **Verify that** only datasets vetted for quality, representativeness, ethical sourcing, and licence compliance are allowed, reducing risks of poisoning, embedded bias, and intellectual property infringement. | 1 | D/V |
-| **1.1.3** | **Verify that** data minimization is enforced so unnecessary or sensitive attributes are excluded. | 1 | D/V |
-| **1.1.4** | **Verify that** all dataset changes are subject to a logged approval workflow. | 2 | D/V |
-| **1.1.5** | **Verify that** labelling/annotation quality is ensured via reviewer cross-checks or consensus. | 2 | D/V |
-| **1.1.6** | **Verify that** "data cards" or "datasheets for datasets" are maintained for significant training datasets, detailing characteristics, motivations, composition, collection processes, preprocessing, and recommended/discouraged uses. | 2 | D/V |
+| **1.1.1** | **検証:** すべてのトレーニングデータソースの最新インベントリ (出所、管理者/所有者、ライセンス、収集方法、使用目的の制約、処理履歴) を維持している。 | 1 | D/V |
+| **1.1.2** | **検証:** 品質、代表性、倫理的調達、ライセンス遵守について精査されたデータセットのみを許可し、ポイズニング、埋め込まれたバイアス、知的財産侵害のリスクを低減している。 | 1 | D/V |
+| **1.1.3** | **検証:** データ最小化を実施し、不要な属性や機密性の高い属性を除外している。 | 1 | D/V |
+| **1.1.4** | **検証:** すべてのデータセットの変更はログ記録される承認ワークフローの対象となっている。 | 2 | D/V |
+| **1.1.5** | **検証:** ラベル付けや注釈の品質はレビュー担当者のクロスチェックまたはコンセンサスによって確保している。 | 2 | D/V |
+| **1.1.6** | **検証:** 重要なトレーニングデータセットに対して「データカード」や「データセットのデータシート」を維持し、特性、動機、構成、収集プロセス、前処理、推奨される使用方法、推奨されない使用方法を詳述している。 | 2 | D/V |
 
 ---
 
