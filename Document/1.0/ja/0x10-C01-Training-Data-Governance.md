@@ -2,11 +2,11 @@
 
 ## 管理目標
 
-Training data must be sourced, handled, and maintained in a way that preserves provenance, security, quality, and fairness. Doing so fulfils legal duties and reduces risks of bias, poisoning, or privacy breaches that show up during training that could effect the entire AI lifecycle.
+トレーニングデータは、来歴、セキュリティ、品質、公平性を保持する方法で、調達、処理、維持する必要があります。そうすることで、法的義務を果たし、トレーニングの中で現れるバイアス、ポイズニング、プライバシー侵害のリスクを低減し、AI ライフサイクル全体に効果をもたらす可能性があります。
 
 ---
 
-## C1.1 トレーニングデータの実証性 (Training Data Provenance)
+## C1.1 トレーニングデータの来歴 (Training Data Provenance)
 
 Maintain a verifiable inventory of all datasets, accept only trusted sources, and log every change for auditability.
 
