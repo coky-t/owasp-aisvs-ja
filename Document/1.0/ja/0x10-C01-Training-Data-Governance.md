@@ -23,15 +23,15 @@
 
 ## C1.2 トレーニングデータのセキュリティと完全性 (Training Data Security & Integrity)
 
-Restrict access, encrypt at rest and in transit, and validate integrity to block tampering or theft of training data.
+アクセスを制限し、保存時と転送時に暗号化し、完全性を検証して、トレーニングデータの改竄や窃取をブロックします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.2.1** | **Verify that** access controls protect storage and pipelines. | 1 | D/V |
-| **1.2.2** | **Verify that** datasets are encrypted in transit and, for all sensitive or personally identifiable information (PII), at rest, using industry-standard cryptographic algorithms and key management practices. | 2 | D/V |
-| **1.2.3** | **Verify that** cryptographic hashes or digital signatures are used to ensure data integrity during storage and transfer, and that automated anomaly detection techniques are applied to guard against unauthorized modifications or corruption, including targeted data poisoning attempts. | 2 | D/V |
-| **1.2.4** | **Verify that** dataset versions are tracked to enable rollback. | 3 | D/V |
-| **1.2.5** | **Verify that** obsolete data is securely purged or anonymized in compliance with data retention policies, regulatory requirements, and to shrink the attack surface. | 2 | D/V |
+| **1.2.1** | **検証:** アクセス制御はストレージとパイプラインを保護している。 | 1 | D/V |
+| **1.2.2** | **検証:** データセットは転送時に暗号化され、すべての機密情報や個人を識別できる情報 (PII) については保存時に、業界標準の暗号アルゴリズムと鍵管理手法を使用して暗号化されている。 | 2 | D/V |
+| **1.2.3** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、保存および転送時のデータ完全性を確保し、自動化された異常検出技法を適用して、標的型データポイズニング攻撃など不正な変更や破損から保護している。 | 2 | D/V |
+| **1.2.4** | **検証:** データセットバージョンは追跡され、ロールバックを可能にしている。 | 3 | D/V |
+| **1.2.5** | **検証:** 古いデータは、データ保持ポリシー、規制要件に準拠して、安全に削除または匿名化され、攻撃対象領域を縮小している。 | 2 | D/V |
 
 ---
 
