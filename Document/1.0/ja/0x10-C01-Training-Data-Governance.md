@@ -67,15 +67,15 @@
 
 ## C1.5 トレーニングデータの品質保証 (Training Data Quality Assurance)
 
-Combine automated validation, manual spot-checks, and logged remediation to guarantee dataset reliability.
+自動バリデーション、手動スポットチェック、ログ記録された修復を組み合わせて、データセットの信頼性を保証します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.5.1** | **Verify that** automated tests catch format errors, nulls, and label skews on every ingest or significant transformation. | 1 | D |
-| **1.5.2** | **Verify that** failed datasets are quarantined with audit trails. | 1 | D/V |
-| **1.5.3** | **Verify that** manual spot-checks by domain experts cover a statistically significant sample (e.g., ≥1% or 1,000 samples, whichever is greater, or as determined by risk assessment) to identify subtle quality issues not caught by automation. | 2 | V |
-| **1.5.4** | **Verify that** remediation steps are appended to provenance records. | 2 | D/V |
-| **1.5.5** | **Verify that** quality gates block sub-par datasets unless exceptions are approved. | 2 | D/V |
+| **1.5.1** | **検証:** 自動テストは、すべての取り込みや重要な変換で、フォーマットエラー、ヌル、ラベルスキューを捕捉している。 | 1 | D |
+| **1.5.2** | **検証:** 不合格のデータセットは監査証跡とともに隔離されている。 | 1 | D/V |
+| **1.5.3** | **検証:** ドメイン専門家による手動スポットチェックは、統計的に優位なサンプル (例: 1% 以上または 1,000 サンプルのいずれか大きい方、またはリスク評価によって決定) をカバーし、自動では捕捉できない精緻な品質問題を特定している。 | 2 | V |
+| **1.5.4** | **検証:** 修復手順は来歴記録に追加されている。 | 2 | D/V |
+| **1.5.5** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
 
 ---
 
