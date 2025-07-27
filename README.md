@@ -2,6 +2,8 @@
 
 This is the unofficial Japanese translation of the [OWASP Artificial Intelligence Security Verification Standard (AISVS)](https://github.com/OWASP/AISVS).
 
+**Work In Progress**
+
 - Document Repository - <https://github.com/coky-t/owasp-aisvs-ja>
 
 ### Originator
