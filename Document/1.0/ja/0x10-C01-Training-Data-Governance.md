@@ -50,18 +50,18 @@
 
 ## C1.4 トレーニングデータラベリングの品質、完全性、セキュリティ (Training Data Labeling Quality, Integrity, and Security)
 
-Protect labels and require technical review for critical data.
+ラベルを保護し、重要なデータについては技術的なレビューを要求します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.4.1** | **Verify that** labeling/annotation quality is ensured via clear guidelines, reviewer cross-checks, consensus mechanisms (e.g., monitoring inter-annotator agreement), and defined processes for resolving discrepancies.| 2 | D/V |
-| **1.4.2** | **Verify that** cryptographic hashes or digital signatures are applied to label artifacts to ensure their integrity and authenticity. | 2 | D/V |
-| **1.4.3** | **Verify that** labeling interfaces and platforms enforce strong access controls, maintain tamper-evident audit logs of all labeling activities, and protect against unauthorized modifications. | 2 | D/V |
-| **1.4.4** | **Verify that** labels critical to safety, security, or fairness (e.g., identifying toxic content, critical medical findings) receive mandatory independent dual review or equivalent robust verification.| 3 | D/V |
-| **1.4.5** | **Verify that** sensitive information (including PII) inadvertently captured or necessarily present in labels is redacted, pseudonymized, anonymized, or encrypted at rest and in transit, according to data minimization principles.| 2 | D/V |
-| **1.4.6** | **Verify that** labeling guides and instructions are comprehensive, version-controlled, and peer-reviewed. | 2 | D/V |
-| **1.4.7** | **Verify that** data schemas (including for labels) are clearly defined, and version-controlled. | 2 | D/V |
-| **1.8.2** | **Verify that** outsourced or crowdsourced labeling workflows include technical/procedural safeguards to ensure data confidentiality, integrity, label quality, and prevent data leakage. | 2 | D/V |
+| **1.4.1** | **検証:** ラベル付けや注釈の品質は、明確なガイドライン、レビュー担当者によるクロスチェック、同意メカニズム (注釈者間の合意の監視など)、不整合を解決するために定義されたプロセスによって確保されている。 | 2 | D/V |
+| **1.4.2** | **検証:** 暗号化ハッシュまたはデジタル署名がアーティファクトのラベル付けに適用され、完全性と真正性を確保している。 | 2 | D/V |
+| **1.4.3** | **検証:** ラベリングインタフェースとプラットフォームは強力なアクセス制御を実施し、すべてのラベリングアクティビティの改竄防止監査ログを維持し、不正な変更から保護している。 | 2 | D/V |
+| **1.4.4** | **検証:** 安全性、セキュリティ、公平性にとって重要なラベル (有毒コンテンツの特定、重要な医療所見など) は、独立した二重レビューまたは同等の堅牢な検証を必ず受けている。 | 3 | D/V |
+| **1.4.5** | **検証:** 誤って取得されたり、ラベルに必然的に存在する機密情報 (PII など) は、データ最小化の原則に従って、保存時および転送時に訂正、仮名化、匿名化、または暗号化されている。 | 2 | D/V |
+| **1.4.6** | **検証:** ラベリングガイドとインストラクションは包括的であり、バージョン管理され、ピアレビューされている。 | 2 | D/V |
+| **1.4.7** | **検証:** データスキーマ (ラベルに対するものを含む) は明確に定義され、バージョン管理されている。 | 2 | D/V |
+| **1.4.8** | **検証:** アウトソースまたはクラウドソースしたラベリングワークフローは技術的/手順的な保護策を含み、データの機密性、完全性、ラベルの品質を確保し、データ漏洩を防いでいる。 | 2 | D/V |
 
 ---
 
