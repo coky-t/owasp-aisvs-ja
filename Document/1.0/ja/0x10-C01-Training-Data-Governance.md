@@ -81,17 +81,17 @@
 
 ## C1.6 データポイズニングの検出 (Data Poisoning Detection)
 
-Apply statistical anomaly detection and quarantine workflows to stop adversarial insertions.
+統計的な異常検出と隔離ワークフローを適用して、敵対的な挿入を阻止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.6.1** | **Verify that** anomaly detection techniques (e.g., statistical methods, outlier detection, embedding analysis) are applied to training data at ingest and before major training runs to identify potential poisoning attacks or unintentional data corruption. | 2 | D/V |
-| **1.6.2** | **Verify that** flagged samples trigger manual review before training. | 2 | D/V |
-| **1.6.3** | **Verify that** results feed the model's security dossier and inform ongoing threat intelligence. | 2 | V |
-| **1.6.4** | **Verify that** detection logic is refreshed with new threat intel. | 3 | D/V |
-| **1.6.5** | **Verify that** online-learning pipelines monitor distribution drift. | 3 | D/V |
-| **1.6.6** | **Verify that** specific defenses against known data poisoning attack types (e.g., label flipping, backdoor trigger insertion, influential instance attacks) are considered and implemented based on the system's risk profile and data sources. | 3 | D/V |
-| **1.6.7** | **Verify that** LLM training and fine-tuning pipelines implement controls to detect and mitigate adversarial free-text prompt contamination risks (such as embedded jailbreak instructions, role-switching commands, universal triggers), using a combination of automated detection techniques and manual review. | 3 | D/V |
+| **1.6.1** | **検証:** 異常検出技法 (統計的手法、外れ値検出、エンベディング解析など) はトレーニングデータの取り込み時および主要なトレーニング実行前に適用され、潜在的なポイズニング攻撃や意図しないデータ破損を特定している。 | 2 | D/V |
+| **1.6.2** | **検証:** フラグが付けられたサンプルはトレーニング前に手動レビューをトリガーしている。 | 2 | D/V |
+| **1.6.3** | **検証:** 結果はモデルのセキュリティファイルに反映し、継続的な脅威インテリジェンスに情報提供している。 | 2 | V |
+| **1.6.4** | **検証:** 検出ロジックは新しい脅威インテリジェンスで更新されている。 | 3 | D/V |
+| **1.6.5** | **検証:** オンライン学習パイプラインは分布ドリフトを監視している。 | 3 | D/V |
+| **1.6.6** | **検証:** 既知のデータポイズニング攻撃の種類 (ラベルフリッピング、バックドアトリガー挿入、影響力のあるインスタンス攻撃など) に対する特定の防御は、システムのリスクプロファイルとデータソースに基づいて検討され、実装されている。 | 3 | D/V |
+| **1.6.7** | **検証:** LLM トレーニングおよびファインチューニングパイプラインは、自動検出技法と手動レビューを組み合わせて使用し、敵対的なフリーテキストプロンプトの汚染リスク (埋め込まれた脱獄手順、ロール切替コマンド、ユニバーサルトリガーなど) を検出して緩和するためのコントロールを実装している。 | 3 | D/V |
 
 
 ---
