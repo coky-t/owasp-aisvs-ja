@@ -98,13 +98,13 @@
 
 ## C1.7 ユーザーデータの削除と同意の実施 (User Data Deletion & Consent Enforcement)
 
-Honor deletion and consent-withdrawal requests across datasets, backups, and derived artifacts.
+データセット、バックアップ、派生アーティファクト全体にわたって削除および同意撤回のリクエストを尊重します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.7.1** | **Verify that** deletion workflows purge primary and derived data and assess model impact, and that the impact on affected models is assessed and, if necessary, addressed (e.g., through retraining or recalibration). | 1 | D/V |
-| **1.7.2** | **Verify that** mechanisms are in place to track and respect the scope and status of user consent (and withdrawals) for data used in training, and that consent is validated before data is incorporated into new training processes or significant model updates. | 2 | D |
-| **1.7.3** | **Verify that** workflows are tested annually and logged. | 2 | V |
+| **1.7.1** | **検証:** 削除ワークフローはプライマリデータと派生データを消去し、モデルへの影響を評価している。また、影響を受けるモデルへの影響が評価され、必要に応じて対処されている (再トレーニングや再キャリブレーションなど)。 | 1 | D/V |
+| **1.7.2** | **検証:** トレーニングで使用されるデータに対するユーザーの同意 (および撤回) のスコープとステータスを追跡して尊重するためのメカニズムが存在している。また、データが新しいトレーニングプロセスや重要なモデルアップデートに組み込まれる前にその同意が検証されている。 | 2 | D |
+| **1.7.3** | **検証:** ワークフローは毎年テストされ、ログ記録されている。 | 2 | V |
 
 ---
 
