@@ -64,6 +64,59 @@ Maintain awareness of and compliance with evolving AI regulations.
 | **AC.5.2** | **Verify that** compliance with all regulatory requirements is assessed. | 2 | D |
 | **AC.5.3** | **Verify that** regulatory changes trigger timely reviews and updates to AI systems. | 3 | D/V |
 
+## AC.6 トレーニングデータガバナンス、ドキュメント、プロセス (Training Data Governance, Documentation and Process)
+
+| # | 説明 | レベル | ロール |
+| :--------: | ------------------------------------------------------------------------------------ | :---: | :--: |
+| **1.1.2** | **検証:** 品質、代表性、倫理的調達、ライセンス遵守について精査されたデータセットのみを許可し、ポイズニング、埋め込まれたバイアス、知的財産侵害のリスクを低減している。 | 1 | D/V |
+| **1.1.5** | **検証:** ラベル付けや注釈の品質はレビュー担当者のクロスチェックまたはコンセンサスによって確保している。 | 2 | D/V |
+| **1.1.6** | **検証:** 重要なトレーニングデータセットに対して「データカード」や「データセットのデータシート」を維持し、特性、動機、構成、収集プロセス、前処理、推奨される使用方法、推奨されない使用方法を詳述している。 | 2 | D/V |
+| **1.3.2** | **検証:** 特定されたバイアスは、再バランス調整、対象を絞ったデータ拡張、アルゴリズム調整 (前処理、中処理、後処理技法など)、再重み付けなどの文書化された戦略によって緩和され、緩和策が公平性と全体的なモデルパフォーマンスの両方に与える影響を評価している。 | 2 | D/V |
+| **1.3.3** | **検証:** トレーニング後の公平性の指標が評価され、文書化されている。 | 2 | D/V |
+| **1.3.4** | **検証:** ライフサイクルバイアス管理ポリシーは所有者とレビュー頻度を割り当てている。 | 3 | D/V |
+| **1.4.1** | **検証:** ラベル付けや注釈の品質は、明確なガイドライン、レビュー担当者によるクロスチェック、同意メカニズム (注釈者間の合意の監視など)、不整合を解決するために定義されたプロセスによって確保されている。 | 2 | D/V |
+| **1.4.4** | **検証:** 安全性、セキュリティ、公平性にとって重要なラベル (有毒コンテンツの特定、重要な医療所見など) は、独立した二重レビューまたは同等の堅牢な検証を必ず受けている。 | 3 | D/V |
+| **1.4.6** | **検証:** ラベリングガイドとインストラクションは包括的であり、バージョン管理され、ピアレビューされている。 | 2 | D/V |
+| **1.4.6** | **検証:** ラベルに対するデータスキーマは明確に定義され、バージョン管理されている。 | 2 | D/V |
+| **1.3.1** | **検証:** データセットは、法的に保護された属性 (人種、性別、年齢など) とモデルの適用ドメインに関連するその他の倫理的にセンシティブな特定 (社会経済的ステータス、位置情報など) にわたって、表現の不均衡と潜在的なバイアスについてプロファイルされている。 | 1 | D/V |
+| **1.5.3** | **検証:** ドメイン専門家による手動スポットチェックは、統計的に優位なサンプル (例: 1% 以上または 1,000 サンプルのいずれか大きい方、またはリスク評価によって決定) をカバーし、自動では捕捉できない精緻な品質問題を特定している。 | 2 | V |
+| **1.8.4** | **検証:** アウトソースまたはクラウドソースしたラベリングワークフローは技術的/手順的な保護策を含み、データの機密性、完全性、ラベルの品質を確保し、データ漏洩を防いでいる。 | 2 | D/V |
+| **1.5.4** | **検証:** 修復手順は来歴記録に追加されている。 | 2 | D/V |
+| **1.6.2** | **検証:** フラグが付けられたサンプルはトレーニング前に手動レビューをトリガーしている。 | 2 | D/V |
+| **1.6.3** | **検証:** 結果はモデルのセキュリティファイルに反映し、継続的な脅威インテリジェンスに情報提供している。 | 2 | V |
+| **1.6.4** | **検証:** 検出ロジックは新しい脅威インテリジェンスで更新されている。 | 3 | D/V |
+| **1.6.5** | **検証:** オンライン学習パイプラインは分布ドリフトを監視している。 | 3 | D/V |
+| **1.7.1** | **検証:** トレーニングデータ削除ワークフローはプライマリデータと派生データを消去し、モデルへの影響を評価している。また、影響を受けるモデルへの影響が評価され、必要に応じて対処されている (再トレーニングや再キャリブレーションなど)。 | 1 | D/V |
+| **1.7.2** | **検証:** トレーニングで使用されるデータに対するユーザーの同意 (および撤回) のスコープとステータスを追跡して尊重するためのメカニズムが存在している。また、データが新しいトレーニングプロセスや重要なモデルアップデートに組み込まれる前にその同意が検証されている。 | 2 | D |
+| **1.7.3** | **検証:** ワークフローは毎年テストされ、ログ記録されている。 | 2 | V |
+| **1.8.1** | **検証:** 事前トレーニング済みモデルや外部データセットのプロバイダを含むサードパーティのデータサプライヤは、そのデータやモデルを統合する前に、セキュリティ、プライバシー、倫理的調達、データ品質のデューディリジェンスを受けている。 | 2 | D/V |
+| **1.8.2** | **検証:** 外部転送は TLS/auth と完全性チェックを使用している。 | 1 | D |
+| **1.8.3** | **検証:** 高リスクのデータソース (来歴不明のオープンソースデータセット、審査されていないサプライヤなど) は、機密性の高いアプリケーションで使用する前に、サンドボックス解析、広範な品質/バイアスチェック、標的を絞ったポイズニング検出などの強化された精査を受けている。 | 2 | D/V |
+| **1.8.4** | **検証:** サードパーティから取得した事前トレーニング済みモデルは、ファインチューニングやデプロイメントの前に、埋め込まれたバイアス、潜在的なバックドア、アーキテクチャの完全性、元のトレーニングデータの来歴について評価されている。 | 3 | D/V |
+| **1.5.3** | **Verify that** if adversarial training is used, the generation, management, and versioning of adversarial datasets are documented and controlled. | 2 | D/V |
+| **1.5.3** | **Verify that** the impact of adversarial robustness training on model performance (against both clean and adversarial inputs) and fairness metrics is evaluated, documented, and monitored. | 3 | D/V |
+| **1.5.4** | **Verify that** strategies for adversarial training and robustness are periodically reviewed and updated to counter evolving adversarial attack techniques.| 3 | D/V |
+| **1.4.2** | **検証:** 不合格のデータセットは監査証跡とともに隔離されている。 | 2 | D/V |
+| **1.4.3** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
+| **1.11.2** | **Verify that** the generation process, parameters, and intended use of synthetic data are documented. | 2 | D/V |
+| **1.11.3** | **Verify that** synthetic data is risk-assessed for bias, privacy leakage, and representational issues before use in training. | 2 | D/V || **1.12.2** | **Verify that** access logs are regularly reviewed for unusual patterns, such as large exports or access from new locations. | 2 | D/V |
+| **1.12.3** | **Verify that** alerts are generated for suspicious access events and investigated promptly. | 2 | D/V |
+| **1.13.1** | **Verify that** explicit retention periods are defined for all training datasets. | 1 | D/V |
+| **1.13.2** | **Verify that** datasets are automatically expired, deleted, or reviewed for deletion at the end of their lifecycle. | 2 | D/V |
+| **1.13.3** | **Verify that** retention and deletion actions are logged and auditable. | 2 | D/V |
+| **1.14.1** | **Verify that** data residency and cross-border transfer requirements are identified and enforced for all datasets. | 2 | D/V |
+| **1.14.2** | **Verify that** sector-specific regulations (e.g., healthcare, finance) are identified and addressed in data handling. | 2 | D/V |
+| **1.14.3** | **Verify that** compliance with relevant privacy laws (e.g., GDPR, CCPA) is documented and reviewed regularly. | 2 | D/V |
+| **1.16.1** | **Verify that** mechanisms exist to respond to data subject requests for access, rectification, restriction, or objection. | 2 | D/V |
+| **1.16.2** | **Verify that** requests are logged, tracked, and fulfilled within legally mandated timeframes. | 2 | D/V |
+| **1.16.3** | **Verify that** data subject rights processes are tested and reviewed regularly for effectiveness. | 2 | D/V |
+| **1.17.1** | **Verify that** an impact analysis is performed before updating or replacing a dataset version, covering model performance, fairness, and compliance. | 2 | D/V |
+| **1.17.2** | **Verify that** results of the impact analysis are documented and reviewed by relevant stakeholders. | 2 | D/V |
+| **1.17.3** | **Verify that** rollback plans exist in case new versions introduce unacceptable risks or regressions. | 2 | D/V |
+| **1.18.1** | **Verify that** all personnel involved in data annotation are background-checked and trained in data security and privacy. | 2 | D/V |
+| **1.18.2** | **Verify that** all annotation personnel sign confidentiality and non-disclosure agreements. | 2 | D/V |
+| **1.18.3** | **Verify that** annotation platforms enforce access controls and monitor for insider threats. | 2 | D/V |
+
 ### 参考情報
 
 * [NIST AI Risk Management Framework 1.0](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf)
