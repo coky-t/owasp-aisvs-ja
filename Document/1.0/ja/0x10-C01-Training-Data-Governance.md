@@ -13,232 +13,63 @@
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **1.1.1** | **検証:** すべてのトレーニングデータソースの最新インベントリ (出所、管理者/所有者、ライセンス、収集方法、使用目的の制約、処理履歴) を維持している。 | 1 | D/V |
-| **1.1.2** | **検証:** 品質、代表性、倫理的調達、ライセンス遵守について精査されたデータセットのみを許可し、ポイズニング、埋め込まれたバイアス、知的財産侵害のリスクを低減している。 | 1 | D/V |
-| **1.1.3** | **検証:** データ最小化を実施し、不要な属性や機密性の高い属性を除外している。 | 1 | D/V |
-| **1.1.4** | **検証:** すべてのデータセットの変更はログ記録される承認ワークフローの対象となっている。 | 2 | D/V |
-| **1.1.5** | **検証:** ラベル付けや注釈の品質はレビュー担当者のクロスチェックまたはコンセンサスによって確保している。 | 2 | D/V |
-| **1.1.6** | **検証:** 重要なトレーニングデータセットに対して「データカード」や「データセットのデータシート」を維持し、特性、動機、構成、収集プロセス、前処理、推奨される使用方法、推奨されない使用方法を詳述している。 | 2 | D/V |
+| **1.1.2** | **Verify that** training data processes exclude unnecessary features, attributes, or fields (e.g., unused metadata, sensitive PII, leaked test data). | 1 | D/V |
+| **1.1.3** | **検証:** すべてのデータセットの変更はログ記録される承認ワークフローの対象となっている。 | 2 | D/V |
+| **1.1.4** | **Verify that** datasets or subsets are watermarked or fingerprinted where feasible. | 3 | D/V |
 
 ---
 
 ## C1.2 トレーニングデータのセキュリティと完全性 (Training Data Security & Integrity)
 
-アクセスを制限し、保存時と転送時に暗号化し、完全性を検証して、トレーニングデータの改竄や窃取をブロックします。
+トレーニングデータへのアクセスを制限し、保存時と転送時にそれを暗号化し、その完全性を検証して、改竄、窃取、データポイズニングを防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.2.1** | **検証:** アクセス制御はストレージとパイプラインを保護している。 | 1 | D/V |
-| **1.2.2** | **検証:** データセットは転送時に暗号化され、すべての機密情報や個人を識別できる情報 (PII) については保存時に、業界標準の暗号アルゴリズムと鍵管理手法を使用して暗号化されている。 | 2 | D/V |
-| **1.2.3** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、保存および転送時のデータ完全性を確保し、自動化された異常検出技法を適用して、標的型データポイズニング攻撃など不正な変更や破損から保護している。 | 2 | D/V |
-| **1.2.4** | **検証:** データセットバージョンは追跡され、ロールバックを可能にしている。 | 3 | D/V |
-| **1.2.5** | **検証:** 古いデータは、データ保持ポリシー、規制要件に準拠して、安全に削除または匿名化され、攻撃対象領域を縮小している。 | 2 | D/V |
+| **1.2.1** | **検証:** アクセス制御はトレーニングデータのストレージとパイプラインを保護している。 | 1 | D/V |
+| **1.2.2** | **Verify that** all access to training data is logged, including user, time, and action. | 2 | D/V |
+| **1.2.3** | **検証:** トレーニングデータセットは転送時と保存時に、業界標準の暗号アルゴリズムと鍵管理手法を使用して暗号化されている。 | 2 | D/V |
+| **1.2.4** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 | D/V |
+| **1.2.5** | **検証:** 自動化された検出技法を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 | D/V |
+| **1.2.6** | **Verify that** obsolete training data is securely purged or anonymized. | 2 | D/V |
+| **1.2.7** | **Verify that** all training dataset versions are uniquely identified, stored immutably, and auditable to support rollback and forensic analysis. | 3 | D/V |
 
 ---
 
-## C1.3 表現の完全性と公平性 (Representation Completeness & Fairness)
-
-人口統計上のバイアスを検出し、緩和策を適用して、モデルのエラー率がグループ間で公平にします。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.3.1** | **検証:** データセットは、法的に保護された属性 (人種、性別、年齢など) とモデルの適用ドメインに関連するその他の倫理的にセンシティブな特定 (社会経済的ステータス、位置情報など) にわたって、表現の不均衡と潜在的なバイアスについてプロファイルされている。 | 1 | D/V |
-| **1.3.2** | **検証:** 特定されたバイアスは、再バランス調整、対象を絞ったデータ拡張、アルゴリズム調整 (前処理、中処理、後処理技法など)、再重み付けなどの文書化された戦略によって緩和され、緩和策が公平性と全体的なモデルパフォーマンスの両方に与える影響を評価している。 | 2 | D/V |
-| **1.3.3** | **検証:** トレーニング後の公平性の指標が評価され、文書化されている。 | 2 | D/V |
-| **1.3.4** | **検証:** ライフサイクルバイアス管理ポリシーは所有者とレビュー頻度を割り当てている。 | 3 | D/V |
-
----
-
-## C1.4 トレーニングデータラベリングの品質、完全性、セキュリティ (Training Data Labeling Quality, Integrity, and Security)
+## C1.3 トレーニングデータラベリングの品質、完全性、セキュリティ (Training Data Labeling Quality, Integrity, and Security)
 
 ラベルを保護し、重要なデータについては技術的なレビューを要求します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.4.1** | **検証:** ラベル付けや注釈の品質は、明確なガイドライン、レビュー担当者によるクロスチェック、同意メカニズム (注釈者間の合意の監視など)、不整合を解決するために定義されたプロセスによって確保されている。 | 2 | D/V |
-| **1.4.2** | **検証:** 暗号化ハッシュまたはデジタル署名がアーティファクトのラベル付けに適用され、完全性と真正性を確保している。 | 2 | D/V |
-| **1.4.3** | **検証:** ラベリングインタフェースとプラットフォームは強力なアクセス制御を実施し、すべてのラベリングアクティビティの改竄防止監査ログを維持し、不正な変更から保護している。 | 2 | D/V |
-| **1.4.4** | **検証:** 安全性、セキュリティ、公平性にとって重要なラベル (有毒コンテンツの特定、重要な医療所見など) は、独立した二重レビューまたは同等の堅牢な検証を必ず受けている。 | 3 | D/V |
-| **1.4.5** | **検証:** 誤って取得されたり、ラベルに必然的に存在する機密情報 (PII など) は、データ最小化の原則に従って、保存時および転送時に訂正、仮名化、匿名化、または暗号化されている。 | 2 | D/V |
-| **1.4.6** | **検証:** ラベリングガイドとインストラクションは包括的であり、バージョン管理され、ピアレビューされている。 | 2 | D/V |
-| **1.4.7** | **検証:** データスキーマ (ラベルに対するものを含む) は明確に定義され、バージョン管理されている。 | 2 | D/V |
-| **1.4.8** | **検証:** アウトソースまたはクラウドソースしたラベリングワークフローは技術的/手順的な保護策を含み、データの機密性、完全性、ラベルの品質を確保し、データ漏洩を防いでいる。 | 2 | D/V |
+| **1.3.1** | **検証:** 暗号化ハッシュまたはデジタル署名がアーティファクトのラベル付けに適用され、完全性と真正性を確保している。 | 2 | D/V |
+| **1.3.2** | **検証:** ラベリングインタフェースとプラットフォームは強力なアクセス制御を実施し、すべてのラベリングアクティビティの改竄防止監査ログを維持し、不正な変更から保護している。 | 2 | D/V |
+| **1.3.3** | **検証:** ラベル内の機密情報は、保存時および転送時にデータフィールドレベルで訂正、匿名化、または暗号化されている。 | 3 | D/V |
 
 ---
 
-## C1.5 トレーニングデータの品質保証 (Training Data Quality Assurance)
+## C1.4 トレーニングデータの品質とセキュリティ保証 (Training Data Quality and Security Assurance)
 
 自動バリデーション、手動スポットチェック、ログ記録された修復を組み合わせて、データセットの信頼性を保証します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.5.1** | **検証:** 自動テストは、すべての取り込みや重要な変換で、フォーマットエラー、ヌル、ラベルスキューを捕捉している。 | 1 | D |
-| **1.5.2** | **検証:** 不合格のデータセットは監査証跡とともに隔離されている。 | 1 | D/V |
-| **1.5.3** | **検証:** ドメイン専門家による手動スポットチェックは、統計的に優位なサンプル (例: 1% 以上または 1,000 サンプルのいずれか大きい方、またはリスク評価によって決定) をカバーし、自動では捕捉できない精緻な品質問題を特定している。 | 2 | V |
-| **1.5.4** | **検証:** 修復手順は来歴記録に追加されている。 | 2 | D/V |
-| **1.5.5** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
+| **1.4.1** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、フォーマットエラーやヌルを捕捉している。 | 1 | D |
+| **1.4.2** | **Verify that** LLM training and fine-tuning pipelines implement poisoning detection & data integrity validation (e.g., statistical methods, outlier detection, embedding analysis) to identify potential poisoning attacks (e.g., label flipping, backdoor trigger insertion, role-switching commands, influential instance attacks) or unintentional data corruption in training data. | 2 | D/V |
+| **1.4.3** | **Verify that** appropriate defenses, such as adversarial training (using generated adversarial examples), data augmentation with perturbed inputs, or robust optimization techniques, are implemented and tuned for relevant models based on risk assessment. | 3 | D/V |
+| **1.4.4** | **Verify that** automatically generated labels (e.g., via LLMs or weak supervision) are subject to confidence thresholds and consistency checks to detect hallucinated, misleading, or low-confidence labels. | 2 | D/V |
+| **1.4.5** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、ラベルスキューを捕捉している。 | 3 | D |
 
 ---
 
-## C1.6 データポイズニングの検出 (Data Poisoning Detection)
-
-統計的な異常検出と隔離ワークフローを適用して、敵対的な挿入を阻止します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.6.1** | **検証:** 異常検出技法 (統計的手法、外れ値検出、エンベディング解析など) はトレーニングデータの取り込み時および主要なトレーニング実行前に適用され、潜在的なポイズニング攻撃や意図しないデータ破損を特定している。 | 2 | D/V |
-| **1.6.2** | **検証:** フラグが付けられたサンプルはトレーニング前に手動レビューをトリガーしている。 | 2 | D/V |
-| **1.6.3** | **検証:** 結果はモデルのセキュリティファイルに反映し、継続的な脅威インテリジェンスに情報提供している。 | 2 | V |
-| **1.6.4** | **検証:** 検出ロジックは新しい脅威インテリジェンスで更新されている。 | 3 | D/V |
-| **1.6.5** | **検証:** オンライン学習パイプラインは分布ドリフトを監視している。 | 3 | D/V |
-| **1.6.6** | **検証:** 既知のデータポイズニング攻撃の種類 (ラベルフリッピング、バックドアトリガー挿入、影響力のあるインスタンス攻撃など) に対する特定の防御は、システムのリスクプロファイルとデータソースに基づいて検討され、実装されている。 | 3 | D/V |
-| **1.6.7** | **検証:** LLM トレーニングおよびファインチューニングパイプラインは、自動検出技法と手動レビューを組み合わせて使用し、敵対的なフリーテキストプロンプトの汚染リスク (埋め込まれた脱獄手順、ロール切替コマンド、ユニバーサルトリガーなど) を検出して緩和するためのコントロールを実装している。 | 3 | D/V |
-
-
----
-
-## C1.7 ユーザーデータの削除と同意の実施 (User Data Deletion & Consent Enforcement)
-
-データセット、バックアップ、派生アーティファクト全体にわたって削除および同意撤回のリクエストを尊重します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.7.1** | **検証:** 削除ワークフローはプライマリデータと派生データを消去し、モデルへの影響を評価している。また、影響を受けるモデルへの影響が評価され、必要に応じて対処されている (再トレーニングや再キャリブレーションなど)。 | 1 | D/V |
-| **1.7.2** | **検証:** トレーニングで使用されるデータに対するユーザーの同意 (および撤回) のスコープとステータスを追跡して尊重するためのメカニズムが存在している。また、データが新しいトレーニングプロセスや重要なモデルアップデートに組み込まれる前にその同意が検証されている。 | 2 | D |
-| **1.7.3** | **検証:** ワークフローは毎年テストされ、ログ記録されている。 | 2 | V |
-
----
-
-## C1.8 サプライチェーンのセキュリティ (Supply Chain Security)
-
-外部データプロバイダを審査し、認証された暗号化チャネルを介して完全性を検証します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.8.1** | **検証:** 事前トレーニング済みモデルや外部データセットのプロバイダを含むサードパーティのデータサプライヤは、そのデータやモデルを統合する前に、セキュリティ、プライバシー、倫理的調達、データ品質のデューディリジェンスを受けている。 | 2 | D/V |
-| **1.8.2** | **検証:** 外部転送は TLS/auth と完全性チェックを使用している。 | 1 | D |
-| **1.8.3** | **検証:** 高リスクのデータソース (来歴不明のオープンソースデータセット、審査されていないサプライヤなど) は、機密性の高いアプリケーションで使用する前に、サンドボックス解析、広範な品質/バイアスチェック、標的を絞ったポイズニング検出などの強化された精査を受けている。 | 2 | D/V |
-| **1.8.4** | **検証:** サードパーティから取得した事前トレーニング済みモデルは、ファインチューニングやデプロイメントの前に、埋め込まれたバイアス、潜在的なバックドア、アーキテクチャの完全性、元のトレーニングデータの来歴について評価されている。 | 3 | D/V |
-
----
-
-## C1.9 敵対的サンプルの検出 (Adversarial Sample Detection)
-
-Implement measures during the training phase, such as adversarial training, to enhance model resilience against adversarial examples.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.9.1** | **Verify that** appropriate defenses, such as adversarial training (using generated adversarial examples), data augmentation with perturbed inputs, or robust optimization techniques, are implemented and tuned for relevant models based on risk assessment. | 3 | D/V |
-| **1.9.2** | **Verify that** if adversarial training is used, the generation, management, and versioning of adversarial datasets are documented and controlled. | 2 | D/V |
-| **1.9.3** | **Verify that** the impact of adversarial robustness training on model performance (against both clean and adversarial inputs) and fairness metrics is evaluated, documented, and monitored. | 3 | D/V |
-| **1.9.4** | **Verify that** strategies for adversarial training and robustness are periodically reviewed and updated to counter evolving adversarial attack techniques.| 3 | D/V |
-
----
-
-## C1.10 データリネージとトレーサビリティ (Data Lineage and Traceability)
+## C1.5 データリネージとトレーサビリティ (Data Lineage and Traceability)
 
 Track the full journey of each data point from source to model input for auditability and incident response.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.10.1** | **Verify that** the lineage of each data point, including all transformations, augmentations, and merges, is recorded and can be reconstructed. | 2 | D/V |
-| **1.10.2** | **Verify that** lineage records are immutable, securely stored, and accessible for audits or investigations. | 2 | D/V |
-| **1.10.3** | **Verify that** lineage tracking covers both raw and synthetic data. | 2 | D/V |
-
----
-
-## C1.11 合成データ管理 (Synthetic Data Management)
-
-Ensure synthetic data is properly managed, labeled, and risk-assessed.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.11.1** | **Verify that** all synthetic data is clearly labeled and distinguishable from real data throughout the pipeline. | 2 | D/V |
-| **1.11.2** | **Verify that** the generation process, parameters, and intended use of synthetic data are documented. | 2 | D/V |
-| **1.11.3** | **Verify that** synthetic data is risk-assessed for bias, privacy leakage, and representational issues before use in training. | 2 | D/V |
-
----
-
-## C1.12 データアクセス監視と異常検出 (Data Access Monitoring & Anomaly Detection)
-
-Monitor and alert on unusual access to training data to detect insider threats or exfiltration.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.12.1** | **Verify that** all access to training data is logged, including user, time, and action. | 2 | D/V |
-| **1.12.2** | **Verify that** access logs are regularly reviewed for unusual patterns, such as large exports or access from new locations. | 2 | D/V |
-| **1.12.3** | **Verify that** alerts are generated for suspicious access events and investigated promptly. | 2 | D/V |
-
----
-
-## C1.13 データ保持と有効期限のポリシー (Data Retention & Expiry Policies)
-
-Define and enforce data retention periods to minimize unnecessary data storage.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.13.1** | **Verify that** explicit retention periods are defined for all training datasets. | 1 | D/V |
-| **1.13.2** | **Verify that** datasets are automatically expired, deleted, or reviewed for deletion at the end of their lifecycle. | 2 | D/V |
-| **1.13.3** | **Verify that** retention and deletion actions are logged and auditable. | 2 | D/V |
-
----
-
-## C1.14 規制と管轄区域のコンプライアンス (Regulatory & Jurisdictional Compliance)
-
-Ensure all training data complies with applicable laws and regulations.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.14.1** | **Verify that** data residency and cross-border transfer requirements are identified and enforced for all datasets. | 2 | D/V |
-| **1.14.2** | **Verify that** sector-specific regulations (e.g., healthcare, finance) are identified and addressed in data handling. | 2 | D/V |
-| **1.14.3** | **Verify that** compliance with relevant privacy laws (e.g., GDPR, CCPA) is documented and reviewed regularly. | 2 | D/V |
-
----
-
-## C1.15 データ透かしとフィンガープリント (Data Watermarking & Fingerprinting)
-
-Detect unauthorized reuse or leakage of proprietary or sensitive data.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.15.1** | **Verify that** datasets or subsets are watermarked or fingerprinted where feasible. | 3 | D/V |
-| **1.15.2** | **Verify that** watermarking/fingerprinting methods do not introduce bias or privacy risks. | 3 | D/V |
-| **1.15.3** | **Verify that** periodic checks are performed to detect unauthorized reuse or leakage of watermarked data. | 3 | D/V |
-
----
-
-## C1.16 データ主体の権利管理 (Data Subject Rights Management)
-
-Support data subject rights such as access, rectification, restriction, and objection.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.16.1** | **Verify that** mechanisms exist to respond to data subject requests for access, rectification, restriction, or objection. | 2 | D/V |
-| **1.16.2** | **Verify that** requests are logged, tracked, and fulfilled within legally mandated timeframes. | 2 | D/V |
-| **1.16.3** | **Verify that** data subject rights processes are tested and reviewed regularly for effectiveness. | 2 | D/V |
-
----
-
-## C1.17 データセットバージョンの影響分析 (Dataset Version Impact Analysis)
-
-Assess the impact of dataset changes before updating or replacing versions.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.17.1** | **Verify that** an impact analysis is performed before updating or replacing a dataset version, covering model performance, fairness, and compliance. | 2 | D/V |
-| **1.17.2** | **Verify that** results of the impact analysis are documented and reviewed by relevant stakeholders. | 2 | D/V |
-| **1.17.3** | **Verify that** rollback plans exist in case new versions introduce unacceptable risks or regressions. | 2 | D/V |
-
----
-
-## C1.18 データアノテーションワークフォースのセキュリティ (Data Annotation Workforce Security)
-
-Ensure the security and integrity of personnel involved in data annotation.
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.18.1** | **Verify that** all personnel involved in data annotation are background-checked and trained in data security and privacy. | 2 | D/V |
-| **1.18.2** | **Verify that** all annotation personnel sign confidentiality and non-disclosure agreements. | 2 | D/V |
-| **1.18.3** | **Verify that** annotation platforms enforce access controls and monitor for insider threats. | 2 | D/V |
+| **1.5.1** | **Verify that** the lineage of each data point, including all transformations, augmentations, and merges, is recorded and can be reconstructed. | 2 | D/V |
+| **1.5.2** | **Verify that** lineage records are immutable, securely stored, and accessible for audits. | 2 | D/V |
+| **1.5.3** | **Verify that** lineage tracking covers synthetic data generated via privacy-preserving or generative techniques and that all synthetic data is clearly labeled and distinguishable from real data throughout the pipeline. | 2 | D/V |
 
 ---
 
