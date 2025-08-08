@@ -54,9 +54,9 @@
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **1.4.1** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、フォーマットエラーやヌルを捕捉している。 | 1 | D |
-| **1.4.2** | **Verify that** LLM training and fine-tuning pipelines implement poisoning detection & data integrity validation (e.g., statistical methods, outlier detection, embedding analysis) to identify potential poisoning attacks (e.g., label flipping, backdoor trigger insertion, role-switching commands, influential instance attacks) or unintentional data corruption in training data. | 2 | D/V |
-| **1.4.3** | **Verify that** appropriate defenses, such as adversarial training (using generated adversarial examples), data augmentation with perturbed inputs, or robust optimization techniques, are implemented and tuned for relevant models based on risk assessment. | 3 | D/V |
-| **1.4.4** | **Verify that** automatically generated labels (e.g., via LLMs or weak supervision) are subject to confidence thresholds and consistency checks to detect hallucinated, misleading, or low-confidence labels. | 2 | D/V |
+| **1.4.2** | **検証:** LLM トレーニングとファインチューニングのパイプラインは、潜在的なポイズニング攻撃 (ラベル反転、バックドアトリガー挿入、ロール切替コマンド、影響力のあるインスタンス攻撃など) やトレーニングデータ内の意図しないデータ破損を識別するために、ポイズニング検出とデータ完全性検証 (統計的手法、外れ値検出、エンベディング解析など) を実装している。 | 2 | D/V |
+| **1.4.3** | **検証:** リスク評価に基づいて、関連するモデルに対して、敵対的トレーニング (生成された敵対的サンプルを使用)、摂動入力によるデータ拡張、堅牢な最適化技法など、適切な防御策が実装および調整されている。 | 3 | D/V |
+| **1.4.4** | **検証:** (LLM や弱いスーパービジョンなどを介して) 自動的に生成されたラベルは、幻覚的ラベル、誤解を招くラベル、信頼性の低いラベルを検出するために、信頼性閾値と一貫性チェックの対象としている。 | 2 | D/V |
 | **1.4.5** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、ラベルスキューを捕捉している。 | 3 | D |
 
 ---
