@@ -63,13 +63,13 @@
 
 ## C1.5 データリネージとトレーサビリティ (Data Lineage and Traceability)
 
-Track the full journey of each data point from source to model input for auditability and incident response.
+監査可能性とインシデント対応のために、ソースからモデル入力までの各データポイントの完全な経路を追跡します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **1.5.1** | **Verify that** the lineage of each data point, including all transformations, augmentations, and merges, is recorded and can be reconstructed. | 2 | D/V |
-| **1.5.2** | **Verify that** lineage records are immutable, securely stored, and accessible for audits. | 2 | D/V |
-| **1.5.3** | **Verify that** lineage tracking covers synthetic data generated via privacy-preserving or generative techniques and that all synthetic data is clearly labeled and distinguishable from real data throughout the pipeline. | 2 | D/V |
+| **1.5.1** | **検証:** すべての変換、拡張、マージを含む各データポイントのリネージは記録され、再構築できる。 | 2 | D/V |
+| **1.5.2** | **検証:** リネージレコードは不変であり、安全に保存され、監査のためにアクセス可能である。 | 2 | D/V |
+| **1.5.3** | **検証:** リネージ追跡はプライバシー保護または生成技法を介して生成された合成データをカバーし、すべての合成データは明確にラベル付けされ、パイプライン全体を通して実際のデータと区別可能である。 | 2 | D/V |
 
 ---
 
