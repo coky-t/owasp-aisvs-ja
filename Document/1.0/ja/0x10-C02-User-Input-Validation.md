@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Robust validation of user input is a first-line defense against some of the most damaging attacks on AI systems. Prompt injection attacks can override system instructions, leak sensitive data, or steer the model toward behavior that is not allowed. Unless dedicated filters and instruction hierarchies are in place, research shows that "multi-shot" jailbreaks that exploit very long context windows will be effective. Also, subtle adversarial perturbation attacks--such as homoglyph swaps or leetspeak—-can silently change a model's decisions.
+ユーザー入力の堅牢なバリデーションは AI システムで最もダメージのある攻撃のいくつかに対する最前線の防御策です。プロンプトインジェクション攻撃は、システム命令を上書きしたり、機密データを漏洩したり、モデルを許可されていない動作に誘導する可能性があります。専用のフィルタと命令階層が配備されていない限り、非常に長いコンテキストウィンドウを悪用する「マルチショット」ジェイルブレイクが有効になることが研究で示されています。また、ホモグリフスワップやリートスピークなどの巧妙な敵対的摂動攻撃はモデルの決定を静かに変更する可能性があります。
 
 ---
 
@@ -88,7 +88,7 @@ AI systems should include robust validation for non-textual inputs (images, audi
 
 ---
 
-## C2.7 入力の実証性と属例 (Input Provenance & Attribution)
+## C2.7 入力の来歴と属例 (Input Provenance & Attribution)
 
 AI systems should support auditing, abuse tracking, and compliance by monitoring and tagging the origins of all user inputs.
 
