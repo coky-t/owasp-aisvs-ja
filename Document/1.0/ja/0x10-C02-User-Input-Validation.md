@@ -8,15 +8,15 @@
 
 ## C2.1 プロンプトインジェクションの防御 (Prompt Injection Defense)
 
-Prompt injection is one of the top risks for AI systems. Defenses against this tactic employ a combination of static pattern filters, dynamic classifiers and instruction hierarchy enforcement.
+プロンプトインジェクションは AI システムにとって最大のリスクの一つです。この戦術に対する防御策として、静的パターンフィルタ、動的分類器、命令階層適用を組み合わせて採用します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.1.1** | **Verify that** user inputs are screened against a continuously updated library of known prompt injection patterns (jailbreak keywords, "ignore previous", role-play chains, indirect HTML/URL attacks). | 1 |  D/V |
-| **2.1.2** | **Verify that** the system enforces an instruction hierarchy in which system or developer messages override user instructions, even after context window expansion. | 1 |  D/V |
-| **2.1.3** | **Verify that** adversarial evaluation tests (e.g., Red Team "many-shot" prompts) are run before every model or prompt-template release, with success-rate thresholds and automated blockers for regressions. | 2 |  D/V |
-| **2.1.4** | **Verify that** prompts originating from third-party content (web pages, PDFs, emails) are sanitized in an isolated parsing context before being concatenated into the main prompt. | 2 | D |
-| **2.1.5** | **Verify that** all prompt-filter rule updates, classifier model versions and block-list changes are version-controlled and auditable. | 3 |  D/V |
+| **2.1.1** | **検証:** ユーザー入力は、継続的に更新される既知のプロンプトインジェクションパターン (ジェイルブレイクキーワード、「前のものを無視」、ロールプレイチェーン、間接 HTML/URL 攻撃) のライブラリに対してスクリーニングされている。 | 1 |  D/V |
+| **2.1.2** | **検証:** システムは、コンテキストウィンドウ拡張後でも、システムメッセージや開発者メッセージがユーザー命令を上書きする、命令階層を適用している。 | 1 |  D/V |
+| **2.1.3** | **検証:** 敵対的評価テスト (レッドチームの「メニーショット」プロンプトなど) は、すべてのモデルまたはプロンプトテンプレートのリリース前に、成功率の閾値と回帰の自動ブロッカーを使用して、実行されている。 | 2 |  D/V |
+| **2.1.4** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、隔離された解析コンテキストでサニタイズされている。 | 2 | D |
+| **2.1.5** | **検証:** すべてのプロンプトフィルタルールの更新、分類モデルのバージョン、ブロックリストの変更はバージョン管理され、監査可能である。 | 3 |  D/V |
 
 ---
 
