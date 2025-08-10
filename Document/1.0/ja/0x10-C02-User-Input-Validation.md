@@ -77,26 +77,26 @@
 
 ## C2.6 マルチモーダル入力バリデーション (Multi-Modal Input Validation)
 
-AI systems should include robust validation for non-textual inputs (images, audio, files) to prevent injection, evasion, or resource abuse.
+AI システムは、インジェクション、回避、リソース不正使用を防ぐために、非テキスト入力 (画像、音声、ファイル) に対する堅牢なバリデーションを含む必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.6.1** | **Verify that** all non-text inputs (images, audio, files) are validated for type, size, and format before processing. | 1 | D |
-| **2.6.2** | **Verify that** files are scanned for malware and steganographic payloads before ingestion. | 2 | D/V |
-| **2.6.3** | **Verify that** image/audio inputs are checked for adversarial perturbations or known attack patterns. | 2 | D/V |
-| **2.6.4** | **Verify that** multi-modal input validation failures are logged and trigger alerts for investigation. | 3 | V |
+| **2.6.1** | **検証:** すべての非テキスト入力 (画像、音声、ファイル) は処理前にタイプ、サイズ、形式について検証されている。 | 1 | D |
+| **2.6.2** | **検証:** ファイルは取り込む前にマルウェアやステガノグラフィのペイロードについてスキャンされている。 | 2 | D/V |
+| **2.6.3** | **検証:** 画像/音声入力は敵対的な摂動や既知の攻撃パターンについてチェックされている。 | 2 | D/V |
+| **2.6.4** | **検証:** マルチモーダル入力バリデーションの失敗はログ記録され、調査のためのアラートをトリガーしている。 | 3 | V |
 
 ---
 
 ## C2.7 入力の来歴と属例 (Input Provenance & Attribution)
 
-AI systems should support auditing, abuse tracking, and compliance by monitoring and tagging the origins of all user inputs.
+AI システムは、すべてのユーザー入力の発生元を監視してタグ付けすることで、監査、不正使用の追跡、コンプライアンスをサポートする必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.7.1** | **Verify that** all user inputs are tagged with metadata (user ID, session, source, timestamp, IP address) at ingestion. | 1 | D/V |
-| **2.7.2** | **Verify that** provenance metadata is retained and auditable for all processed inputs. | 2 | D/V |
-| **2.7.3** | **Verify that** anomalous or untrusted input sources are flagged and subject to enhanced scrutiny or blocking. | 2 | D/V |
+| **2.7.1** | **検証:** すべてのユーザー入力は取り込み時にメタデータ (ユーザーID、セッション、ソース、タイムスタンプ、IP アドレス) でタグ付けされている。 | 1 | D/V |
+| **2.7.2** | **検証:** 来歴メタデータが保持され、すべての処理された入力について監査可能である。 | 2 | D/V |
+| **2.7.3** | **検証:** 異常な入力ソースや信頼できない入力ソースはフラグ付けされ、強化された精査またはブロックの対象としている。 | 2 | D/V |
 
 ---
 
