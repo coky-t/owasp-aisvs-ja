@@ -64,14 +64,14 @@
 
 ## C2.5 入力レート制限と不正使用防止 (Input Rate Limiting & Abuse Prevention)
 
-Developers should prevent abuse, resource exhaustion, and automated attacks against AI systems by limiting input rates and detecting anomalous usage patterns.
+開発者は、入力レートを制限し、異常な使用パターンを検出することで、AI システムに対する不正使用、リソース枯渇、自動攻撃を防ぐ必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.5.1** | **Verify that** per-user, per-IP, and per-API-key rate limits are enforced for all input endpoints. | 1 | D/V |
-| **2.5.2** | **Verify that** burst and sustained rate limits are tuned to prevent DoS and brute force attacks. | 2 | D/V |
-| **2.5.3** | **Verify that** anomalous usage patterns (e.g., rapid-fire requests, input flooding) trigger automated blocks or escalations. | 2 | D/V |
-| **2.5.4** | **Verify that** abuse prevention logs are retained and reviewed for emerging attack patterns. | 3 | V |
+| **2.5.1** | **検証:** ユーザーごと、IP ごと、API キーごとのレート制限は、すべての入力エンドポイントに対して適用されている。 | 1 | D/V |
+| **2.5.2** | **検証:** バーストおよび持続レート制限は、DoS 攻撃やブルートフォース攻撃を防ぐために調整されている。 | 2 | D/V |
+| **2.5.3** | **検証:** 異常な使用パターン (連続したリクエスト、入力フラッディングなど) は自動ブロックまたはエスカレーションをトリガーしている。 | 2 | D/V |
+| **2.5.4** | **検証:** 不正使用防止ログは保持され、新たな攻撃パターンがないかレビューされている。 | 3 | V |
 
 ---
 
