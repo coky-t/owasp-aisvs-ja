@@ -50,15 +50,15 @@
 
 ## C2.4 コンテンツとポリシーの審査 (Content & Policy Screening)
 
-Developers should be able to detect syntactically valid prompts that request disallowed content (such as illicit instructions, hate speech, and copyrighted text) then prevent them from propagating.
+開発者は、許可されていないコンテンツ (不正な命令、ヘイトスピーチ、著作権で保護されたテキストなど) を要求する構文的に有効なプロンプトを検出し、それらの拡散を防ぐことができる必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.4.1** | **Verify that** a content classifier (zero shot or fine tuned) scores every input for violence, self-harm, hate, sexual content and illegal requests, with configurable thresholds. | 1 | D |
-| **2.4.2** | **Verify that** inputs which violate policies will receive standardized refusals or safe completions so they will not propagate to downstream LLM calls. | 1 |  D/V |
-| **2.4.3** | **Verify that** the screening model or rule set is retrained/updated at least quarterly, incorporating newly observed jailbreak or policy bypass patterns.  | 2 | D |
-| **2.4.4** | **Verify that** screening respects user-specific policies (age, regional legal constraints) via attribute-based rules resolved at request time.  | 2 | D |
-| **2.4.5** | **Verify that** screening logs include classifier confidence scores and policy category tags for SOC correlation and future red-team replay. | 3 | V |
+| **2.4.1** | **検証:** コンテンツ分類器 (ゼロショットまたはファインチューンされている) は、設定可能な閾値で、すべての値に、暴力、自傷、ヘイト、性的コンテンツ、不正なリクエストについてスコア付けしている。 | 1 | D |
+| **2.4.2** | **検証:** ポリシーに違反する入力は標準化された拒否または安全な完了を受け取るため、ダウンストリームの LLM 呼び出しに伝播していない。 | 1 |  D/V |
+| **2.4.3** | **検証:** スクリーニングモデルやルールセットは、新たに観察されたジェイルブレイクやポリシーバイパスのパターンを組み込んで、少なくとも四半期ごとに再トレーニング/アップデートされている。 | 2 | D |
+| **2.4.4** | **検証:** スクリーニングは、リクエスト時に解決される属性ベースのルールを介して、ユーザー固有のポリシー (年齢、地域の法的制約) を尊重している。 | 2 | D |
+| **2.4.5** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリを含んでいる。 | 3 | V |
 
 ---
 
