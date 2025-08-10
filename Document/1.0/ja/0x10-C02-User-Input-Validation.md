@@ -36,15 +36,15 @@
 
 ## C2.3 スキーマ、タイプ、長さのバリデーション (Schema, Type & Length Validation)
 
-AI attacks featuring malformed or oversized inputs can cause parsing errors, prompt spillage across fields, and resource exhaustion.  Strict schema enforcement is also a prerequisite when performing deterministic tool calls.
+不正な形式の入力や大きすぎる入力を特徴とする AI 攻撃は、解析エラー、フィールド間のプロンプトの流出、リソース枯渇を引き起こす可能性があります。決定論的なツール呼び出しを実行する場合も、厳格なスキーマ適用が前提条件になります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.3.1** | **Verify that** every API or function call endpoint defines an explicit input schema (JSON Schema, Protobuf or multimodal equivalent) and that inputs are validated before prompt assembly. | 1 | D |
-| **2.3.2** | **Verify that** inputs exceeding maximum token or byte limits are rejected with a safe error and never silently truncated. | 1 |  D/V |
-| **2.3.3** | **Verify that** type checks (e.g., numeric ranges, enum values, MIME types for images/audio) are enforced server-side, not only in client code. | 2 |  D/V |
-| **2.3.4** | **Verify that** semantic validators (e.g., JSON Schema) run in constant time to prevent algorithmic DoS. | 2 | D |
-| **2.3.5** | **Verify that** validation failures are logged with redacted payload snippets and unambiguous error codes to aid security triage. | 3 | V |
+| **2.3.1** | **検証:** すべての API や関数呼び出しエンドポイントは明示的な入力スキーマ (JSON スキーマ、Protobuf、またはマルチモーダル同等物) を定義し、プロンプトアセンブリの前に入力が検証されている。 | 1 | D |
+| **2.3.2** | **検証:** 最大トークンやバイト制限を超える入力は、安全なエラーで拒否され、暗黙的に切り捨てられることはない。 | 1 |  D/V |
+| **2.3.3** | **検証:** 型チェック (数値範囲、列挙値、画像/音声の MIME タイプなど) はクライアントコードだけでなくサーバーサイドでも強制されている。 | 2 |  D/V |
+| **2.3.4** | **検証:** セマンティックバリデータ (JSON スキーマなど) は、アルゴリズムによる DoS を防ぐために、一定時間で実行している。 | 2 | D |
+| **2.3.5** | **検証:** バリデーションの失敗は、セキュリティトリアージを支援するために、リダクション後のペイロードスニペットと正確なエラーコードとともにログ記録されている。 | 3 | V |
 
 ---
 
