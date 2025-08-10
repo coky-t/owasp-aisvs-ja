@@ -22,15 +22,15 @@
 
 ## C2.2 敵対的例示への耐性 (Adversarial-Example Resistance)
 
-Natural Language Processing (NLP) models are still vulnerable to subtle character or word-level perturbations that humans often miss but models tend to misclassify.
+自然言語処理 (NLP) モデルは、人間が見逃しがちだがモデルは誤分類する傾向がある、文字や単語レベルの微妙な摂動に対して依然として脆弱です。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.2.1** | **Verify that** basic input normalization steps (Unicode NFC, homoglyph mapping, whitespace trimming) run before tokenization. | 1 | D |
-| **2.2.2** | **Verify that** statistical anomaly detection flags inputs with unusually high edit distance to language norms, excessive repeated tokens, or abnormal embedding distances. | 2 |  D/V |
-| **2.2.3** | **Verify that** the inference pipeline supports optional adversarial-training–hardened model variants or defense layers (e.g., randomization, defensive distillation) for high-risk endpoints. | 2 | D |
-| **2.2.4** | **Verify that** suspected adversarial inputs are quarantined, logged with full payloads (after PII redaction).  | 2 | V |
-| **2.2.5** | **Verify that** robustness metrics (success rate of known attack suites) are tracked over time and regressions trigger a release blocker.  | 3 |  D/V |
+| **2.2.1** | **検証:** 基本的な入力正規化手順 (Unicode NFC、ホモグリフマッピング、空白トリミング) はトークン化の前に実行している。 | 1 | D |
+| **2.2.2** | **検証:** 統計的異常検出は、言語標準への編集距離が異常に高い入力、トークンが過剰に繰り返される入力、エンベディング距離が異常な入力にフラグを立てている。 | 2 |  D/V |
+| **2.2.3** | **検証:** 推論パイプラインは、高リスクのエンドポイントに対して、オプションで敵対的トレーニング強化モデルのバリアントや防御レイヤ (ランダム化、防御蒸留など) をサポートしている。 | 2 | D |
+| **2.2.4** | **検証:** 敵対的であることが疑われる入力は隔離され、(PII リダクション後) 完全なペイロードとともにログ記録されている。 | 2 | V |
+| **2.2.5** | **検証:** 堅牢性マトリクス (既知の攻撃スイートの成功率) は時間の経過とともに追跡され、回帰はリリースブロッカーをトリガーしている。 | 3 |  D/V |
 
 ---
 
