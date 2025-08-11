@@ -20,7 +20,7 @@
 
 ---
 
-## C2.2 敵対的例示への耐性 (Adversarial-Example Resistance)
+## C2.2 敵対的サンプルへの耐性 (Adversarial-Example Resistance)
 
 自然言語処理 (NLP) モデルは、人間が見逃しがちだがモデルは誤分類する傾向がある、文字や単語レベルの微妙な摂動に対して依然として脆弱です。
 
@@ -118,15 +118,15 @@ AI システムは、すべてのユーザー入力の発生元を監視して�
 
 ## C2.9 マルチモーダルセキュリティバリデーションパイプライン (Multi-Modal Security Validation Pipeline)
 
-Developers should provide security validation for text, image, audio, and other AI input modalities with specific types of threat detection and resource isolation.
+開発者は、特定の種類の脅威検出とリソース分離で、テキスト、画像、音声、その他の AI 入力様式のセキュリティバリデーションを提供する必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.9.1** | **Verify that** each input modality has dedicated security validators with documented threat patterns (text: prompt injection, images: steganography, audio: spectrogram attacks) and detection thresholds. | 1 | D/V |
-| **2.9.2** | **Verify that** multi-modal inputs are processed in isolated sandboxes with defined resource limits (memory, CPU, processing time) specific to each modality type and documented in security policies. | 2 | D/V |
-| **2.9.3** | **Verify that** cross-modal attack detection identifies coordinated attacks spanning multiple input types (e.g., steganographic payloads in images combined with prompt injection in text) with correlation rules and alert generation. | 2 | D/V |
-| **2.9.4** | **Verify that** multi-modal validation failures trigger detailed logging including all input modalities, validation results, threat scores, and correlation analysis with structured log formats for SIEM integration. | 3 | D/V |
-| **2.9.5** | **Verify that** modality-specific content classifiers are updated according to documented schedules (minimum quarterly) with new threat patterns, adversarial examples, and performance benchmarks maintained above baseline thresholds. | 3 | D/V |
+| **2.9.1** | **検証:** 各入力様式は、文書化された脅威パターン (テキスト: プロンプトインジェクション、画像: ステガノグラフィ、音声: スペクトグラム攻撃) と検出閾値での専用のセキュリティ検証機能を有している。 | 1 | D/V |
+| **2.9.2** | **検証:** マルチモーダル入力は、各様式タイプに固有のリソース制限 (メモリ、CPU、処理時間) が定義され、セキュリティポリシーに文書化された、隔離されたサンドボックスで処理されている。 | 2 | D/V |
+| **2.9.3** | **検証:** クロスモーダル攻撃検出は、相関ルールとアラート生成で複数の入力タイプ (画像内のステガノグラフィペイロードとテキスト内のプロンプトインジェクションの組み合わせなど) にまたがる協調攻撃を識別している。 | 2 | D/V |
+| **2.9.4** | **検証:** マルチモーダルバリデーションの失敗は、すべての入力様式、バリデーション結果、脅威スコア、SIEM 統合用に構造化されたログ形式での相関分析を含む、詳細なログ記録をトリガーしている。 | 3 | D/V |
+| **2.9.5** | **検証:** 様式固有のコンテンツ分類子は、文書化されたスケジュール (最低四半期ごと) に従って更新され、新しい脅威パターン、敵対的サンプル、パフォーマンスベンチマークがベースライン閾値を上回るように維持している。 | 3 | D/V |
 
 ---
 
