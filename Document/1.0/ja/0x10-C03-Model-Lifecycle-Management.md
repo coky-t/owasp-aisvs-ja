@@ -37,15 +37,15 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.3 制御されたデプロイメントとロールバック (Controlled Deployment & Rollback)
 
-Model deployments must be controlled, monitored, and reversible.
+モデルデプロイメントは制御され、監視され、元に戻すことができる必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.3.1** | **Verify that** production deployments implement gradual rollout mechanisms (canary deployments, blue-green deployments) with automated rollback triggers based on pre-agreed error rates, latency thresholds, or security alert criteria. | 1 | D |
-| **3.3.2** | **Verify that** rollback capabilities restore the complete model state (weights, configurations, dependencies) atomically within pre-defined organizational time windows. | 1 | D/V |
-| **3.3.3** | **Verify that** deployment processes validate cryptographic signatures and compute integrity checksums before model activation, failing deployment on any mismatch. | 2 | D/V |
-| **3.3.4** | **Verify that** emergency model shutdown capabilities can disable model endpoints within pre-defined response times via automated circuit breakers or manual kill switches. | 2 | D/V |
-| **3.3.5** | **Verify that** rollback artifacts (previous model versions, configurations, dependencies) are retained according to organizational policies with immutable storage for incident response. | 2 | V |
+| **3.3.1** | **検証:** 本番環境デプロイメントは、事前に合意されたエラー率、レイテンシ閾値、またはセキュリティアラート基準に基づいて、自動ロールバックトリガーを備えた段階的なロールアウトメカニズム (カナリアデプロイメント、ブルーグリーンデプロイメント) を実装している。 | 1 | D |
+| **3.3.2** | **検証:** ロールバック機能は、事前に定義された組織の時間枠内で、完全なモデル状態 (重み、構成、依存関係) をアトミックに復元している。 | 1 | D/V |
+| **3.3.3** | **検証:** デプロイメントプロセスは、モデルアクティベーション前に暗号署名を検証し、完全性チェックサムを計算して、不一致がある場合はデプロイメントを失敗している。 | 2 | D/V |
+| **3.3.4** | **検証:** 緊急モデルシャットダウン機能は、自動回路ブレーカーまたは手動キルスイッチを介して、事前に定義された応答時間内にモデルエンドポイントを無効にすることが可能である。 | 2 | D/V |
+| **3.3.5** | **検証:** ロールバックアーティファクト (以前のモデルバージョン、構成、依存関係) は、インシデント対応用の不変ストレージで、組織のポリシーに従って維持されている。 | 2 | V |
 
 ---
 
