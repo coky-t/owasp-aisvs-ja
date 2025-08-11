@@ -24,14 +24,14 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.2 モデルバリデーションとテスト (Model Validation & Testing)
 
-Models must pass defined security and safety validations before deployment.
+モデルは、定義されたセキュリティと安全性のバリデーションにデプロイメント前に合格する必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.2.1** | **Verify that** models undergo automated security testing that includes input validation, output sanitization, and safety evaluations with pre-agreed organizational pass/fail thresholds before deployment. | 1 | D/V |
-| **3.2.2** | **Verify that** validation failures automatically block model deployment after explicit override approval from pre-designated authorized personnel with documented business justifications. | 1 | D/V |
-| **3.2.3** | **Verify that** test results are cryptographically signed and immutably linked to the specific model version hash being validated. | 2 | V |
-| **3.2.4** | **Verify that** emergency deployments require documented security risk assessment and approval from a pre-designated security authority within pre-agreed timeframes. | 2 | D/V |
+| **3.2.1** | **検証:** モデルは、デプロイメント前に、入力バリデーション、出力サニタイゼーション、事前に合意された組織の合格/不合格閾値での安全性評価を含む自動セキュリティテストを受けている。 | 1 | D/V |
+| **3.2.2** | **検証:** バリデーションの失敗は、事前に指名された権限のある担当者が文書化されたビジネス上の正当性とともに明示的にオーバーライドを承認した後、モデルのデプロイメントを自動的にブロックします。 | 1 | D/V |
+| **3.2.3** | **検証:** テスト結果は暗号署名され、検証対象の特定のモデルバージョンハッシュに不変的にリンクされている。 | 2 | V |
+| **3.2.4** | **検証:** 緊急デプロイメントは、事前に合意された期間内での、文書化されたセキュリティリスク評価と事前に指定されたセキュリティ機関からの承認を必要としている。 | 2 | D/V |
 
 ---
 
