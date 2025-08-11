@@ -102,17 +102,17 @@ AI システムは、すべてのユーザー入力の発生元を監視して�
 
 ## C2.8 リアルタイム適応型脅威検出 (Real-Time Adaptive Threat Detection)
 
-Developers should employ advanced threat detection systems for AI that adapt to new attack patterns and provide real-time protection with compiled pattern matching.
+開発者は、新しい攻撃パターンに適応し、コンパイルされたパターンマッチングによるリアルタイム保護を提供する AI 向けの高度な脅威検出システムを採用する必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **2.8.1** | **Verify that** threat detection patterns are compiled into optimized regex engines for high performance real-time filtering with minimal latency impact. | 1 | D/V |
-| **2.8.2** | **Verify that** threat detection systems maintain separate pattern libraries for different threat categories (prompt injection, harmful content, sensitive data, system commands). | 1 | D/V |
-| **2.8.3** | **Verify that** adaptive threat detection incorporates machine learning models that update threat sensitivity based on attack frequency and success rates. | 2 | D/V |
-| **2.8.4** | **Verify that** real-time threat intelligence feeds automatically update pattern libraries with new attack signatures and IOCs (Indicators of Compromise). | 2 | D/V |
-| **2.8.5** | **Verify that** threat detection false positive rates are continuously monitored and pattern specificity is automatically tuned to minimize legitimate use case interference. | 3 | D/V |
-| **2.8.6** | **Verify that** contextual threat analysis considers input source, user behavior patterns, and session history to improve detection accuracy. | 3 | D/V |
-| **2.8.7** | **Verify that** threat detection performance metrics (detection rate, processing latency, resource utilization) are monitored and optimized in real-time. | 3 | D/V |
+| **2.8.1** | **検証:** 脅威検出パターンは、遅延の影響を最小限に抑えた高性能なリアルタイムフィルタリングのために、最適化された正規表現エンジンにコンパイルされている。 | 1 | D/V |
+| **2.8.2** | **検証:** 脅威検出システムはさまざまな脅威カテゴリ (プロンプトインジェクション、有害コンテンツ、機密データ、システムコマンド) ごとに個別のパターンライブラリを維持している。 | 1 | D/V |
+| **2.8.3** | **検証:** 適応型脅威検出は攻撃頻度と成功率に基づいて脅威の感度を更新する機械学習モデルを組み込んでいる。 | 2 | D/V |
+| **2.8.4** | **検証:** リアルタイム脅威インテリジェンスフィードは新しい攻撃シグネチャと侵害の兆候 (Indicators of Compromise, IOC) でパターンライブラリを自動的に更新している。 | 2 | D/V |
+| **2.8.5** | **検証:** 脅威検出の誤検出率は継続的に監視され、正当なユースケースの干渉を最小限に抑えるために、パターンの特異性は自動的に調整されている。 | 3 | D/V |
+| **2.8.6** | **検証:** コンテキスト脅威分析は、検出精度を向上するために、入力ソース、ユーザー行動パターン、セッション履歴を考慮している。 | 3 | D/V |
+| **2.8.7** | **検証:** 脅威検出パフォーマンスメトリクス (検出率、処理遅延、リソース使用率) が監視され、リアルタイムで最適化されている。 | 3 | D/V |
 
 ---
 
