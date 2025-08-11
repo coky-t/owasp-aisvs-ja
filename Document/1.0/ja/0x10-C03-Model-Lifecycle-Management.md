@@ -10,15 +10,15 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.1 モデル認可と完全性 (Model Authorization & Integrity)
 
-Only authorized models with verified integrity reach production environments.
+完全性を検証され、認可されたモデルのみが本番環境に到達します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.1.1** | **Verify that** all model artifacts (weights, configurations, tokenizers) are cryptographically signed by authorized entities before deployment. | 1 | D/V |
-| **3.1.2** | **Verify that** model integrity is validated at deployment time and signature verification failures prevent model loading. | 1 | D/V |
-| **3.1.3** | **Verify that** model provenance records include an authorizing entity's identity, training data checksums, validation test results with pass/fail status, and a creation timestamp. | 2 | D/V |
-| **3.1.4** | **Verify that** all model artifacts use semantic versioning (MAJOR.MINOR.PATCH) with documented criteria specifying when each version component increments. | 2 | D/V |
-| **3.1.5** | **Verify that** dependency tracking maintains a real-time inventory that enables rapid identification of all consuming systems. | 2 | V |
+| **3.1.1** | **検証:** すべてのモデルアーティファクト (重み、構成、トークナイザ) はデプロイメント前に認可されたエンティティで暗号署名されている。 | 1 | D/V |
+| **3.1.2** | **検証:** モデル完全性はデプロイメント時に検証され、署名検証の失敗はモデルのローディングを防いでいる。 | 1 | D/V |
+| **3.1.3** | **検証:** モデルの来歴レコードは、認可エンティティのアイデンティティ、トレーニングデータのチェックサム、合格/不合格ステータスでのバリデーションテスト結果、作成タイムスタンプを含んでいる。 | 2 | D/V |
+| **3.1.4** | **検証:** すべてのモデルアーティファクトは、各バージョンコンポーネントが増える時期を指定する文書化された基準を持つ、セマンティックバージョン管理 (MAJOR.MINOR.PATCH) を使用している。 | 2 | D/V |
+| **3.1.5** | **検証:** 依存関係の追跡は、すべての消費システムの迅速な識別を可能にする、リアルタイムインベントリを維持している。 | 2 | V |
 
 ---
 
