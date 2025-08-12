@@ -64,14 +64,14 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.5 セキュア開発プラクティス (Secure Development Practices)
 
-Model development and training processes must follow secure practices to prevent compromise.
+モデルの開発とトレーニングのプロセスは、侵害を防ぐために、セキュアプラクティスに従う必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.5.1** | **Verify that** model development, testing, and production environments are physically or logically separated. They have no shared infrastructure, distinct access controls, and isolated data stores. | 1 | D |
-| **3.5.2** | **Verify that** model training and fine-tuning occur in isolated environments with controlled network access. | 1 | D |
-| **3.5.3** | **Verify that** training data sources are validated through integrity checks and authenticated via trusted sources with documented chain of custody before use in model development. | 1 | D/V |
-| **3.5.4** | **Verify that** model development artifacts (hyperparameters, training scripts, configuration files) are stored in version control and require peer review approval before use in training. | 2 | D |
+| **3.5.1** | **検証:** モデル開発、テスト、本番の環境は物理的または論理的に分離されている。共有インフラストラクチャを持たず、独自のアクセス制御を備え、データストアは隔離されている。 | 1 | D |
+| **3.5.2** | **検証:** モデルのトレーニングとファインチューニングは、制御されたネットワークアクセスでの隔離された環境で行われている。 | 1 | D |
+| **3.5.3** | **検証:** トレーニングデータソースは、モデル開発で使用する前に、完全性チェックにより検証され、文書化された保管チェーンを備えた信頼できるソースを介して認証されている。 | 1 | D/V |
+| **3.5.4** | **検証:** モデル開発アーティファクト (ハイパーパラメータ、トレーニングスクリプト、構成ファイル) はバージョン管理に保存され、トレーニングで使用する前にピアレビューでの承認を必要としている。 | 2 | D |
 
 ---
 
