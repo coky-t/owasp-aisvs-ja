@@ -51,14 +51,14 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.4 変更の説明責任と監査 (Change Accountability & Audit)
 
-All model lifecycle changes must be traceable and auditable.
+すべてのモデルライフサイクルの変更は追跡可能かつ監査可能である必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.4.1** | **Verify that** all model changes (deployment, configuration, retirement) generate immutable audit records including a timestamp, an authenticated actor identity, a change type, and before/after states. | 1 | V |
-| **3.4.2** | **Verify that** audit log access requires appropriate authorization and all access attempts are logged with user identity and a timestamp. | 2 | D/V |
-| **3.4.3** | **Verify that** prompt templates and system messages are version-controlled in git repositories with mandatory code review and approval from designated reviewers before deployment. | 2 | D/V |
-| **3.4.4** | **Verify that** audit records include sufficient detail (model hashes, configuration snapshots, dependency versions) to enable complete reconstruction of model state for any timestamp within retention period. | 2 | V |
+| **3.4.1** | **検証:** すべてのモデル変更 (デプロイメント、構成、廃止) は、タイムスタンプ、認証されたアクターのアイデンティティ、変更タイプ、前後のステータスを含む不変の監査レコードを生成します。 | 1 | V |
+| **3.4.2** | **検証:** 監査ログへのアクセスは適切な認可を必要とし、すべてのアクセス試行はユーザーアイデンティティとタイムスタンプとともにログ記録されている。 | 2 | D/V |
+| **3.4.3** | **検証:** プロンプトテンプレートとシステムメッセージは Git リポジトリでバージョン管理されており、デプロイメント前に指名されたレビュー担当者によるコードレビューと承認を必須としている。 | 2 | D/V |
+| **3.4.4** | **検証:** 監査レコードは、保持期間内の任意のタイムスタンプに対するモデル状態を完全に再構築できるように、十分な詳細 (モデルハッシュ、構成スナップショット、依存関係バージョン) を含んでいる。 | 2 | V |
 
 ---
 
