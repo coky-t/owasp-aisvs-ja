@@ -2,9 +2,9 @@
 
 ## 管理目標
 
-AI infrastructure must be hardened against privilege escalation, supply chain tampering, and lateral movement through secure configuration, runtime isolation, trusted deployment pipelines, and comprehensive monitoring. Only authorized, validated infrastructure components and configurations reach production through controlled processes that maintain security, integrity, and auditability.
+AI インフラストラクチャは、安全な構成、ランタイム分離、信頼できるデプロイメントパイプライン、包括的な監視を通じて、権限昇格、サプライチェーン改竄、ラテラルムーブメントに対して堅牢化される必要があります。セキュリティ、完全性、監査可能性を維持する、管理されたプロセスを通じて、認可されて検証されたインフラストラクチャコンポーネントと構成のみが本番環境に到達します。
 
-**Core Security Goal:** Only cryptographically signed, vulnerability-scanned infrastructure components reach production through automated validation pipelines that enforce security policies and maintain immutable audit trails.
+**主要なセキュリティ目標:** 暗号署名され、脆弱性スキャンされたインフラストラクチャコンポーネントのみが、セキュリティポリシーを適用し、不変の監査証跡を維持する自動バリデーションパイプラインを通じて、本番環境に到達します。
 
 ---
 
