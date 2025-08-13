@@ -77,14 +77,14 @@ AI システムは、不正または安全でないモデル変更が本番環�
 
 ## C3.6 モデルの廃止と廃棄 (Model Retirement & Decommissioning)
 
-Models must be securely retired when they are no longer needed or when security issues are identified.
+モデルは、必要がなくなった場合、またはセキュリティ上の問題が特定された場合、安全に廃止される必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **3.6.1** | **Verify that** model retirement processes automatically scan dependency graphs, identify all consuming systems, and provide pre-agreed advance notice periods before decommissioning. | 1 | D |
-| **3.6.2** | **Verify that** retired model artifacts are securely wiped using cryptographic erasure or multi-pass overwriting according to documented data retention policies with verified destruction certificates. | 1 | D/V |
-| **3.6.3** | **Verify that** model retirement events are logged with timestamp and actor identity, and model signatures are revoked to prevent reuse. | 2 | V |
-| **3.6.4** | **Verify that** emergency model retirement can disable model access within pre-established emergency response timeframes through automated kill switches if critical security vulnerabilities are discovered. | 2 | D/V |
+| **3.6.1** | **検証:** モデル廃止プロセスは、依存関係グラフを自動的にスキャンし、すべての消費システムを特定し、廃棄前に事前に合意された事前通知期間を提供している。 | 1 | D |
+| **3.6.2** | **検証:** 廃止されたモデルアーティファクトは、検証済み破棄証明書で文書化されたデータ保持ポリシーに従って、暗号消去またはマルチパス上書きを使用して安全に消去されている。 | 1 | D/V |
+| **3.6.3** | **検証:** モデル廃止イベントはタイムスタンプとアクターのアイデンティティとともにログ記録されており、モデル署名は再使用を防ぐために取り消されている。 | 2 | V |
+| **3.6.4** | **検証:** 緊急モデル廃止は、重大なセキュリティ脆弱性が発見された際に、自動キルスイッチを通じて事前に確立された緊急対応時間枠内でモデルへのアクセスを無効にすることを可能にしている。 | 2 | D/V |
 
 ---
 
