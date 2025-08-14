@@ -53,16 +53,16 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.4 シークレットと暗号鍵管理 (Secrets & Cryptographic Key Management)
 
-Protect credentials through hardware-backed storage and automated rotation with zero-trust access.
+ハードウェア支援のストレージとゼロトラストアクセスでの自動ローテーションを通じてクレデンシャルを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.4.1** | **Verify that** secrets are stored in HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, or Google Secret Manager with encryption at rest using AES-256. | 1 | D/V |
-| **4.4.2** | **Verify that** cryptographic keys are generated in FIPS 140-2 Level 2 HSMs (AWS CloudHSM, Azure Dedicated HSM) with key rotation according to organizational cryptographic policy. | 1 | D/V |
-| **4.4.3** | **Verify that** secrets rotation is automated with zero-downtime deployment and immediate rotation triggered by personnel changes or security incidents. | 2 | D/V |
-| **4.4.4** | **Verify that** container images are scanned with tools (GitLeaks, TruffleHog, or detect-secrets) blocking builds containing API keys, passwords, or certificates. | 2 | D/V |
-| **4.4.5** | **Verify that** production secret access requires MFA with hardware tokens (YubiKey, FIDO2) and is recorded by immutable audit logs with user identities and timestamps. | 2 | D/V |
-| **4.4.6** | **Verify that** secrets are injected via Kubernetes secrets, mounted volumes, or init containers and ensure that secrets are never embedded in environment variables or images. | 2 | D/V |
+| **4.4.1** | **検証:** シークレットは、保存時に AES-256 を使用して暗号化される、HashiCorp Vault、AWS Secrets Manager、Azure Key Vault、または Google Secret Manager に格納されている。 | 1 | D/V |
+| **4.4.2** | **検証:** 暗号鍵は組織の暗号ポリシーに従って鍵ローテーションを実施する FIPS 140-2 レベル 2 HSM (AWS CloudHSM, Azure Dedicated HSM) で生成されている。 | 1 | D/V |
+| **4.4.3** | **検証:** シークレットローテーションは、人員変更やセキュリティインシデントによってトリガーされる、ゼロダウンタイムデプロイメントと即時ローテーションで自動化されている。 | 2 | D/V |
+| **4.4.4** | **検証:** コンテナイメージはツール (GitLeaks、TruffleHog、または detect-secrets) でスキャンされ、API キー、パスワード、証明書を含むビルドをブロックしている。 | 2 | D/V |
+| **4.4.5** | **検証:** 本番環境シークレットへのアクセスはハードウェアトークン (YubiKey, FIDO2) での MFA を必要としており、ユーザーアイデンティティとタイムスタンプとともに不変な監査ログに記録されている。 | 2 | D/V |
+| **4.4.6** | **検証:** シークレットは Kubernetes シークレット、マウントされたボリューム、または init コンテナを介して挿入されており、シークレットが環境変数やイメージに埋め込まれないことを確保している。 | 2 | D/V |
 
 ---
 
