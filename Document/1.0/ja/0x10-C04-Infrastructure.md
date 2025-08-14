@@ -10,15 +10,15 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.1 ランタイム環境の分離 (Runtime Environment Isolation)
 
-Prevent container escapes and privilege escalation through kernel-level isolation primitives and mandatory access controls.
+カーネルレベルの分離プリミティブと強制アクセス制御により、コンテナエスケープと権限昇格を防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.1.1** | **Verify that** all AI containers drop ALL Linux capabilities except CAP_SETUID, CAP_SETGID, and explicitly required capabilities documented in security baselines. | 1 | D/V |
-| **4.1.2** | **Verify that** seccomp profiles block all syscalls except those in pre-approved allowlists, with violations terminating the container and generating security alerts. | 1 | D/V |
-| **4.1.3** | **Verify that** AI workloads run with read-only root filesystems, tmpfs for temporary data, and named volumes for persistent data with noexec mount options enforced. | 2 | D/V |
-| **4.1.4** | **Verify that** eBPF-based runtime monitoring (Falco, Tetragon, or equivalent) detects privilege escalation attempts and automatically kills offending processes within organizational response time requirements. | 2 | D/V |
-| **4.1.5** | **Verify that** high-risk AI workloads execute in hardware-isolated environments (Intel TXT, AMD SVM, or dedicated bare-metal nodes) with attestation verification. | 3 | D/V |
+| **4.1.1** | **検証:** すべての AI コンテナは、CAP_SETUID、CAP_SETGID、およびセキュリティベースラインに文書化されている明示的に必要な機能を除く、すべての Linux 機能を削除している。 | 1 | D/V |
+| **4.1.2** | **検証:** seccomp プロファイルは事前に承認された許可リストにあるものを除くすべてのシステムコールをブロックし、違反がある場合はコンテナを終了してセキュリティアラートを生成している。 | 1 | D/V |
+| **4.1.3** | **検証:** AI ワークロードは、読み取り専用のルートファイルシステム、一時データ用の tmpfs、および noexec マウントオプションが適用された永続データ用の名前付きボリュームで実行している。 | 2 | D/V |
+| **4.1.4** | **検証:** eBPF ベースのランタイムモニタリング (Falco、Tetragon、または同等のもの) は権限昇格の試みを検出し、問題のあるプロセスを組織の応答時間要件内で自動的に強制終了している。 | 2 | D/V |
+| **4.1.5** | **検証:** 高リスクの AI ワークロードは、アテステーション検証を備えたハードウェア分離された環境 (Intel TXT、AMD SVM、または専用のベアメタルノード) で実行している。 | 3 | D/V |
 
 ---
 
