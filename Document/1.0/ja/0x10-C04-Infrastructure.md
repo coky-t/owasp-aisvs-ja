@@ -24,16 +24,16 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.2 セキュアなビルドとデプロイメントパイプライン(Secure Build & Deployment Pipelines)
 
-Ensure cryptographic integrity and supply chain security through reproducible builds and signed artifacts.
+再現可能なビルドと署名されたアーティファクトを通じて、暗号的完全性とサプライチェーンセキュリティを確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.2.1** | **Verify that** infrastructure-as-code is scanned with tools (tfsec, Checkov, or Terrascan) on every commit, blocking merges with CRITICAL or HIGH severity findings. | 1 | D/V |
-| **4.2.2** | **Verify that** container builds are reproducible with identical SHA256 hashes across builds and generate SLSA Level 3 provenance attestations signed with Sigstore. | 1 | D/V |
-| **4.2.3** | **Verify that** container images embed CycloneDX or SPDX SBOMs and are signed with Cosign before registry push, with unsigned images rejected at deployment. | 2 | D/V |
-| **4.2.4** | **Verify that** CI/CD pipelines use OIDC tokens from HashiCorp Vault, AWS IAM Roles, or Azure Managed Identity with lifetimes not exceeding organizational security policy limits. | 2 | D/V |
-| **4.2.5** | **Verify that** that Cosign signatures and SLSA provenance are validated during the deployment process before container execution and that verification errors cause the deployment to fail. | 2 | D/V |
-| **4.2.6** | **Verify that** build environments run in ephemeral containers or VMs with no persistent storage and network isolation from production VPCs. | 2 | D/V |
+| **4.2.1** | **検証:** Infrastructure as Code はコミットごとにツール (tfsec、Checkov、または Terrascan) でスキャンされ、重大度が CRITICAL または HIGH の検出結果であるマージをブロックしている。 | 1 | D/V |
+| **4.2.2** | **検証:** コンテナビルドはビルド間の同一の SHA256 ハッシュで再現可能であり、Sigstore で署名された SLSA レベル 3 の Provenance Attestation を生成している。 | 1 | D/V |
+| **4.2.3** | **検証:** コンテナイメージは CycloneDX または SPDX SBOM が埋め込まれており、レジストリプッシュ前に Cosign で署名されている。署名されていないイメージはデプロイメント時に拒否されている。 | 2 | D/V |
+| **4.2.4** | **検証:** CI/CD パイプラインは、組織のセキュリティポリシー制限を超えない有効期間を備えた、HashiCorp Vault、AWS IAM Roles、または Azure Managed Identity からの OIDC トークンを使用している。 | 2 | D/V |
+| **4.2.5** | **検証:** Cosign 署名と SLSA Provance はコンテナ実行前のデプロイメント時に検証されており、検証エラーはデプロイメントを失敗にしている。 | 2 | D/V |
+| **4.2.6** | **検証:** ビルド環境は、永続的なストレージではなく、本番環境の VPC からネットワーク分離した一時的なコンテナまたは VM で実行している。 | 2 | D/V |
 
 ---
 
