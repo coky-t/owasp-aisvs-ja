@@ -39,15 +39,15 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.3 ネットワークセキュリティとアクセス制御 (Network Security & Access Control)
 
-Implement zero-trust networking with default-deny policies and encrypted communications.
+デフォルト拒否ポリシーと暗号化通信でゼロトラストネットワークを実装します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.3.1** | **Verify that** Kubernetes NetworkPolicies or any equivalent implements default-deny ingress/egress with explicit allow rules for required ports (443, 8080, etc.). | 1 | D/V |
-| **4.3.2** | **Verify that** SSH (port 22), RDP (port 3389), and cloud metadata endpoints (169.254.169.254) are blocked or require certificate-based authentication. | 1 | D/V |
-| **4.3.3** | **Verify that** egress traffic is filtered through HTTP/HTTPS proxies (Squid, Istio, or cloud NAT gateways) with domain allowlists and blocked requests logged. | 2 | D/V |
-| **4.3.4** | **Verify that** inter-service communication uses mutual TLS with certificates rotated according to organizational policy and certificate validation enforced (no skip-verify flags). | 2 | D/V |
-| **4.3.5** | **Verify that** AI infrastructure runs in dedicated VPCs/VNets with no direct internet access and communicates through NAT gateways or bastion hosts only. | 2 | D/V |
+| **4.3.1** | **検証:** Kubernetes NetworkPolicies または同等のポリシーは、必要なポート (443, 8080 など) に対して明示的な許可ルールで、デフォルト拒否の送受信 (ingress/egress) を実装している。 | 1 | D/V |
+| **4.3.2** | **検証:** SSH (ポート 22), RDP (ポート 3389), クラウドメタデータエンドポイント (169.254.169.254) はブロックされているか、証明書ベースの認証を必要としている。 | 1 | D/V |
+| **4.3.3** | **検証:** 送出 (egress) トラフィックは HTTP/HTTPS プロキシ (Squid、Istio、またはクラウド NAT ゲートウェイ) を通じてドメイン許可リストでフィルタされており、ブロックされたリクエストはログ記録されている。 | 2 | D/V |
+| **4.3.4** | **検証:** サービス間通信は組織のポリシーに従ってローテーションされる証明書での相互 TLS を使用しており、証明書バリデーションを強制している (検証スキップフラグなし)。 | 2 | D/V |
+| **4.3.5** | **検証:** AI インフラストラクチャは直接インターネットアクセスできない専用の VPC/VNet で実行しており、NAT ゲートウェイまたは要塞ホストを通じてのみ通信している。 | 2 | D/V |
 
 ---
 
