@@ -68,15 +68,15 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.5 AI ワークロードのサンドボックス化とバリデーション (AI Workload Sandboxing & Validation)
 
-Isolate untrusted AI models in secure sandboxes with comprehensive behavioral analysis.
+包括的な動作解析で、信頼できない AI モデルを安全なサンドボックスに分離します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.5.1** | **Verify that** external AI models execute in gVisor, microVMs (such as Firecracker, CrossVM), or Docker containers with --security-opt=no-new-privileges and --read-only flags. | 1 | D/V |
-| **4.5.2** | **Verify that** sandbox environments have no network connectivity (--network=none) or only localhost access with all external requests blocked by iptables rules. | 1 | D/V |
-| **4.5.3** | **Verify that** AI model validation includes automated red-team testing with organizationally defined test coverage and behavioral analysis for backdoor detection. | 2 | D/V |
-| **4.5.4** | **Verify that** before an AI model is promoted to production, its sandbox results are cryptographically signed by authorized security personnel and stored in immutable audit logs. | 2 | D/V |
-| **4.5.5** | **Verify that** sandbox environments are destroyed and recreated from golden images between evaluations with complete filesystem and memory cleanup. | 2 | D/V |
+| **4.5.1** | **検証:** 外部 AI モデルは、gVisor、microVMs (such as Firecracker, CrossVM)、または --security-opt=no-new-privileges と --read-only フラグを指定した Docker コンテナで実行している。 | 1 | D/V |
+| **4.5.2** | **検証:** サンドボックス環境はネットワーク接続がない (--network=none)、またはすべての外部リクエストが iptables ルールでブロックされ、ローカルホストアクセスのみを可能にしている。 | 1 | D/V |
+| **4.5.3** | **検証:** AI モデルバリデーションは組織で定義されたテストカバレッジでの自動化されたレッドチームテストと、バックドア検出のための動作分析を含んでいる。 | 2 | D/V |
+| **4.5.4** | **検証:** AI モデルが本番環境に昇進される前に、そのサンドボックス結果は認可されたセキュリティ担当者によって暗号署名され、不変な監査ログに保存されている。 | 2 | D/V |
+| **4.5.5** | **検証:** サンドボックス環境は評価の間ごとに破棄されており、ファイルシステムとメモリを完全にクリーンアップしてゴールデンイメージから再作成されている。 | 2 | D/V |
 
 ---
 
