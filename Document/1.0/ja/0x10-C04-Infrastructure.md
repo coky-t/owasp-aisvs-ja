@@ -82,16 +82,16 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.6 インフラストラクチャセキュリティの監視 (Infrastructure Security Monitoring)
 
-Continuously scan and monitor infrastructure with automated remediation and real-time alerting.
+自動修復とリアルタイムアラートで、インフラストラクチャを継続的にスキャンおよび監視します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.6.1** | **Verify that** container images are scanned according to organizational schedules with CRITICAL vulnerabilities blocking deployment based on organizational risk thresholds. | 1 | D/V |
-| **4.6.2** | **Verify that** infrastructure passes CIS Benchmarks or NIST 800-53 controls with organizationally defined compliance thresholds and automated remediation for failed checks. | 1 | D/V |
-| **4.6.3** | **Verify that** HIGH severity vulnerabilities are patched according to organizational risk management timelines with emergency procedures for actively exploited CVEs. | 2 | D/V |
-| **4.6.4** | **Verify that** security alerts integrate with SIEM platforms (Splunk, Elastic, or Sentinel) using CEF or STIX/TAXII formats with automated enrichment. | 2 | V |
-| **4.6.5** | **Verify that** infrastructure metrics are exported to monitoring systems (Prometheus, DataDog) with SLA dashboards and executive reporting. | 3 | V |
-| **4.6.6** | **Verify that** configuration drift is detected using tools (Chef InSpec, AWS Config) according to organizational monitoring requirements with automatic rollback for unauthorized changes. | 2 | D/V |
+| **4.6.1** | **検証:** コンテナイメージは組織のスケジュールに従ってスキャンされており、重大 (CRITICAL) な脆弱性がある場合は組織のリスク閾値に基づいてデプロイメントをブロックしている。 | 1 | D/V |
+| **4.6.2** | **検証:** インフラストラクチャは、組織で定義されたコンプライアンス閾値で、CIS ベンチマークまたは NIST 800-53 コントロールに合格しており、不合格したチェックは自動修復している。 | 1 | D/V |
+| **4.6.3** | **検証:** 重大度が HIGH の脆弱性は、積極的に悪用される CVE に対する緊急手順を伴う、組織のリスク管理タイムラインに従ってパッチ適用されている。 | 2 | D/V |
+| **4.6.4** | **検証:** セキュリティアラートは自動エンリッチメントを備えた CEF または STIX/TAXII 形式を使用する SIEM プラットフォーム (Splunk、Elastic、または Sentinel) と統合している。 | 2 | V |
+| **4.6.5** | **検証:** インフラストラクチャメトリクスは SLA ダッシュボードとエグゼクティブレポートを備えた監視システム (Prometheus, DataDog) にエクスポートされている。 | 3 | V |
+| **4.6.6** | **検証:** 構成ドリフトは組織の監視要件に従ってツール (Chef InSpec, AWS Config) を使用して検出されており、不正な変更については自動ロールバックしている。 | 2 | D/V |
 
 ---
 
