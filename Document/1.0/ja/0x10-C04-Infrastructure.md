@@ -112,16 +112,16 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.8 環境分離とプロモーション制御 (Environment Separation & Promotion Controls)
 
-Enforce strict environment boundaries with automated promotion gates and security validation.
+自動プロモーションゲートとセキュリティバリデーションで、厳格な環境境界を適用します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.8.1** | **Verify that** dev/test/prod environments run in separate VPCs/VNets with no shared IAM roles, security groups, or network connectivity. | 1 | D/V |
-| **4.8.2** | **Verify that** environment promotion requires approval from organizationally defined authorized personnel with cryptographic signatures and immutable audit trails. | 1 | D/V |
-| **4.8.3** | **Verify that** production environments block SSH access, disable debug endpoints, and require change requests with organizational advance notice requirements except emergencies. | 2 | D/V |
-| **4.8.4** | **Verify that** infrastructure-as-code changes require peer review with automated testing and security scanning before merge to main branch. | 2 | D/V |
-| **4.8.5** | **Verify that** non-production data is anonymized according to organizational privacy requirements, synthetic data generation, or complete data masking with PII removal verified. | 2 | D/V |
-| **4.8.6** | **Verify that** promotion gates include automated security tests (SAST, DAST, container scanning) with zero CRITICAL findings required for approval. | 2 | D/V |
+| **4.8.1** | **検証:** 開発/テスト/本番環境は、IAM ロール、セキュリティグループ、ネットワーク接続を共有しない、個別の VPC/VNet で実行している。 | 1 | D/V |
+| **4.8.2** | **検証:** 環境プロモーションは組織で認可された担当者から暗号署名と不変な監査証跡での承認を必要としている。 | 1 | D/V |
+| **4.8.3** | **検証:** 本番環境は SSH アクセスをブロックし、デバッグエンドポイントを無効にし、緊急時を除き、組織への事前通知要件を伴う変更リクエストを要求している。 | 2 | D/V |
+| **4.8.4** | **検証:** Infrastructure as Code の変更は、メインブランチにマージする前に、自動テストとセキュリティスキャンでのピアレビューを必要としている。 | 2 | D/V |
+| **4.8.5** | **検証:** 非本番データは組織のプライバシー要件、合成データ生成、または PII 削除が検証された完全なデータマスキングに従って匿名化されている。 | 2 | D/V |
+| **4.8.6** | **検証:** プロモーションゲートは自動セキュリティテスト (SAST、DAST、コンテナスキャン) を含み、承認には重大 (CRITICAL) な問題が一切ないことを要求している。 | 2 | D/V |
 
 ---
 
