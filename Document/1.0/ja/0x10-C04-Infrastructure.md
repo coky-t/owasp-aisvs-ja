@@ -97,16 +97,16 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.7 AI インフラストラクチャリソース管理 (AI Infrastructure Resource Management)
 
-Prevent resource exhaustion attacks and ensure fair resource allocation through quotas and monitoring.
+リソース枯渇攻撃を防ぎ、クォータと監視を通じて公平なリソース割り当てを確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.7.1** | **Verify that** GPU/TPU utilization is monitored with alerts triggered at organizationally defined thresholds and automatic scaling or load balancing activated based on capacity management policies. | 1 | D/V |
-| **4.7.2** | **Verify that** AI workload metrics (inference latency, throughput, error rates) are collected according to organizational monitoring requirements and correlated with infrastructure utilization. | 1 | D/V |
-| **4.7.3** | **Verify that** Kubernetes ResourceQuotas or equivalent limit individual workloads according to organizational resource allocation policies with hard limits enforced. | 2 | D/V |
-| **4.7.4** | **Verify that** cost monitoring tracks spending per workload/tenant with alerts based on organizational budget thresholds and automated controls for budget overruns. | 2 | V |
-| **4.7.5** | **Verify that** capacity planning uses historical data with organizationally defined forecasting periods and automated resource provisioning based on demand patterns. | 3 | V |
-| **4.7.6** | **Verify that** resource exhaustion triggers circuit breakers according to organizational response requirements, including rate limiting based on capacity policies and workload isolation. | 2 | D/V |
+| **4.7.1** | **検証:** GPU/TPU の使用率は監視されており、組織で定義された閾値でアラートし、キャパシティ管理ポリシーに基づいてアクティブ化される自動スケーリングまたはロードバランシングしている。 | 1 | D/V |
+| **4.7.2** | **検証:** AI ワークロードメトリクス (推論の遅延、スループット、エラー率) は組織の管理要件に従って収集されており、インフラストラクチャの使用率との相互関係を比較されている。 | 1 | D/V |
+| **4.7.3** | **検証:** Kubernetes ResourceQuotas または同等のものは組織のリソース割り当てポリシーに従って個々のワークロードを制限しており、ハード制限が適用されている。 | 2 | D/V |
+| **4.7.4** | **検証:** コスト監視はワークロード/テナントごとの支出を追跡しており、組織の予算閾値に基づいてアラートし、予算超過に対して自動制御している。 | 2 | V |
+| **4.7.5** | **検証:** キャパシティ計画は組織で定義された予測期間での履歴データを使用しており、需要パターンに基づいて自動リソースプロビジョニングしている。 | 3 | V |
+| **4.7.6** | **検証:** リソース枯渇は、キャパシティポリシーに基づくレート制限やワークロード分離など、組織の対応要件に従ってサーキットブレーカーをトリガーしている。 | 2 | D/V |
 
 ---
 
