@@ -127,14 +127,14 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.9 インフラストラクチャのバックアップとリカバリ (Infrastructure Backup & Recovery)
 
-Ensure infrastructure resilience through automated backups, tested recovery procedures, and disaster recovery capabilities.
+自動バックアップ、テスト済みのリカバリ手順、災害復旧機能を通じて、インフラストラクチャ耐性を確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.9.1** | **Verify that** infrastructure configurations are backed up according to organizational backup schedules to geographically separate regions with 3-2-1 backup strategy implementation. | 1 | D/V |
-| **4.9.2** | **Verify that** backup systems run in isolated networks with separate credentials and air-gapped storage for ransomware protection. | 2 | D/V |
-| **4.9.3** | **Verify that** recovery procedures are tested and validated through automated testing according to organizational schedules with RTO and RPO targets meeting organizational requirements. | 2 | V |
-| **4.9.4** | **Verify that** disaster recovery includes AI-specific runbooks with model weight restoration, GPU cluster rebuilding, and service dependency mapping. | 3 | V |
+| **4.9.1** | **検証:** インフラストラクチャ構成は、組織のバックアップスケジュールに従って、3-2-1 バックアップ戦略の実装により地理的に分離されたリージョンにバックアップされている。 | 1 | D/V |
+| **4.9.2** | **検証:** バックアップシステムは、ランサムウェア保護のために個別のクレデンシャルとエアギャップストレージを備える、分離されたネットワークで実行している。 | 2 | D/V |
+| **4.9.3** | **検証:** リカバリ手順は、RTO および RPO ターゲットが組織の要件を満たす、組織のスケジュールに従って自動テストを通じてテストおよび検証されている。 | 2 | V |
+| **4.9.4** | **検証:** 災害復旧は、モデルの重みの復元、GPU クラスタの再構築、サービス依存関係のマッピングでの AI 固有のランブックを含んでいる。 | 3 | V |
 
 ---
 
