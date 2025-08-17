@@ -166,14 +166,14 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 ## C4.12 エッジと分散型の AI インフラストラクチャ (Edge & Distributed AI Infrastructure)
 
-Secure distributed AI deployments including edge computing, federated learning, and multi-site architectures.
+エッジコンピューティング、連合学習、マルチサイトアーキテクチャなどの分散 AI デプロイメントを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.12.1** | **Verify that** edge AI devices authenticate to central infrastructure using mutual TLS with device certificates rotated according to organizational certificate management policy. | 2 | D/V |
-| **4.12.2** | **Verify that** edge devices implement secure boot with verified signatures and rollback protection preventing firmware downgrade attacks. | 2 | D/V |
-| **4.12.3** | **Verify that** distributed AI coordination uses Byzantine fault-tolerant consensus algorithms with participant validation and malicious node detection. | 3 | D/V |
-| **4.12.4** | **Verify that** edge-to-cloud communication includes bandwidth throttling, data compression, and offline operation capabilities with secure local storage. | 3 | D/V |
+| **4.12.1** | **検証:** エッジ AI デバイスは、組織の証明書管理ポリシーに従って入れ替えが行われるデバイス証明書での相互 TLS を使用して、中央インフラストラクチャに対して認証している。 | 2 | D/V |
+| **4.12.2** | **検証:** エッジデバイスは検証済み署名とロールバック保護でのセキュアブートを実装し、ファームウェアダウングレード攻撃を防いでいる。 | 2 | D/V |
+| **4.12.3** | **検証:** 分散型 AI 協調は、協力者バリデーションと悪意のあるノードの検出を備える、ビザンチンフォールトトレラントコンセンサスアルゴリズムを使用している。 | 3 | D/V |
+| **4.12.4** | **検証:** エッジとクラウドの通信は、帯域幅スロットリング、データ圧縮、セキュアローカルストレージでのオフライン操作機能を含んでいる。 | 3 | D/V |
 
 ---
 
