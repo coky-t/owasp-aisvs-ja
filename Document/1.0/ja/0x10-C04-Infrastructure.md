@@ -152,15 +152,15 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.11 AI ハードウェアセキュリティ (AI Hardware Security)
 
-Secure AI-specific hardware components including GPUs, TPUs, and specialized AI accelerators.
+GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウェアコンポーネントを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.11.1** | **Verify that** AI accelerator firmware (GPU BIOS, TPU firmware) is verified with cryptographic signatures and updated according to organizational patch management timelines. | 2 | D/V |
-| **4.11.2** | **Verify that** before workload execution, AI accelerator integrity is validated by hardware attestation using TPM 2.0, Intel TXT, or AMD SVM. | 2 | D/V |
-| **4.11.3** | **Verify that** GPU memory is isolated between workloads using SR-IOV, MIG (Multi-Instance GPU), or equivalent hardware partitioning with memory sanitization between jobs. | 2 | D/V |
-| **4.11.4** | **Verify that** the AI hardware supply chain includes provenance verification with manufacturer certificates and tamper-evident packaging validation. | 3 | V |
-| **4.11.5** | **Verify that** hardware security modules (HSMs) protect AI model weights and cryptographic keys with FIPS 140-2 Level 3 or Common Criteria EAL4+ certification. | 3 | D/V |
+| **4.11.1** | **検証:** AI アクセラレータファームウェア (GPU BIOS、TPU ファームウェア) は暗号署名で検証され、組織のパッチ管理タイムラインに従って更新されている。 | 2 | D/V |
+| **4.11.2** | **検証:** ワークロードの実行前に、AI アクセラレータの完全性は、TPM 2.0、Intel TXT、または AMD SVM を使用したハードウェアアテステーションによって検証されている。 | 2 | D/V |
+| **4.11.3** | **検証:** GPU メモリは、SR-IOV、MIG (マルチインスタンス GPU)、またはジョブ間のメモリサニタイゼーションでの同等のハードウェアパーティショニングを使用して、ワークロード間で分離されている。 | 2 | D/V |
+| **4.11.4** | **検証:** AI ハードウェアサプライチェーンは製造元証明書での来歴検証と改竄防止パッケージングバリデーションを含んでいる。 | 3 | V |
+| **4.11.5** | **検証:** ハードウェアセキュリティモジュール (HSM) は、FIPS 140-2 レベル 3 または Common Criteria EAL4+ 認定で、AI モデルの重みと暗号鍵を保護している。 | 3 | D/V |
 
 ---
 
