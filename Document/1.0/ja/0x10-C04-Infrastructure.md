@@ -140,13 +140,13 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.10 インフラストラクチャのコンプライアンスとガバナンス (Infrastructure Compliance & Governance)
 
-Maintain regulatory compliance through continuous assessment, documentation, and automated controls.
+継続的な評価、文書化、自動制御を通じて、規制コンプライアンスを維持します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.10.1** | **Verify that** infrastructure compliance is assessed according to organizational schedules against SOC 2, ISO 27001, or FedRAMP controls with automated evidence collection. | 2 | D/V |
-| **4.10.2** | **Verify that** infrastructure documentation includes network diagrams, data flow maps, and threat models updated according to organizational change management requirements. | 2 | V |
-| **4.10.3** | **Verify that** infrastructure changes undergo automated compliance impact assessment with regulatory approval workflows for high-risk modifications. | 3 | D/V |
+| **4.10.1** | **検証:** インフラストラクチャコンプライアンスは、自動証跡収集で SOC 2、ISO 27001、または FedRAMP のコントロールに対して、組織のスケジュールに従って評価されている。 | 2 | D/V |
+| **4.10.2** | **検証:** インフラストラクチャドキュメントは、ネットワークダイアグラム、データフローマップ、脅威モデルを含み、組織の変更管理要件に従って更新されている。 | 2 | V |
+| **4.10.3** | **検証:** インフラストラクチャの変更は、リスクの高い変更に対する規制承認ワークフローでの、自動化されたコンプライアンス影響評価を受けている。 | 3 | D/V |
 
 ---
 
