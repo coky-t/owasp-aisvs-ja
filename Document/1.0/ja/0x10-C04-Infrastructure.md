@@ -179,15 +179,15 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 ## C4.13 マルチクラウドとハイブリッドインフラストラクチャセキュリティ (Multi-Cloud & Hybrid Infrastructure Security)
 
-Secure AI workloads across multiple cloud providers and hybrid cloud-on-premises deployments.
+複数のクラウドプロバイダとハイブリッドクラウドオンプレミスデプロイメントにわたる AI ワークロードを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.13.1** | **Verify that** multi-cloud AI deployments use cloud-agnostic identity federation (OIDC, SAML) with centralized policy management across providers. | 2 | D/V |
-| **4.13.2** | **Verify that** cross-cloud data transfer uses end-to-end encryption with customer-managed keys and data residency controls enforced per jurisdiction. | 2 | D/V |
-| **4.13.3** | **Verify that** hybrid cloud AI workloads implement consistent security policies across on-premise and cloud environments with unified monitoring and alerting. | 2 | D/V |
-| **4.13.4** | **Verify that** cloud vendor lock-in prevention includes portable infrastructure-as-code, standardized APIs, and data export capabilities with format conversion tools. | 3 | V |
-| **4.13.5** | **Verify that** multi-cloud cost optimization includes security controls preventing resource sprawl as well as unauthorized cross-cloud data transfer charges. | 3 | V |
+| **4.13.1** | **検証:** マルチクラウド AI デプロイメントは、プロバイダ間の集中ポリシー管理での、クラウドに依存しないアイデンティティフェデレーション (OIDC, SAML) を使用している。 | 2 | D/V |
+| **4.13.2** | **検証:** クラウド間データ転送は顧客管理の鍵でのエンドツーエンド暗号化と、管轄区域ごとに適用されるデータレジデンシー制御を使用している。 | 2 | D/V |
+| **4.13.3** | **検証:** ハイブリッドクラウド AI ワークロードは、統合された監視とアラートで、オンプレミス環境とクラウド環境全体にわたって一貫したセキュリティポリシーを実装している。 | 2 | D/V |
+| **4.13.4** | **検証:** クラウドベンダーロックイン防止は、ポータブルな Infrastructure as Code、標準化された API、形式変換ツールでのデータエクスポート機能を含んでいる。 | 3 | V |
+| **4.13.5** | **検証:** マルチクラウドコスト最適化は、リソースの無秩序の増加や不正なクラウド間データ転送料金を防止する、セキュリティコントロールを含んでいる。 | 3 | V |
 
 ---
 
