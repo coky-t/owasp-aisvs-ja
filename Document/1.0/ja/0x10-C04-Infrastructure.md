@@ -193,15 +193,15 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 ## C4.14 インフラストラクチャオートメーションと GitOps セキュリティ (Infrastructure Automation & GitOps Security)
 
-Secure infrastructure automation pipelines and GitOps workflows for AI infrastructure management.
+AI インフラストラクチャ管理のためのインフラストラクチャオートメーションパイプラインと GitOps ワークフローを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.14.1** | **Verify that** GitOps repositories require signed commits with GPG keys and branch protection rules preventing direct pushes to main branches. | 2 | D/V |
-| **4.14.2** | **Verify that** infrastructure automation includes drift detection with automatic remediation and rollback capabilities triggered according to organizational response requirements for unauthorized changes. | 2 | D/V |
-| **4.14.3** | **Verify that** automated infrastructure provisioning includes security policy validation with deployment blocking for non-compliant configurations. | 2 | D/V |
-| **4.14.4** | **Verify that** infrastructure automation secrets are managed through external secret operators (External Secrets Operator, Bank-Vaults) with automatic rotation. | 2 | D/V |
-| **4.14.5** | **Verify that** self-healing infrastructure includes security event correlation with automated incident response and stakeholder notification workflows. | 3 | V |
+| **4.14.1** | **検証:** GitOps リポジトリは GPG キーによる署名付きコミットと、メインブランチへの直接プッシュを防ぐブランチ保護ルールを必要としている。 | 2 | D/V |
+| **4.14.2** | **検証:** インフラストラクチャオートメーションは、不正な変更に対する組織の対応要件に従ってトリガーされる、自動修復およびロールバック機能を備えたドリフト検出を含んでいる。 | 2 | D/V |
+| **4.14.3** | **検証:** 自動化されたインフラストラクチャのプロビジョニングは、非準拠構成のデプロイメントをブロックする、セキュリティポリシーバリデーションを含んでいる。 | 2 | D/V |
+| **4.14.4** | **検証:** インフラストラクチャオートメーションシークレットは、自動ローテーションを備えた、外部シークレットオペレータ (External Secrets Operator, Bank-Vaults) を通じて管理されている。 | 2 | D/V |
+| **4.14.5** | **検証:** 自己修復インフラストラクチャは、自動化されたインシデント対応と利害関係者通知ワークフローでのセキュリティイベントの相関関係を含んでいる。 | 3 | V |
 
 ---
 
