@@ -207,15 +207,15 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ## C4.15 量子耐性インフラストラクチャセキュリティ (Quantum-Resistant Infrastructure Security)
 
-Prepare AI infrastructure for quantum computing threats through post-quantum cryptography and quantum-safe protocols.
+ポスト量子暗号と耐量子プロトコルを通じて、量子コンピューティング脅威に対する AI インフラストラクチャを準備します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.15.1** | **Verify that** AI infrastructure implements NIST-approved post-quantum cryptographic algorithms (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) for key exchange and digital signatures. | 3 | D/V |
-| **4.15.2** | **Verify that** quantum key distribution (QKD) systems are implemented for high-security AI communications with quantum-safe key management protocols. | 3 | D/V |
-| **4.15.3** | **Verify that** cryptographic agility frameworks enable rapid migration to new post-quantum algorithms with automated certificate and key rotation. | 3 | D/V |
-| **4.15.4** | **Verify that** quantum threat modeling assesses AI infrastructure vulnerability to quantum attacks with documented migration timelines and risk assessments. | 3 | V |
-| **4.15.5** | **Verify that** hybrid classical-quantum cryptographic systems provide defense-in-depth during the quantum transition period with performance monitoring. | 3 | D/V |
+| **4.15.1** | **検証:** AI インフラストラクチャは、鍵交換とデジタル署名のために、NIST 承認のポスト量子暗号アルゴリズム (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) を実装している。 | 3 | D/V |
+| **4.15.2** | **検証:** 量子鍵配布 (QKD) システムは、耐量子鍵管理プロトコルを備えた、高セキュリティ AI 通信のために実装されている。 | 3 | D/V |
+| **4.15.3** | **検証:** 暗号アジリティフレームワークは、自動化された証明書と鍵のローテーションを備えた、新しいポスト量子アルゴリズムへの迅速な移行を可能にしている。 | 3 | D/V |
+| **4.15.4** | **検証:** 量子脅威モデリングは、文書化された移行タイムラインとリスク評価で、量子攻撃への AI インフラストラクチャ脆弱性を評価している。 | 3 | V |
+| **4.15.5** | **検証:** ハイブリッド古典量子暗号システムは、パフォーマンス監視での量子移行期間中に、多層防御を提供している。 | 3 | D/V |
 
 ---
 
