@@ -24,7 +24,7 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.2 セキュアなビルドとデプロイメントパイプライン(Secure Build & Deployment Pipelines)
 
-再現可能なビルドと署名されたアーティファクトを通じて、暗号的完全性とサプライチェーンセキュリティを確保します。
+再現可能なビルドと署名されたアーティファクトを通じて、暗号論的完全性とサプライチェーンセキュリティを確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
@@ -221,16 +221,16 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ## C4.16 コンフィデンシャルコンピューティングとセキュアエンクレーブ (Confidential Computing & Secure Enclaves)
 
-Protect AI workloads and model weights using hardware-based trusted execution environments and confidential computing technologies.
+ハードウェア支援の高信頼実行環境とコンフィデンシャルコンピューティングテクノロジを使用して、AI ワークロードとモデルの重みを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.16.1** | **Verify that** sensitive AI models execute within Intel SGX enclaves, AMD SEV-SNP, or ARM TrustZone with encrypted memory and attestation verification. | 3 | D/V |
-| **4.16.2** | **Verify that** confidential containers (Kata Containers, gVisor with confidential computing) isolate AI workloads with hardware-enforced memory encryption. | 3 | D/V |
-| **4.16.3** | **Verify that** remote attestation validates enclave integrity before loading AI models with cryptographic proof of an execution environment's authenticity. | 3 | D/V |
-| **4.16.4** | **Verify that** confidential AI inference services prevent model extraction through encrypted computation with sealed model weights and protected execution. | 3 | D/V |
-| **4.16.5** | **Verify that** trusted execution environment orchestration manages secure enclave lifecycle with remote attestation and encrypted communication channels. | 3 | D/V |
-| **4.16.6** | **Verify that** secure multi-party computation (SMPC) enables collaborative AI training without exposing individual datasets or model parameters. | 3 | D/V |
+| **4.16.1** | **検証:** 機密性の高い AI モデルは、暗号化メモリとアテステーション検証を備えた、Intel SGX エンクレーブ、AMD SEV-SNP、または ARM TrustZone 内で実行している。 | 3 | D/V |
+| **4.16.2** | **検証:** コンフィデンシャルコンテナ (Kata Containers、コンフィデンシャルコンピューティングを備えた gVisor) は、ハードウェア適用のメモリ暗号化を使用して、AI ワークロードを分離している。 | 3 | D/V |
+| **4.16.3** | **検証:** リモートアテステーションは、AI モデルをロードする前に、実行環境の真正性の暗号論的証明を用いて、エンクレーブの完全性を検証している。 | 3 | D/V |
+| **4.16.4** | **検証:** コンフィデンシャル AI 推論サービスは、シールされたモデルの重みと保護された実行での暗号化された研鑽を通じて、モデルの抽出を防いでいる。 | 3 | D/V |
+| **4.16.5** | **検証:** 高信頼実行環境のオーケストレーションは、リモートアテステーションと暗号化された通信チャネルで、安全なエンクレーブのライフサイクルを管理している。 | 3 | D/V |
+| **4.16.6** | **検証:** 秘匿マルチパーティ計算 (SMPC) は、個々のデータセットやモデルパラメータを公開することなく、協調 AI トレーニングを可能にしている。 | 3 | D/V |
 
 ---
 
