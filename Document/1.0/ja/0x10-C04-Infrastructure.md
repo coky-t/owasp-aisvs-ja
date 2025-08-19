@@ -236,15 +236,15 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ## C4.17 ゼロ知識インフラストラクチャ (Zero-Knowledge Infrastructure)
 
-Implement zero-knowledge proof systems for privacy-preserving AI verification and authentication without revealing sensitive information.
+機密情報を公開することなく、プライバシーを保護する AI 検証および認証のためのゼロ知識証明システムを実装します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.17.1** | **Verify that** zero-knowledge proofs (ZK-SNARKs, ZK-STARKs) verify AI model integrity and training provenance without exposing model weights or training data. | 3 | D/V |
-| **4.17.2** | **Verify that** ZK-based authentication systems enable privacy-preserving user verification for AI services without revealing identity-related information. | 3 | D/V |
-| **4.17.3** | **Verify that** private set intersection (PSI) protocols enable secure data matching for federated AI without exposing individual datasets. | 3 | D/V |
-| **4.17.4** | **Verify that** zero-knowledge machine learning (ZKML) systems enable verifiable AI inferences with cryptographic proof of correct computation. | 3 | D/V |
-| **4.17.5** | **Verify that** ZK-rollups provide scalable, privacy-preserving AI transaction processing with batch verification and reduced computational overhead. | 3 | D/V |
+| **4.17.1** | **検証:** ゼロ知識証明 (ZK-SNARK, ZK-STARK) は、モデルの重みやトレーニングデータを公開することなく、AI モデルの完全性とトレーニングの来歴を検証します。 | 3 | D/V |
+| **4.17.2** | **検証:** ZK ベースの認証システムは、アイデンティティ関連の情報を公開することなく、AI サービスのプライバシーを保護するユーザー検証を可能にしている。 | 3 | D/V |
+| **4.17.3** | **検証:** 秘匿共通集合演算 (PSI) プロトコルは、個別のデータセットを公開することなく、連合 AI の安全なデータマッチングを可能にしている。 | 3 | D/V |
+| **4.17.4** | **検証:** ゼロ知識機械学習 (ZKML) システムは、正しい計算の暗号論的証明で、検証可能な AI 推論を可能にしている。 | 3 | D/V |
+| **4.17.5** | **検証:** ZK ロールアップは、バッチ検証と計算オーバーヘッドの削減により、スケーラブルでプライバシーを保護する AI トランザクション処理を提供している。 | 3 | D/V |
 
 ---
 
