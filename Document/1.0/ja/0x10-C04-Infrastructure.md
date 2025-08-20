@@ -250,15 +250,15 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ## C4.18 サイドチャネル攻撃の防止 (Side-Channel Attack Prevention)
 
-Protect AI infrastructure from timing, power, electromagnetic, and cache-based side-channel attacks that could leak sensitive information.
+機密情報を漏洩する可能性のある、タイミング、電力、電磁気、キャッシュベースのサイドチャネル攻撃から AI インフラストラクチャを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.18.1** | **Verify that** AI inference timing is normalized using constant-time algorithms and padding to prevent timing-based model extraction attacks. | 3 | D/V |
-| **4.18.2** | **Verify that** power analysis protection includes noise injection, power line filtering, and randomized execution patterns for AI hardware. | 3 | D/V |
-| **4.18.3** | **Verify that** cache-based side-channel mitigation uses cache partitioning, randomization, and flush instructions to prevent information leakage. | 3 | D/V |
-| **4.18.4** | **Verify that** electromagnetic emanation protection includes shielding, signal filtering, and randomized processing to prevent TEMPEST-style attacks. | 3 | D/V |
-| **4.18.5** | **Verify that** microarchitectural side-channel defenses include speculative execution controls and memory access pattern obfuscation. | 3 | D/V |
+| **4.18.1** | **検証:** AI 推論のタイミングは、タイミングベースのモデル抽出攻撃を防ぐために、定数時間アルゴリズムとパディングを使用して正規化されている。 | 3 | D/V |
+| **4.18.2** | **検証:** 電力解析保護は、ノイズ注入、電力線フィルタリング、AI ハードウェアのランダム実行パターンを含んでいる。 | 3 | D/V |
+| **4.18.3** | **検証:** キャッシュベースのサイドチャネル緩和は、情報漏洩を防ぐために、キャッシュのパーティショニング、ランダム化、フラッシュ命令を使用している。 | 3 | D/V |
+| **4.18.4** | **検証:** 電磁放射保護は、TEMPEST スタイルの攻撃を防ぐために、シールド、信号フィルタリング、ランダム化処理を含んでいる。 | 3 | D/V |
+| **4.18.5** | **検証:** マイクロアーキテクチャのサイドチャネル防御は投機的実行制御とメモリアクセスパターンの難読化を含んでいる。 | 3 | D/V |
 
 ---
 
