@@ -276,17 +276,17 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ---
 
-## C4.20 プライバシー保護コンピューティングインフラストラクチャ (Privacy-Preserving Compute Infrastructure)
+## C4.20 プライバシー保護計算インフラストラクチャ (Privacy-Preserving Compute Infrastructure)
 
-Implement infrastructure controls for privacy-preserving computation to protect sensitive data during AI processing and analysis.
+AI 処理と解析時の機密データを保護するために、プライバシー保護計算用のインフラストラクチャ制御を実装している。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.20.1** | **Verify that** homomorphic encryption infrastructure enables encrypted computation on sensitive AI workloads with cryptographic integrity verification and performance monitoring. | 3 | D/V |
-| **4.20.2** | **Verify that** private information retrieval systems enable database queries without revealing query patterns with cryptographic protection of access patterns. | 3 | D/V |
-| **4.20.3** | **Verify that** secure multi-party computation protocols enable privacy-preserving AI inference without exposing individual inputs or intermediate computations. | 3 | D/V |
-| **4.20.4** | **Verify that** privacy-preserving key management includes distributed key generation, threshold cryptography, and secure key rotation with hardware-backed protection. | 3 | D/V |
-| **4.20.5** | **Verify that** privacy-preserving compute performance is optimized through batching, caching, and hardware acceleration while maintaining cryptographic security guarantees. | 3 | D/V |
+| **4.20.1** | **検証:** 準同型暗号インフラストラクチャは、暗号完全性検証とパフォーマンス監視を備えた機密 AI ワークロードでの暗号化計算を可能にしている。 | 3 | D/V |
+| **4.20.2** | **検証:** プライバシー情報検索システムは、アクセスパターンの暗号化保護で、クエリパターンを明らかにすることなくデータベースクエリを可能にしている。 | 3 | D/V |
+| **4.20.3** | **検証:** 安全なマルチパーティ計算プロトコルは、個別の入力や中間計算を公開することなく、プライバシーを保護した AI 推論を可能にしている。 | 3 | D/V |
+| **4.20.4** | **検証:** プライバシーを保護した鍵管理は、分散鍵生成、閾値暗号化、ハードウェア支援の保護での安全な鍵ローテーションを含んでいる。 | 3 | D/V |
+| **4.20.5** | **検証:** プライバシーを保護した計算パフォーマンスは、暗号化セキュリティの保証を維持しながら、バッチ処理、キャッシュ、ハードウェアアクセラレーションを通じて最適化されている。 | 3 | D/V |
 
 ---
 
