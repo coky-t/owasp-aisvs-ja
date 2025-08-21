@@ -264,15 +264,15 @@ AI インフラストラクチャ管理のためのインフラストラクチ�
 
 ## C4.19 ニューロモルフィックと特殊 AI ハードウェアセキュリティ (Neuromorphic & Specialized AI Hardware Security)
 
-Secure emerging AI hardware architectures including neuromorphic chips, FPGAs, custom ASICs, and optical computing systems.
+ニューロモルフィックチップ、FPGA、カスタム ASIC、光コンピューティングシステムなどの新しい AI ハードウェアアーキテクチャを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.19.1** | **Verify that** neuromorphic chip security includes spike pattern encryption, synaptic weight protection, and hardware-based learning rule validation. | 3 | D/V |
-| **4.19.2** | **Verify that** FPGA-based AI accelerators implement bitstream encryption, anti-tamper mechanisms, and secure configuration loading with authenticated updates. | 3 | D/V |
-| **4.19.3** | **Verify that** custom ASIC security includes on-chip security processors, hardware root of trust, and secure key storage with tamper detection. | 3 | D/V |
-| **4.19.4** | **Verify that** optical computing systems implement quantum-safe optical encryption, secure photonic switching, and protected optical signal processing. | 3 | D/V |
-| **4.19.5** | **Verify that** hybrid analog-digital AI chips include secure analog computation, protected weight storage, and authenticated analog-to-digital conversion. | 3 | D/V |
+| **4.19.1** | **検証:** ニューロモルフィックチップのセキュリティは、スパイクパターンの暗号化、シナプス重みの保護、ハードウェアベースの学習ルールバリデーションを含んでいる。 | 3 | D/V |
+| **4.19.2** | **検証:** FPGA ベースの AI アクセラレータは、ビットストリームの暗号化、改竄防止メカニズム、認証された更新による安全な構成のローディングを実装している。 | 3 | D/V |
+| **4.19.3** | **検証:** カスタム ASIC のセキュリティは、オンチップセキュリティプロセッサ、ハードウェアルートオブトラスト、改竄検出を備えた安全なキーストレージを含んでいる。 | 3 | D/V |
+| **4.19.4** | **検証:** 光コンピューティングシステムは、耐量子光暗号化、安全な光子スイッチング、保護された光信号処理を実装している。 | 3 | D/V |
+| **4.19.5** | **検証:** ハイブリッドアナログデジタル AI チップは、安全なアナログコンピューティング、保護された重みの保存、認証されたアナログからデジタルへの変換を含んでいる。 | 3 | D/V |
 
 ---
 
