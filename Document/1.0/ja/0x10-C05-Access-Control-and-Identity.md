@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Effective access control for AI systems requires robust identity management, context-aware authorization, and runtime enforcement following zero-trust principles. These controls ensure that humans, services, and autonomous agents only interact with models, data, and computational resources within explicitly granted scopes, with continuous verification and audit capabilities.
+AI システムへの効果的なアクセス制御には、堅牢なアイデンティティ管理、コンテキストに応じた認可、ゼロトラスト原則に従ったランタイム強制が必要です。これらの制御により、人間、サービス、自律エージェントが、明示的に許可されたスコープ内でのみ、モデル、データ、計算リソースとやり取りでき、継続的検証と監査機能を備えています。
 
 ---
 
