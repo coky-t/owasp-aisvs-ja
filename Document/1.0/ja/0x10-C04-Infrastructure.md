@@ -290,17 +290,17 @@ AI 処理と解析時の機密データを保護するために、プライバ�
 
 ---
 
-## C4.15 エージェントフレームワーククラウド統合セキュリティとハイブリッドデプロイメント (Agent Framework Cloud Integration Security & Hybrid Deployment)
+## C4.21 エージェントフレームワーククラウド統合セキュリティとハイブリッドデプロイメント (Agent Framework Cloud Integration Security & Hybrid Deployment)
 
-Security controls for cloud-integrated agent frameworks with hybrid on-premises/cloud architectures.
+ハイブリッドオンプレミス/クラウドアーキテクチャでのクラウド統合エージェントフレームワークのセキュリティコントロールです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.15.1** | **Verify that** cloud storage integration uses end-to-end encryption with agent-controlled key management. | 1 | D/V |
-| **4.15.2** | **Verify that** hybrid deployment security boundaries are clearly defined with encrypted communication channels. | 2 | D/V |
-| **4.15.3** | **Verify that** cloud resource access includes zero-trust verification with continuous authentication. | 2 | D/V |
-| **4.15.4** | **Verify that** data residency requirements are enforced by cryptographic attestation of storage locations. | 3 | D/V |
-| **4.15.5** | **Verify that** cloud provider security assessments include agent-specific threat modeling and risk evaluation. | 3 | D/V |
+| **4.21.1** | **検証:** クラウドストレージ統合はエージェント制御の鍵管理でのエンドツーエンド暗号化を使用している。 | 1 | D/V |
+| **4.21.2** | **検証:** ハイブリッドデプロイメントのセキュリティ境界は、暗号化された通信チャネルで明確に定義されている。 | 2 | D/V |
+| **4.21.3** | **検証:** クラウドリソースアクセスは継続的認証でのゼロトラスト検証を含んでいる。 | 2 | D/V |
+| **4.21.4** | **検証:** データ所在要件はストレージロケーションの暗号化アテステーションにより強制されている。 | 3 | D/V |
+| **4.21.5** | **検証:** クラウドプロバイダのセキュリティ評価はエージェント固有の脅威モデリングとリスク評価を含んでいる。 | 3 | D/V |
 
 ---
 
