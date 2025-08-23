@@ -8,15 +8,15 @@ AI システムへの効果的なアクセス制御には、堅牢なアイデ�
 
 ## C5.1 アイデンティティ管理と認証 (Identity Management & Authentication)
 
-Establish cryptographically-backed identities for all entities with multi-factor authentication for privileged operations.
+特権操作のために多要素認証ですべてのエンティティに対して暗号論的に裏付けされたアイデンティティを確立します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.1.1** | **Verify that** all human users and service principals authenticate through a centralized enterprise identity provider (IdP) using OIDC/SAML protocols with unique identity-to-token mappings (no shared accounts or credentials). | 1 | D/V |
-| **5.1.2** | **Verify that** high-risk operations (model deployment, weight export, training data access, production configuration changes) require multi-factor authentication or step-up authentication with session re-validation. | 1 | D/V |
-| **5.1.3** | **Verify that** new principals undergo identity-proofing that is aligned with NIST 800-63-3 IAL-2 or equivalent standards before receiving production system access. | 2 | D |
-| **5.1.4** | **Verify that** access reviews are conducted quarterly with automated detection of dormant accounts, credential rotation enforcement, and de-provisioning workflows. | 2 | V |
-| **5.1.5** | **Verify that** federated AI agents authenticate via signed JWT assertions that have a maximum lifetime of 24 hours and include cryptographic proof of origin. | 3 | D/V |
+| **5.1.1** | **検証:** すべての人間のユーザーとサービスプリンシパルは、一意のアイデンティティとトークンのマッピング (共有アカウントやクレデンシャルではない) で OIDC/SAML プロトコルを使用して、集中型エンタープライズアイデンティティプロバイダ (IdP) を通じて認証している。 | 1 | D/V |
+| **5.1.2** | **検証:** 高リスクの操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、多要素認証またはセッション再バリデーションでのステップアップ認証を必要としている。 | 1 | D/V |
+| **5.1.3** | **検証:** 新しいプリンシパルは、本番システムへのアクセスを許可する前に、NIST 800-63-3 IAL-2 または同等の標準に準拠したアイデンティティ認証を受けている。 | 2 | D |
+| **5.1.4** | **検証:** アクセスレビューは四半期ごとに実施され、休止アカウントの自動検出、クレデンシャルローテーションの強制、プロビジョニング解除ワークフローを実施されている。 | 2 | V |
+| **5.1.5** | **検証:** 連合 AI エージェントは、最大有効期間が 24 時間であり、オリジンの暗号論的証明を含む、署名付き JWT アサーションを介して認証している。 | 3 | D/V |
 
 ---
 
