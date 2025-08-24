@@ -26,7 +26,7 @@ AI システムへの効果的なアクセス制御には、堅牢なアイデ�
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクターコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、ロールベースのアクセス制御を適用している。 | 1 | D/V |
+| **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクトルコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、ロールベースのアクセス制御を適用している。 | 1 | D/V |
 | **5.2.2** | **検証:** 最小権限の原則は、サービスアカウントが読み取り専用パーミッションから始まり、書き込みアクセスには文書化されたビジネス上の正当性を必要とするように、デフォルトで適用されている。 | 1 | D/V |
 | **5.2.3** | **検証:** すべてのアクセス制御の変更は承認された変更要求にリンクされ、タイムスタンプ、アクターアイデンティティ、リソース識別子、パーミッションデルタとともに不変的にログ記録されている。 | 1 | V |
 | **5.2.4** | **検証:** データ分類ラベル (PII、PHI、輸出規制対象、独自) は一貫したポリシー適用で派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 2 | D |
@@ -50,15 +50,15 @@ AI システムへの効果的なアクセス制御には、堅牢なアイデ�
 
 ## C5.4 クエリ時のセキュリティ強化 (Query-Time Security Enforcement)
 
-Implement database-layer security controls with mandatory filtering and row-level security policies.
+必須フィルタリングと低レベルセキュリティポリシーでのデータベース層のセキュリティ制御を実装します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.4.1** | **Verify that** all vector database and SQL queries include mandatory security filters (tenant ID, sensitivity labels, user scope) enforced at the database engine level, not application code. | 1 | D/V |
-| **5.4.2** | **Verify that** row-level security (RLS) policies and field-level masking are enabled with policy inheritance for all vector databases, search indices, and training datasets. | 1 | D/V |
-| **5.4.3** | **Verify that** failed authorization evaluations will prevent "confused deputy attacks" by immediately aborting queries and returning explicit authorization error codes rather than returning empty result sets. | 2 | D |
-| **5.4.4** | **Verify that** policy evaluation latency is continuously monitored with automated alerts for timeout conditions that could enable authorization bypass. | 2 | V |
-| **5.4.5** | **Verify that** query retry mechanisms re-evaluate authorization policies to account for dynamic permission changes within active user sessions. | 3 | D/V |
+| **5.4.1** | **検証:** すべてのベクトルデータベースと SQL クエリは、アプリケーションコードではなく、データベースエンジンレベルで適用される必須のセキュリティフィルタ (テナント ID、機密ラベル、ユーザースコープ) を含んでいる。 | 1 | D/V |
+| **5.4.2** | **検証:** 行レベルセキュリティ (RLS) ポリシーとフィールドレベルのマスキングは、すべてのベクトルデータベース、検索インデックス、トレーニングデータセットのポリシー検証で有効化されている。 | 1 | D/V |
+| **5.4.3** | **検証:** 失敗した認可評価は、空の結果セットを返すのではなく、クエリを直ちに中止し、明示的な認可エラーコードを返すことで、"Confused Deputy 攻撃" を防いでいる。 | 2 | D |
+| **5.4.4** | **検証:** ポリシー評価レイテンシは継続的に監視され、認可バイパスを可能にする可能性のあるタイムアウト状態に対して自動アラートを発報している。 | 2 | V |
+| **5.4.5** | **検証:** クエリ再試行メカニズムは、アクティブユーザーセッション内での動的なパーミッション変更を考慮して認可ポリシーを再評価している。 | 3 | D/V |
 
 ---
 
