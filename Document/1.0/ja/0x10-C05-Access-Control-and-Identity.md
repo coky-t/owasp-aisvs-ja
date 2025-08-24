@@ -22,15 +22,15 @@ AI システムへの効果的なアクセス制御には、堅牢なアイデ�
 
 ## C5.2 リソース認可と最小権限 (Resource Authorization & Least Privilege)
 
-Implement fine-grained access controls for all AI resources with explicit permission models and audit trails.
+明示的なパーミッションモデルと監査証跡で、すべての AI リソースに対してきめ細かなアクセス制御を実装します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.2.1** | **Verify that** every AI resource (datasets, models, endpoints, vector collections, embedding indices, compute instances) enforces role-based access controls with explicit allow-lists and default-deny policies. | 1 | D/V |
-| **5.2.2** | **Verify that** least-privilege principles are enforced by default with service accounts starting at read-only permissions and documented business justification required for write access. | 1 | D/V |
-| **5.2.3** | **Verify that** all access control modifications are linked to approved change requests and logged immutably with timestamps, actor identities, resource identifiers, and permission deltas. | 1 | V |
-| **5.2.4** | **Verify that** data classification labels (PII, PHI, export-controlled, proprietary) automatically propagate to derived resources (embeddings, prompt caches, model outputs) with consistent policy enforcement. | 2 | D |
-| **5.2.5** | **Verify that** unauthorized access attempts and privilege escalation events trigger real-time alerts with contextual metadata to SIEM systems within 5 minutes. | 2 | D/V |
+| **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクターコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、ロールベースのアクセス制御を適用している。 | 1 | D/V |
+| **5.2.2** | **検証:** 最小権限の原則は、サービスアカウントが読み取り専用パーミッションから始まり、書き込みアクセスには文書化されたビジネス上の正当性を必要とするように、デフォルトで適用されている。 | 1 | D/V |
+| **5.2.3** | **検証:** すべてのアクセス制御の変更は承認された変更要求にリンクされ、タイムスタンプ、アクターアイデンティティ、リソース識別子、パーミッションデルタとともに不変的にログ記録されている。 | 1 | V |
+| **5.2.4** | **検証:** データ分類ラベル (PII、PHI、輸出規制対象、独自) は一貫したポリシー適用で派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 2 | D |
+| **5.2.5** | **検証:** 不正アクセスの試みや権限昇格イベントは 5 分以内に SIEM システムにコンテキストメタデータとともにリアルタイムアラートをトリガーしている。 | 2 | D/V |
 
 ---
 
