@@ -36,15 +36,15 @@ AI システムへの効果的なアクセス制御には、堅牢なアイデ�
 
 ## C5.3 動的ポリシー評価 (Dynamic Policy Evaluation)
 
-Deploy attribute-based access control (ABAC) engines for context-aware authorization decisions with audit capabilities.
+監査機能を備えたコンテキスト認識型認可決定のための属性ベースアクセス制御 (ABAC) エンジンをデプロイします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.3.1** | **Verify that** authorization decisions are externalized to a dedicated policy engine (OPA, Cedar, or equivalent) accessible via authenticated APIs with cryptographic integrity protection. | 1 | D/V |
-| **5.3.2** | **Verify that** policies evaluate dynamic attributes at runtime including user clearance level, resource sensitivity classification, request context, tenant isolation, and temporal constraints. | 1 | D/V |
-| **5.3.3** | **Verify that** policy definitions are version-controlled, peer-reviewed, and validated through automated testing in CI/CD pipelines before production deployment. | 2 | D |
-| **5.3.4** | **Verify that** policy evaluation results include structured decision rationales and are transmitted to SIEM systems for correlation analysis and compliance reporting. | 2 | V |
-| **5.3.5** | **Verify that** policy cache time-to-live (TTL) values do not exceed 5 minutes for high-sensitivity resources and 1 hour for standard resources with cache invalidation capabilities. | 3 | D/V |
+| **5.3.1** | **検証:** 認可決定は、暗号論的完全性保護を備えた認証 API を介してアクセス可能な、専用のポリシーエンジン (OPA、Cedar、または同等のもの) に外部化されている。 | 1 | D/V |
+| **5.3.2** | **検証:** ポリシーは、ユーザークリアランスレベル、リクエストコンテキスト、テナント分離、時間的制約など、動的な属性を実行時に評価している。 | 1 | D/V |
+| **5.3.3** | **検証:** ポリシー定義はバージョン管理され、ピアレビューされ、本番環境へのデプロイメント前に CI/CD パイプラインでの自動テストを通じて検証されている。 | 2 | D |
+| **5.3.4** | **検証:** ポリシー評価結果は構造化された決定根拠を含んでおり、相関分析とコンプライアンスレポートのために SIEM システムに送信されている。 | 2 | V |
+| **5.3.5** | **検証:** ポリシーキャッシュの有効期間 (TTL) 値は、高機密リソースでは 5 分を超えず、キャッシュ無効化機能を持つ標準リソースでは 1 時間を超えていない。 | 3 | D/V |
 
 ---
 
