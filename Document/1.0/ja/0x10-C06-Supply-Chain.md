@@ -8,15 +8,15 @@ AI サプライチェーン攻撃は、バックドア、バイアス、実行�
 
 ## C6.1 事前学習済みモデルの審査と来歴 (Pretrained Model Vetting & Provenance)
 
-Assess and authenticate third‑party model origins, licenses, and hidden behaviors before any fine‑tuning or deployment.
+ファインチューニングやデプロイメントの前に、サードパーティのモデルのオリジン、ライセンス、隠し動作を評価および認証します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **6.1.1** | **Verify that** every third‑party model artifact includes a signed provenance record identifying source repository and commit hash. | 1 | D/V |
-| **6.1.2** | **Verify that** models are scanned for malicious layers or Trojan triggers using automated tools before import. | 1 | D/V |
-| **6.1.3** | **Verify that** transfer‑learning fine‑tunes pass adversarial evaluation to detect hidden behaviors. | 2 | D |
-| **6.1.4** | **Verify that** model licenses, export‑control tags, and data‑origin statements are recorded in a ML‑BOM entry. | 2 | V |
-| **6.1.5** | **Verify that** high‑risk models (publicly uploaded weights, unverified creators) remain quarantined until human review and sign‑off. | 3 | D/V |
+| **6.1.1** | **検証:** すべてのサードパーティモデルアーティファクトは、ソースリポジトリとコミットハッシュを識別する、署名付き来歴レコードを含んでいる。 | 1 | D/V |
+| **6.1.2** | **検証:** モデルは、インポート前に自動ツールを使用して、悪意のあるレイヤやトロイの木馬トリガーがないかスキャンされている。 | 1 | D/V |
+| **6.1.3** | **検証:** 転移学習は、隠し動作を検出するために、敵対的評価をファインチューンしている。 | 2 | D |
+| **6.1.4** | **検証:** モデルライセンス、輸出規制タグ、データオリジンステートメントは ML-BOM エントリに記録されている。 | 2 | V |
+| **6.1.5** | **検証:** 高リスクモデル (公開アップロードされた重み、未検証の作成者) は、人間によるレビューと承認が行われるまで、隔離されたままにしている。 | 3 | D/V |
 
 ---
 
