@@ -2,11 +2,11 @@
 
 ## 管理目標
 
-AI supply‑chain attacks exploit third‑party models, frameworks, or datasets to embed backdoors, bias, or exploitable code. These controls provide end‑to‑end provenance, vulnerability management, and monitoring to protect the entire model lifecycle.
+AI サプライチェーン攻撃は、バックドア、バイアス、実行可能コードを埋め込んで、サードパーティモデル、フレームワーク、データセットを悪用します。これらのコントロールは、エンドツーエンドの来歴、脆弱性管理、監視を提供し、モデルのライフサイクル全体を保護します。
 
 ---
 
-## C6.1 事前学習済みモデルの審査と実証性 (Pretrained Model Vetting & Provenance)
+## C6.1 事前学習済みモデルの審査と来歴 (Pretrained Model Vetting & Provenance)
 
 Assess and authenticate third‑party model origins, licenses, and hidden behaviors before any fine‑tuning or deployment.
 
