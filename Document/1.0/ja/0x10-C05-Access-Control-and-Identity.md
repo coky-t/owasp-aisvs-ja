@@ -91,33 +91,33 @@ AI 生成コンテンツでの不正なデータ公開を防ぐために、後�
 
 ## C5.7 自律エージェント認可 (Autonomous Agent Authorization)
 
-Control permissions for AI agents and autonomous systems through scoped capability tokens and continuous authorization.
+スコープ指定された機能トークンと継続的認可を通じて、AI エージェントと自律システムのパーミッションを制御します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.7.1** | **Verify that** autonomous agents receive scoped capability tokens that explicitly enumerate permitted actions, accessible resources, time boundaries, and operational constraints. | 1 | D/V |
-| **5.7.2** | **Verify that** high-risk capabilities (file system access, code execution, external API calls, financial transactions) are disabled by default and require explicit authorizations for activation with business justifications. | 1 | D/V |
-| **5.7.3** | **Verify that** capability tokens are bound to user sessions, include cryptographic integrity protection, and ensure that they cannot be persisted or reused in offline scenarios. | 2 | D |
-| **5.7.4** | **Verify that** agent-initiated actions undergo secondary authorization through the ABAC policy engine with full context evaluation and audit logging. | 2 | V |
-| **5.7.5** | **Verify that** agent error conditions and exception handling include capability scope information to support incident analysis and forensic investigation. | 3 | V |
+| **5.7.1** | **検証:** 自律エージェントは、許可されたアクション、アクセス可能なリソース、時間境界、操作上の制約を明示的に列挙する、スコープ指定された機能トークンを受け取っている。 | 1 | D/V |
+| **5.7.2** | **検証:** 高リスク機能 (ファイルシステムアクセス、コード実行、外部 API 呼び出し、金融取引) はデフォルトで無効にされており、ビジネス上の正当性によるアクティベーションの明示的な認可を必要としている。 | 1 | D/V |
+| **5.7.3** | **検証:** 機能トークンはユーザーセッションにバインドされ、暗号論的完全性保護を備えており、オフラインシナリオでは永続化や再使用できないことを確保している。 | 2 | D |
+| **5.7.4** | **検証:** エージェントが開始したアクションは、完全なコンテキスト評価と監査ログを備えた ABAC ポリシーエンジンを通じて、二次認可を受けている。 | 2 | V |
+| **5.7.5** | **検証:** エージェントのエラー状態と例外処理は、インシデント分析とフォレンジック調査をサポートするために、機能スコープ情報を含んでいる。 | 3 | V |
 
 ---
 
 ## 参考情報
 
-### Standards & Frameworks
+### 標準とフレームワーク
 
 * [NIST SP 800-63-3: Digital Identity Guidelines](https://pages.nist.gov/800-63-3/)
 * [Zero Trust Architecture – NIST SP 800-207](https://nvlpubs.nist.gov/nistpubs/specialpublications/NIST.SP.800-207.pdf)
 * [OWASP Application Security Verification Standard (AISVS)](https://owasp.org/www-project-application-security-verification-standard/)
 
-### Implementation Guides
+### 実装ガイド
 
 * [Identity and Access Management in the AI Era: 2025 Guide – IDSA](https://www.idsalliance.org/blog/identity-and-access-management-in-the-ai-era-2025-guide/)
 * [Attribute-Based Access Control with OPA – Permify](https://medium.com/permify-tech-blog/attribute-based-access-control-abac-implementation-with-open-policy-agent-opa-b47052248f29)
 * [How We Designed Cedar to Be Intuitive, Fast, and Safe – AWS](https://aws.amazon.com/blogs/security/how-we-designed-cedar-to-be-intuitive-to-use-fast-and-safe/)
 
-### AI-Specific Security
+### AI 固有セキュリティ
 
 * [Row Level Security in Vector DBs for RAG – Bluetuple.ai](https://medium.com/bluetuple-ai/implementing-row-level-security-in-vector-dbs-for-rag-applications-fdbccb63d464)
 * [Tenant Isolation in Multi-Tenant Systems – WorkOS](https://workos.com/blog/tenant-isolation-in-multi-tenant-systems)
