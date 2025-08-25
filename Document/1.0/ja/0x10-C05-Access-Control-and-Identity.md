@@ -78,14 +78,14 @@ AI 生成コンテンツでの不正なデータ公開を防ぐために、後�
 
 ## C5.6 マルチテナントの分離 (Multi-Tenant Isolation)
 
-Ensure cryptographic and logical isolation between tenants in shared AI infrastructure.
+共有 AI インフラストラクチャ内のテナント間では暗号化と論理的分離を確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **5.6.1** | **Verify that** memory spaces, embedding stores, cache entries, and temporary files are namespace-segregated per tenant with secure purging on tenant deletion or session termination. | 1 | D/V |
-| **5.6.2** | **Verify that** every API request includes an authenticated tenant identifier that is cryptographically validated against session context and user entitlements. | 1 | D/V |
-| **5.6.3** | **Verify that** network policies implement default-deny rules for cross-tenant communication within service meshes and container orchestration platforms. | 2 | D |
-| **5.6.4** | **Verify that** encryption keys are unique per tenant with customer-managed key (CMK) support and cryptographic isolation between tenant data stores. | 3 | D |
+| **5.6.1** | **検証:** メモリキャッシュ、エンベディングストア、キャッシュエントリ、一時ファイルはテナントごとに名前空間で分離されており、テナント削除またはセッション終了時に安全に消去している。 | 1 | D/V |
+| **5.6.2** | **検証:** すべての API リクエストは、セッションコンテキストとユーザーエンタイトルメントに対して暗号論的に検証された、認証済みのテナント識別子を含んでいる。 | 1 | D/V |
+| **5.6.3** | **検証:** ネットワークポリシーは、サービルメッシュとコンテナオーケストレーションプラットフォーム内でのテナント間通信に対して、デフォルト拒否のルールを実装している。 | 2 | D |
+| **5.6.4** | **検証:** 暗号鍵はテナントごとに一意であり、顧客管理鍵 (CMK) サポートがあり、テナントデータストア間で暗号論的に分離している。 | 3 | D |
 
 ---
 
