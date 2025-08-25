@@ -50,15 +50,15 @@ AI サプライチェーン攻撃は、バックドア、バイアス、実行�
 
 ## C6.4 信頼できるソースの強制 (Trusted Source Enforcement)
 
-Allow artifact downloads only from cryptographically verified, organization‑approved sources and block everything else.
+暗号論的に検証され、組織が承認したソースからのアーティファクトのダウンロードのみを許可し、それ以外のものはブロックします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **6.4.1** | **Verify that** model weights, datasets, and containers are downloaded only from approved domains or internal registries. | 1 | D/V |
-| **6.4.2** | **Verify that** Sigstore/Cosign signatures validate publisher identity before artifacts are cached locally. | 1 | D/V |
-| **6.4.3** | **Verify that** egress proxies block unauthenticated artifact downloads to enforce trusted‑source policy. | 2 | D |
-| **6.4.4** | **Verify that** repository allow‑lists are reviewed quarterly with evidence of business justification for each entry. | 2 | V |
-| **6.4.5** | **Verify that** policy violations trigger quarantining of artifacts and rollback of dependent pipeline runs. | 3 | V |
+| **6.4.1** | **検証:** モデルの重み、データセット、コンテナは、承認されたドメインまたは内部レジストリからのみダウンロードされている。 | 1 | D/V |
+| **6.4.2** | **検証:** Sigstore/Cosign 署名は、アーティファクトがローカルにキャッシュされる前に、発行者のアイデンティティを検証している。 | 1 | D/V |
+| **6.4.3** | **検証:** 送出 (egress) プロキシは、信頼できるソースポリシーを適用して、認証されていないアーティファクトダウンロードをブロックしている。 | 2 | D |
+| **6.4.4** | **検証:** リポジトリの許可リストは、各エントリのビジネス上の正当性の証跡とともに、四半期ごとにレビューされている。 | 2 | V |
+| **6.4.5** | **検証:** ポリシー違反はアーティファクトの隔離と、依存するパイプライン実行のロールバックをトリガーしている。 | 3 | V |
 
 ---
 
