@@ -64,6 +64,8 @@ Maintain awareness of and compliance with evolving AI regulations.
 | **AC.5.2** | **Verify that** compliance with all regulatory requirements is assessed. | 2 | D |
 | **AC.5.3** | **Verify that** regulatory changes trigger timely reviews and updates to AI systems. | 3 | D/V |
 
+---
+
 ## AC.6 トレーニングデータガバナンス、ドキュメント、プロセス (Training Data Governance, Documentation and Process)
 
 | # | 説明 | レベル | ロール |
@@ -116,6 +118,71 @@ Maintain awareness of and compliance with evolving AI regulations.
 | **1.18.1** | **Verify that** all personnel involved in data annotation are background-checked and trained in data security and privacy. | 2 | D/V |
 | **1.18.2** | **Verify that** all annotation personnel sign confidentiality and non-disclosure agreements. | 2 | D/V |
 | **1.18.3** | **Verify that** annotation platforms enforce access controls and monitor for insider threats. | 2 | D/V |
+
+---
+
+## AC.7 Model Lifecycle Governance & Documentation
+
+Establish governance processes for model lifecycle documentation, approval workflows, and audit trail requirements.
+
+| # | Description | Level | Role |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **AC.7.1** | **Verify that** all model artifacts use semantic versioning (MAJOR.MINOR.PATCH) with documented criteria specifying when each version component increments. | 2 | D/V |
+| **AC.7.2** | **Verify that** emergency deployments require documented security risk assessment and approval from a pre-designated security authority within pre-agreed timeframes. | 2 | D/V |
+| **AC.7.3** | **Verify that** rollback artifacts (previous model versions, configurations, dependencies) are retained according to organizational policies. | 2 | V |
+| **AC.7.4** | **Verify that** audit log access requires appropriate authorization and all access attempts are logged with user identity and a timestamp. | 2 | D/V |
+| **AC.7.5** | **Verify that** retired model artifacts are retained according to data retention policies. | 1 | D/V |
+
+---
+
+## C2.1 プロンプトインジェクションの防御 (Prompt Injection Defense)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.1.3** | **検証:** 敵対的評価テスト (レッドチームの「メニーショット」プロンプトなど) は、すべてのモデルまたはプロンプトテンプレートのリリース前に、成功率の閾値と回帰の自動ブロッカーを使用して、実行されている。 | 2 |  D/V |
+| **2.1.5** | **検証:** すべてのプロンプトフィルタルールの更新、分類モデルのバージョン、ブロックリストの変更はバージョン管理され、監査可能である。 | 3 |  D/V |
+
+---
+
+## C2.2 敵対的サンプルへの耐性 (Adversarial-Example Resistance)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.2.5** | **検証:** 堅牢性メトリクス (既知の攻撃スイートの成功率) は自動化によって時間の経過とともに追跡され、回帰はアラートをトリガーしている。 | 3 |  D/V |
+
+---
+
+## C2.4 コンテンツとポリシーの審査 (Content & Policy Screening)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.4.3** | **検証:** スクリーニングモデルやルールセットは、新たに観察されたジェイルブレイクやポリシーバイパスのパターンを組み込んで、少なくとも四半期ごとに再トレーニング/アップデートされている。 | 2 | D |
+
+---
+
+## C2.5 入力レート制限と不正使用防止 (Input Rate Limiting & Abuse Prevention)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.5.4** | **検証:** 不正使用防止ログは保持され、新たな攻撃パターンがないかレビューされている。 | 3 | V |
+
+---
+
+## C2.7 入力の来歴と属例 (Input Provenance & Attribution)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.7.1** | **検証:** すべてのユーザー入力は取り込み時にメタデータ (ユーザーID、セッション、ソース、タイムスタンプ、IP アドレス) でタグ付けされている。 | 1 | D/V |
+| **2.7.2** | **検証:** 来歴メタデータが保持され、すべての処理された入力について監査可能である。 | 2 | D/V |
+| **2.7.3** | **検証:** 異常な入力ソースや信頼できない入力ソースはフラグ付けされ、強化された精査またはブロックの対象としている。 | 2 | D/V |
+
+---
+
+## C2.9 マルチモーダルセキュリティバリデーションパイプライン (Multi-Modal Security Validation Pipeline)
+
+| # | 説明 | レベル | ロール |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| **2.9.5** | **検証:** 様式固有のコンテンツ分類子は、文書化されたスケジュール (最低四半期ごと) に従って更新され、新しい脅威パターン、敵対的サンプル、パフォーマンスベンチマークがベースライン閾値を上回るように維持している。 | 3 | D/V |
 
 ### 参考情報
 
