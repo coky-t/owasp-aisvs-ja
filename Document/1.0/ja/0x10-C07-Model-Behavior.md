@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Model outputs must be **structured, reliable, safe, explainable, and continuously monitored in production**. Doing so reduces hallucinations, privacy leaks, harmful content, and runaway actions, while increasing user trust and regulatory compliance.
+モデル出力は **構造化されており、信頼性があり、安全であり、説明可能であり、本番環境で継続的に監視されている** 必要があります。そうすることで、ハルシネーション、プライバシー漏洩、有害コンテンツ、暴走行為を軽減し、ユーザーの信頼と規制遵守を向上します。
 
 ---
 
