@@ -78,13 +78,13 @@ AI サプライチェーン攻撃は、バックドア、バイアス、実行�
 
 ## C6.6 サプライチェーン攻撃の監視 (Supply Chain Attack Monitoring)
 
-Detect supply‑chain threats early through CVE feeds, audit‑log analytics, and red‑team simulations.
+CVE フィード、監査ログ分析、レッドチームシミュレーションを通じて、サプライチェーンの脅威を早期に検出します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **6.6.1** | **Verify that** CI/CD audit logs stream to SIEM detections for anomalous package pulls or tampered build steps. | 1 | V |
-| **6.6.2** | **Verify that** incident response playbooks include rollback procedures for compromised models or libraries. | 2 | D ||
-| **6.6.3** | **Verify that** threat‑intel enrichment tags ML‑specific indicators (e.g., model‑poisoning IoCs) in alert triage. | 3 | V |
+| **6.6.1** | **検証:** CI/CD 監査ログは、異常なパッケージプルや改竄されたビルドステップを検出するために、SIEM に流れている。 | 1 | V |
+| **6.6.2** | **検証:** インシデント対応プレイブックは侵害されたモデルやライブラリのロールバック手順を含んでいる。 | 2 | D ||
+| **6.6.3** | **検証:** 脅威インテリジェンスのエンリッチメントは、アラートトリアージで、ML 固有のインジケータ (モデルポイズニングの IoC など) をタグ付けしている。 | 3 | V |
 
 ---
 
