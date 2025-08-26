@@ -90,15 +90,15 @@ CVE フィード、監査ログ分析、レッドチームシミュレーショ�
 
 ## C6.7 モデルアーティファクトのための ML-BOM (ML‑BOM for Model Artifacts)
 
-Generate and sign detailed ML‑specific SBOMs (ML‑BOMs) so downstream consumers can verify component integrity at deploy time.
+詳細な ML 固有の SBOM (ML-BOM) を生成して署名することで、ダウンストリームのコンシューマがデプロイ時にコンポーネントの完全性を検証できます。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **6.7.1** | **Verify that** every model artifact publishes a ML‑BOM that lists datasets, weights, hyperparameters, and licenses. | 1 | D/V |
-| **6.7.2** | **Verify that** ML‑BOM generation and Cosign signing are automated in CI and required for merge. | 1 | D/V |
-| **6.7.3** | **Verify that** ML‑BOM completeness checks fail the build if any component metadata (hash, license) is missing. | 2 | D |
-| **6.7.4** | **Verify that** downstream consumers can query ML-BOMs via API to validate imported models at deploy time. | 2 | V |
-| **6.7.5** | **Verify that** ML‑BOMs are version‑controlled and diffed to detect unauthorized modifications. | 3 | V |
+| **6.7.1** | **検証:** すべてのモデルアーティファクトは、データセット、重み、ハイパーパラメータ、ライセンスをリストした ML-BOM を公開している。 | 1 | D/V |
+| **6.7.2** | **検証:** ML-BOM 生成と Cosign 署名は CI で自動化されており、マージに必要とされている。 | 1 | D/V |
+| **6.7.3** | **検証:** ML‑BOM 完全性チェックは、コンポーネントメタデータ (ハッシュ、ライセンス) が欠落している場合、失敗している。 | 2 | D |
+| **6.7.4** | **検証:** ダウンストリームのコンシューマは、デプロイ時にインポートされたモデルを検証するために、API を介して ML-BOM をクエリできる。 | 2 | V |
+| **6.7.5** | **検証:** ML-BOM はバージョン管理されており、不正な変更を検出するために差分を取られている。 | 3 | V |
 
 ---
 
