@@ -8,14 +8,14 @@
 
 ## C7.1 出力形式の強制 (Output Format Enforcement)
 
-Strict schemas, constrained decoding, and downstream validation stop malformed or malicious content before it propagates.
+厳格なスキーマ、制約のあるデコード、ダウンストリームバリデーションは、不正なコンテンツや悪意のあるコンテンツが拡散する前にそれらを阻止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.1.1** | **Verify that** response schemas (e.g., JSON Schema) are supplied in the system prompt and every output is automatically validated; non-conforming outputs trigger repair or rejection. | 1 | D/V |
-| **7.1.2** | **Verify that** constrained decoding (stop tokens, regex, max-tokens) is enabled to prevent overflow or prompt-injection side-channels. | 1 | D/V |
-| **7.1.3** | **Verify that** downstream components treat outputs as untrusted and validate them against schemas or injection-safe de-serializers. | 2 | D/V |
-| **7.1.4** | **Verify that** improper-output events are logged, rate-limited, and surfaced to monitoring. | 3 | V |
+| **7.1.1** | **検証:** レスポンススキーマ (JSON スキーマなど) はシステムプロンプトで提供されており、すべての出力は自動的に検証されている。適合しない出力は修復または拒否をトリガーしている。 | 1 | D/V |
+| **7.1.2** | **検証:** 制約付きデコーディング (ストップトークン、正規表現、最大トークン) は、オーバーフローやプロンプトインジェクションサイドチャネルを防ぐために、有効にされている。 | 1 | D/V |
+| **7.1.3** | **検証:** ダウンストリームコンポーネントは信頼できないものとして扱い、スキーマまたはインジェクションセーフなデシリアライザに対して検証している。 | 2 | D/V |
+| **7.1.4** | **検証:** 不適切な出力イベントはログ記録され、レート制限され、監視対象として表示されている。 | 3 | V |
 
 ---
 
