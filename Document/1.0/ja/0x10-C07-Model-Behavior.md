@@ -21,15 +21,15 @@
 
 ## C7.2 ハルシネーションの検出と緩和 (Hallucination Detection & Mitigation)
 
-Uncertainty estimation and fallback strategies curb fabricated answers.
+不確実性の推定とフォールバック戦略は捏造された回答を抑制します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.2.1** | **Verify that** token-level log-probabilities, ensemble self-consistency, or fine-tuned hallucination detectors assign a confidence score to each answer. | 1 | D/V |
-| **7.2.2** | **Verify that** responses below a configurable confidence threshold trigger fallback workflows (e.g., retrieval-augmented generation, secondary model, or human review). | 1 | D/V |
-| **7.2.3** | **Verify that** hallucination incidents are tagged with root-cause metadata and fed to post-mortem and finetuning pipelines. | 2 | D/V |
-| **7.2.4** | **Verify that** thresholds and detectors are re-calibrated after major model or knowledge-base updates. | 3 | D/V |
-| **7.2.5** | **Verify that** dashboard visualisations track hallucination rates. | 3 | V |
+| **7.2.1** | **検証:** トークンレベルの対数確率、アンサンブル自己一貫性、ファインチューンされたハルシネーション検出器は各回答の信頼スコアを割り当てている。 | 1 | D/V |
+| **7.2.2** | **検証:** 設定可能な信頼度閾値を下回るレスポンスはフォールバックワークフロー (検索拡張生成、二次モデル、人間によるレビューなど) をトリガーしている。 | 1 | D/V |
+| **7.2.3** | **検証:** ハルシネーションインシデントは根本原因メタデータでタグ付けされており、ポストモーテムとファインチューニングパイプラインに供給されている。 | 2 | D/V |
+| **7.2.4** | **検証:** 閾値と検出器は、主要なモデルや知識ベースの更新後に、再調整されている。 | 3 | D/V |
+| **7.2.5** | **検証:** ダッシュボードの視覚化はハルシネーション率を追跡している。 | 3 | V |
 
 ---
 
