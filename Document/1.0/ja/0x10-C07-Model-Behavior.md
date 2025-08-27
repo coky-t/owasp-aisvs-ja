@@ -35,15 +35,15 @@
 
 ## C7.3 出力の安全性とプライバシーフィルタリング (Output Safety & Privacy Filtering)
 
-Policy filters and red-team coverage protect users and confidential data.
+ポリシーフィルタとレッドチームカバレッジはユーザーと機密データを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.3.1** | **Verify that** pre and post-generation classifiers block hate, harassment, self-harm, extremist, and sexually explicit content aligned to policy. | 1 | D/V |
-| **7.3.2** | **Verify that** PII/PCI detection and automatic redaction run on every response; violations raise a privacy incident. | 1 | D/V |
-| **7.3.3** | **Verify that** confidentiality tags (e.g., trade secrets) propagate across modalities to prevent leakage in text, images, or code. | 2 | D |
-| **7.3.4** | **Verify that** filter bypass attempts or high-risk classifications require secondary approval or user re-authentication. | 3 | D/V |
-| **7.3.5** | **Verify that** filtering thresholds reflect legal jurisdictions and user age/role context. | 3 | D/V |
+| **7.3.1** | **検証:** 生成前および生成後の分類子は、ポリシーに準拠して、ヘイト、ハラスメント、自傷行為、過激主義、性的に露骨なコンテンツをブロックしている。 | 1 | D/V |
+| **7.3.2** | **検証:** PII/PCI 検出と自動修正はすべてのレスポンスに対して実行している。違反はプライバシーインシデントを提起している。 | 1 | D/V |
+| **7.3.3** | **検証:** 機密タグ (営業秘密など) は、テキスト、画像、コードの漏洩を防ぐために、さまざまな様式に伝播している。 | 2 | D |
+| **7.3.4** | **検証:** フィルタのバイパス試行や高リスク分類は二次承認またはユーザー再認証を必要としている。 | 3 | D/V |
+| **7.3.5** | **検証:** フィルタリング閾値は規制管理区域とユーザーの年齢/ロールのコンテキストを反映している。 | 3 | D/V |
 
 ---
 
