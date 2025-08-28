@@ -49,15 +49,15 @@
 
 ## C7.4 出力と動作の制限 (Output & Action Limiting)
 
-Rate-limits and approval gates prevent abuse and excessive autonomy.
+レート制限と承認ゲートは乱用や過剰な自律性を防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.4.1** | **Verify that** per-user and per-API-key quotas limit requests, tokens, and cost with exponential back-off on 429 errors. | 1 | D |
-| **7.4.2** | **Verify that** privileged actions (file writes, code exec, network calls) require policy-based approval or human-in-the-loop. | 1 | D/V |
-| **7.4.3** | **Verify that** cross-modal consistency checks ensure images, code, and text generated for the same request cannot be used to smuggle malicious content. | 2 | D/V |
-| **7.4.4** | **Verify that** agent delegation depth, recursion limits, and allowed tool lists are explicitly configured. | 2 | D |
-| **7.4.5** | **Verify that** violation of limits emits structured security events for SIEM ingestion. | 3 | V |
+| **7.4.1** | **検証:** ユーザーごとおよび API キーごとのクォータは、リクエスト、トークン、コストを制限しており、429 エラーでは指数バックオフを適用している。 | 1 | D |
+| **7.4.2** | **検証:** 特権アクション (ファイル書き込み、コード実行、ネットワーク呼び出し) はポリシーベースの承認またはヒューマンインザループを必要としている。 | 1 | D/V |
+| **7.4.3** | **検証:** クロスモーダル一貫性チェックは、同じリクエストに対して生成される画像、コード、テキストが悪意のあるコンテンツを密かに持ち込むために使用できないようにしている。 | 2 | D/V |
+| **7.4.4** | **検証:** エージェント委譲の深さ、再帰制限、許可されるツールのリストは明示的に構成されている。 | 2 | D |
+| **7.4.5** | **検証:** 制限違反は SIEM 取り込みのために構造化されたセキュリティイベントを発している。 | 3 | V |
 
 ---
 
