@@ -28,6 +28,7 @@
 | **2.2.2** | **検証:** 統計的異常検出は、言語標準への編集距離が異常に高い入力、エンベディング距離が異常な入力にフラグを立てている。 | 2 |  D/V |
 | **2.2.3** | **検証:** 推論パイプラインは、高リスクのエンドポイントに対して、敵対的トレーニング強化モデルのバリアントや防御レイヤ (ランダム化、防御蒸留、アラインメントチェックなど) をサポートしている。 | 2 | D |
 | **2.2.4** | **検証:** 敵対的であることが疑われる入力は隔離されており、完全なペイロードとともにログ記録されている。 | 2 | V |
+| **2.2.5** | **検証:** 入力と出力の両方でエンコーディングと表現のスマグリング (不可視の Unicode/制御文字、ホモグリフのスワップ、混合方向テキスト) は検出され、緩和されている。承認された緩和策は、正規化、厳密なスキーマバリデーション、ポリシーベースの拒否、明示的なマーキングを含んでいる。 | 3 | D/V |
 
 ---
 
@@ -100,10 +101,9 @@ AI システムは、インジェクション、回避、リソース不正使�
 
 ## 参考情報
 
-* [LLM01:2025 Prompt Injection – OWASP Top 10 for LLM & Generative AI Security](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 * [Generative AI's Biggest Security Flaw Is Not Easy to Fix](https://www.wired.com/story/generative-ai-prompt-injection-hacking)
 * [Many-shot jailbreaking \ Anthropic](https://www.anthropic.com/research/many-shot-jailbreaking)
-* [$PDF$ OpenAI GPT-4.5 System Card](https://cdn.openai.com/gpt-4-5-system-card-2272025.pdf)
+* [OpenAI GPT-4.5 System Card](https://cdn.openai.com/gpt-4-5-system-card-2272025.pdf)
 * [Notebook for the CheckThat Lab at CLEF 2024](https://ceur-ws.org/Vol-3740/paper-53.pdf)
 * [Mitigate jailbreaks and prompt injections – Anthropic](https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks)
 * [Chapter 3 MITRE ATT\&CK – Adversarial Model Analysis](https://ama.drwhy.ai/mitre-attck.html)
@@ -111,7 +111,6 @@ AI システムは、インジェクション、回避、リソース不正使�
 * [OWASP Machine Learning Security Top Ten](https://owasp.org/www-project-machine-learning-security-top-10/)
 * [Few words about AI Security – Jussi Metso](https://www.jussimetso.com/index.php/2024/09/28/few-words-about-ai-security/)
 * [How To Ensure LLM Output Adheres to a JSON Schema | Modelmetry](https://modelmetry.com/blog/how-to-ensure-llm-output-adheres-to-a-json-schema)
-* [Easily enforcing valid JSON schema following – API](https://community.openai.com/t/feature-request-function-calling-easily-enforcing-valid-json-schema-following/263515?utm_source)
 * [AI Safety + Cybersecurity R\&D Tracker – Fairly AI](https://www.fairly.ai/blog/ai-cybersecurity-tracker)
 * [Anthropic makes 'jailbreak' advance to stop AI models producing harmful results](https://www.ft.com/content/cf11ebd8-aa0b-4ed4-945b-a5d4401d186e)
 * [Pattern matching filter rules - IBM](https://www.ibm.com/docs/ssw_aix_71/security/intrusion_pattern_matching_filter_rules.html)
