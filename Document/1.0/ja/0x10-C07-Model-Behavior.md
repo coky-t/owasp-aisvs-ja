@@ -76,15 +76,15 @@
 
 ## C7.6 監視統合 (Monitoring Integration)
 
-Real-time observability closes the loop between development and production.
+リアルタイム可観測性は開発と本番の間でのループを閉じます。
 
 | # | 説明 | レベル | ロール |
 | :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
-| **7.6.1** | **Verify that** metrics (schema violations, hallucination rate, toxicity, PII leaks, latency, cost) stream to a central monitoring platform. | 1 | D |
-| **7.6.2** | **Verify that** alert thresholds are defined for each safety metric, with on-call escalation paths. | 1 | V |
-| **7.6.3** | **Verify that** dashboards correlate output anomalies with model/version, feature flag, and upstream data changes. | 2 | V |
-| **7.6.4** | **Verify that** monitoring data feeds back into retraining, fine-tuning, or rule updates within a documented MLOps workflow. | 2 | D/V |
-| **7.6.5** | **Verify that** monitoring pipelines are penetration-tested and access-controlled to avoid leakage of sensitive logs. | 3 | V |
+| **7.6.1** | **検証:** メトリクス (スキーマ違反、ハルシネーション率、有害性、PII 漏洩、レイテンシ、コスト) は中央監視プラットフォームに配信している。 | 1 | D |
+| **7.6.2** | **検証:** アラート閾値は各安全性メトリックに対して定義されており、オンコールエスカレーションパスを備えている。 | 1 | V |
+| **7.6.3** | **検証:** ダッシュボードは出力の異常をモデル/バージョン、機能フラグ、アップストリームデータ変更と相関している。 | 2 | V |
+| **7.6.4** | **検証:** 監視データは、文書化された MLOps ワークフロー内での再トレーニング、ファインチューニング、ルールの更新にフィードバックしている。 | 2 | D/V |
+| **7.6.5** | **検証:** 監視パイプラインはペネトレーションテストされており、機密ログの漏洩を避けるためにアクセス制御されている。 | 3 | V |
 
 ---
 
