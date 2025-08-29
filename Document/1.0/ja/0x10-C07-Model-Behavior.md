@@ -63,14 +63,14 @@
 
 ## C7.5 出力の説明可能性 (Output Explainability)
 
-Transparent signals improve user trust and internal debugging.
+透明性シグナルはユーザーの信頼と内部デバッグを向上します。
 
 | # | 説明 | レベル | ロール |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------ | :---: | :--: |
-| **7.5.1** | **Verify that** user-facing confidence scores or brief reasoning summaries are exposed when risk assessment deems appropriate. | 2 | D/V |
-| **7.5.2** | **Verify that** generated explanations avoid revealing sensitive system prompts or proprietary data. | 2 | D/V |
-| **7.5.3** | **Verify that** the system captures token-level log-probabilities or attention maps and stores them for authorized inspection. | 3 | D |
-| **7.5.4** | **Verify that** explainability artefacts are version-controlled alongside model releases for auditability. | 3 | V |
+| **7.5.1** | **検証:** ユーザー向けの信頼度スコアまたは簡単な理由の概要は、リスク評価が適切と判断された場合、公開されている。 | 2 | D/V |
+| **7.5.2** | **検証:** 生成される説明は機密性の高いシステムプロンプトや独自データを公開することを避けている。 | 2 | D/V |
+| **7.5.3** | **検証:** システムはトークンレベルのログ確率またはアテンションマップをキャプチャしており、認可された検査のためにそれらを保存している。 | 3 | D |
+| **7.5.4** | **検証:** 説明可能性アーティファクトは監査可能性のためにモデルリリースとともにバージョン管理されている。 | 3 | V |
 
 ---
 
