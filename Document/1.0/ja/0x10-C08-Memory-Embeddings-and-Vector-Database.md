@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Embeddings and vector stores act as the "live memory" of contemporary AI systems, continuously accepting user-supplied data and surfacing it back into model contexts via Retrieval-Augmented Generation (RAG). If left ungoverned, this memory can leak PII, violate consent, or be inverted to reconstruct the original text. The objective of this control family is to harden memory pipelines and vector databases so that access is least-privilege, embeddings are privacy-preserving, stored vectors expire or can be revoked on demand, and per-user memory never contaminates another user's prompts or completions.
+エンベディングとベクトルストアは現代の AI システムの「ライブメモリ」として機能し、ユーザーが提供するデータを継続的に受け入れ、検索拡張生成 (Retrieval-Augmented Generation, RAG) を介してモデルのコンテキストに再表示します。管理されていない状態で放置すると、このメモリは PII を漏洩したり、同意を違反したり、元のテキストを再構築するために反転される可能性があります。このコントロールファミリーの目的は、メモリパイプラインとベクトルデータベースを堅牢化することであり、アクセスは最小権限であり、エンベディングはプライバシーを保護しており、保存されたベクトルは期限切れになるか、必要に応じて取り消すことができ、ユーザーごとのメモリは他のユーザーのプロンプトやコンプリーションを汚染しないようにすることです。
 
 ---
 
