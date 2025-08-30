@@ -8,15 +8,15 @@
 
 ## C8.1 メモリと RAG インデックスのアクセス制御 (Access Controls on Memory & RAG Indices)
 
-Enforce fine-grained access controls on every vector collection.
+すべてのベクトルコレクションに対してきめ細かいアクセス制御を適用します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.1.1** | **Verify that** row/namespace-level access control rules restrict insert, delete, and query operations per tenant, collection, or document tag. | 1 | D/V |
-| **8.1.2** | **Verify that** API keys or JWTs carry scoped claims (e.g., collection IDs, action verbs) and are rotated at least quarterly. | 1 | D/V |
-| **8.1.3** | **Verify that** privilege-escalation attempts (e.g., cross-namespace similarity queries) are detected and logged to a SIEM within 5 minutes. | 2 | D/V |
-| **8.1.4** | **Verify that** vector DB audits log subject-identifier, operation, vector ID/namespace, similarity threshold, and result count. | 2 | D/V |
-| **8.1.5** | **Verify that** access decisions are tested for bypass flaws whenever engines are upgraded or index-sharding rules change. | 3 | V |
+| **8.1.1** | **検証:** 行/名前空間レベルのアクセス制御ルールは、テナント、コレクション、またはドキュメントタグごとに、挿入、削除、クエリ操作を制限している。 | 1 | D/V |
+| **8.1.2** | **検証:** API キーや JWT はスコープ指定されたクレーム (コレクション ID、アクション動詞など) を持ち、少なくとも四半期ごとに入れ替えられている。 | 1 | D/V |
+| **8.1.3** | **検証:** 権限昇格の試み (名前空間をまたぐ類似性クエリなど) は検出されており、5 分以内に SIEM にログ記録されている。 | 2 | D/V |
+| **8.1.4** | **検証:** ベクトル DB 監査は、サブジェクト識別子、操作、ベクトル ID/名前空間、類似度閾値、結果数をログ記録している。 | 2 | D/V |
+| **8.1.5** | **検証:** アクセス決定は、エンジンがアップグレードされるか、インデックスシャーディングルールが変更されるたびに、バイパス欠陥についてテストされている。 | 3 | V |
 
 ---
 
