@@ -22,15 +22,15 @@
 
 ## C8.2 エンベディングのサニタイゼーションとバリデーション (Embedding Sanitization & Validation)
 
-Pre-screen text for PII, redact or pseudonymise before vectorisation, and optionally post-process embeddings to strip residual signals.
+テキストを PII について事前に選別して、ベクトル化の前に編集または仮名化し、残留信号を除去するためにオプションでエンベディングを後処理します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.2.1** | **Verify that** PII and regulated data are detected via automated classifiers and masked, tokenised, or dropped pre-embedding. | 1 | D/V |
-| **8.2.2** | **Verify that** embedding pipelines reject or quarantine inputs containing executable code or non-UTF-8 artifacts that could poison the index. | 1 | D |
-| **8.2.3** | **Verify that** local or metric differential-privacy sanitization is applied to sentence embeddings whose distance to any known PII token falls below a configurable threshold. | 2 | D/V |
-| **8.2.4** | **Verify that** sanitization efficacy (e.g., recall of PII redaction, semantic drift) is validated at least semi-annually against benchmark corpora. | 2 | V |
-| **8.2.5** | **Verify that** sanitization configs are version-controlled and changes undergo peer review. | 3 | D/V |
+| **8.2.1** | **検証:** PII と規制データは自動分類器を介して検出され、エンベディング前にマスク、トークン化、または削除されている。 | 1 | D/V |
+| **8.2.2** | **検証:** エンベディングパイプラインは、インデックスを汚染する可能性のある実行可能コードまたは非 UTF-8 アーティファクトを含む入力を拒否または隔離している。 | 1 | D |
+| **8.2.3** | **検証:** ローカルまたはメトリックの差分プライバシーサニタイゼーションは、既知の PII トークンとの距離が設定可能な閾値を下回る文のエンベディングに適用されている。 | 2 | D/V |
+| **8.2.4** | **検証:** サニタイゼーションの有効性 (PII 編集のリコール、意味的ドリフトなど) は、少なくとも半年ごとにベンチマークコーパスに対して検証されている。 | 2 | V |
+| **8.2.5** | **検証:** サニタイゼーション設定はバージョン管理されており、変更はピアレビューを受けている。 | 3 | D/V |
 
 ---
 
