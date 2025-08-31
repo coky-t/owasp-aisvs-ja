@@ -36,14 +36,14 @@
 
 ## C8.3 メモリの有効期限、失効、削除 (Memory Expiry, Revocation & Deletion)
 
-GDPR "right to be forgotten" and similar laws require timely erasure; vector stores must therefore support TTLs, hard deletes, and tomb-stoning so that revoked vectors cannot be recovered or re-indexed.
+GDPR の「忘れられる権利」や同様の法律はタイムリーな消去を求めています。したがって、ベクトルストアは、実行したベクトルが復元されたり、再インデックス付けされたりしないように、TTL、ハード削除、トゥームストーンをサポートする必要があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.3.1** | **Verify that** every vector and metadata record carries a TTL or explicit retention label honoured by automated cleanup jobs. | 1 | D/V |
-| **8.3.2** | **Verify that** user-initiated deletion requests purge vectors, metadata, cache copies, and derivative indices within 30 days. | 1 | D/V |
-| **8.3.3** | **Verify that** logical deletes are followed by cryptographic shredding of storage blocks if hardware supports it, or by key-vault key destruction. | 2 | D |
-| **8.3.4** | **Verify that** expired vectors are excluded from nearest-neighbour search results in < 500 ms after expiration. | 3 | D/V |
+| **8.3.1** | **検証:** すべてのベクトルとメタデータレコードは、自動クリーンアップジョブによって尊重される、TTL または明示的な保持ラベルを有している。 | 1 | D/V |
+| **8.3.2** | **検証:** ユーザーが開始した削除リクエストは、ベクトル、メタデータ、キャッシュコピー、派生インデックスを 30 日以内に削除している。 | 1 | D/V |
+| **8.3.3** | **検証:** 論理削除の後は、ハードウェアがサポートしている場合にはストレージブロックの暗号シュレッディング、または key-valut のキーの破棄が行われている。 | 2 | D |
+| **8.3.4** | **検証:** 期限切れのベクトルは期限切れ後の 500 ミリ秒以内に最近傍探索結果から除外されている。 | 3 | D/V |
 
 ---
 
