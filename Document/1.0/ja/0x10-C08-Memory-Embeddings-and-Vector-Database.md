@@ -49,14 +49,14 @@ GDPR の「忘れられる権利」や同様の法律はタイムリーな消去
 
 ## C8.4 エンベディングの反転とリークの防止 (Prevent Embedding Inversion & Leakage)
 
-Recent defences—noise superposition, projection networks, privacy-neuron perturbation, and application-layer encryption—can cut token-level inversion rates below 5%.
+最近の防御策 (ノイズ重ね合わせ、投影ネットワーク、プライバシーニューロン摂動、アプリケーション層暗号化) はトークンレベルの反転率を 5 ％未満に削減できます。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.4.1** | **Verify that** a formal threat model covering inversion, membership and attribute-inference attacks exists and is reviewed yearly. | 1 | V |
-| **8.4.2** | **Verify that** application-layer encryption or searchable encryption shields vectors from direct reads by infrastructure admins or cloud staff. | 2 | D/V |
-| **8.4.3** | **Verify that** defence parameters (ε for DP, noise σ, projection rank k) balance privacy ≥ 99 % token protection and utility ≤ 3 % accuracy loss. | 3 | V |
-| **8.4.4** | **Verify that** inversion-resilience metrics are part of release gates for model updates, with regression budgets defined. | 3 | D/V |
+| **8.4.1** | **検証:** 反転攻撃、メンバーシップ攻撃、属性推論攻撃をカバーするフォーマルな脅威モデルが存在しており、毎年見直されている。 | 1 | V |
+| **8.4.2** | **検証:** アプリケーション層暗号化または検索可能な暗号化は、インフラストラクチャ管理者またはクラウドスタッフによる直接読み取りから、ベクトルを保護している。 | 2 | D/V |
+| **8.4.3** | **検証:** 防御パラメータ (DP の ε、ノイズ σ、投影ランク k) はプライバシー 99 % 以上のトークン保護とユーティリティ 3 % 以下の精度損失のバランスを取っている。 | 3 | V |
+| **8.4.4** | **検証:** 反転耐性メトリクスはモデル更新のリリースゲートの一環であり、回帰予算が定義されている。 | 3 | D/V |
 
 ---
 
