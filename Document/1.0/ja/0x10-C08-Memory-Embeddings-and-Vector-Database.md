@@ -62,15 +62,15 @@ GDPR の「忘れられる権利」や同様の法律はタイムリーな消去
 
 ## C8.5 ユーザー固有メモリのスコープの強制 (Scope Enforcement for User-Specific Memory)
 
-Cross-tenant leakage remains a top RAG risk: improperly filtered similarity queries can surface another customer's private docs.
+テナント間の漏洩は依然として RAG の最大のリスクです。不適切にフィルタされた類似性クエリが別の顧客のプライベートドキュメントを表示する可能性があります。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.5.1** | **Verify that** every retrieval query is post-filtered by tenant/user ID before being passed to the LLM prompt. | 1 | D/V |
-| **8.5.2** | **Verify that** collection names or namespaced IDs are salted per user or tenant so vectors cannot collide across scopes. | 1 | D |
-| **8.5.3** | **Verify that** similarity results above a configurable distance threshold but outside the caller's scope are discarded and trigger security alerts. | 2 | D/V |
-| **8.5.4** | **Verify that** multi-tenant stress tests simulate adversarial queries attempting to retrieve out-of-scope documents and demonstrate zero leakage. | 2 | V |
-| **8.5.5** | **Verify that** encryption keys are segregated per tenant, ensuring cryptographic isolation even if physical storage is shared. | 3 | D/V |
+| **8.5.1** | **検証:** すべての取得クエリは、LLM プロンプトに渡される前に、テナント/ユーザー ID によって事後フィルタされている。 | 1 | D/V |
+| **8.5.2** | **検証:** コレクション名または名前空間 ID はユーザーまたはテナントごとにソルト化されているため、ベクトルはスコープ間で衝突できない。 | 1 | D |
+| **8.5.3** | **検証:** 類似性結果は、設定可能な距離閾値を超えていて、呼び出し元のスコープ外にあると、破棄されており、セキュリティアラートをトリガーしている。 | 2 | D/V |
+| **8.5.4** | **検証:** マルチテナントストレステストは、スコープ外のドキュメントを取得しようとする敵対的クエリをシミュレートしており、漏洩がゼロであることを示している。 | 2 | V |
+| **8.5.5** | **検証:** 暗号鍵はテナントごとに分離されており、物理ストレージが共有されている場合でも暗号論的分離を確保している。 | 3 | D/V |
 
 ---
 
