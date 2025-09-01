@@ -76,15 +76,15 @@ GDPR の「忘れられる権利」や同様の法律はタイムリーな消去
 
 ## C8.6 高度なメモリシステムセキュリティ (Advanced Memory System Security)
 
-Security controls for sophisticated memory architectures including episodic, semantic, and working memory with specific isolation and validation requirements.
+特定の分離およびバリデーション要件を備えたエピソードメモリ、セマンティックメモリ、ワーキングメモリなどの高度なメモリアーキテクチャのためのセキュリティコントロールです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.6.1** | **Verify that** different memory types (episodic, semantic, working) have isolated security contexts with role-based access controls, separate encryption keys, and documented access patterns for each memory type. | 1 | D/V |
-| **8.6.2** | **Verify that** memory consolidation processes include security validation to prevent injection of malicious memories through content sanitization, source verification, and integrity checks before storage. | 2 | D/V |
-| **8.6.3** | **Verify that** memory retrieval queries are validated and sanitized to prevent extraction of unauthorized information through query pattern analysis, access control enforcement, and result filtering. | 2 | D/V |
-| **8.6.4** | **Verify that** memory forgetting mechanisms securely delete sensitive information with cryptographic erasure guarantees using key deletion, multi-pass overwriting, or hardware-based secure deletion with verification certificates. | 3 | D/V |
-| **8.6.5** | **Verify that** memory system integrity is continuously monitored for unauthorized modifications or corruption through checksums, audit logs, and automated alerts when memory content changes outside normal operations. | 3 | D/V |
+| **8.6.1** | **検証:** さまざまなメモリタイプ (エピソード、セマンティック、ワーキング) は、ロールベースのアクセス制御、個別の暗号鍵、各メモリごとに文書化されたアクセスパターンを備えた、分離されたセキュリティコンテキストを有している。 | 1 | D/V |
+| **8.6.2** | **検証:** メモリ統合プロセスは、コンテキストサニタイゼーション、ソース検証、保存前の完全性チェックを通じた、悪意のあるメモリの挿入を防ぐためのセキュリティバリデーションを含んでいる。 | 2 | D/V |
+| **8.6.3** | **検証:** メモリ取得クエリは、クエリパターン分析、アクセス制御適用、結果フィルタリングを通じて、不正な情報の抽出を防ぐために、検証およびサニタイズされている。 | 2 | D/V |
+| **8.6.4** | **検証:** メモリ忘却メカニズムは、鍵の削除を使用する暗号化による消去保証、マルチパスの上書き、または検証証明書を用いたハードウェアベースの安全な削除で、機密情報を安全に削除している。 | 3 | D/V |
+| **8.6.5** | **検証:** メモリシステムの完全性は、チェックサム、監査ログ、メモリの内容が通常操作外で変更した場合の自動アラートを通じて、不正な改変や破損について継続的に監視されている。 | 3 | D/V |
 
 ---
 
