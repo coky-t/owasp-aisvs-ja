@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Ensure that autonomous or multi-agent AI systems can **only** execute actions that are explicitly intended, authenticated, auditable, and within bounded cost and risk thresholds. This protects against threats such as Autonomous-System Compromise, Tool Misuse, Agent Loop Detection, Communication Hijacking, Identity Spoofing, Swarm Manipulation, and Intent Manipulation.
+自律型またはマルチエージェント型の AI システムが、明示的に意図され、認証され、監査可能であり、コストとリスクの閾値の境界内でのアクション **のみ** を実行できるようにします。これは、自律システムの侵害、ツールの不正使用、エージェントループの検出、通信のハイジャック、アイデンティティのなりすまし、スウォーム操作、インテント操作などの脅威から保護します。
 
 ---
 
