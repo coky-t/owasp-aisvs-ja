@@ -8,16 +8,16 @@
 
 ## 9.1 エージェントのタスク計画と再帰予算 (Agent Task-Planning & Recursion Budgets)
 
-Throttle recursive plans and force human checkpoints for privileged actions.
+再帰計画を抑制し、特権アクションに対して人間によるチェックポイントを強制します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.1.1** | **Verify that** maximum recursion depth, breadth, wall-clock time, tokens, and monetary cost per agent execution are centrally configured and version-controlled. | 1 | D/V |
-| **9.1.2** | **Verify that** privileged or irreversible actions (e.g., code commits, financial transfers) require explicit human approval via an auditable channel before execution. | 1 | D/V |
-| **9.1.3** | **Verify that** real-time resource monitors trigger circuit-breaker interruption when any budget threshold is exceeded, halting further task expansion. | 2 | D |
-| **9.1.4** | **Verify that** circuit-breaker events are logged with agent ID, triggering condition, and captured plan state for forensic review. | 2 | D/V |
-| **9.1.5** | **Verify that** security tests cover budget-exhaustion and runaway-plan scenarios, confirming safe halting without data loss. | 3 | V |
-| **9.1.6** | **Verify that** budget policies are expressed as policy-as-code and enforced in CI/CD to block configuration drift. | 3 | D |
+| **9.1.1** | **検証:** エージェント実行あたりの最大再帰深度、幅、経過実時間、トークン、金銭コストは集中的に構成され、バージョン管理されている。 | 1 | D/V |
+| **9.1.2** | **検証:** 特権アクションや取り消し不可能なアクション (コードコミット、送金など) は、実行前に、監査可能なチャネルを介して人間による明示的な承認を必要としている。 | 1 | D/V |
+| **9.1.3** | **検証:** リアルタイムリソースモニターは予算閾値を超えるとサーキットブレーカー不通をトリガーし、それ以上のタスク拡張を停止している。 | 2 | D |
+| **9.1.4** | **検証:** サーキットブレーカーイベントは、フォレンジックレビューのために、エージェント ID、トリガー条件、キャプチャされた計画の状態とともにログ記録されている。 | 2 | D/V |
+| **9.1.5** | **検証:** セキュリティテストは予算枯渇や暴走計画のシナリオをカバーし、データ損失のない安全な停止を確認している。 | 3 | V |
+| **9.1.6** | **検証:** 予算ポリシーは Policy as Code として表現されており、構成ドリフトをブロックするために CI/CD に適用されている。 | 3 | D |
 
 ---
 
