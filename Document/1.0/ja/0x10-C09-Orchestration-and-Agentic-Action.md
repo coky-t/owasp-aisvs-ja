@@ -23,16 +23,16 @@
 
 ## 9.2 ツールプラグインのサンドボックス化 (Tool Plugin Sandboxing)
 
-Isolate tool interactions to prevent unauthorized system access or code execution.
+ツールのインタラクションを分離して、不正なシステムアクセスやコード実行を防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.2.1** | **Verify that** every tool/plugin executes inside an OS, container, or WASM-level sandbox with least-privilege file-system, network, and system-call policies. | 1 | D/V |
-| **9.2.2** | **Verify that** sandbox resource quotas (CPU, memory, disk, network egress) and execution timeouts are enforced and logged. | 1 | D/V |
-| **9.2.3** | **Verify that** tool binaries or descriptors are digitally signed; signatures are validated before loading. | 2 | D/V |
-| **9.2.4** | **Verify that** sandbox telemetry streams to a SIEM; anomalies (e.g., attempted outbound connections) raise alerts. | 2 | V |
-| **9.2.5** | **Verify that** high-risk plugins undergo security review and penetration testing before production deployment. | 3 | V |
-| **9.2.6** | **Verify that** sandbox escape attempts are automatically blocked and the offending plugin is quarantined pending investigation. | 3 | D/V |
+| **9.2.1** | **検証:** すべてのツール/プラグインは、最小権限のファイルシステム、ネットワーク、システムコールポリシーを備えた、OS、コンテナ、または WASM レベルのサンドボックス内で実行している。 | 1 | D/V |
+| **9.2.2** | **検証:** サンドボックスのリソースクォータ (CPU、メモリ、ディスク、ネットワーク送出 (egress)) と実行タイムアウトが適用され、ログ記録されている。 | 1 | D/V |
+| **9.2.3** | **検証:** ツールのバイナリまたは記述子はデジタル署名されており、署名はロード前に検証されている。 | 2 | D/V |
+| **9.2.4** | **検証:** サンドボックステレメトリは SIEM に配信しており、異常 (送信接続の試行など) はアラートを発している。 | 2 | V |
+| **9.2.5** | **検証:** 高リスクのプラグインは、本番デプロイメント前に、セキュリティレビューとペネトレーションテストを受けている。 | 3 | V |
+| **9.2.6** | **検証:** サンドボックス脱出の試行は自動的にブロックされており、問題のあるプラグインは調査中隔離されている。 | 3 | D/V |
 
 ---
 
