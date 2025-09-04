@@ -38,15 +38,15 @@
 
 ## 9.3 自律ループとコスト制限 (Autonomous Loop & Cost Bounding)
 
-Detect and stop uncontrolled agent-to-agent recursion and cost explosions.
+制御されていないエージェント間の再帰とコストの爆発を検出して停止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.3.1** | **Verify that** inter-agent calls include a hop-limit or TTL that the runtime decrements and enforces. | 1 | D/V |
-| **9.3.2** | **Verify that** agents maintain a unique invocation-graph ID to spot self-invocation or cyclical patterns. | 2 | D |
-| **9.3.3** | **Verify that** cumulative compute-unit and spend counters are tracked per request chain; breaching the limit aborts the chain. | 2 | D/V |
-| **9.3.4** | **Verify that** formal analysis or model checking demonstrates absence of unbounded recursion in agent protocols. | 3 | V |
-| **9.3.5** | **Verify that** loop-abort events generate alerts and feed continuous-improvement metrics. | 3 | D |
+| **9.3.1** | **検証:** エージェント間呼び出しは、ランタイムが減少と強制する、ホップ制限または TTL を含んでいる。 | 1 | D/V |
+| **9.3.2** | **検証:** エージェントは、自己呼び出しや周期的なパターンを見つけるために、一意の呼び出しグラフ ID を維持している。 | 2 | D |
+| **9.3.3** | **検証:** 累積計算ユニットと支出カウンタはリクエストチェーンごとに追跡されており、制限を超えるとチェーンを中止している。 | 2 | D/V |
+| **9.3.4** | **検証:** 形式解析またはモデル検査はエージェントプロトコルに無制限の再帰がないことを論証している。 | 3 | V |
+| **9.3.5** | **検証:** ループ中止イベントはアラートを生成し、継続的な改善メトリクスをフィードしている。 | 3 | D |
 
 ---
 
