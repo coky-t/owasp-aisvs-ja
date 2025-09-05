@@ -52,15 +52,15 @@
 
 ## 9.4 プロトコルレベルの不正使用防止 (Protocol-Level Misuse Protection)
 
-Secure communication channels between agents and external systems to prevent hijacking or manipulation.
+エージェントと外部システム間の通信チャネルを保護し、ハイジャックや操作を防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.4.1** | **Verify that** all agent-to-tool and agent-to-agent messages are authenticated (e.g., mutual TLS or JWT) and end-to-end encrypted. | 1 | D/V |
-| **9.4.2** | **Verify that** schemas are strictly validated; unknown fields or malformed messages are rejected. | 1 | D |
-| **9.4.3** | **Verify that** integrity checks (MACs or digital signatures) cover the entire message payload including tool parameters. | 2 | D/V |
-| **9.4.4** | **Verify that** replay-protection (nonces or timestamp windows) is enforced at the protocol layer. | 2 | D |
-| **9.4.5** | **Verify that** protocol implementations undergo fuzzing and static analysis for injection or deserialization flaws. | 3 | V |
+| **9.4.1** | **検証:** すべてのエージェントとツールの間およびエージェント間のメッセージは認証 (相互 TLS や JWT など) されており、エンドツーエンドで暗号化されている。 | 1 | D/V |
+| **9.4.2** | **検証:** スキーマは厳密に検証されており、不明なフィールドや不正なメッセージは拒否されている。 | 1 | D |
+| **9.4.3** | **検証:** 完全性チェック (MAC またはデジタル署名) は、ツールパラメータを含む、メッセージペイロード全体をカバーしている。 | 2 | D/V |
+| **9.4.4** | **検証:** リプレイ保護 (ノンスまたはタイムスタンプウィンドウ) はプロトコル層で適用されている。 | 2 | D |
+| **9.4.5** | **検証:** プロトコル実装は、インジェクションやデシリアライゼーションの欠陥について、ファジングと静的解析を受けている。 | 3 | V |
 
 ---
 
