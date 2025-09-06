@@ -92,14 +92,14 @@
 
 ## 9.7 ユーザーとツールの認証/認可 (User & Tool Authentication / Authorization)
 
-Implement robust access controls for every agent-triggered action.
+エージェントによってトリガーされるすべてのアクションに対して堅牢なアクセス制御を実装します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.7.1** | **Verify that** agents authenticate as first-class principals to downstream systems, never reusing end-user credentials. | 1 | D/V |
-| **9.7.2** | **Verify that** fine-grained authorization policies restrict which tools an agent may invoke and which parameters it may supply. | 2 | D |
-| **9.7.3** | **Verify that** privilege checks are re-evaluated on every call (continuous authorization), not only at session start. | 2 | V |
-| **9.7.4** | **Verify that** delegated privileges expire automatically and require re-consent after timeout or scope change. | 3 | D |
+| **9.7.1** | **検証:** エージェントはダウンストリームのシステムに対してファーストクラスのプリンシパルとして認証しており、決してエンドユーザークレデンシャルを再使用していない。 | 1 | D/V |
+| **9.7.2** | **検証:** きめ細かい認可ポリシーは、エージェントが呼び出せるツールと提供できるパラメータを制限している。 | 2 | D |
+| **9.7.3** | **検証:** 権限チェックは、セッション開始時だけでなく、呼び出しごとに再評価 (継続的な認可) されている。 | 2 | V |
+| **9.7.4** | **検証:** 委譲された権限は自動的に期限切れとなり、タイムアウトまたはスコープ変更の後に再度の同意を必要としている。 | 3 | D |
 
 ---
 
