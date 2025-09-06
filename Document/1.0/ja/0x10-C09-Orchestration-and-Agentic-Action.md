@@ -80,13 +80,13 @@
 
 ## 9.6 マルチエージェント群のリスク軽減 (Multi-Agent Swarm Risk Reduction)
 
-Mitigate collective-behavior hazards through isolation and formal safety modeling.
+隔離とフォーマルな安全性モデリングを通じて集団行動の危険性を緩和します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.6.1** | **Verify that** agents operating in different security domains execute in isolated runtime sandboxes or network segments. | 1 | D/V |
-| **9.6.2** | **Verify that** swarm behaviors are modeled and formally verified for liveness and safety before deployment. | 3 | V |
-| **9.6.3** | **Verify that** runtime monitors detect emergent unsafe patterns (e.g., oscillations, deadlocks) and initiate corrective action. | 3 | D |
+| **9.6.1** | **検証:** 異なるセキュリティドメインで動作するエージェントは、分離されたランタイムサンドボックスまたはネットワークセグメントで実行している。 | 1 | D/V |
+| **9.6.2** | **検証:** 群集の行動はモデル化されており、デプロイメント前に生存性と安全性についてフォーマルに検証されている。 | 3 | V |
+| **9.6.3** | **検証:** ランタイム監視は、発生する安全でないパターン (オシレーション、デッドロックなど) を検出し、矯正アクションを開始している。 | 3 | D |
 
 ---
 
