@@ -66,15 +66,15 @@
 
 ## 9.5 エージェントアイデンティティと改竄防止 (Agent Identity & Tamper-Evidence)
 
-Ensure actions are attributable and modifications detectable.
+アクションが帰属可能であり、変更が検出可能であることを確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.5.1** | **Verify that** each agent instance possesses a unique cryptographic identity (key-pair or hardware-rooted credential). | 1 | D/V |
-| **9.5.2** | **Verify that** all agent actions are signed and timestamped; logs include the signature for non-repudiation. | 2 | D/V |
-| **9.5.3** | **Verify that** tamper-evident logs are stored in an append-only or write-once medium. | 2 | V |
-| **9.5.4** | **Verify that** identity keys rotate on a defined schedule and on compromise indicators. | 3 | D |
-| **9.5.5** | **Verify that** spoofing or key-conflict attempts trigger immediate quarantine of the affected agent. | 3 | D/V |
+| **9.5.1** | **検証:** 各エージェントインスタンスは一意の暗号アイデンティティ (鍵ペアまたはハードウェアルートのクレデンシャル) を保持している。 | 1 | D/V |
+| **9.5.2** | **検証:** すべてのエージェントアクションは署名され、タイムスタンプ付けされている。ログは否認防止のための署名を含んでいる。 | 2 | D/V |
+| **9.5.3** | **検証:** 改善防止ログは追記専用または一回のみ書き込み可能なメディアに保存されている。 | 2 | V |
+| **9.5.4** | **検証:** アイデンティティキーは定義されたスケジュールと侵害インジケータで入れ替えられている。 | 3 | D |
+| **9.5.5** | **検証:** なりすましまたはキー競合は影響を受けるエージェントの即時隔離をトリガーしている。 | 3 | D/V |
 
 ---
 
