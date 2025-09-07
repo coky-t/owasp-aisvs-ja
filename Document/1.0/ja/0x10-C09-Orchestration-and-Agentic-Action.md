@@ -149,15 +149,15 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 ## 9.11 エージェントライフサイクル状態管理とセキュリティ (Agent Lifecycle State Management & Security)
 
-Secure agent initialization, state transitions, and termination with cryptographic audit trails and defined recovery procedures.
+暗号化された監査証跡と定義されたリカバリ手順で、エージェントの初期化、状態遷移、終了を保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.11.1** | **Verify that** agent initialization includes cryptographic identity establishment with hardware-backed credentials and immutable startup audit logs containing agent ID, timestamp, configuration hash, and initialization parameters. | 1 | D/V |
-| **9.11.2** | **Verify that** agent state transitions are cryptographically signed, timestamped, and logged with complete context including triggering events, previous state hash, new state hash, and security validations performed. | 2 | D/V |
-| **9.11.3** | **Verify that** agent shutdown procedures include secure memory wiping using cryptographic erasure or multi-pass overwriting, credential revocation with certificate authority notification, and generation of tamper-evident termination certificates. | 2 | D/V |
-| **9.11.4** | **Verify that** agent recovery mechanisms validate state integrity using cryptographic checksums (SHA-256 minimum) and rollback to known-good states when corruption is detected with automated alerts and manual approval requirements. | 3 | D/V |
-| **9.11.5** | **Verify that** agent persistence mechanisms encrypt sensitive state data with per-agent AES-256 keys and implement secure key rotation on configurable schedules (maximum 90 days) with zero-downtime deployment. | 3 | D/V |
+| **9.11.1** | **検証:** エージェントの初期化は、ハードウェア支援のクレデンシャルでの暗号化されたアイデンティティの確立と、エージェント ID、タイムスタンプ、構成ハッシュ、初期化パラメータを含む不変の起動監査ログを含んでいる。 | 1 | D/V |
+| **9.11.2** | **検証:** エージェントの状態遷移は暗号論的に署名され、タイムスタンプ付けされ、トリガーイベント、以前の状態ハッシュ、新しい状態ハッシュ、実行されたセキュリティバリデーションなどの完全なコンテキストとともにログ記録されている。 | 2 | D/V |
+| **9.11.3** | **検証:** エージェントのシャットダウン手順は、暗号消去またはマルチパス上書きを使用した安全なメモリ消去、認証局通知でのクレデンシャルの失効、改竄防止修了証明書の生成を含んでいる。 | 2 | D/V |
+| **9.11.4** | **検証:** エージェントリカバリメカニズムは、暗号チェックサム (最低でも SHA-256) を使用して状態の完全性を検証しており、破損が検出された場合は自動アラートと手動承認要件で既知の正常な状態にロールバックしている。 | 3 | D/V |
+| **9.11.5** | **検証:** エージェント永続化メカニズムは、エージェントごとに AES-256 鍵で機密状態データを暗号化し、構成可能なスケジュール (最大 90 日) においてダウンタイムなしのデプロイメントで安全な鍵ローテーションを実装している。 | 3 | D/V |
 
 ---
 
