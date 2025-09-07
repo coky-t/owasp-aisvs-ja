@@ -80,12 +80,12 @@
 
 ## 9.6 マルチエージェント群のリスク軽減 (Multi-Agent Swarm Risk Reduction)
 
-隔離とフォーマルな安全性モデリングを通じて集団行動の危険性を緩和します。
+隔離と形式安全性モデリングを通じて集団行動の危険性を緩和します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **9.6.1** | **検証:** 異なるセキュリティドメインで動作するエージェントは、分離されたランタイムサンドボックスまたはネットワークセグメントで実行している。 | 1 | D/V |
-| **9.6.2** | **検証:** 群集の行動はモデル化されており、デプロイメント前に生存性と安全性についてフォーマルに検証されている。 | 3 | V |
+| **9.6.2** | **検証:** 群集の行動はモデル化されており、デプロイメント前に生存性と安全性について形式検証されている。 | 3 | V |
 | **9.6.3** | **検証:** ランタイム監視は、発生する安全でないパターン (オシレーション、デッドロックなど) を検出し、矯正アクションを開始している。 | 3 | D |
 
 ---
@@ -105,14 +105,14 @@
 
 ## 9.8 エージェント間通信セキュリティ (Agent-to-Agent Communication Security)
 
-Encrypt and integrity-protect all inter-agent messages to thwart eavesdropping and tampering.
+すべてのエージェント間メッセージを暗号化して完全性を保護し、盗聴や改竄を阻止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.8.1** | **Verify that** mutual authentication and perfect-forward-secret encryption (e.g. TLS 1.3) are mandatory for agent channels. | 1 | D/V |
-| **9.8.2** | **Verify that** message integrity and origin are validated before processing; failures raise alerts and drop the message. | 1 | D |
-| **9.8.3** | **Verify that** communication metadata (timestamps, sequence numbers) is logged to support forensic reconstruction. | 2 | D/V |
-| **9.8.4** | **Verify that** formal verification or model checking confirms that protocol state machines cannot be driven into unsafe states. | 3 | V |
+| **9.8.1** | **検証:** 相互認証と完全前方秘匿性 (perfect-forward-secret) 暗号化 (TLS 1.3) はエージェントチャネルで必須としている。 | 1 | D/V |
+| **9.8.2** | **検証:** メッセージの完全性と発信元は処理前に検証されており、失敗はアラートを発し、メッセージを取り下げている。 | 1 | D |
+| **9.8.3** | **検証:** 通信メタデータ (タイムスタンプ、シーケンス番号) は、フォレンジック再構築をサポートするために、ログ記録されている。 | 2 | D/V |
+| **9.8.4** | **検証:** 形式検証またはモデル検査は、プロトコル状態マシンが安全でない状態に陥らないことを確認している。 | 3 | V |
 
 ---
 
