@@ -132,18 +132,18 @@
 
 ## 9.10 エージェント推論戦略セキュリティ (Agent Reasoning Strategy Security)
 
-Secure selection and execution of different reasoning strategies including ReAct, Chain-of-Thought, and Tree-of-Thoughts approaches.
+ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざまな推論戦略の選択と実行を保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.10.1** | **Verify that** reasoning strategy selection uses deterministic criteria (input complexity, task type, security context) and identical inputs produce identical strategy selections within the same security context. | 1 | D/V |
-| **9.10.2** | **Verify that** each reasoning strategy (ReAct, Chain-of-Thought, Tree-of-Thoughts) has dedicated input validation, output sanitization, and execution time limits specific to its cognitive approach. | 1 | D/V |
-| **9.10.3** | **Verify that** reasoning strategy transitions are logged with complete context including input characteristics, selection criteria values, and execution metadata for audit trail reconstruction. | 2 | D/V |
-| **9.10.4** | **Verify that** Tree-of-Thoughts reasoning includes branch pruning mechanisms that terminate exploration when policy violations, resource limits, or safety boundaries are detected. | 2 | D/V |
-| **9.10.5** | **Verify that** ReAct (Reason-Act-Observe) cycles include validation checkpoints at each phase: reasoning step verification, action authorization, and observation sanitization before proceeding. | 2 | D/V |
-| **9.10.6** | **Verify that** reasoning strategy performance metrics (execution time, resource usage, output quality) are monitored with automated alerts when metrics deviate beyond configured thresholds. | 3 | D/V |
-| **9.10.7** | **Verify that** hybrid reasoning approaches that combine multiple strategies maintain input validation and output constraints of all constituent strategies without bypassing any security controls. | 3 | D/V |
-| **9.10.8** | **Verify that** reasoning strategy security testing includes fuzzing with malformed inputs, adversarial prompts designed to force strategy switching, and boundary condition testing for each cognitive approach. | 3 | D/V |
+| **9.10.1** | **検証:** 推論戦略の選択は決定論的基準 (入力の複雑さ、タスクの種類、セキュリティコンテキスト) を使用しており、同一の入力は同じセキュリティコンテキスト内では同一の戦略選択を生成している。 | 1 | D/V |
+| **9.10.2** | **検証:** 各推論戦略 (ReAct, Chain-of-Thought, Tree-of-Thoughts) はその認知アプローチに固有の専用の入力バリデーション、出力サニタイゼーション、実行時間制限を有している。 | 1 | D/V |
+| **9.10.3** | **検証:** 推論戦略の遷移は、監査証跡の再構築のために、入力特性、選択基準値、実行メタデータなどの完全なコンテキストとともにログ記録されている。 | 2 | D/V |
+| **9.10.4** | **検証:** Tree-of-Thoughts 推論は、ポリシー違反、リソース制限、安全境界が検出された際に、探索を終了するブランチプルーニングメカニズムを含んでいる。 | 2 | D/V |
+| **9.10.5** | **検証:** ReAct (Reason-Act-Observe) サイクルは、推論ステップのバリデーション、アクションの認可、続行前の観察のサニタイゼーションといった、各フェーズでのバリデーションチェックポイントを含んでいる。 | 2 | D/V |
+| **9.10.6** | **検証:** 推論戦略のパフォーマンスメトリクス (実行時間、リソース使用量、出力品質) は監視されており、設定された閾値をメトリクスが逸脱する場合に自動的にアラートしている。 | 3 | D/V |
+| **9.10.7** | **検証:** 複数の戦略を組み合わせたハイブリッド推論アプローチは、セキュリティコントロールをバイパスすることなく、すべての構成戦略の入力バリデーションと出力制約を維持している。 | 3 | D/V |
+| **9.10.8** | **検証:** 推論戦略のセキュリティテストは、不正な入力でのファジング、戦略の切り替えを強制するように設計された敵対的プロンプト、各認知アプローチの境界条件テストを含んでいる。 | 3 | D/V |
 
 ---
 
