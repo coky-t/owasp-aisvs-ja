@@ -163,15 +163,15 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 ## 9.12 ツール統合セキュリティフレームワーク (Tool Integration Security Framework)
 
-Security controls for dynamic tool loading, execution, and result validation with defined risk assessment and approval processes.
+定義されたリスク評価と承認プロセスでの動的ツールローディング、実行、結果のバリデーションのためのセキュリティコントロールです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.12.1** | **Verify that** tool descriptors include security metadata specifying required privileges (read/write/execute), risk levels (low/medium/high), resource limits (CPU, memory, network), and validation requirements documented in tool manifests. | 1 | D/V |
-| **9.12.2** | **Verify that** tool execution results are validated against expected schemas (JSON Schema, XML Schema) and security policies (output sanitization, data classification) before integration with timeout limits and error handling procedures. | 1 | D/V |
-| **9.12.3** | **Verify that** tool interaction logs include detailed security context including privilege usage, data access patterns, execution time, resource consumption, and return codes with structured logging for SIEM integration. | 2 | D/V |
-| **9.12.4** | **Verify that** dynamic tool loading mechanisms validate digital signatures using PKI infrastructure and implement secure loading protocols with sandbox isolation and permission verification before execution. | 2 | D/V |
-| **9.12.5** | **Verify that** tool security assessments are automatically triggered for new versions with mandatory approval gates including static analysis, dynamic testing, and security team review with documented approval criteria and SLA requirements. | 3 | D/V |
+| **9.12.1** | **検証:** ツール記述子は、必要な権限 (読み取り/書き込み/実行)、リスクレベル (低/中/高)、 リソース制限 (CPU、メモリ、ネットワーク)、ツールマニフェストに記載されたバリデーション要件を指定するセキュリティメタデータを含んでいる。 | 1 | D/V |
+| **9.12.2** | **検証:** ツール実行結果は、タイムアウト制限およびエラー処理手順との統合の前に、期待されるスキーマ (JSON スキーマ、XML スキーマ) およびセキュリティポリシー (出力サニタイゼーション、データ分類) に対して検証されている。 | 1 | D/V |
+| **9.12.3** | **検証:** ツールインタラクションログは、SIEM 統合のための構造化ログで、権限の使用状況、データアクセスパターン、実行時間、リソース消費量、戻りコードなどの詳細なセキュリティコンテキストを含んでいる。 | 2 | D/V |
+| **9.12.4** | **検証:** 動的ツールローディングメカニズムは PKI インフラストラクチャを使用してデジタル署名を検証し、実行前にサンドボックス分離とパーミッション検証で安全なローディングプロトコルを実装している。 | 2 | D/V |
+| **9.12.5** | **検証:** ツールのセキュリティ評価は、静的解析、動的テスト、文書化された承認基準と SLA 要件でのセキュリティチームレビューなどの必須の承認ゲートで、新しいバージョンに対して自動的にトリガーされている。 | 3 | D/V |
 
 ---
 
