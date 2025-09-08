@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Ensure that AI models remain reliable, privacy-preserving, and abuse-resistant when facing evasion, inference, extraction, or poisoning attacks.
+回避、推論、抽出、またはポイズニング攻撃に直面した場合でも、AI モデルが信頼性、プライバシー保護、不正使用耐性を維持することを確保します。
 
 ---
 
@@ -20,7 +20,7 @@ Guard against harmful or policy-breaking outputs.
 
 ---
 
-## 10.2 敵対的例示の堅牢化 (Adversarial-Example Hardening)
+## 10.2 敵対的サンプルの堅牢化 (Adversarial-Example Hardening)
 
 Increase resilience to manipulated inputs. Robust adversarial-training and benchmark scoring are the current best practice.
 
