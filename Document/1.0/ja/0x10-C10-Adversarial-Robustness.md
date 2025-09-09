@@ -47,13 +47,13 @@
 
 ## 10.4 モデル反転の耐性 (Model-Inversion Resistance)
 
-Prevent reconstruction of private attributes. Recent surveys emphasize output truncation and DP guarantees as practical defenses.
+プライベート属性の再構築を防止します。最近の調査では出力の切り捨てと DP 保証を実用的な防御策として重視しています。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.4.1** | **Verify that** sensitive attributes are never directly output; where needed, use buckets or one-way transforms. | 1 | D |
-| **10.4.2** | **Verify that** query-rate limits throttle repeated adaptive queries from the same principal. | 1 | D/V |
-| **10.4.3** | **Verify that** the model is trained with privacy-preserving noise. | 2 | D |
+| **10.4.1** | **検証:** 機密属性は決して直接出力されることがない。必要な場合は、バケットまたは一方向変換を使用している。 | 1 | D |
+| **10.4.2** | **検証:** クエリレート制限は同じプリンシパルからの繰り返しの適応型クエリを抑制している。 | 1 | D/V |
+| **10.4.3** | **検証:** モデルはプライバシーを保護するノイズを用いて訓練されている。 | 2 | D |
 
 ---
 
