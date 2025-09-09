@@ -8,15 +8,15 @@
 
 ## 10.1 モデルの整合と安全性 (Model Alignment & Safety)
 
-Guard against harmful or policy-breaking outputs.
+有害な出力やポリシー違反の出力をガードします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.1.1** | **Verify that** an alignment test-suite (red-team prompts, jailbreak probes, disallowed content) is version-controlled and run on every model release. | 1 | D/V |
-| **10.1.2** | **Verify that** refusal and safe-completion guard-rails are enforced. | 1 | D |
-| **10.1.3** | **Verify that** an automated evaluator measures harmful-content rate and flags regressions beyond a set threshold. | 2 | D/V |
-| **10.1.4** | **Verify that** counter-jailbreak training is documented and reproducible. | 2 | D |
-| **10.1.5** | **Verify that** formal policy-compliance proofs or certified monitoring cover critical domains. | 3 | V |
+| **10.1.1** | **検証:** アライメントテストスイート (レッドチームプロンプト、ジェイルブレイクプローブ、許可されていないコンテンツ) はバージョン管理されており、すべてのモデルリリースで実行している。 | 1 | D/V |
+| **10.1.2** | **検証:** 拒否と安全な完了のガードレールは実施されている。 | 1 | D |
+| **10.1.3** | **検証:** 自動評価器は有害コンテンツ率を測定し、設定した閾値を超える回帰にフラグ付けしている。 | 2 | D/V |
+| **10.1.4** | **検証:** ジェイルブレイク対策トレーニングは文書化されており、再現可能である。 | 2 | D |
+| **10.1.5** | **検証:** 形式ポリシーコンプライアンス証明または認定モニタリングは重要なドメインをカバーしている。 | 3 | V |
 
 ---
 
