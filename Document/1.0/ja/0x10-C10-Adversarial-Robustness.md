@@ -22,14 +22,14 @@
 
 ## 10.2 敵対的サンプルの堅牢化 (Adversarial-Example Hardening)
 
-Increase resilience to manipulated inputs. Robust adversarial-training and benchmark scoring are the current best practice.
+操作された入力に対する耐性を高めます。堅牢な敵対的トレーニングとベンチマークスコアリングが現在のベストプラクティスです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.2.1** | **Verify that** project repositories include adversarial-training configurations with reproducible seeds. | 1 | D |
-| **10.2.2** | **Verify that** adversarial-example detection raises blocking alerts in production pipelines. | 2 | D/V |
-| **10.2.4** | **Verify that** certified‐robustness proofs or interval-bound certificates cover at least the top critical classes. | 3 | V |
-| **10.2.5** | **Verify that** regression tests use adaptive attacks to confirm no measurable robustness loss. | 3 | V |
+| **10.2.1** | **検証:** プロジェクトリポジトリは、再現可能なシードでの敵対的トレーニング構成を含んでいる。 | 1 | D |
+| **10.2.2** | **検証:** 敵対的サンプル検出は本番パイプラインでブロックアラートを発している。 | 2 | D/V |
+| **10.2.4** | **検証:** 認定された堅牢性の証明または区間境界証明書は少なくとも最上位の重要なクラスをカバーしている。 | 3 | V |
+| **10.2.5** | **検証:** 回帰テストは、測定可能な堅牢性の損失がないことを確認するために、適応型攻撃を使用している。 | 3 | V |
 
 ---
 
