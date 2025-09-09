@@ -35,13 +35,13 @@
 
 ## 10.3 メンバーシップ推論の緩和 (Membership-Inference Mitigation)
 
-Limit the ability to decide whether a record was in training data. Differential privacy and confidence-score masking remain the most effective known defenses.
+レコードがトレーニングデータにあるかどうかを判断する能力を制限します。差分プライバシーと信頼スコアマスキングは依然として最も効果的な既知の防御策です。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.3.1** | **Verify that** per-query entropy regularisation or temperature-scaling reduces overconfident predictions. | 1 | D |
-| **10.3.2** | **Verify that** training employs ε-bounded differentially-private optimization for sensitive datasets. | 2 | D |
-| **10.3.3** | **Verify that** attack simulations (shadow-model or black-box) show attack AUC ≤ 0.60 on held-out data. | 2 | V |
+| **10.3.1** | **検証:** クエリごとのエントロピー正則化または温度スケーリングは過信した予測を削減している。 | 1 | D |
+| **10.3.2** | **検証:** トレーニングは機密データセットに対して ε 境界の差分プライベート最適化を採用している。 | 2 | D |
+| **10.3.3** | **検証:** 攻撃シミュレーション (シャドウモデルまたはブラックボックス) はホールドアウトデータに対して攻撃 AUC ≤ 0.60 を示している。 | 2 | V |
 
 ---
 
