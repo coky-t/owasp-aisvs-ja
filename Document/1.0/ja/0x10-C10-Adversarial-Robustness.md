@@ -59,15 +59,15 @@
 
 ## 10.5 モデル抽出の防御 (Model-Extraction Defense)
 
-Detect and deter unauthorized cloning. Watermarking and query-pattern analysis are recommended.
+不正なクローニングを検出して阻止します。透かし入れとクエリパターン解析が推奨されています。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.5.1** | **Verify that** inference gateways enforce global and per-API-key rate limits tuned to the model's memorization threshold. | 1 | D |
-| **10.5.2** | **Verify that** query-entropy and input-plurality statistics feed an automated extraction detector. | 2 | D/V |
-| **10.5.3** | **Verify that** fragile or probabilistic watermarks can be proved with p < 0.01 in ≤ 1 000 queries against a suspected clone. | 2 | V |
-| **10.5.4** | **Verify that** watermark keys and trigger sets are stored in a hardware-security-module and rotated yearly. | 3 | D |
-| **10.5.5** | **Verify that** extraction-alert events include offending queries and are integrated with incident-response playbooks. | 3 | V |
+| **10.5.1** | **検証:** 推論ゲートウェイは、モデルのメモ化閾値に合わせて調整された、グローバルおよび API キーごとのレート制限を適用している。 | 1 | D |
+| **10.5.2** | **検証:** クエリエントロピーと入力の複数性の統計は自動抽出検出器に供給している。 | 2 | D/V |
+| **10.5.3** | **検証:** 脆弱な透かしや確率的な透かしは、疑わしいクローンに対して 1000 クエリ以下のクエリで p < 0.01 で証明できる。 | 2 | V |
+| **10.5.4** | **検証:** 透かしの鍵とトリガーのセットはハードウェアセキュリティモジュールに保存されており、毎年入れ替えられている。 | 3 | D |
+| **10.5.5** | **検証:** 抽出アラートイベントは問題のあるクエリを含んでおり、インシデント対応プレイブックと統合されている。 | 3 | V |
 
 ---
 
