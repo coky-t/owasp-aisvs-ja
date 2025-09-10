@@ -73,15 +73,15 @@
 
 ## 10.6 推論時の汚染データ検出 (Inference-Time Poisoned-Data Detection)
 
-Identify and neutralize backdoored or poisoned inputs.
+バックドアのある入力や汚染された入力を識別して無効化します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.6.1** | **Verify that** inputs pass through an anomaly detector (e.g., STRIP, consistency-scoring) before model inference. | 1 | D |
-| **10.6.2** | **Verify that** detector thresholds are tuned on clean/poisoned validation sets to achieve less that 5% false positives. | 1 | V |
-| **10.6.3** | **Verify that** inputs flagged as poisoned trigger soft-blocking and human review workflows. | 2 | D |
-| **10.6.4** | **Verify that** detectors are stress-tested with adaptive, triggerless backdoor attacks. | 2 | V |
-| **10.6.5** | **Verify that** detection efficacy metrics are logged and periodically re-evaluated with fresh threat intel. | 3 | D |
+| **10.6.1** | **検証:** 入力は、モデル推論前に、異常検出器 (STRIP、一貫性スコアリング) を通過している。 | 1 | D |
+| **10.6.2** | **検証:** 検出器閾値は、誤検出率 5% 未満になるように、清浄/汚染バリデーションセットを調整されている。 | 1 | V |
+| **10.6.3** | **検証:** 汚染ありとフラグ付けされた入力はソフトブロッキングと人間によるレビューワークフローをトリガーしている。 | 2 | D |
+| **10.6.4** | **検証:** 検出器は、適応型のトリガーレスバックドア攻撃で、ストレステストされている。 | 2 | V |
+| **10.6.5** | **検証:** 検出有効性メトリクスはログ記録されており、最新の脅威インテリジェンスで定期的に再評価されている。 | 3 | D |
 
 ---
 
