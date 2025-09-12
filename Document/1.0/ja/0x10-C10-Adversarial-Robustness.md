@@ -101,15 +101,15 @@
 
 ## 10.8 リフレクションベースのセキュリティ分析 (Reflection-Based Security Analysis)
 
-Security validation through agent self-reflection and meta-cognitive analysis.
+エージェントのセルフリフレクションとメタ認知分析を通じたセキュリティバリデーションです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.8.1** | **Verify that** agent reflection mechanisms include security-focused self-assessment of decisions and actions. | 1 | D/V |
-| **10.8.2** | **Verify that** reflection outputs are validated to prevent manipulation of self-assessment mechanisms by adversarial inputs. | 2 | D/V |
-| **10.8.3** | **Verify that** meta-cognitive security analysis identifies potential bias, manipulation, or compromise in agent reasoning processes. | 2 | D/V |
-| **10.8.4** | **Verify that** reflection-based security warnings trigger enhanced monitoring and potential human intervention workflows. | 3 | D/V |
-| **10.8.5** | **Verify that** continuous learning from security reflections improves threat detection without degrading legitimate functionality. | 3 | D/V |
+| **10.8.1** | **検証:** エージェントのリフレクションメカニズムは、セキュリティに重点を置いた、意思決定とアクションの自己評価を含んでいる。 | 1 | D/V |
+| **10.8.2** | **検証:** リフレクション出力は、敵対的な入力による自己評価メカニズムの操作を防ぐために、検証されている。 | 2 | D/V |
+| **10.8.3** | **検証:** メタ認知セキュリティ分析は、エージェントの推論プロセスにおける潜在的なバイアス、操作、侵害を特定している。 | 2 | D/V |
+| **10.8.4** | **検証:** リフレクションベースのセキュリティ警告は、強化された監視と潜在的な人間の介入ワークフローをトリガーしている。 | 3 | D/V |
+| **10.8.5** | **検証:** セキュリティリフレクションからの継続的な学習は、正当な機能を劣化することなく、脅威の検出を向上している。 | 3 | D/V |
 
 ---
 
