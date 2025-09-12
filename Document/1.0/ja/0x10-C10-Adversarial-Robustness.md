@@ -115,15 +115,15 @@
 
 ## 10.9 セキュリティの進化と自己改善 (Evolution & Self-Improvement Security)
 
-Security controls for agent systems capable of self-modification and evolution.
+自己修正および進化が可能なエージェントシステムのセキュリティコントロールです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.9.1** | **Verify that** self-modification capabilities are restricted to designated safe areas with formal verification boundaries. | 1 | D/V |
-| **10.9.2** | **Verify that** evolution proposals undergo security impact assessment before implementation. | 2 | D/V |
-| **10.9.3** | **Verify that** self-improvement mechanisms include rollback capabilities with integrity verification. | 2 | D/V |
-| **10.9.4** | **Verify that** meta-learning security prevents adversarial manipulation of improvement algorithms. | 3 | D/V |
-| **10.9.5** | **Verify that** recursive self-improvement is bounded by formal safety constraints with mathematical proofs of convergence. | 3 | D/V |
+| **10.9.1** | **検証:** 自己修正機能は形式検証境界で指定された安全領域に制限されている。 | 1 | D/V |
+| **10.9.2** | **検証:** 進化の提案は実施前にセキュリティ影響評価を受けている。 | 2 | D/V |
+| **10.9.3** | **検証:** 自己改善メカニズムは完全性検証を備えたロールバック機能を含んでいる。 | 2 | D/V |
+| **10.9.4** | **検証:** メタ学習セキュリティは改善アルゴリズムの敵対的操作を防いでいる。 | 3 | D/V |
+| **10.9.5** | **検証:** 再帰的な自己改善は収束の数学的証明を伴う形式安全制約によって制限されている。 | 3 | D/V |
 
 ---
 
