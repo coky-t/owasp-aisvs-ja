@@ -87,15 +87,15 @@
 
 ## 10.7 動的セキュリティポリシー適応 (Dynamic Security Policy Adaptation)
 
-Real-time security policy updates based on threat intelligence and behavioral analysis.
+脅威インテリジェンスと行動分析に基づいたリアルタイムのセキュリティポリシー更新です。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **10.7.1** | **Verify that** security policies can be updated dynamically without agent restart while maintaining policy version integrity. | 1 | D/V |
-| **10.7.2** | **Verify that** policy updates are cryptographically signed by authorized security personnel and validated before application. | 2 | D/V |
-| **10.7.3** | **Verify that** dynamic policy changes are logged with full audit trails including justification, approval chains, and rollback procedures. | 2 | D/V |
-| **10.7.4** | **Verify that** adaptive security mechanisms adjust threat detection sensitivity based on risk context and behavioral patterns. | 3 | D/V |
-| **10.7.5** | **Verify that** policy adaptation decisions are explainable and include evidence trails for security team review. | 3 | D/V |
+| **10.7.1** | **検証:** セキュリティポリシーは、ポリシーバージョンの完全性を維持しながら、エージェントを再起動せずに動的に更新できる。 | 1 | D/V |
+| **10.7.2** | **検証:** ポリシーの更新は認可されたセキュリティ担当者によって暗号署名され、適用前に検証されている。 | 2 | D/V |
+| **10.7.3** | **検証:** 動的なポリシーの変更は、正当性、承認チェーン、ロールバック手順を含む完全な監査証跡とともにログ記録されている。 | 2 | D/V |
+| **10.7.4** | **検証:** 適応型セキュリティメカニズムは、リスクの状況と行動パターンに基づいて、脅威検出の感度を調整している。 | 3 | D/V |
+| **10.7.5** | **検証:** ポリシー適応の決定は説明可能であり、セキュリティチームレビューのために証拠の証跡を含んでいる。 | 3 | D/V |
 
 ---
 
