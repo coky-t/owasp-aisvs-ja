@@ -32,9 +32,9 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.3.1** | **Verify that** privacy-loss accounting dashboards alert when cumulative ε exceeds policy thresholds. | 2 | D/V |
-| **11.3.2** | **Verify that** black-box privacy audits estimate ε̂ within 10% of declared value. | 2 | V |
-| **11.3.3** | **Verify that** formal proofs cover all post-training fine-tunes and embeddings. | 3 | V |
+| **11.3.1** | **検証:** プライバシー損失会計ダッシュボードは累積 ε がポリシー閾値を超えると警告を発している。 | 2 | D/V |
+| **11.3.2** | **検証:** ブラックボックスプライバシー監査は宣言値の 10% 以内で ε̂ を推定している。 | 2 | V |
+| **11.3.3** | **検証:** 形式証明はトレーニング後のすべてのファインチューンとエンベディングをカバーしている。 | 3 | V |
 
 ---
 
