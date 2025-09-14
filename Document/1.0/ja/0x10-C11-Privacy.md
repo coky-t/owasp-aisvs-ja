@@ -63,10 +63,10 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.6.1** | **Verify that** client updates employ local differential privacy noise addition before aggregation. | 1 | D |
-| **11.6.2** | **Verify that** training metrics are differentially private and never reveal single-client loss. | 2 | D/V |
-| **11.6.3** | **Verify that** poisoning-resistant aggregation (e.g., Krum/Trimmed-Mean) is enabled. | 2 | V |
-| **11.6.4** | **Verify that** formal proofs demonstrate overall ε budget with less than 5 utility loss. | 3 | V |
+| **11.6.1** | **検証:** クライアントの更新は集約前にローカル差分プライバシーノイズの追加を採用している。 | 1 | D |
+| **11.6.2** | **検証:** トレーニングメトリクスは差分プライベートであり、決して単一クライアントの損失を明らかにしていない。 | 2 | D/V |
+| **11.6.3** | **検証:** ポイズニング耐性集約 (Krum/Trimmed-Mean など) は有効にされている。 | 2 | V |
+| **11.6.4** | **検証:** 形式証明は全体的な ε 予算が 5 未満の効用損失であることを示している。 | 3 | V |
 
 ---
 
