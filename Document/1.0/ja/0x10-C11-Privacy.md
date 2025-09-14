@@ -42,10 +42,10 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.4.1** | **Verify that** every dataset and model checkpoint carries a machine-readable purpose tag aligned to the original consent. | 1 | D |
-| **11.4.2** | **Verify that** runtime monitors detect queries inconsistent with declared purpose and trigger soft refusal. | 1 | D/V |
-| **11.4.3** | **Verify that** policy-as-code gates block redeployment of models to new domains without DPIA review. | 3 | D |
-| **11.4.4** | **Verify that** formal traceability proofs show every personal data lifecycle remains within consented scope. | 3 | V |
+| **11.4.1** | **検証:** すべてのデータセットとモデルのチェックポイントは元の同意に沿った機械読み取り可能な目的タグを伝達している。 | 1 | D |
+| **11.4.2** | **検証:** ランタイムモニターは宣言された目的と一致しないクエリを検出し、ソフト拒否をトリガーしている。 | 1 | D/V |
+| **11.4.3** | **検証:** Policy as Code ゲートは DPIA レビューなしでの新しいドメインへのモデルのデプロイメントをブロックしている。 | 3 | D |
+| **11.4.4** | **検証:** 形式トレーサビリティ証明はすべての個人データのライフサイクルが同意された範囲内にとどまっていることを示している。 | 3 | V |
 
 ---
 
