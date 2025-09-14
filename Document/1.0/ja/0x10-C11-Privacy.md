@@ -21,10 +21,10 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.2.1** | **Verify that** data-subject deletion requests propagate to raw datasets, checkpoints, embeddings, logs, and backups within service level agreements of less than 30 days. | 1 | D/V |
-| **11.2.2** | **Verify that** "machine-unlearning" routines physically re-train or approximate removal using certified unlearning algorithms. | 2 | D |
-| **11.2.3** | **Verify that** shadow-model evaluation proves forgotten records influence less than 1% of outputs after unlearning. | 2 | V |
-| **11.2.4** | **Verify that** deletion events are immutably logged and auditable for regulators. | 3 | V
+| **11.2.1** | **検証:** データ主体の削除要求は、30 日未満のサービスレベル契約内で、未加工データセット、チェックポイント、エンベディング、ログ、バックアップに伝播している。 | 1 | D/V |
+| **11.2.2** | **検証:** 「機械学習解除 (machine-unlearning)」ルーチンは、認定された学習解除アルゴリズムを使用して、物理的に再訓練するか、削除を近似している。 | 2 | D |
+| **11.2.3** | **検証:** シャドウモデルの評価は忘れられたレコードが与える影響が学習解除後の出力の 1% 未満であることを証明している。 | 2 | V |
+| **11.2.4** | **検証:** 削除イベントは不変にログ記録されており、規制当局により監査可能である。 | 3 | V
 
 ---
 
