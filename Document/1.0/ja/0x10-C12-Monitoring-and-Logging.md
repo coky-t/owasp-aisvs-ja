@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-This section provides requirements for delivering real-time and forensic visibility into what the model and other AI components see, do, and return, so threats can be detected, triaged, and learned from.
+このセクションでは、モデルやその他の AI コンポーネントが認識、実行、返却する内容についてリアルタイムかつフォレンジックな可視性を実現し、脅威を検出、トリアージ、学習するための要件を示します。
 
 ## C12.1 リクエストとレスポンスのログ記録 (Request & Response Logging)
 
