@@ -53,9 +53,9 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.5.1** | **Verify that** a Consent-Management Platform (CMP) records opt-in status, purpose, and retention period per data-subject. | 1 | D/V |
-| **11.5.2** | **Verify that** APIs expose consent tokens; models must validate token scope before inference. | 2 | D |
-| **11.5.3** | **Verify that** denied or withdrawn consent halts processing pipelines within 24 hours. | 2 | D/V |
+| **11.5.1** | **検証:** 同意管理プラットフォーム (CMP) はデータ主体ごとにオプトインステータス、目的、保持期間を記録している。 | 1 | D/V |
+| **11.5.2** | **検証:** API は同意トークンを公開している。モデルは推論前にトークンのスコープを検証する必要がある。 | 2 | D |
+| **11.5.3** | **検証:** 拒否または撤回された同意は 24 時間以内に処理パイプラインを停止している。 | 2 | D/V |
 
 ---
 
