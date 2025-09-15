@@ -91,15 +91,15 @@ AI モデルのパフォーマンスと品質の低下を時間の経過とと�
 
 ## C12.8 プロアクティブなセキュリティ動作監視 (Proactive Security Behavior Monitoring)
 
-Detection and prevention of security threats through proactive agent behavior analysis.
+プロアクティブなエージェントの動作分析を通じてセキュリティ脅威を検出および防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.8.1** | **Verify that** proactive agent behaviors are security-validated before execution with risk assessment integration. | 1 | D/V |
-| **12.8.2** | **Verify that** autonomous initiative triggers include security context evaluation and threat landscape assessment. | 2 | D/V |
-| **12.8.3** | **Verify that** proactive behavior patterns are analyzed for potential security implications and unintended consequences. | 2 | D/V |
-| **12.8.4** | **Verify that** security-critical proactive actions require explicit approval chains with audit trails. | 3 | D/V |
-| **12.8.5** | **Verify that** behavioral anomaly detection identifies deviations in proactive agent patterns that may indicate compromise. | 3 | D/V |
+| **12.8.1** | **検証:** プロアクティブなエージェントの動作は、リスク評価の統合により実行前にセキュリティ検証されている。 | 1 | D/V |
+| **12.8.2** | **検証:** 自律的なイニチアチブトリガーはセキュリティコンテキストの評価と脅威状況の評価を含んでいる。 | 2 | D/V |
+| **12.8.3** | **検証:** プロアクティブな動作パターンは、潜在的なセキュリティ影響と意図しない結果について分析されている。 | 2 | D/V |
+| **12.8.4** | **検証:** セキュリティ上重要なプロアクティブなアクションは監査証跡を含む明示的な承認チェーンを必要としている。 | 3 | D/V |
+| **12.8.5** | **検証:** 動作異常検出は、侵害を示す可能性のあるプロアクティブなエージェントパターンの逸脱を識別している。 | 3 | D/V |
 
 ---
 
