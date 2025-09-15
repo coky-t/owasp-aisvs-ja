@@ -21,13 +21,13 @@
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.2.1** | **Verify that** the system detects and alerts on known jailbreak patterns, prompt injection attempts, and adversarial inputs using signature-based detection. | 1   | D/V |
-| **12.2.2** | **Verify that** the system integrates with existing Security Information and Event Management (SIEM) platforms using standard log formats and protocols. | 1   | D/V |
-| **12.2.3** | **Verify that** enriched security events include AI-specific context such as model identifiers, confidence scores, and safety filter decisions. | 2   | D/V |
-| **12.2.4** | **Verify that** behavioral anomaly detection identifies unusual conversation patterns, excessive retry attempts, or systematic probing behaviors. | 2   | D/V |
-| **12.2.5** | **Verify that** real-time alerting mechanisms notify security teams when potential policy violations or attack attempts are detected. | 2   | D/V |
-| **12.2.6** | **Verify that** custom rules are included to detect AI-specific threat patterns including coordinated jailbreak attempts, prompt injection campaigns, and model extraction attacks. | 2   | D/V |
-| **12.2.7** | **Verify that** automated incident response workflows can isolate compromised models, block malicious users, and escalate critical security events. | 3   | D/V |
+| **12.2.1** | **検証:** システムは、シグネチャベースの検出を使用して、既知のジェイルブレイクパターン、プロンプトインジェクションの試み、敵対的入力を検出し、警告している。 | 1 | D/V |
+| **12.2.2** | **検証:** システムは、標準のログ形式とプロトコルを使用して、既存のセキュリティ情報およびイベント管理 (SIEM) プラットフォームと統合している。 | 1 | D/V |
+| **12.2.3** | **検証:** 強化されたセキュリティイベントは、モデル識別子、信頼スコア、安全フィルタの決定などの AI 固有のコンテキストを含んでいる。 | 2 | D/V |
+| **12.2.4** | **検証:** 行動異常検出は、異常な会話パターン、過度の再試行、体系的な調査行動を識別している。 | 2 | D/V |
+| **12.2.5** | **検証:** リアルタイム警告メカニズムは、潜在的なポリシー違反や攻撃の試みが検出されると、セキュリティチームに通知している。 | 2 | D/V |
+| **12.2.6** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、モデル抽出攻撃などの AI 固有の脅威パターンを検出するために、含んでいる。 | 2 | D/V |
+| **12.2.7** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックし、重大なセキュリティイベントをエスカレートできる。 | 3 | D/V |
 
 ---
 
