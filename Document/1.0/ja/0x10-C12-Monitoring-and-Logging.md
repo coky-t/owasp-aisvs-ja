@@ -8,12 +8,12 @@
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.1.1** | **Verify that** all user prompts and model responses are logged with appropriate metadata (e.g. timestamp, user ID, session ID, model version). | 1   | D/V |
-| **12.1.2** | **Verify that** logs are stored in secure, access-controlled repositories with appropriate retention policies and backup procedures. | 1   | D/V |
-| **12.1.3** | **Verify that** log storage systems implement encryption at rest and in transit to protect sensitive information contained in logs. | 1   | D/V |
-| **12.1.4** | **Verify that** sensitive data in prompts and outputs is automatically redacted or masked before logging, with configurable redaction rules for PII, credentials, and proprietary information. | 1   | D/V |
-| **12.1.5** | **Verify that** policy decisions and safety filtering actions are logged with sufficient detail to enable audit and debugging of content moderation systems. | 2   | D/V |
-| **12.1.6** | **Verify that** log integrity is protected through e.g. cryptographic signatures or write-only storage. | 2   | D/V |
+| **12.1.1** | **検証:** すべてのユーザープロンプトとモデルレスポンスは、適切なメタデータ (タイムスタンプ、ユーザー ID、セッション ID、モデルバージョン) とともにログ記録されている。 | 1 | D/V |
+| **12.1.2** | **検証:** ログは、適切な保持ポリシーとバックアップ手順で、安全でアクセス制御されたリポジトリに保存されている。 | 1 | D/V |
+| **12.1.3** | **検証:** ログストレージシステムは、ログに含まれる機密情報を保護するために、保存時および転送時の暗号化を実装している。 | 1 | D/V |
+| **12.1.4** | **検証:** プロンプトと出力内の機密データは、PII、クレデンシャル、プロプライエタリ情報に対する構成可能な編集ルールで、ログ記録前に自動的に編集またはマスクされている。 | 1 | D/V |
+| **12.1.5** | **検証:** ポリシー決定と安全フィルタリングアクションは、コンテンツモデレーションシステムの監査とデバッグを可能にするために、十分な詳細でログ記録されている。 | 2 | D/V |
+| **12.1.6** | **検証:** ログの完全性は、暗号署名や書き込み専用ストレージなどによって、保護されている。 | 2 | D/V |
 
 ---
 
