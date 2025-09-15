@@ -35,9 +35,9 @@
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.3.1** | **Verify that** the system tracks basic performance metrics such as accuracy, confidence scores, latency, and error rates across model versions and time periods. | 1   | D/V |
-| **12.3.2** | **Verify that** automated alerting triggers when performance metrics exceed predefined degradation thresholds or deviate significantly from baselines. | 2   | D/V |
-| **12.3.3** | **Verify that** hallucination detection monitors identify and flag instances when model outputs contain factually incorrect, inconsistent, or fabricated information. | 2   | D/V |
+| **12.3.1** | **検証:** システムは、モデルのバージョンや期間全体にわたって、正確性、信頼スコア、レイテンシ、エラー率などの基本的なパフォーマンスメトリクスを追跡している。 | 1 | D/V |
+| **12.3.2** | **検証:** 自動警告は、パフォーマンスメトリクスが事前定義された劣化閾値を超えた場合や、ベースラインから大幅に逸脱した場合に、トリガーしている。 | 2 | D/V |
+| **12.3.3** | **検証:** ハルシネーション検出モニターは、モデル出力が事実上不正確な情報、一貫性のない情報、捏造された情報を含む場合に、インスタンスを識別してフラグ付けしている。 | 2 | D/V |
 
 ---
 
