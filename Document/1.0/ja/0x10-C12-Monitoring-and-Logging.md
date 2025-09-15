@@ -45,9 +45,9 @@
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.4.1** | **Verify that** operational metrics including request latency, token consumption, memory usage, and throughput are continuously collected and monitored. | 1   | D/V |
-| **12.4.2** | **Verify that** success and failure rates are tracked with categorization of error types and their root causes. | 1   | D/V |
-| **12.4.3** | **Verify that** resource utilization monitoring includes GPU/CPU usage, memory consumption, and storage requirements with alerting on threshold breaches. | 2   | D/V |
+| **12.4.1** | **検証:** リクエストのレイテンシ、トークン消費量、メモリ使用量、スループットなどの運用メトリクスは継続的に収集および監視されている。 | 1 | D/V |
+| **12.4.2** | **検証:** 成功率と失敗率はエラーの種類とその根本原因の分類で追跡されている。 | 1 | D/V |
+| **12.4.3** | **検証:** リソース利用率の監視は、GPU/CPU 使用率、メモリ消費量、ストレージ要件を含んでおり、閾値違反でアラートしている。 | 2 | D/V |
 
 ---
 
