@@ -75,17 +75,17 @@ AI モデルのパフォーマンスと品質の低下を時間の経過とと�
 
 ---
 
-## C12.7 DAG 可視化とワークフローセキュリティ (DAG Visualization & Workflow Security)
+## C12.7 DAG 視覚化とワークフローセキュリティ (DAG Visualization & Workflow Security)
 
-Protect workflow visualization systems from information leakage and manipulation attacks.
+ワークフロー視覚化システムを情報漏洩や改竄攻撃から保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.7.1** | **Verify that** DAG visualization data is sanitized to remove sensitive information before storage or transmission. | 1 | D/V |
-| **12.7.2** | **Verify that** workflow visualization access controls ensure only authorized users can view agent decision paths and reasoning traces. | 1 | D/V |
-| **12.7.3** | **Verify that** DAG data integrity is protected through cryptographic signatures and tamper-evident storage mechanisms. | 2 | D/V |
-| **12.7.4** | **Verify that** workflow visualization systems implement input validation to prevent injection attacks through crafted node or edge data. | 2 | D/V |
-| **12.7.5** | **Verify that** real-time DAG updates are rate-limited and validated to prevent denial-of-service attacks on visualization systems. | 3 | D/V |
+| **12.7.1** | **検証:** DAG 視覚化データは、保存または転送前に機密情報を削除するために、サニタイズされている。 | 1 | D/V |
+| **12.7.2** | **検証:** ワークフロー視覚化アクセス制御は、認可されたユーザーのみがエージェントの決定パスと推論トレースを閲覧できるようにしている。 | 1 | D/V |
+| **12.7.3** | **検証:** DAG データの完全性は暗号署名と改竄防止ストレージメカニズムを通じて保護されている。 | 2 | D/V |
+| **12.7.4** | **検証:** ワークフロー視覚化システムは、細工されたノードやエッジデータを通じたインジェクション攻撃を防ぐために、入力バリデーションを実装している。 | 2 | D/V |
+| **12.7.5** | **検証:** リアルタイム DAG 更新はレート制限されており、視覚化システムに対するサービス拒否攻撃を防ぐために検証されている。 | 3 | D/V |
 
 ---
 
