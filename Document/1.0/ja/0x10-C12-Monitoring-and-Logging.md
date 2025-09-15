@@ -55,9 +55,9 @@
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.5.1** | **Verify that** incident response plans specifically address AI-related security events including model compromise, data poisoning, and adversarial attacks. | 1   | D/V |
-| **12.5.2** | **Verify that** incident response teams have access to AI-specific forensic tools and expertise to investigate model behavior and attack vectors. | 2   | D/V |
-| **12.5.3** | **Verify that** post-incident analysis includes model retraining considerations, safety filter updates, and lessons learned integration into security controls. | 3   | D/V |
+| **12.5.1** | **検証:** インシデント対応計画は、モデル侵害、データポイズニング、敵対的攻撃などの AI 関連のセキュリティイベントに特に対処している。 | 1 | D/V |
+| **12.5.2** | **検証:** インシデント対応チームは、モデルの動作と攻撃ベクトルを調査するために、AI 固有のフォレンジックツールと専門知識にアクセスしている。 | 2 | D/V |
+| **12.5.3** | **検証:** インシデント後の解析は、モデルの再トレーニングの考慮、安全フィルタの更新、学んだ教訓のセキュリティコントロールへの統合を含んでいる。 | 3 | D/V |
 
 ---
 
