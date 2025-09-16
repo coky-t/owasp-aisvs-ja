@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-This chapter provides requirements for maintaining human oversight and clear accountability chains in AI systems, ensuring explainability, transparency, and ethical stewardship throughout the AI lifecycle.
+この章では、AI システムでの人間の監視と明確な説明責任の連鎖を維持し、AI ライフサイクル全体にわたって説明可能性、透明性、倫理的管理責任を確保するための要件を提供します。
 
 ---
 
