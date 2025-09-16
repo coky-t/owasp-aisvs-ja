@@ -45,14 +45,14 @@ AI システムの安全でない動作が観察された場合、シャット�
 
 ## C13.4 説明可能な AI 技法 (Explainable-AI Techniques)
 
-Surface feature importance, counter-factuals, and local explanations.
+特徴量の重要度、反事実、局所的説明を表示します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **13.4.1** | **Verify that** AI systems provide basic explanations for their decisions in human-readable format. | 1 | D/V |
-| **13.4.2** | **Verify that** explanation quality is validated through human evaluation studies and metrics. | 2 | V |
-| **13.4.3** | **Verify that** feature importance scores or attribution methods (SHAP, LIME, etc.) are available for critical decisions. | 3 | D/V |
-| **13.4.4** | **Verify that** counterfactual explanations show how inputs could be modified to change outcomes, if applicable to the use case and domain. | 3 | V |
+| **13.4.1** | **検証:** AI システムは人間が読み取り可能な形式でその決定について基本的な説明を提供している。 | 1 | D/V |
+| **13.4.2** | **検証:** 説明の品質は人間による評価研究とメトリクスを通じて検証されている。 | 2 | V |
+| **13.4.3** | **検証:** 特徴量の重要度スコアまたは帰属手法 (SHAP, LIME など) は重要な決定に利用できる。 | 3 | D/V |
+| **13.4.4** | **検証:** 反事実的説明は、ユースケースとドメインに当てはまる場合、入力がどのように改変されると出力が変わるかを示している。 | 3 | V |
 
 ---
 
