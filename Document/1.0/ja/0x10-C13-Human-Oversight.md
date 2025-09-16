@@ -8,14 +8,14 @@
 
 ## C13.1 キルスイッチとオーバーライドメカニズム (Kill-Switch & Override Mechanisms)
 
-Provide shutdown or rollback paths when unsafe behavior of the AI system is observed.
+AI システムの安全でない動作が観察された場合、シャットダウンまたはロールバックパスを提供します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **13.1.1** | **Verify that** a manual kill-switch mechanism exists to immediately halt AI model inference and outputs. | 1 | D/V |
-| **13.1.2** | **Verify that** override controls are accessible to only to authorized personnel. | 1 | D |
-| **13.1.3** | **Verify that** rollback procedures can revert to previous model versions or safe-mode operations. | 3 | D/V |
-| **13.1.4** | **Verify that** override mechanisms are tested regularly. | 3 | V |
+| **13.1.1** | **検証:** 手動キルスイッチメカニズムは、AI モデルの推論と出力を即座に停止するために、存在している。 | 1 | D/V |
+| **13.1.2** | **検証:** オーバーライドコントロールは認可された担当者のみがアクセスできる。 | 1 | D |
+| **13.1.3** | **検証:** ロールバック手順は以前のモデルバージョンまたはセーフモード操作に戻ることができる。 | 3 | D/V |
+| **13.1.4** | **検証:** オーバーライドメカニズムは定期的にテストされている。 | 3 | V |
 
 ---
 
