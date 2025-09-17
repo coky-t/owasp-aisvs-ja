@@ -84,13 +84,13 @@ AI システムの安全でない動作が観察された場合、シャット�
 
 ## C13.7 ユーザー向け透明性レポート (User-Facing Transparency Reports)
 
-Provide periodic disclosures on incidents, drift, and data usage.
+インシデント、ドリフト、データ使用状況について定期的に開示します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **13.7.1** | **Verify that** data usage policies and user consent management practices are clearly communicated to stakeholders. | 1 | D/V |
-| **13.7.2** | **Verify that** AI impact assessments are conducted and results are included in reporting. | 2 | D/V |
-| **13.7.3** | **Verify that** transparency reports published regularly disclose AI incidents and operational metrics in reasonable detail. | 2 | D/V |
+| **13.7.1** | **検証:** データ使用ポリシーとユーザー同意管理の実践は利害関係者に明確に伝達されている。 | 1 | D/V |
+| **13.7.2** | **検証:** AI 影響評価は実施されており、結果は報告書に含められている。 | 2 | D/V |
+| **13.7.3** | **検証:** 定期的に公開される透明性レポートは AI インシデントおよび運用メトリクスを適切な詳細度で開示している。 | 2 | D/V |
 
 ### 参考情報
 
