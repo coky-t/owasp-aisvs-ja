@@ -71,14 +71,14 @@ AI システムの安全でない動作が観察された場合、シャット�
 
 ## C13.6 不確実性の定量化 (Uncertainty Quantification)
 
-Propagate confidence scores or entropy measures in responses.
+信頼スコアまたはエントロピー測定値をレスポンスに伝播します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **13.6.1** | **Verify that** AI systems provide confidence scores or uncertainty measures with their outputs. | 1 | D |
-| **13.6.2** | **Verify that** uncertainty thresholds trigger additional human review or alternative decision pathways. | 2 | D/V |
-| **13.6.3** | **Verify that** uncertainty quantification methods are calibrated and validated against ground truth data. | 2 | V |
-| **13.6.4** | **Verify that** uncertainty propagation is maintained through multi-step AI workflows. | 3 | D/V |
+| **13.6.1** | **検証:** AI システムは出力とともに信頼スコアまたは不確実性測定値を提供している。 | 1 | D |
+| **13.6.2** | **検証:** 不確実性閾値は追加の人間のレビューまたは代替の意思決定経路をトリガーしている。 | 2 | D/V |
+| **13.6.3** | **検証:** 不確実性の定量化手法はグラウンドトゥルースデータに対して調整および検証されている。 | 2 | V |
+| **13.6.4** | **検証:** 不確実性の伝播は複数ステップの AI ワークフローを通じて維持されている。 | 3 | D/V |
 
 ---
 
