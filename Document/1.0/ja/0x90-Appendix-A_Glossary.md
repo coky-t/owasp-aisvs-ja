@@ -1,97 +1,97 @@
 # 付録 A: 用語集
 
-> *This comprehensive glossary provides definitions of key AI, ML, and security terms used throughout the AISVS to ensure clarity and common understanding.*
+> *この包括的な用語集では、AISVS 全体で使用される主要なAI、ML、セキュリティ用語の定義を提供し、明確さと共通理解を確保します。*
 
-* **Adversarial Example**: An input deliberately crafted to cause an AI model to make a mistake, often by adding subtle perturbations imperceptible to humans.
+* **敵対的サンプル (Adversarial Example)**: 多くの場合、人間には知覚できない微妙な摂動を加えることで、AI モデルに間違いを起こさせるように意図的に細工された入力です。
 
-* **Adversarial Robustness** – Adversarial robustness in AI refers to a model's ability to maintain its performance and resist being fooled or manipulated by intentionally crafted, malicious inputs designed to cause errors.
+* **敵対的堅牢性 (Adversarial Robustness)** – AI における敵対的堅牢性とは、モデルがそのパフォーマンスを維持し、エラーを引き起こすように意図的に細工された悪意のある入力によって騙されたり操作されたりしないようにする能力を指します。
 
-* **Agent** – AI agents are software systems that use AI to pursue goals and complete tasks on behalf of users. They show reasoning, planning, and memory and have a level of autonomy to make decisions, learn, and adapt.
+* **エージェント (Agent)** – AI エージェントは、AI を用いてユーザーに代わって目標達成やタスク完了を行うソフトウェアシステムです。推論、計画、記憶能力を備え、意思決定、学習、適応を行うための一定の自律性を有しています。
 
-* **Agentic AI**: AI systems that can operate with some degree of autonomy to achieve goals, often making decisions and taking actions without direct human intervention.
+* **エージェント AI (Agentic AI)**: 目標を達成するためにある程度の自律性をもって動作し、多くの場合、人間が直接介入することなく意思決定やアクションを実行できる AI システムです。
 
-* **Attribute-Based Access Control (ABAC)**: An access control paradigm where authorization decisions are based on attributes of the user, resource, action, and environment, evaluated at query time.
+* **属性ベースのアクセス制御 (Attribute-Based Access Control (ABAC))**: クエリ時に評価されるユーザー、リソース、アクション、環境の属性に基づいて認可の決定が行われるアクセス制御パラダイムです。
 
-* **Backdoor Attack**: A type of data poisoning attack where the model is trained to respond in a specific way to certain triggers while behaving normally otherwise.
+* **バックドア攻撃 (Backdoor Attack)**: 特定のトリガーに対して特定の方法で応答し、それ以外の場合は通常通りに動作するようにモデルを訓練する、データポイズニング攻撃の一種です。
 
-* **Bias**: Systematic errors in AI model outputs that can lead to unfair or discriminatory outcomes for certain groups or in specific contexts.
+* **バイアス (Bias)**: 特定のグループまたは特定のコンテキストで不公平または差別的な結果につながる可能性のある、AI モデル出力の体系的なエラーです。
 
-* **Bias Exploitation**: An attack technique that takes advantage of known biases in AI models to manipulate outputs or outcomes.
+* **バイアスの悪用 (Bias Exploitation)**: AI モデルの既知のバイアスを利用して出力や結果を操作する攻撃技法です。
 
-* **Cedar**: Amazon's policy language and engine for fine-grained permissions used in implementing ABAC for AI systems.
+* **Cedar**: AI システムの ABAC の実装に使用されるきめ細かなパーミッションのための Amazon のポリシー言語とエンジンです。
 
-* **Chain of Thought**: A technique for improving reasoning in language models by generating intermediate reasoning steps before producing a final answer.
+* **思考の連鎖 (Chain of Thought)**: 最終的な答えを出す前に中間の推論ステップを生成することで、言語モデルの推論を改善する技法です。
 
-* **Circuit Breakers**: Mechanisms that automatically halt AI system operations when specific risk thresholds are exceeded.
+* **サーキットブレーカー (Circuit Breakers)**: 特定のリスク閾値を超えた際に AI システムの動作を自動的に停止するメカニズムです。
 
-* **Data Leakage**: Unintended exposure of sensitive information through AI model outputs or behavior.
+* **データ漏洩 (Data Leakage)**: AI モデルの出力または動作を通じた機密情報の意図しない開示です。
 
-* **Data Poisoning**: The deliberate corruption of training data to compromise model integrity, often to install backdoors or degrade performance.
+* **データポイズニング (Data Poisoning)**: モデルの完全性を侵害するためにトレーニングデータを意図的に破損することです。多くの場合、バックドアをインストールしたり、パフォーマンスを低下します。
 
-* **Differential Privacy** – Differential privacy is a mathematically rigorous framework for releasing statistical information about datasets while protecting the privacy of individual data subjects. It enables a data holder to share aggregate patterns of the group while limiting information that is leaked about specific individuals.
+* **差分プライバシー (Differential Privacy)** – 差分プライバシーは、個々のデータ主体のプライバシーを保護しながら、データセットに関する統計情報を公開するための数学的に厳密なフレームワークです。これにより、データ保有者は特定の個人に関する情報の漏洩を制限しながら、グループの集約パターンを共有することができます。
 
-* **Embeddings**: Dense vector representations of data (text, images, etc.) that capture semantic meaning in a high-dimensional space.
+* **エンベディング (Embeddings)**: 高次元空間で意味論的意味を捉える、データ (テキスト、画像など) の密なベクトル表現です。
 
-* **Explainability** – Explainability in AI is the ability of an AI system to provide human-understandable reasons for its decisions and predictions, offering insights into its internal workings.
+* **説明可能性 (Explainability)** – AI における説明可能性とは、AI システムがその決定や予測について人間が理解できる理由を提供し、内部の仕組みに関する洞察を提供する能力です。
 
-* **Explainable AI (XAI)**: AI systems designed to provide human-understandable explanations for their decisions and behaviors through various techniques and frameworks.
+* **説明可能な AI (Explainable AI (XAI))**: さまざまな技法とフレームワークを通じて、決定と動作について人間が理解できる理由を提供するように設計された AI システムです。
 
-* **Federated Learning**: A machine learning approach where models are trained across multiple decentralized devices holding local data samples, without exchanging the data itself.
+* **連合学習 (Federated Learning)**: データ自体を交換せずに、ローカルデータサンプルを保持する複数の分散デバイス間でモデルを訓練する機械学習アプローチです。
 
-* **Guardrails**: Constraints implemented to prevent AI systems from producing harmful, biased, or otherwise undesirable outputs.
+* **ガードレール (Guardrails)**: AI システムが有害な出力、バイアスのある出力、または望ましくない出力を生成するのを防ぐために実装された制約です。
 
-* **Hallucination** – An AI hallucination refers to a phenomenon where an AI model generates incorrect or misleading information that is not based on its training data or factual reality.
+* **ハルシネーション (Hallucination)** – AI ハルシネーションとは、AI モデルがトレーニングデータや事実に基づかない不正確な情報や誤解を招く情報を生成する現象を指します。
 
-* **Human-in-the-Loop (HITL)**: Systems designed to require human oversight, verification, or intervention at crucial decision points.
+* **ヒューマンインザループ (Human-in-the-Loop (HITL))**: 重要な意思決定ポイントで人間による監視、検証、または介入を必要となるように設計されたシステムです。
 
-* **Infrastructure as Code (IaC)**: Managing and provisioning infrastructure through code instead of manual processes, enabling security scanning and consistent deployments.
+* **Infrastructure as Code (IaC)**: 手動プロセスではなくコードを通じてインフラストラクチャを管理およびプロビジョニングし、セキュリティスキャンと一貫したデプロイメントを可能にします。
 
-* **Jailbreak**: Techniques used to circumvent safety guardrails in AI systems, particularly in large language models, to produce prohibited content.
+* **ジェイルブレイク (Jailbreak)**: 特に大規模言語モデルにおいて、AI システムの安全ガードレールを回避して、禁止されたコンテンツを生成するために使用される技法です。
 
-* **Least Privilege**: The security principle of granting only the minimum necessary access rights for users and processes.
+* **最小権限 (Least Privilege)**: ユーザーとプロセスに必要な最小限のアクセス権のみを付与するセキュリティ原則です。
 
-* **LIME (Local Interpretable Model-agnostic Explanations)**: A technique to explain the predictions of any machine learning classifier by approximating it locally with an interpretable model.
+* **LIME (Local Interpretable Model-agnostic Explanations)**: 解釈可能なモデルで局所的に近似することで、機械学習分類器の予測を説明する技法です。
 
-* **Membership Inference Attack**: An attack that aims to determine whether a specific data point was used to train a machine learning model.
+* **メンバーシップ推論攻撃 (Membership Inference Attack)**: 特定のデータポイントが機械学習モデルの訓練に使用されたかどうかを判断することを目的とした攻撃です。
 
-* **MITRE ATLAS**: Adversarial Threat Landscape for Artificial-Intelligence Systems; a knowledge base of adversarial tactics and techniques against AI systems.
+* **MITRE ATLAS**: 人工知能システムに対する敵対的脅威の状況 (Adversarial Threat Landscape for Artificial-Intelligence Systems); AI システムに対する敵対的戦術と技法の知識ベースです。
 
-* **Model Card** – A model card is a document that provides standardized information about an AI model's performance, limitations, intended uses, and ethical considerations to promote transparency and responsible AI development.
+* **モデルカード (Model Card)** – モデルカードは、透明性と責任ある AI 開発を促進するために、AI モデルのパフォーマンス、制限、使用目的、倫理的考慮事項に関する標準化された情報を提供するドキュメントです。
 
-* **Model Extraction**: An attack where an adversary repeatedly queries a target model to create a functionally similar copy without authorization.
+* **モデル抽出 (Model Extraction)**: 攻撃者がターゲットモデルを繰り返しクエリして、機能的に類似したコピーを認可なく作成する攻撃です。
 
-* **Model Inversion**: An attack that attempts to reconstruct training data by analyzing model outputs.
+* **モデル反転 (Model Inversion)**: モデル出力を解析してトレーニングデータを再構築しようとする攻撃です。
 
-* **Model Lifecycle Management** – AI Model Lifecycle Management is the process of overseeing all stages of an AI model's existence, including its design, development, deployment, monitoring, maintenance, and eventual retirement, to ensure it remains effective and aligned with objectives.
+* **モデルライフサイクル管理 (Model Lifecycle Management)** – AI モデルライフサイクル管理は、AI モデルの設計、開発、デプロイメント、監視、保守、最終的な廃止など、AI モデルの存在に関するすべての段階を監視し、モデルが効果的であり、目的と一致していることを確認するプロセスです。
 
-* **Model Poisoning**: Introducing vulnerabilities or backdoors directly into a model during the training process.
+* **モデルポイズニング (Model Poisoning)**: トレーニングプロセス時に脆弱性やバックドアをモデルに直接導入するものです。
 
-* **Model Stealing/Theft**: Extracting a copy or approximation of a proprietary model through repeated queries.
+* **モデル窃盗/窃取 (Model Stealing/Theft)**: クエリを繰り返してプロプライエタリモデルのコピーや近似値を抽出するものです。
 
-* **Multi-agent System**: A system composed of multiple interacting AI agents, each with potentially different capabilities and goals.
+* **マルチエージェントシステム (Multi-agent System)**: それぞれ異なる機能と目標を持つ、複数の相互作用する AI エージェントで構成されたシステムです。
 
-* **OPA (Open Policy Agent)**: An open-source policy engine that enables unified policy enforcement across the stack.
+* **OPA (Open Policy Agent)**: スタック全体で統一されたポリシー適用を可能にするオープンソースポリシーエンジンです。
 
-* **Privacy-Preserving Machine Learning (PPML)**: Techniques and methods to train and deploy ML models while protecting the privacy of the training data.
+* **プライバシー保護機械学習 (Privacy-Preserving Machine Learning (PPML))**: トレーニングデータのプライバシーを保護しながら、ML モデルを訓練およびデプロイするための技法と手法です。
 
-* **Prompt Injection**: An attack where malicious instructions are embedded in inputs to override a model's intended behavior.
+* **プロンプトインジェクション (Prompt Injection)**: 悪意のある命令を入力に埋め込み、モデルの意図した動作を無効にする攻撃です。
 
-* **RAG (Retrieval-Augmented Generation)**: A technique that enhances large language models by retrieving relevant information from external knowledge sources before generating a response.
+* **検索拡張生成 (RAG (Retrieval-Augmented Generation))**: レスポンスを生成する前に外部の知識ソースから関連情報を取得することで、大規模言語モデルを強化する技法です。
 
-* **Red-Teaming**: The practice of actively testing AI systems by simulating adversarial attacks to identify vulnerabilities.
+* **レッドチーム実践 (Red-Teaming)**: 敵対的攻撃をシミュレートして AI システムを積極的にテストし、脆弱性を特定する演習です。
 
-* **SBOM (Software Bill of Materials)**: A formal record containing the details and supply chain relationships of various components used in building software or AI models.
+* **ソフトウェア部品表 (SBOM (Software Bill of Materials))**: ソフトウェアまたは AI モデルを構築するために使用されるさまざまなコンポーネントの詳細とサプライチェーンの関係を含む形式化された記録です。
 
-* **SHAP (SHapley Additive exPlanations)**: A game theoretic approach to explain the output of any machine learning model by computing the contribution of each feature to the prediction.
+* **SHAP (SHapley Additive exPlanations)**: 各機能の予測への寄与を計算することで、機械学習モデルの出力を説明するゲーム理論的アプローチです。
 
-* **Supply Chain Attack**: Compromising a system by targeting less-secure elements in its supply chain, such as third-party libraries, datasets, or pre-trained models.
+* **サプライチェーン攻撃 (Supply Chain Attack)**: サードパーティのライブラリ、データセット、事前訓練済みモデルなど、サプライチェーンの安全性の低い要素をターゲットにしてシステムを侵害するものです。
 
-* **Transfer Learning**: A technique where a model developed for one task is reused as the starting point for a model on a second task.
+* **転移学習 (Transfer Learning)**: あるタスク用に開発されたモデルを二つ目のタスクのモデルの開始点として再使用する技法です。
 
-* **Vector Database**: A specialized database designed to store high-dimensional vectors (embeddings) and perform efficient similarity searches.
+* **ベクトルデータベース (Vector Database)**: 高次元ベクトル (エンベディング) を格納し、効率的な類似性検索を実行するために設計された特殊なデータベースです。
 
-* **Vulnerability Scanning**: Automated tools that identify known security vulnerabilities in software components, including AI frameworks and dependencies.
+* **脆弱性スキャン (Vulnerability Scanning)**: AI フレームワークや依存関係などの、ソフトウェアコンポーネントの既知のセキュリティ脆弱性を識別する自動ツールです。
 
-* **Watermarking**: Techniques to embed imperceptible markers in AI-generated content to track its origin or detect AI generation.
+* **透かし入れ (Watermarking)**: AI 生成コンテンツに知覚できないマーカーを埋め込んで、その出所を追跡したり AI 生成を検出する技法です。
 
-* **Zero-Day Vulnerability**: A previously unknown vulnerability that attackers can exploit before developers create and deploy a patch.
+* **ゼロデイ脆弱性 (Zero-Day Vulnerability)**: 開発者がパッチを作成してデプロイする前に攻撃者が悪用できる、これまで知られていない脆弱性です。
