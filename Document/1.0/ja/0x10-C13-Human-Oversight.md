@@ -58,14 +58,14 @@ AI システムの安全でない動作が観察された場合、シャット�
 
 ## C13.5 モデルカードと使用状況開示 (Model Cards & Usage Disclosures)
 
-Maintain model cards for intended use, performance metrics, and ethical considerations.
+意図した使用、パフォーマンスメトリクス、倫理的考慮事項についてモデルカードを維持します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **13.5.1** | **Verify that** model cards document intended use cases, limitations, and known failure modes. | 1 | D |
-| **13.5.2** | **Verify that** performance metrics across different applicable use cases are disclosed. | 1 | D/V |
-| **13.5.3** | **Verify that** ethical considerations, bias assessments, fairness evaluations, training data characteristics, and known training data limitations are documented and updated regularly. | 2 | D |
-| **13.5.4** | **Verify that** model cards are version-controlled and maintained throughout the model lifecycle with change tracking. | 2 | D/V |
+| **13.5.1** | **検証:** モデルカードは、意図したユースケース、制限、既知の障害モードを記載している。 | 1 | D |
+| **13.5.2** | **検証:** さまざまな適用可能なユースケースにわたるパフォーマンスメトリクスは公開されている。 | 1 | D/V |
+| **13.5.3** | **検証:** 倫理的考慮事項、バイアス評価、公平性評価、トレーニングデータの特性、既知のとレーニンデータの制限は文書化され、定期的に更新されている。 | 2 | D |
+| **13.5.4** | **検証:** モデルカードはバージョン管理され、変更追跡とともにモデルのライフサイクル全体にわたって維持されている。 | 2 | D/V |
 
 ---
 
