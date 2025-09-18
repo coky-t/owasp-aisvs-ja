@@ -2,7 +2,7 @@
 
 ## 目標
 
-This appendix provides foundational requirements for establishing organizational structures, policies, and processes to govern AI security throughout the system lifecycle.
+この付録では、システムライフサイクル全体にわたって AI セキュリティを管理するために、組織構造、ポリシー、プロセスを確立するための基本要件を提供します。
 
 ---
 
