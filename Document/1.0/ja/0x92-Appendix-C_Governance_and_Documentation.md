@@ -32,13 +32,13 @@
 
 ## AC.3 AI セキュリティの役割と責任 (Roles & Responsibilities for AI Security)
 
-Establish clear accountability for AI security across the organization.
+組織全体にわたる AI セキュリティの明確な説明責任を確立します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.3.1** | **Verify that** AI security roles and responsibilities are documented. | 1 | D/V |
-| **AC.3.2** | **Verify that** responsible individuals possess appropriate security expertise. | 2 | D |
-| **AC.3.3** | **Verify that** an AI ethics committee or governance board is established for high‑risk AI systems. | 3 | D/V |
+| **AC.3.1** | **検証:** AI セキュリティの役割と責任は文書化されている。 | 1 | D/V |
+| **AC.3.2** | **検証:** 責任者は適切なセキュリティ専門知識を有している。 | 2 | D |
+| **AC.3.3** | **検証:** AI 倫理委員会またはガバナンスボードは高リスクの AI システムに対して設立されている。 | 3 | D/V |
 
 ---
 
