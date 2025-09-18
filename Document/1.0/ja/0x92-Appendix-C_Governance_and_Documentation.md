@@ -56,13 +56,13 @@
 
 ## AC.5 AI 規制コンプライアンスの監視 (AI Regulatory Compliance Monitoring)
 
-Maintain awareness of and compliance with evolving AI regulations.
+進化する AI 規制を認識し、遵守を維持します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.5.1** | **Verify that** processes exist to identify applicable AI regulations. | 1 | D/V |
-| **AC.5.2** | **Verify that** compliance with all regulatory requirements is assessed. | 2 | D |
-| **AC.5.3** | **Verify that** regulatory changes trigger timely reviews and updates to AI systems. | 3 | D/V |
+| **AC.5.1** | **検証:** 適用可能な AI 規制を特定するためのプロセスは存在している。 | 1 | D/V |
+| **AC.5.2** | **検証:** すべての規制要件への準拠は評価されている。 | 2 | D |
+| **AC.5.3** | **検証:** 規制の変化は AI システムへのタイムリーなレビューと更新をトリガーしている。 | 3 | D/V |
 
 ---
 
