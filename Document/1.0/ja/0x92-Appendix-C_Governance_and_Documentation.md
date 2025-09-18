@@ -20,13 +20,13 @@
 
 ## AC.2 AI セキュリティポリシーと手順 (AI Security Policy & Procedures)
 
-Define and enforce organizational standards for secure AI development, deployment, and operation.
+安全な AI 開発、デプロイメント、運用のための組織標準を定義して適用します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.2.1** | **Verify that** documented AI security policies exist. | 1 | D/V |
-| **AC.2.2** | **Verify that** policies are reviewed and updated at least annually and after significant threat‑landscape changes. | 2 | D |
-| **AC.2.3** | **Verify that** policies address all AISVS categories and applicable regulatory requirements. | 3 | D/V |
+| **AC.2.1** | **検証:** 文書化された AI セキュリティポリシーは存在している。 | 1 | D/V |
+| **AC.2.2** | **検証:** ポリシーは少なくとも年に一度、および重大な脅威状況の変化の後に見直され、更新されている。 | 2 | D |
+| **AC.2.3** | **検証:** ポリシーはすべての AISVS カテゴリと適用可能な規制要件に対応している。 | 3 | D/V |
 
 ---
 
