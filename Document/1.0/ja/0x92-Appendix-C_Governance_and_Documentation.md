@@ -8,13 +8,13 @@
 
 ## AC.1 AI リスク管理フレームワークの導入 (AI Risk Management Framework Adoption)
 
-Provide a formal framework to identify, assess, and mitigate AI‑specific risks throughout the system lifecycle.
+システムライフサイクル全体にわたって AI 固有のリスクを特定、評価、緩和するための公式のフレームワークを提供します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.1.1** | **Verify that** an AI‑specific risk assessment methodology is documented and implemented. | 1 | D/V |
-| **AC.1.2** | **Verify that** risk assessments are conducted at key points in the AI lifecycle and prior to significant changes. | 2 | D |
-| **AC.1.3** | **Verify that** the risk management framework aligns with established standards (e.g., NIST AI RMF). | 3 | D/V |
+| **AC.1.1** | **検証:** AI 固有のリスク評価手法は文書化され、実装されている。 | 1 | D/V |
+| **AC.1.2** | **検証:** リスク評価は、AI ライフサイクルの重要なポイントと、重大な変更の前に実施されている。 | 2 | D |
+| **AC.1.3** | **検証:** リスク管理フレームワークは確立した標準 (NIST AI RMF など) に準拠している。 | 3 | D/V |
 
 ---
 
@@ -23,7 +23,7 @@ Provide a formal framework to identify, assess, and mitigate AI‑specific risks
 Define and enforce organizational standards for secure AI development, deployment, and operation.
 
 | # | 説明 | レベル | ロール |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **AC.2.1** | **Verify that** documented AI security policies exist. | 1 | D/V |
 | **AC.2.2** | **Verify that** policies are reviewed and updated at least annually and after significant threat‑landscape changes. | 2 | D |
 | **AC.2.3** | **Verify that** policies address all AISVS categories and applicable regulatory requirements. | 3 | D/V |
@@ -35,7 +35,7 @@ Define and enforce organizational standards for secure AI development, deploymen
 Establish clear accountability for AI security across the organization.
 
 | # | 説明 | レベル | ロール |
-| :--------: | --------------------------------------------------------------------------------------------------- | :---: | :--: |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **AC.3.1** | **Verify that** AI security roles and responsibilities are documented. | 1 | D/V |
 | **AC.3.2** | **Verify that** responsible individuals possess appropriate security expertise. | 2 | D |
 | **AC.3.3** | **Verify that** an AI ethics committee or governance board is established for high‑risk AI systems. | 3 | D/V |
@@ -47,7 +47,7 @@ Establish clear accountability for AI security across the organization.
 Ensure AI systems operate according to established ethical principles.
 
 | # | 説明 | レベル | ロール |
-| :--------: | -------------------------------------------------------------------------------- | :---: | :--: |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **AC.4.1** | **Verify that** ethical guidelines for AI development and deployment exist. | 1 | D/V |
 | **AC.4.2** | **Verify that** mechanisms are in place to detect and report ethical violations. | 2 | D |
 | **AC.4.3** | **Verify that** regular ethical reviews of deployed AI systems are performed. | 3 | D/V |
@@ -59,7 +59,7 @@ Ensure AI systems operate according to established ethical principles.
 Maintain awareness of and compliance with evolving AI regulations.
 
 | # | 説明 | レベル | ロール |
-| :--------: | ------------------------------------------------------------------------------------ | :---: | :--: |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **AC.5.1** | **Verify that** processes exist to identify applicable AI regulations. | 1 | D/V |
 | **AC.5.2** | **Verify that** compliance with all regulatory requirements is assessed. | 2 | D |
 | **AC.5.3** | **Verify that** regulatory changes trigger timely reviews and updates to AI systems. | 3 | D/V |
@@ -69,7 +69,7 @@ Maintain awareness of and compliance with evolving AI regulations.
 ## AC.6 トレーニングデータガバナンス、ドキュメント、プロセス (Training Data Governance, Documentation and Process)
 
 | # | 説明 | レベル | ロール |
-| :--------: | ------------------------------------------------------------------------------------ | :---: | :--: |
+|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **1.1.2** | **検証:** 品質、代表性、倫理的調達、ライセンス遵守について精査されたデータセットのみを許可し、ポイズニング、埋め込まれたバイアス、知的財産侵害のリスクを低減している。 | 1 | D/V |
 | **1.1.5** | **検証:** ラベル付けや注釈の品質はレビュー担当者のクロスチェックまたはコンセンサスによって確保している。 | 2 | D/V |
 | **1.1.6** | **検証:** 重要なトレーニングデータセットに対して「データカード」や「データセットのデータシート」を維持し、特性、動機、構成、収集プロセス、前処理、推奨される使用方法、推奨されない使用方法を詳述している。 | 2 | D/V |
