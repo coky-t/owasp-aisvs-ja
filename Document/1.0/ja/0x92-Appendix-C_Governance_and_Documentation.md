@@ -95,29 +95,29 @@
 | **1.8.2** | **検証:** 外部転送は TLS/auth と完全性チェックを使用している。 | 1 | D |
 | **1.8.3** | **検証:** 高リスクのデータソース (来歴不明のオープンソースデータセット、審査されていないサプライヤなど) は、機密性の高いアプリケーションで使用する前に、サンドボックス解析、広範な品質/バイアスチェック、標的を絞ったポイズニング検出などの強化された精査を受けている。 | 2 | D/V |
 | **1.8.4** | **検証:** サードパーティから取得した事前トレーニング済みモデルは、ファインチューニングやデプロイメントの前に、埋め込まれたバイアス、潜在的なバックドア、アーキテクチャの完全性、元のトレーニングデータの来歴について評価されている。 | 3 | D/V |
-| **1.5.3** | **Verify that** if adversarial training is used, the generation, management, and versioning of adversarial datasets are documented and controlled. | 2 | D/V |
-| **1.5.3** | **Verify that** the impact of adversarial robustness training on model performance (against both clean and adversarial inputs) and fairness metrics is evaluated, documented, and monitored. | 3 | D/V |
-| **1.5.4** | **Verify that** strategies for adversarial training and robustness are periodically reviewed and updated to counter evolving adversarial attack techniques.| 3 | D/V |
+| **1.5.3** | **検証:** 敵対的トレーニングが使用される場合、敵対的データセットの生成、管理、バージョン管理は文書化され、制御されている。 | 2 | D/V |
+| **1.5.3** | **検証:** 敵対的堅牢性トレーニングがモデルのパフォーマンス (クリーンな入力と敵対的な入力の両方に対して) と公平性メトリクスに及ぼす影響は評価、文書化、監視されている。 | 3 | D/V |
+| **1.5.4** | **検証:** 敵対的トレーニングと堅牢性に関する戦略は、進化する敵対的攻撃技法に対抗するために、定期的に見直され、更新されている。 | 3 | D/V |
 | **1.4.2** | **検証:** 不合格のデータセットは監査証跡とともに隔離されている。 | 2 | D/V |
 | **1.4.3** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
-| **1.11.2** | **Verify that** the generation process, parameters, and intended use of synthetic data are documented. | 2 | D/V |
-| **1.11.3** | **Verify that** synthetic data is risk-assessed for bias, privacy leakage, and representational issues before use in training. | 2 | D/V || **1.12.2** | **Verify that** access logs are regularly reviewed for unusual patterns, such as large exports or access from new locations. | 2 | D/V |
-| **1.12.3** | **Verify that** alerts are generated for suspicious access events and investigated promptly. | 2 | D/V |
-| **1.13.1** | **Verify that** explicit retention periods are defined for all training datasets. | 1 | D/V |
-| **1.13.2** | **Verify that** datasets are automatically expired, deleted, or reviewed for deletion at the end of their lifecycle. | 2 | D/V |
-| **1.13.3** | **Verify that** retention and deletion actions are logged and auditable. | 2 | D/V |
-| **1.14.1** | **Verify that** data residency and cross-border transfer requirements are identified and enforced for all datasets. | 2 | D/V |
-| **1.14.2** | **Verify that** sector-specific regulations (e.g., healthcare, finance) are identified and addressed in data handling. | 2 | D/V |
-| **1.14.3** | **Verify that** compliance with relevant privacy laws (e.g., GDPR, CCPA) is documented and reviewed regularly. | 2 | D/V |
-| **1.16.1** | **Verify that** mechanisms exist to respond to data subject requests for access, rectification, restriction, or objection. | 2 | D/V |
-| **1.16.2** | **Verify that** requests are logged, tracked, and fulfilled within legally mandated timeframes. | 2 | D/V |
-| **1.16.3** | **Verify that** data subject rights processes are tested and reviewed regularly for effectiveness. | 2 | D/V |
-| **1.17.1** | **Verify that** an impact analysis is performed before updating or replacing a dataset version, covering model performance, fairness, and compliance. | 2 | D/V |
-| **1.17.2** | **Verify that** results of the impact analysis are documented and reviewed by relevant stakeholders. | 2 | D/V |
-| **1.17.3** | **Verify that** rollback plans exist in case new versions introduce unacceptable risks or regressions. | 2 | D/V |
-| **1.18.1** | **Verify that** all personnel involved in data annotation are background-checked and trained in data security and privacy. | 2 | D/V |
-| **1.18.2** | **Verify that** all annotation personnel sign confidentiality and non-disclosure agreements. | 2 | D/V |
-| **1.18.3** | **Verify that** annotation platforms enforce access controls and monitor for insider threats. | 2 | D/V |
+| **1.11.2** | **検証:** 合成データの生成プロセス、パラメータ、使用目的は文書化されている。 | 2 | D/V |
+| **1.11.3** | **検証:** 合成データは、トレーニングで使用する前に、バイアス、プライバシー漏洩、表現上の問題についてリスク評価されている。 | 2 | D/V || **1.12.2** | **検証:** アクセスログは、大規模なエクスポートや新しい場所からのアクセスなど、異常なパターンについて定期的にレビューされている。 | 2 | D/V |
+| **1.12.3** | **検証:** アラートは疑わしいアクセスイベントに対して生成され、即時調査されている。 | 2 | D/V |
+| **1.13.1** | **検証:** 明示的な保持期間はすべてのトレーニングデータセットに対して定義されている。 | 1 | D/V |
+| **1.13.2** | **検証:** データセットは、ライフサイクルの終了時に自動的に期限切れ、削除、または削除対象としてレビューされている。 | 2 | D/V |
+| **1.13.3** | **検証:** 保持および削除アクションはログ記録され、監査可能である。 | 2 | D/V |
+| **1.14.1** | **検証:** データ保存場所と越境転送要件はすべてのデータセットに対して特定され、適用されている。 | 2 | D/V |
+| **1.14.2** | **検証:** セクター固有の規制 (医療、金融など) はデータ処理で特定され、対処されている。 | 2 | D/V |
+| **1.14.3** | **検証:** 関連するプライバシー法 (GDPR, CCPA など) への準拠は文書化され、定期的にレビューされている。 | 2 | D/V |
+| **1.16.1** | **検証:** データ主体からのアクセス、訂正、制限、異議申し立ての要求に応じるメカニズムは存在している。 | 2 | D/V |
+| **1.16.2** | **検証:** リクエストはログ記録され、追跡され、法的に定められた期間内に実行されている。 | 2 | D/V |
+| **1.16.3** | **検証:** データ主体の権利プロセスは有効性を定期的にテストおよびレビューされている。 | 2 | D/V |
+| **1.17.1** | **検証:** モデルのパフォーマンス、公平性、コンプライアンスをカバーする影響分析は、データセットのバージョンを更新または置き換える前に、実行されている。 | 2 | D/V |
+| **1.17.2** | **検証:** 影響分析の結果は文書化され、関連する利害関係者によってレビューされている。 | 2 | D/V |
+| **1.17.3** | **検証:** ロールバック計画は、新しいバージョンで許容できないリスクや回帰が発生した場合に備えて、存在している。 | 2 | D/V |
+| **1.18.1** | **検証:** データアノテーションに関わる全ての担当者は身元調査を受けており、データセキュリティとプライバシーの訓練を受けている。 | 2 | D/V |
+| **1.18.2** | **検証:** すべてのアノテーション担当者は機密保持と非開示契約に署名している。 | 2 | D/V |
+| **1.18.3** | **検証:** アノテーションプラットフォームはアクセス制御を実施し、内部脅威を監視している。 | 2 | D/V |
 
 ---
 
