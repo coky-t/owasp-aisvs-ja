@@ -44,13 +44,13 @@
 
 ## AC.4 倫理的 AI ガイドラインの施行 (Ethical AI Guidelines Enforcement)
 
-Ensure AI systems operate according to established ethical principles.
+確立された倫理原則に従って AI システムが動作することを確保します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.4.1** | **Verify that** ethical guidelines for AI development and deployment exist. | 1 | D/V |
-| **AC.4.2** | **Verify that** mechanisms are in place to detect and report ethical violations. | 2 | D |
-| **AC.4.3** | **Verify that** regular ethical reviews of deployed AI systems are performed. | 3 | D/V |
+| **AC.4.1** | **検証:** AI 開発とデプロイメントに関する倫理ガイドラインは存在している。 | 1 | D/V |
+| **AC.4.2** | **検証:** 倫理違反を検出し報告するためのメカニズムは整備されている。 | 2 | D |
+| **AC.4.3** | **検証:** デプロイされた AI システムに対する定期的な倫理レビューは実施されている。 | 3 | D/V |
 
 ---
 
