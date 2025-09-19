@@ -2,7 +2,7 @@
 
 ## 目標
 
-This chapter defines baseline organizational controls for the safe and effective use of AI-assisted coding tools during software development, ensuring security and traceability across the SDLC.
+この章では、ソフト開発時に AI 支援のコーディングツールを安全かつ効果的に使用するためのベースライン組織制御を定義し、SDLC 全体にわたるセキュリティとトレーサビリティを確保します。
 
 ---
 
