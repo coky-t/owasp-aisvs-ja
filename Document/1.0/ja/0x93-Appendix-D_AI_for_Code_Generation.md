@@ -8,13 +8,13 @@
 
 ## AD.1 AI 支援のセキュアコーディングワークフロー (AI-Assisted Secure‑Coding Workflow)
 
-Integrate AI tooling into the organization’s secure‑software‑development lifecycle (SSDLC) without weakening existing security gates.
+既存のセキュリティゲートを弱めることなく、AI ツールを組織のセキュアソフトウェア開発ライフサイクル (SSDLC) に統合します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AD.1.1** | **Verify that** a documented workflow describes when and how AI tools may generate, refactor, or review code. | 1 | D/V |
-| **AD.1.2** | **Verify that** the workflow maps to each SSDLC phase (design, implementation, code review, testing, deployment). | 2 | D |
-| **AD.1.3** | **Verify that** metrics (e.g., vulnerability density, mean‑time‑to‑detect) are collected on AI‑produced code and compared to human‑only baselines. | 3 | D/V |
+| **AD.1.1** | **検証:** 文書化されたワークフローは AI ツールがコードを生成、リファクタ、またはレビューする時期と方法を記述している。 | 1 | D/V |
+| **AD.1.2** | **検証:** ワークフローは各 SSDLC フェーズ (設計、実装、コードレビュー、テスト、デプロイメント) にマップしている。 | 2 | D |
+| **AD.1.3** | **検証:** メトリクス (脆弱性密度、平均検出時間など) は AI が生成したコードから収集され、人間のみでのベースラインと比較されている。 | 3 | D/V |
 
 ---
 
