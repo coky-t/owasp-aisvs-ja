@@ -121,17 +121,17 @@
 
 ---
 
-## AC.7 Model Lifecycle Governance & Documentation
+## AC.7 モデルライフサイクルガバナンスとドキュメント (Model Lifecycle Governance & Documentation)
 
-Establish governance processes for model lifecycle documentation, approval workflows, and audit trail requirements.
+モデルライフサイクルドキュメント、承認ワークフロー、監査証跡要件のためのガバナンスプロセスを確立します。
 
-| # | Description | Level | Role |
+| # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AC.7.1** | **Verify that** all model artifacts use semantic versioning (MAJOR.MINOR.PATCH) with documented criteria specifying when each version component increments. | 2 | D/V |
-| **AC.7.2** | **Verify that** emergency deployments require documented security risk assessment and approval from a pre-designated security authority within pre-agreed timeframes. | 2 | D/V |
-| **AC.7.3** | **Verify that** rollback artifacts (previous model versions, configurations, dependencies) are retained according to organizational policies. | 2 | V |
-| **AC.7.4** | **Verify that** audit log access requires appropriate authorization and all access attempts are logged with user identity and a timestamp. | 2 | D/V |
-| **AC.7.5** | **Verify that** retired model artifacts are retained according to data retention policies. | 1 | D/V |
+| **AC.7.1** | **検証:** すべてのモデルアーティファクトは、各バージョンコンポーネントがいつ増加するかを指定する、文書化された基準を備えたセマンティックバージョン管理 (MAJOR.MINOR.PATCH) を使用している。 | 2 | D/V |
+| **AC.7.2** | **検証:** 緊急デプロイメントは、事前に合意された期間内に、文書化されたセキュリティリスク評価と、事前に指定されたセキュリティ機関からの承認を必要としている。 | 2 | D/V |
+| **AC.7.3** | **検証:** ロールバックアーティファクト (以前のモデルバージョン、構成、依存関係) は組織のポリシーに従って保持されている。 | 2 | V |
+| **AC.7.4** | **検証:** 監査ログへのアクセスは適切な認可を必要としており、すべてのアクセス試行はユーザーアイデンティティとタイムスタンプとともにログ記録されている。 | 2 | D/V |
+| **AC.7.5** | **検証:** 廃止されたモデルアーティファクトはデータ保持ポリシーに従って保持されている。 | 1 | D/V |
 
 ---
 
