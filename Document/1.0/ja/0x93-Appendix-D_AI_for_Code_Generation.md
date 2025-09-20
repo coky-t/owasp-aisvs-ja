@@ -20,13 +20,13 @@
 
 ## AD.2 AI ツールの適性と脅威モデリング (AI Tool Qualification & Threat Modeling)
 
-Ensure AI coding tools are evaluated for security capabilities, risk, and supply‑chain impact before adoption.
+AI コーディングツールは導入する前にセキュリティ機能、リスク、サプライチェーンの影響を評価されるようにします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AD.2.1** | **Verify that** a threat model for each AI tool identifies misuse, model‑inversion, data leakage, and dependency‑chain risks. | 1 | D/V |
-| **AD.2.2** | **Verify that** tool evaluations include static/dynamic analysis of any local components and assessment of SaaS endpoints (TLS, authentication/authorization, logging). | 2 | D |
-| **AD.2.3** | **Verify that** evaluations follow a recognized framework and are re‑performed after major version changes. | 3 | D/V |
+| **AD.2.1** | **検証:** 各 AI ツールの脅威モデルは、不正使用、モデル反転、データ漏洩、依存関係チェーンのリスクを特定している。 | 1 | D/V |
+| **AD.2.2** | **検証:** ツールの評価は、ローカルコンポーネントの静的/動的解析と SaaS エンドポイント (TLS、認証/認可、ログ記録) の評価を含んでいる。 | 2 | D |
+| **AD.2.3** | **検証:** 評価は認められたフレームワークに従っており、メジャーバージョン変更後に再実行されている。 | 3 | D/V |
 
 ---
 
