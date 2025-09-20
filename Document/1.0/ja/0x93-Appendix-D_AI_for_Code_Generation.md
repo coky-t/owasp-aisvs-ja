@@ -44,13 +44,13 @@ AI モデルのプロンプトやコンテキストを構築する際に、シ�
 
 ## AD.4 AI 生成コードのバリデーション (Validation of AI‑Generated Code)
 
-Detect and remediate vulnerabilities introduced by AI output before the code is merged or deployed.
+コードがマージまたはデプロイされる前に、AI 出力によって導入された脆弱性を検出して修復します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AD.4.1** | **Verify that** AI‑generated code is always subjected to human code review. | 1 | D/V |
-| **AD.4.2** | **Verify that** automated scanners (SAST/IAST/DAST) run on every pull request containing AI‑generated code and block merges on critical findings. | 2 | D |
-| **AD.4.3** | **Verify that** differential fuzz testing or property‑based tests prove security‑critical behaviors (e.g., input validation, authorization logic). | 3 | D/V |
+| **AD.4.1** | **検証:** AI が生成したコードは常に人間のコードレビューを受けている。 | 1 | D/V |
+| **AD.4.2** | **検証:** 自動スキャナ (SAST/IAST/DAST) は AI が生成したコードを含むすべてのプルリクエストに対して実行しており、重大な検出結果ではマージをブロックしている。 | 2 | D |
+| **AD.4.3** | **検証:** 差分ファズテストまたはプロパティベースのテストはセキュリティ上重要な動作 (入力バリデーション、認可ロジックなど) を証明している。 | 3 | D/V |
 
 ---
 
