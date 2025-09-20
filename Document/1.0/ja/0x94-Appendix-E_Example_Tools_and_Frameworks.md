@@ -8,12 +8,12 @@
 
 ## AE.1 トレーニングデータガバナンスとバイアス管理 (Training Data Governance & Bias Management)
 
-Tooling used for data analytics, governance, and bias management.
+データ解析、ガバナンス、バイアス管理に使用されるツールです。
 
 | # | 説明 | セクション |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|
-| **AE.1.1** | **Data Inventory Tooling:** Data inventory management tooling like... | 1.1 |
-| **AE.1.2** | **Encryption-In-Transit** Use TLS for HTTPS-based applications, with tools like openSSL and python's `ssl` library.  | 1.2 |
+| **AE.1.1** | **データインベントリツール:** ... などのデータインベントリ管理ツール | 1.1 |
+| **AE.1.2** | **転送時の暗号化** OpenSSL や Python の `ssl` ライブラリなどのツールで、HTTPS ベースのアプリケーションに TLS を使用します。 | 1.2 |
 
 ---
 
