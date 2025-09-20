@@ -2,7 +2,7 @@
 
 ## 目標
 
-This chapter provides examples for tooling and frameworks which can support the implementation or fulfillment of a given AISVS requirement. *These are not to be viewed as recommendations or endorsements by the AISVS team or the OWASP GenAI Security Project.*
+この章では特定の AISVS 要件の実装または達成をサポートできるツールとフレームワークの例を提供します。*これらは AISVS チームや OWASP 生成 AI セキュリティプロジェクトによる推奨や承認とみなされるものではありません。*
 
 ---
 
