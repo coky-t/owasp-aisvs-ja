@@ -56,13 +56,13 @@ AI モデルのプロンプトやコンテキストを構築する際に、シ�
 
 ## AD.5 コード提案の説明可能性と追跡可能性 (Explainability & Traceability of Code Suggestions)
 
-Provide auditors and developers with insight into why a suggestion was made and how it evolved.
+提案が行われた理由とその経緯についての洞察を監査担当者と開発者に提供します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **AD.5.1** | **Verify that** prompt/response pairs are logged with commit IDs. | 1 | D/V |
-| **AD.5.2** | **Verify that** developers can surface model citations (training snippets, documentation) supporting a suggestion. | 2 | D |
-| **AD.5.3** | **Verify that** explainability reports are stored with design artifacts and referenced in security reviews, satisfying ISO/IEC 42001 traceability principles. | 3 | D/V |
+| **AD.5.1** | **検証:** プロンプト/レスポンスのペアはコミット ID とともにログ記録されている。 | 1 | D/V |
+| **AD.5.2** | **検証:** 開発者は提案を裏付けるモデル引用 (トレーニングスニペット、ドキュメント) を提示できる。 | 2 | D |
+| **AD.5.3** | **検証:** 説明可能性レポートは設計成果物とともに保存され、セキュリティレビューで参照され、ISO/IEC 42001 追跡可能性原則を満たしている。 | 3 | D/V |
 
 ---
 
