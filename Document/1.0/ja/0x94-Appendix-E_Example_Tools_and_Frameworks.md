@@ -19,10 +19,10 @@
 
 ## AE.2 ユーザー入力バリデーション (User Input Validation)
 
-Tooling to handle and validated user inputs.
+ユーザー入力を処理および検証するためのツールです。
 
 | # | 説明 | セクション |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|
-| **AE.2.1** | **Prompt Injection Defense Tooling:** Use guardrail tooling like NVIDIA's NeMo or Guardrails AI. | 2.1 |
+| **AE.2.1** | **プロンプトインジェクション防御ツール:** NVIDIA の NeMo や Guardrails AI などのガードレールツールを使用します。 | 2.1 |
 
 ---
