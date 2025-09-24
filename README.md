@@ -36,6 +36,7 @@ This is the unofficial Japanese translation of the [OWASP Artificial Intelligenc
 * [付録 C: AI セキュリティガバナンスとドキュメント (AI Security Governance & Documentation)](Document/1.0/ja/0x92-Appendix-C_Governance_and_Documentation.md)
 * [付録 D: AI 支援のセキュアコーディングガバナンスと検証 (AI-Assisted Secure Coding Governance & Verification)](Document/1.0/ja/0x93-Appendix-D_AI_for_Code_Generation.md)
 * [付録 E: ツールとフレームワークの例示 (Example Tools and Frameworks)](Document/1.0/ja/0x94-Appendix-E_Example_Tools_and_Frameworks.md)
+* [付録 F: 戦略的コントロール (Strategic Controls)](Document/1.0/ja/0x95-Appendix-F_Strategic_Controls.md)
 
 ## License
 
