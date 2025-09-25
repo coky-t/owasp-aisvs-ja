@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-AI インフラストラクチャは、安全な構成、ランタイム分離、信頼できるデプロイメントパイプライン、包括的な監視を通じて、権限昇格、サプライチェーン改竄、ラテラルムーブメントに対して堅牢化される必要があります。セキュリティ、完全性、監査可能性を維持する、管理されたプロセスを通じて、認可されて検証されたインフラストラクチャコンポーネントと構成のみが本番環境に到達します。
+AI インフラストラクチャは、安全な構成、ランタイム分離、信頼できるデプロイメントパイプライン、包括的な監視を通じて、権限昇格、サプライチェーン改竄、ラテラルムーブメントに対して堅牢化される必要があります。セキュリティ、完全性、監査可能性を確保する、管理されたプロセスを通じて、検証されて認可されたインフラストラクチャコンポーネントのみが本番環境に到達します。
 
 **主要なセキュリティ目標:** 暗号署名され、脆弱性スキャンされたインフラストラクチャコンポーネントのみが、セキュリティポリシーを適用し、不変の監査証跡を維持する自動バリデーションパイプラインを通じて、本番環境に到達します。
 
@@ -10,15 +10,15 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 ## C4.1 ランタイム環境の分離 (Runtime Environment Isolation)
 
-カーネルレベルの分離プリミティブと強制アクセス制御により、コンテナエスケープと権限昇格を防止します。
+OS レベルの分離プリミティブにより、コンテナエスケープと権限昇格を防止します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.1.1** | **検証:** すべての AI コンテナは、CAP_SETUID、CAP_SETGID、およびセキュリティベースラインに文書化されている明示的に必要な機能を除く、すべての Linux 機能を削除している。 | 1 | D/V |
-| **4.1.2** | **検証:** seccomp プロファイルは事前に承認された許可リストにあるものを除くすべてのシステムコールをブロックし、違反がある場合はコンテナを終了してセキュリティアラートを生成している。 | 1 | D/V |
-| **4.1.3** | **検証:** AI ワークロードは、読み取り専用のルートファイルシステム、一時データ用の tmpfs、および noexec マウントオプションが適用された永続データ用の名前付きボリュームで実行している。 | 2 | D/V |
-| **4.1.4** | **検証:** eBPF ベースのランタイムモニタリング (Falco、Tetragon、または同等のもの) は権限昇格の試みを検出し、問題のあるプロセスを組織の応答時間要件内で自動的に強制終了している。 | 2 | D/V |
-| **4.1.5** | **検証:** 高リスクの AI ワークロードは、アテステーション検証を備えたハードウェア分離された環境 (Intel TXT、AMD SVM、または専用のベアメタルノード) で実行している。 | 3 | D/V |
+| **4.1.1** | **Verify that** all AI workloads run with minimal permissions needed on the operating system, by e.g. dropping unnecessary Linux capabilities in case of a container. | 1 | D/V |
+| **4.1.2** | **Verify that** workloads are protected by technologies limiting exploitation such as sandboxing, seccomp profiles, AppArmor, SELinux or similar, and that the configuration is appropriate. | 1 | D/V |
+| **4.1.3** | **Verify that** workloads run with a read-only root filesystem, and that any writable mounts are explicitly defined and hardened with restrictive options (e.g., noexec, nosuid, nodev). | 2 | D/V |
+| **4.1.4** | **Verify that** runtime monitoring detects privilege-escalation and container-escape behaviors and automatically terminates offending processes. | 2 | D/V |
+| **4.1.5** | **Verify that** high-risk AI workloads run in hardware-isolated environments (e.g., TEEs, trusted hypervisors, or bare-metal nodes) only after successful remote attestation. | 3 | D/V |
 
 ---
 
@@ -28,12 +28,10 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.2.1** | **検証:** Infrastructure as Code はコミットごとにツール (tfsec、Checkov、または Terrascan) でスキャンされ、重大度が CRITICAL または HIGH の検出結果であるマージをブロックしている。 | 1 | D/V |
-| **4.2.2** | **検証:** コンテナビルドはビルド間の同一の SHA256 ハッシュで再現可能であり、Sigstore で署名された SLSA レベル 3 の Provenance Attestation を生成している。 | 1 | D/V |
-| **4.2.3** | **検証:** コンテナイメージは CycloneDX または SPDX SBOM が埋め込まれており、レジストリプッシュ前に Cosign で署名されている。署名されていないイメージはデプロイメント時に拒否されている。 | 2 | D/V |
-| **4.2.4** | **検証:** CI/CD パイプラインは、組織のセキュリティポリシー制限を超えない有効期間を備えた、HashiCorp Vault、AWS IAM Roles、または Azure Managed Identity からの OIDC トークンを使用している。 | 2 | D/V |
-| **4.2.5** | **検証:** Cosign 署名と SLSA Provance はコンテナ実行前のデプロイメント時に検証されており、検証エラーはデプロイメントを失敗にしている。 | 2 | D/V |
-| **4.2.6** | **検証:** ビルド環境は、永続的なストレージではなく、本番環境の VPC からネットワーク分離した一時的なコンテナまたは VM で実行している。 | 2 | D/V |
+
+| **4.2.1** | **Verify that** builds are reproducible and produce signed provenance metadata as appropriate for the build artifacts that can be independently verified. | 1 | D/V |
+| **4.2.2** | **Verify that** builds produce a software bill of materials (SBOM) and are signed before being accepted for deployment. | 2 | D/V |
+| **4.2.3** | **Verify that** build artifact (e.g., container images) signatures and provenance metadata are validated at deployment, and unverified artifacts are rejected. | 2 | D/V |
 
 ---
 
@@ -43,264 +41,76 @@ AI インフラストラクチャは、安全な構成、ランタイム分離�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.3.1** | **検証:** Kubernetes NetworkPolicies または同等のポリシーは、必要なポート (443, 8080 など) に対して明示的な許可ルールで、デフォルト拒否の送受信 (ingress/egress) を実装している。 | 1 | D/V |
-| **4.3.2** | **検証:** SSH (ポート 22), RDP (ポート 3389), クラウドメタデータエンドポイント (169.254.169.254) はブロックされているか、証明書ベースの認証を必要としている。 | 1 | D/V |
-| **4.3.3** | **検証:** 送出 (egress) トラフィックは HTTP/HTTPS プロキシ (Squid、Istio、またはクラウド NAT ゲートウェイ) を通じてドメイン許可リストでフィルタされており、ブロックされたリクエストはログ記録されている。 | 2 | D/V |
-| **4.3.4** | **検証:** サービス間通信は組織のポリシーに従ってローテーションされる証明書での相互 TLS を使用しており、証明書バリデーションを強制している (検証スキップフラグなし)。 | 2 | D/V |
-| **4.3.5** | **検証:** AI インフラストラクチャは直接インターネットアクセスできない専用の VPC/VNet で実行しており、NAT ゲートウェイまたは要塞ホストを通じてのみ通信している。 | 2 | D/V |
-
----
+| **4.3.1** | **Verify that** network policies enforce default-deny ingress and egress, with only required services explicitly allowed. | 1 | D/V |
+| **4.3.2** | **Verify that** administrative access protocols (e.g., SSH, RDP) and access to cloud metadata services are restricted and require strong authentication. | 1 | D/V |
+| **4.3.3** | **Verify that** egress traffic is restricted to approved destinations and all requests are logged. | 2 | D/V |
+| **4.3.4** | **Verify that** inter-service communication uses mutual TLS with certificate validation and regular automated rotation. | 2 | D/V |
+| **4.3.5** | **Verify that** AI workloads and environments (dev, test, prod) run in isolated network segments (VPCs/VNets) with no direct internet access and no shared IAM roles, security groups, or cross-environment connectivity. | 2 | D/V |
 
 ## C4.4 シークレットと暗号鍵管理 (Secrets & Cryptographic Key Management)
 
-ハードウェア支援のストレージとゼロトラストアクセスでの自動ローテーションを通じてクレデンシャルを保護します。
+Protect secrets and cryptographic keys with secure storage, automated rotation, and strong access controls.
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.4.1** | **検証:** シークレットは、保存時に AES-256 を使用して暗号化される、HashiCorp Vault、AWS Secrets Manager、Azure Key Vault、または Google Secret Manager に格納されている。 | 1 | D/V |
-| **4.4.2** | **検証:** 暗号鍵は組織の暗号ポリシーに従って鍵ローテーションを実施する FIPS 140-2 レベル 2 HSM (AWS CloudHSM, Azure Dedicated HSM) で生成されている。 | 1 | D/V |
-| **4.4.3** | **検証:** シークレットローテーションは、人員変更やセキュリティインシデントによってトリガーされる、ゼロダウンタイムデプロイメントと即時ローテーションで自動化されている。 | 2 | D/V |
-| **4.4.4** | **検証:** コンテナイメージはツール (GitLeaks、TruffleHog、または detect-secrets) でスキャンされ、API キー、パスワード、証明書を含むビルドをブロックしている。 | 2 | D/V |
-| **4.4.5** | **検証:** 本番環境シークレットへのアクセスはハードウェアトークン (YubiKey, FIDO2) での MFA を必要としており、ユーザーアイデンティティとタイムスタンプとともに不変な監査ログに記録されている。 | 2 | D/V |
-| **4.4.6** | **検証:** シークレットは Kubernetes シークレット、マウントされたボリューム、または init コンテナを介して挿入されており、シークレットが環境変数やイメージに埋め込まれないことを確保している。 | 2 | D/V |
+| **4.4.1** | **Verify that** secrets are stored in a dedicated secrets management system with encryption at rest and isolated from application workloads. | 1 | D/V |
+| **4.4.2** | **Verify that** cryptographic keys are generated and stored in hardware-backed modules (e.g., HSMs, cloud KMS). | 1 | D/V |
+| **4.4.3** | **Verify that** secrets rotation is automated. | 2 | D/V |
+| **4.4.4** | **Verify that** access to production secrets requires strong authentication. |
+| **4.4.5** | **Verify that** secrets are deployed to applications at runtime through a secrets management solution. Secrets must never be embedded in source code, configuration files, build artifacts, container images, or environment variables. | 2 | D/V |
 
 ---
 
 ## C4.5 AI ワークロードのサンドボックス化とバリデーション (AI Workload Sandboxing & Validation)
 
-包括的な動作解析で、信頼できない AI モデルを安全なサンドボックスに分離します。
+Isolate untrusted AI models in secure sandboxes and protect sensitive AI workloads using trusted execution environments (TEEs) and confidential computing technologies.
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.5.1** | **検証:** 外部 AI モデルは、gVisor、microVMs (such as Firecracker, CrossVM)、または --security-opt=no-new-privileges と --read-only フラグを指定した Docker コンテナで実行している。 | 1 | D/V |
-| **4.5.2** | **検証:** サンドボックス環境はネットワーク接続がない (--network=none)、またはすべての外部リクエストが iptables ルールでブロックされ、ローカルホストアクセスのみを可能にしている。 | 1 | D/V |
-| **4.5.3** | **検証:** AI モデルバリデーションは組織で定義されたテストカバレッジでの自動化されたレッドチームテストと、バックドア検出のための動作分析を含んでいる。 | 2 | D/V |
-| **4.5.4** | **検証:** AI モデルが本番環境に昇進される前に、そのサンドボックス結果は認可されたセキュリティ担当者によって暗号署名され、不変な監査ログに保存されている。 | 2 | D/V |
-| **4.5.5** | **検証:** サンドボックス環境は評価の間ごとに破棄されており、ファイルシステムとメモリを完全にクリーンアップしてゴールデンイメージから再作成されている。 | 2 | D/V |
-| **4.5.6** | **検証:** マルチモーダル入力は、各様式タイプに固有のリソース制限 (メモリ、CPU、処理時間) が定義され、セキュリティポリシーに文書化された、隔離されたサンドボックスで処理されている。 | 2 | D/V |
+| **4.5.1** | **Verify that** external or untrusted AI models execute in isolated sandboxes.| 1 | D/V |
+| **4.5.2** | **Verify that** sandboxed workloads have no outbound network connectivity by default, with any required access explicitly defined.| 1 | D/V |
+| **4.5.3** | **Verify that** workload attestation is performed before model or workload loading, ensuring cryptographic proof of a trusted execution environment. | 2 | D/V |
+| **4.5.4** | **Verify that** confidential workloads execute within a trusted execution environment (TEE) that provides hardware-enforced isolation, memory encryption, and integrity protection. | 3 | D/V |
+| **4.5.5** | **Verify that** confidential inference services prevent model extraction through encrypted computation with sealed model weights and protected execution. | 3 | D/V |
+| **4.5.6** | **Verify that** orchestration of trusted execution environments includes lifecycle management, remote attestation, and encrypted communication channels. | 3 | D/V |
+| **4.5.7** | **Verify that** secure multi-party computation (SMPC) enables collaborative AI training without exposing individual datasets or model parameters. | 3 | D/V |
+
 ---
 
-## C4.6 インフラストラクチャセキュリティの監視 (Infrastructure Security Monitoring)
+## C4.6 AI インフラストラクチャリソース管理、バックアップとリカバリ (AI Infrastructure Resource Management, Backup and Recovery)
 
-自動修復とリアルタイムアラートで、インフラストラクチャを継続的にスキャンおよび監視します。
+Prevent resource exhaustion attacks and ensure fair resource allocation through quotas and monitoring. Maintain infrastructure resilience through secure backups, tested recovery procedures, and disaster recovery capabilities.
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.6.1** | **検証:** コンテナイメージは組織のスケジュールに従ってスキャンされており、重大 (CRITICAL) な脆弱性がある場合は組織のリスク閾値に基づいてデプロイメントをブロックしている。 | 1 | D/V |
-| **4.6.2** | **検証:** インフラストラクチャは、組織で定義されたコンプライアンス閾値で、CIS ベンチマークまたは NIST 800-53 コントロールに合格しており、不合格したチェックは自動修復している。 | 1 | D/V |
-| **4.6.3** | **検証:** 重大度が HIGH の脆弱性は、積極的に悪用される CVE に対する緊急手順を伴う、組織のリスク管理タイムラインに従ってパッチ適用されている。 | 2 | D/V |
-| **4.6.4** | **検証:** セキュリティアラートは自動エンリッチメントを備えた CEF または STIX/TAXII 形式を使用する SIEM プラットフォーム (Splunk、Elastic、または Sentinel) と統合している。 | 2 | V |
-| **4.6.5** | **検証:** インフラストラクチャメトリクスは SLA ダッシュボードとエグゼクティブレポートを備えた監視システム (Prometheus, DataDog) にエクスポートされている。 | 3 | V |
-| **4.6.6** | **検証:** 構成ドリフトは組織の監視要件に従ってツール (Chef InSpec, AWS Config) を使用して検出されており、不正な変更については自動ロールバックしている。 | 2 | D/V |
+| **4.6.1** | **Verify that** workload's resource consumption is limited appropriately with e.g. Kubernetes ResourceQuotas or similar to mitigate Denial of Service attacks. | 2 | D/V |
+| **4.6.2** | **Verify that** resource exhaustion triggers automated protections (e.g., rate limiting or workload isolation) once defined CPU, memory, or request thresholds are exceeded. | 2 | D/V |
+| **4.6.3** | **Verify that** backup systems run in isolated networks with separate credentials, and the storage system is either run in an air-gapped network or implements WORM (write-once-read-many) protection against unauthorized modification. | 2 | D/V |
 
 ---
 
-## C4.7 AI インフラストラクチャリソース管理 (AI Infrastructure Resource Management)
-
-リソース枯渇攻撃を防ぎ、クォータと監視を通じて公平なリソース割り当てを確保します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.7.1** | **検証:** GPU/TPU の使用率は監視されており、組織で定義された閾値でアラートし、キャパシティ管理ポリシーに基づいてアクティブ化される自動スケーリングまたはロードバランシングしている。 | 1 | D/V |
-| **4.7.2** | **検証:** AI ワークロードメトリクス (推論の遅延、スループット、エラー率) は組織の管理要件に従って収集されており、インフラストラクチャの使用率との相互関係を比較されている。 | 1 | D/V |
-| **4.7.3** | **検証:** Kubernetes ResourceQuotas または同等のものは組織のリソース割り当てポリシーに従って個々のワークロードを制限しており、ハード制限が適用されている。 | 2 | D/V |
-| **4.7.4** | **検証:** コスト監視はワークロード/テナントごとの支出を追跡しており、組織の予算閾値に基づいてアラートし、予算超過に対して自動制御している。 | 2 | V |
-| **4.7.5** | **検証:** キャパシティ計画は組織で定義された予測期間での履歴データを使用しており、需要パターンに基づいて自動リソースプロビジョニングしている。 | 3 | V |
-| **4.7.6** | **検証:** リソース枯渇は、キャパシティポリシーに基づくレート制限やワークロード分離など、組織の対応要件に従ってサーキットブレーカーをトリガーしている。 | 2 | D/V |
-
----
-
-## C4.8 環境分離とプロモーション制御 (Environment Separation & Promotion Controls)
-
-自動プロモーションゲートとセキュリティバリデーションで、厳格な環境境界を適用します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.8.1** | **検証:** 開発/テスト/本番環境は、IAM ロール、セキュリティグループ、ネットワーク接続を共有しない、個別の VPC/VNet で実行している。 | 1 | D/V |
-| **4.8.2** | **検証:** 環境プロモーションは組織で認可された担当者から暗号署名と不変な監査証跡での承認を必要としている。 | 1 | D/V |
-| **4.8.3** | **検証:** 本番環境は SSH アクセスをブロックし、デバッグエンドポイントを無効にし、緊急時を除き、組織への事前通知要件を伴う変更リクエストを要求している。 | 2 | D/V |
-| **4.8.4** | **検証:** Infrastructure as Code の変更は、メインブランチにマージする前に、自動テストとセキュリティスキャンでのピアレビューを必要としている。 | 2 | D/V |
-| **4.8.5** | **検証:** 非本番データは組織のプライバシー要件、合成データ生成、または PII 削除が検証された完全なデータマスキングに従って匿名化されている。 | 2 | D/V |
-| **4.8.6** | **検証:** プロモーションゲートは自動セキュリティテスト (SAST、DAST、コンテナスキャン) を含み、承認には重大 (CRITICAL) な問題が一切ないことを要求している。 | 2 | D/V |
-
----
-
-## C4.9 インフラストラクチャのバックアップとリカバリ (Infrastructure Backup & Recovery)
-
-自動バックアップ、テスト済みのリカバリ手順、災害復旧機能を通じて、インフラストラクチャ耐性を確保します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.9.1** | **検証:** インフラストラクチャ構成は、組織のバックアップスケジュールに従って、3-2-1 バックアップ戦略の実装により地理的に分離されたリージョンにバックアップされている。 | 1 | D/V |
-| **4.9.2** | **検証:** バックアップシステムは、ランサムウェア保護のために個別のクレデンシャルとエアギャップストレージを備える、分離されたネットワークで実行している。 | 2 | D/V |
-| **4.9.3** | **検証:** リカバリ手順は、RTO および RPO ターゲットが組織の要件を満たす、組織のスケジュールに従って自動テストを通じてテストおよび検証されている。 | 2 | V |
-| **4.9.4** | **検証:** 災害復旧は、モデルの重みの復元、GPU クラスタの再構築、サービス依存関係のマッピングでの AI 固有のランブックを含んでいる。 | 3 | V |
-
----
-
-## C4.10 インフラストラクチャのコンプライアンスとガバナンス (Infrastructure Compliance & Governance)
-
-継続的な評価、文書化、自動制御を通じて、規制コンプライアンスを維持します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.10.1** | **検証:** インフラストラクチャコンプライアンスは、自動証跡収集で SOC 2、ISO 27001、または FedRAMP のコントロールに対して、組織のスケジュールに従って評価されている。 | 2 | D/V |
-| **4.10.2** | **検証:** インフラストラクチャドキュメントは、ネットワークダイアグラム、データフローマップ、脅威モデルを含み、組織の変更管理要件に従って更新されている。 | 2 | V |
-| **4.10.3** | **検証:** インフラストラクチャの変更は、リスクの高い変更に対する規制承認ワークフローでの、自動化されたコンプライアンス影響評価を受けている。 | 3 | D/V |
-
----
-
-## C4.11 AI ハードウェアセキュリティ (AI Hardware Security)
+## C4.7 AI ハードウェアセキュリティ (AI Hardware Security)
 
 GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウェアコンポーネントを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.11.1** | **検証:** AI アクセラレータファームウェア (GPU BIOS、TPU ファームウェア) は暗号署名で検証され、組織のパッチ管理タイムラインに従って更新されている。 | 2 | D/V |
-| **4.11.2** | **検証:** ワークロードの実行前に、AI アクセラレータの完全性は、TPM 2.0、Intel TXT、または AMD SVM を使用したハードウェアアテステーションによって検証されている。 | 2 | D/V |
-| **4.11.3** | **検証:** GPU メモリは、SR-IOV、MIG (マルチインスタンス GPU)、またはジョブ間のメモリサニタイゼーションでの同等のハードウェアパーティショニングを使用して、ワークロード間で分離されている。 | 2 | D/V |
-| **4.11.4** | **検証:** AI ハードウェアサプライチェーンは製造元証明書での来歴検証と改竄防止パッケージングバリデーションを含んでいる。 | 3 | V |
-| **4.11.5** | **検証:** ハードウェアセキュリティモジュール (HSM) は、FIPS 140-2 レベル 3 または Common Criteria EAL4+ 認定で、AI モデルの重みと暗号鍵を保護している。 | 3 | D/V |
+| **4.7.1** | **Verify that** before workload execution, AI accelerator integrity is validated using hardware-based attestation mechanisms (e.g., TPM, DRTM, or equivalent). | 2 | D/V |
+| **4.7.2** | **Verify that** accelerator (GPU) memory is isolated between workloads through partitioning mechanisms with memory sanitization between jobs. | 2 | D/V |
+| **4.7.3** | **Verify that** hardware security modules (HSMs) protect AI model weights and cryptographic keys with certification to FIPS 140-3 Level 3 or Common Criteria EAL4+. | 3 | D/V |
 
 ---
 
-## C4.12 エッジと分散型の AI インフラストラクチャ (Edge & Distributed AI Infrastructure)
+## C4.8 エッジと分散型の AI セキュリティ (Edge & Distributed AI Security)
 
 エッジコンピューティング、連合学習、マルチサイトアーキテクチャなどの分散 AI デプロイメントを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.12.1** | **検証:** エッジ AI デバイスは、組織の証明書管理ポリシーに従って入れ替えが行われるデバイス証明書での相互 TLS を使用して、中央インフラストラクチャに対して認証している。 | 2 | D/V |
-| **4.12.2** | **検証:** エッジデバイスは検証済み署名とロールバック保護でのセキュアブートを実装し、ファームウェアダウングレード攻撃を防いでいる。 | 2 | D/V |
-| **4.12.3** | **検証:** 分散型 AI 協調は、協力者バリデーションと悪意のあるノードの検出を備える、ビザンチンフォールトトレラントコンセンサスアルゴリズムを使用している。 | 3 | D/V |
-| **4.12.4** | **検証:** エッジとクラウドの通信は、帯域幅スロットリング、データ圧縮、セキュアローカルストレージでのオフライン操作機能を含んでいる。 | 3 | D/V |
-
----
-
-## C4.13 マルチクラウドとハイブリッドインフラストラクチャセキュリティ (Multi-Cloud & Hybrid Infrastructure Security)
-
-複数のクラウドプロバイダとハイブリッドクラウドオンプレミスデプロイメントにわたる AI ワークロードを保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.13.1** | **検証:** マルチクラウド AI デプロイメントは、プロバイダ間の集中ポリシー管理での、クラウドに依存しないアイデンティティフェデレーション (OIDC, SAML) を使用している。 | 2 | D/V |
-| **4.13.2** | **検証:** クラウド間データ転送は顧客管理の鍵でのエンドツーエンド暗号化と、管轄区域ごとに適用されるデータレジデンシー制御を使用している。 | 2 | D/V |
-| **4.13.3** | **検証:** ハイブリッドクラウド AI ワークロードは、統合された監視とアラートで、オンプレミス環境とクラウド環境全体にわたって一貫したセキュリティポリシーを実装している。 | 2 | D/V |
-| **4.13.4** | **検証:** クラウドベンダーロックイン防止は、ポータブルな Infrastructure as Code、標準化された API、形式変換ツールでのデータエクスポート機能を含んでいる。 | 3 | V |
-| **4.13.5** | **検証:** マルチクラウドコスト最適化は、リソースの無秩序の増加や不正なクラウド間データ転送料金を防止する、セキュリティコントロールを含んでいる。 | 3 | V |
-
----
-
-## C4.14 インフラストラクチャオートメーションと GitOps セキュリティ (Infrastructure Automation & GitOps Security)
-
-AI インフラストラクチャ管理のためのインフラストラクチャオートメーションパイプラインと GitOps ワークフローを保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.14.1** | **検証:** GitOps リポジトリは GPG キーによる署名付きコミットと、メインブランチへの直接プッシュを防ぐブランチ保護ルールを必要としている。 | 2 | D/V |
-| **4.14.2** | **検証:** インフラストラクチャオートメーションは、不正な変更に対する組織の対応要件に従ってトリガーされる、自動修復およびロールバック機能を備えたドリフト検出を含んでいる。 | 2 | D/V |
-| **4.14.3** | **検証:** 自動化されたインフラストラクチャのプロビジョニングは、非準拠構成のデプロイメントをブロックする、セキュリティポリシーバリデーションを含んでいる。 | 2 | D/V |
-| **4.14.4** | **検証:** インフラストラクチャオートメーションシークレットは、自動ローテーションを備えた、外部シークレットオペレータ (External Secrets Operator, Bank-Vaults) を通じて管理されている。 | 2 | D/V |
-| **4.14.5** | **検証:** 自己修復インフラストラクチャは、自動化されたインシデント対応と利害関係者通知ワークフローでのセキュリティイベントの相関関係を含んでいる。 | 3 | V |
-
----
-
-## C4.15 量子耐性インフラストラクチャセキュリティ (Quantum-Resistant Infrastructure Security)
-
-ポスト量子暗号と耐量子プロトコルを通じて、量子コンピューティング脅威に対する AI インフラストラクチャを準備します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.15.1** | **検証:** AI インフラストラクチャは、鍵交換とデジタル署名のために、NIST 承認のポスト量子暗号アルゴリズム (CRYSTALS-Kyber, CRYSTALS-Dilithium, SPHINCS+) を実装している。 | 3 | D/V |
-| **4.15.2** | **検証:** 量子鍵配布 (QKD) システムは、耐量子鍵管理プロトコルを備えた、高セキュリティ AI 通信のために実装されている。 | 3 | D/V |
-| **4.15.3** | **検証:** 暗号アジリティフレームワークは、自動化された証明書と鍵のローテーションを備えた、新しいポスト量子アルゴリズムへの迅速な移行を可能にしている。 | 3 | D/V |
-| **4.15.4** | **検証:** 量子脅威モデリングは、文書化された移行タイムラインとリスク評価で、量子攻撃への AI インフラストラクチャ脆弱性を評価している。 | 3 | V |
-| **4.15.5** | **検証:** ハイブリッド古典量子暗号システムは、パフォーマンス監視での量子移行期間中に、多層防御を提供している。 | 3 | D/V |
-
----
-
-## C4.16 コンフィデンシャルコンピューティングとセキュアエンクレーブ (Confidential Computing & Secure Enclaves)
-
-ハードウェア支援の高信頼実行環境とコンフィデンシャルコンピューティングテクノロジを使用して、AI ワークロードとモデルの重みを保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.16.1** | **検証:** 機密性の高い AI モデルは、暗号化メモリとアテステーション検証を備えた、Intel SGX エンクレーブ、AMD SEV-SNP、または ARM TrustZone 内で実行している。 | 3 | D/V |
-| **4.16.2** | **検証:** コンフィデンシャルコンテナ (Kata Containers、コンフィデンシャルコンピューティングを備えた gVisor) は、ハードウェア適用のメモリ暗号化を使用して、AI ワークロードを分離している。 | 3 | D/V |
-| **4.16.3** | **検証:** リモートアテステーションは、AI モデルをロードする前に、実行環境の真正性の暗号論的証明を用いて、エンクレーブの完全性を検証している。 | 3 | D/V |
-| **4.16.4** | **検証:** コンフィデンシャル AI 推論サービスは、シールされたモデルの重みと保護された実行での暗号化された研鑽を通じて、モデルの抽出を防いでいる。 | 3 | D/V |
-| **4.16.5** | **検証:** 高信頼実行環境のオーケストレーションは、リモートアテステーションと暗号化された通信チャネルで、安全なエンクレーブのライフサイクルを管理している。 | 3 | D/V |
-| **4.16.6** | **検証:** 秘匿マルチパーティ計算 (SMPC) は、個々のデータセットやモデルパラメータを公開することなく、協調 AI トレーニングを可能にしている。 | 3 | D/V |
-
----
-
-## C4.17 ゼロ知識インフラストラクチャ (Zero-Knowledge Infrastructure)
-
-機密情報を公開することなく、プライバシーを保護する AI 検証および認証のためのゼロ知識証明システムを実装します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.17.1** | **検証:** ゼロ知識証明 (ZK-SNARK, ZK-STARK) は、モデルの重みやトレーニングデータを公開することなく、AI モデルの完全性とトレーニングの来歴を検証している。 | 3 | D/V |
-| **4.17.2** | **検証:** ZK ベースの認証システムは、アイデンティティ関連の情報を公開することなく、AI サービスのプライバシーを保護するユーザー検証を可能にしている。 | 3 | D/V |
-| **4.17.3** | **検証:** 秘匿共通集合演算 (PSI) プロトコルは、個別のデータセットを公開することなく、連合 AI の安全なデータマッチングを可能にしている。 | 3 | D/V |
-| **4.17.4** | **検証:** ゼロ知識機械学習 (ZKML) システムは、正しい計算の暗号論的証明で、検証可能な AI 推論を可能にしている。 | 3 | D/V |
-| **4.17.5** | **検証:** ZK ロールアップは、バッチ検証と計算オーバーヘッドの削減により、スケーラブルでプライバシーを保護する AI トランザクション処理を提供している。 | 3 | D/V |
-
----
-
-## C4.18 サイドチャネル攻撃の防止 (Side-Channel Attack Prevention)
-
-機密情報を漏洩する可能性のある、タイミング、電力、電磁気、キャッシュベースのサイドチャネル攻撃から AI インフラストラクチャを保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.18.1** | **検証:** AI 推論のタイミングは、タイミングベースのモデル抽出攻撃を防ぐために、定数時間アルゴリズムとパディングを使用して正規化されている。 | 3 | D/V |
-| **4.18.2** | **検証:** 電力解析保護は、ノイズ注入、電力線フィルタリング、AI ハードウェアのランダム実行パターンを含んでいる。 | 3 | D/V |
-| **4.18.3** | **検証:** キャッシュベースのサイドチャネル緩和は、情報漏洩を防ぐために、キャッシュのパーティショニング、ランダム化、フラッシュ命令を使用している。 | 3 | D/V |
-| **4.18.4** | **検証:** 電磁放射保護は、TEMPEST スタイルの攻撃を防ぐために、シールド、信号フィルタリング、ランダム化処理を含んでいる。 | 3 | D/V |
-| **4.18.5** | **検証:** マイクロアーキテクチャのサイドチャネル防御は投機的実行制御とメモリアクセスパターンの難読化を含んでいる。 | 3 | D/V |
-
----
-
-## C4.19 ニューロモルフィックと特殊 AI ハードウェアセキュリティ (Neuromorphic & Specialized AI Hardware Security)
-
-ニューロモルフィックチップ、FPGA、カスタム ASIC、光コンピューティングシステムなどの新しい AI ハードウェアアーキテクチャを保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.19.1** | **検証:** ニューロモルフィックチップのセキュリティは、スパイクパターンの暗号化、シナプス重みの保護、ハードウェアベースの学習ルールバリデーションを含んでいる。 | 3 | D/V |
-| **4.19.2** | **検証:** FPGA ベースの AI アクセラレータは、ビットストリームの暗号化、改竄防止メカニズム、認証された更新による安全な構成のローディングを実装している。 | 3 | D/V |
-| **4.19.3** | **検証:** カスタム ASIC のセキュリティは、オンチップセキュリティプロセッサ、ハードウェアルートオブトラスト、改竄検出を備えた安全なキーストレージを含んでいる。 | 3 | D/V |
-| **4.19.4** | **検証:** 光コンピューティングシステムは、耐量子光暗号化、安全な光子スイッチング、保護された光信号処理を実装している。 | 3 | D/V |
-| **4.19.5** | **検証:** ハイブリッドアナログデジタル AI チップは、安全なアナログコンピューティング、保護された重みの保存、認証されたアナログからデジタルへの変換を含んでいる。 | 3 | D/V |
-
----
-
-## C4.20 プライバシー保護計算インフラストラクチャ (Privacy-Preserving Compute Infrastructure)
-
-AI 処理と解析時の機密データを保護するために、プライバシー保護計算用のインフラストラクチャ制御を実装している。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.20.1** | **検証:** 準同型暗号インフラストラクチャは、暗号論的完全性保護とパフォーマンス監視を備えた機密 AI ワークロードでの暗号化計算を可能にしている。 | 3 | D/V |
-| **4.20.2** | **検証:** プライバシー情報検索システムは、アクセスパターンの暗号化保護で、クエリパターンを明らかにすることなくデータベースクエリを可能にしている。 | 3 | D/V |
-| **4.20.3** | **検証:** 安全なマルチパーティ計算プロトコルは、個別の入力や中間計算を公開することなく、プライバシーを保護した AI 推論を可能にしている。 | 3 | D/V |
-| **4.20.4** | **検証:** プライバシーを保護した鍵管理は、分散鍵生成、閾値暗号化、ハードウェア支援の保護での安全な鍵ローテーションを含んでいる。 | 3 | D/V |
-| **4.20.5** | **検証:** プライバシーを保護した計算パフォーマンスは、暗号化セキュリティの保証を維持しながら、バッチ処理、キャッシュ、ハードウェアアクセラレーションを通じて最適化されている。 | 3 | D/V |
-
----
-
-## C4.21 エージェントフレームワーククラウド統合セキュリティとハイブリッドデプロイメント (Agent Framework Cloud Integration Security & Hybrid Deployment)
-
-ハイブリッドオンプレミス/クラウドアーキテクチャでのクラウド統合エージェントフレームワークのセキュリティコントロールです。
-
-| # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.21.1** | **検証:** クラウドストレージ統合はエージェント制御の鍵管理でのエンドツーエンド暗号化を使用している。 | 1 | D/V |
-| **4.21.2** | **検証:** ハイブリッドデプロイメントのセキュリティ境界は、暗号化された通信チャネルで明確に定義されている。 | 2 | D/V |
-| **4.21.3** | **検証:** クラウドリソースアクセスは継続的認証でのゼロトラスト検証を含んでいる。 | 2 | D/V |
-| **4.21.4** | **検証:** データ所在要件はストレージロケーションの暗号化アテステーションにより強制されている。 | 3 | D/V |
-| **4.21.5** | **検証:** クラウドプロバイダのセキュリティ評価はエージェント固有の脅威モデリングとリスク評価を含んでいる。 | 3 | D/V |
+| **4.8.1** | **Verify that** edge AI devices authenticate to central infrastructure using mutual TLS. | 2 | D/V |
+| **4.8.2** | **Verify that** edge devices implement secure boot with verified signatures and rollback protection to prevent firmware downgrade attacks. | 2 | D/V |
+| **4.8.3** | **Verify that** distributed AI coordination uses Byzantine fault-tolerant consensus mechanisms with participant validation and malicious node detection. | 3 | D/V |
+| **4.8.4** | **Verify that** edge-to-cloud communication supports bandwidth throttling, data compression, and secure offline operation with encrypted local storage. | 3 | D/V |
 
 ---
 
@@ -315,18 +125,3 @@ AI 処理と解析時の機密データを保護するために、プライバ�
 * [ENISA: Secure Infrastructure Design](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services)
 * [ISO 27001:2022 Information Security Management](https://www.iso.org/standard/27001)
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
-* [CIS Kubernetes Benchmark](https://www.cisecurity.org/benchmark/kubernetes)
-* [IEEE 2857: Privacy Engineering for AI Systems](https://standards.ieee.org/ieee/2857/7273/)
-* [NIST Post-Quantum Cryptography Standards](https://csrc.nist.gov/Projects/post-quantum-cryptography)
-* [Intel SGX Developer Guide](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html)
-* [AMD SEV-SNP White Paper](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf)
-* [ARM TrustZone Technology](https://developer.arm.com/ip-products/security-ip/trustzone)
-* [ZK-SNARKs: A Gentle Introduction](https://blog.ethereum.org/2016/12/05/zksnarks-in-a-nutshell/)
-* [NIST SP 800-57: Cryptographic Key Management](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
-* [Neuromorphic Computing Security Challenges](https://ieeexplore.ieee.org/document/9458103)
-* [FPGA Security: Fundamentals, Evaluation, and Countermeasures](https://link.springer.com/book/10.1007/978-3-319-90385-9)
-* [Microsoft SEAL: Homomorphic Encryption Library](https://github.com/Microsoft/SEAL)
-* [HElib: Homomorphic Encryption Library](https://github.com/homenc/HElib)
-* [PALISADE Lattice Cryptography Library](https://palisade-crypto.org/)
-* [Differential Privacy: A Survey of Results](https://link.springer.com/chapter/10.1007/978-3-540-79228-4_1)
-* [Secure Aggregation for Federated Learning](https://eprint.iacr.org/2017/281.pdf)
