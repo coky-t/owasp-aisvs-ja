@@ -95,9 +95,9 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.7.1** | **Verify that** before workload execution, AI accelerator integrity is validated using hardware-based attestation mechanisms (e.g., TPM, DRTM, or equivalent). | 2 | D/V |
-| **4.7.2** | **Verify that** accelerator (GPU) memory is isolated between workloads through partitioning mechanisms with memory sanitization between jobs. | 2 | D/V |
-| **4.7.3** | **Verify that** hardware security modules (HSMs) protect AI model weights and cryptographic keys with certification to FIPS 140-3 Level 3 or Common Criteria EAL4+. | 3 | D/V |
+| **4.7.1** | **検証:** ワークロードを実行する前に、AI アクセラレータの完全性はハードウェアベースのアテステーションメカニズム (TPM、DRTM など) を使用して検証されている。 | 2 | D/V |
+| **4.7.2** | **検証:** アクセラレータ (GPU) メモリは、ジョブ間のメモリサニタイゼーションを備えたパーティショニングメカニズムを通じて、ワークロード間で分離されている。 | 2 | D/V |
+| **4.7.3** | **検証:** ハードウェアセキュリティモジュール (HSM) は、FIPS 140-3 Level 3 または Common Criteria EAL4+ の認定で、AI モデルの重みと暗号鍵を保護している。 | 3 | D/V |
 
 ---
 
