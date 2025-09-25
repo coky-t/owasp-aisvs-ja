@@ -41,11 +41,11 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.3.1** | **Verify that** network policies enforce default-deny ingress and egress, with only required services explicitly allowed. | 1 | D/V |
-| **4.3.2** | **Verify that** administrative access protocols (e.g., SSH, RDP) and access to cloud metadata services are restricted and require strong authentication. | 1 | D/V |
-| **4.3.3** | **Verify that** egress traffic is restricted to approved destinations and all requests are logged. | 2 | D/V |
-| **4.3.4** | **Verify that** inter-service communication uses mutual TLS with certificate validation and regular automated rotation. | 2 | D/V |
-| **4.3.5** | **Verify that** AI workloads and environments (dev, test, prod) run in isolated network segments (VPCs/VNets) with no direct internet access and no shared IAM roles, security groups, or cross-environment connectivity. | 2 | D/V |
+| **4.3.1** | **検証:** ネットワークポリシーはデフォルト拒否の受入 (ingress) と送出 (egress) を強制し、必要なサービスのみが明示的に許可されている。 | 1 | D/V |
+| **4.3.2** | **検証:** 管理アクセスプロトコル (SSH, RDP など) とクラウドメタデータサービスへのアクセスは制限されており、強力な認証を必要としている。 | 1 | D/V |
+| **4.3.3** | **検証:** 送出 (egress) トラフィックは承認された宛先に制限され、すべてのリクエストはログ記録されている。 | 2 | D/V |
+| **4.3.4** | **検証:** サービス間通信は、証明書バリデーションと定期的な自動ローテーションを備えた、相互 TLS を使用している。 | 2 | D/V |
+| **4.3.5** | **検証:** AI ワークロードと環境 (開発、テスト、本番) は、直接インターネットアクセスできず、共有 IAM ロール、共有セキュリティグループ、環境間接続がない、分離されたネットワークセグメント (VPC/VNet) で実行している。 | 2 | D/V |
 
 ## C4.4 シークレットと暗号鍵管理 (Secrets & Cryptographic Key Management)
 
