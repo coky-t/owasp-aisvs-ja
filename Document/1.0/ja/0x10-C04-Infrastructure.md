@@ -63,17 +63,17 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 
 ## C4.5 AI ワークロードのサンドボックス化とバリデーション (AI Workload Sandboxing & Validation)
 
-Isolate untrusted AI models in secure sandboxes and protect sensitive AI workloads using trusted execution environments (TEEs) and confidential computing technologies.
+信頼できない AI モデルを安全なサンドボックスで分離し、高信頼実行環境 (TEE) と機密コンピューティングテクノロジを使用して機密性の高い AI ワークロードを保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.5.1** | **Verify that** external or untrusted AI models execute in isolated sandboxes.| 1 | D/V |
-| **4.5.2** | **Verify that** sandboxed workloads have no outbound network connectivity by default, with any required access explicitly defined.| 1 | D/V |
-| **4.5.3** | **Verify that** workload attestation is performed before model or workload loading, ensuring cryptographic proof of a trusted execution environment. | 2 | D/V |
-| **4.5.4** | **Verify that** confidential workloads execute within a trusted execution environment (TEE) that provides hardware-enforced isolation, memory encryption, and integrity protection. | 3 | D/V |
-| **4.5.5** | **Verify that** confidential inference services prevent model extraction through encrypted computation with sealed model weights and protected execution. | 3 | D/V |
-| **4.5.6** | **Verify that** orchestration of trusted execution environments includes lifecycle management, remote attestation, and encrypted communication channels. | 3 | D/V |
-| **4.5.7** | **Verify that** secure multi-party computation (SMPC) enables collaborative AI training without exposing individual datasets or model parameters. | 3 | D/V |
+| **4.5.1** | **検証:** 外部の AI モデルや信頼できない AI モデルは分離されたサンドボックス内で実行している。 | 1 | D/V |
+| **4.5.2** | **検証:** サンドボックス化されたワークロードはデフォルトで送信ネットワーク接続を持たず、必要なアクセスは明示的に定義されている。 | 1 | D/V |
+| **4.5.3** | **検証:** ワークロードアテステーションはモデルやワークロードをロードする前に実行されており、高信頼実行環境の暗号証明を確保している。 | 2 | D/V |
+| **4.5.4** | **検証:** 機密ワークロードは、ハードウェアによる分離、メモリ暗号化、完全性保護を提供する高信頼実行環境 (TEE) 内で実行している。 | 3 | D/V |
+| **4.5.5** | **検証:** コンフィデンシャル推論サービスは、シールされたモデルの重みと保護された実行での暗号化された計算を通じて、モデルの抽出を防いでいる。 | 3 | D/V |
+| **4.5.6** | **検証:** 高信頼実行環境のオーケストレーションは、ライフサイクル管理、リモートアテステーション、暗号化された通信チャネルを含んでいる。 | 3 | D/V |
+| **4.5.7** | **検証:** 秘匿マルチパーティ計算 (SMPC) は、個々のデータセットやモデルパラメータを公開することなく、協調 AI トレーニングを可能にしている。 | 3 | D/V |
 
 ---
 
