@@ -107,10 +107,10 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.8.1** | **Verify that** edge AI devices authenticate to central infrastructure using mutual TLS. | 2 | D/V |
-| **4.8.2** | **Verify that** edge devices implement secure boot with verified signatures and rollback protection to prevent firmware downgrade attacks. | 2 | D/V |
-| **4.8.3** | **Verify that** distributed AI coordination uses Byzantine fault-tolerant consensus mechanisms with participant validation and malicious node detection. | 3 | D/V |
-| **4.8.4** | **Verify that** edge-to-cloud communication supports bandwidth throttling, data compression, and secure offline operation with encrypted local storage. | 3 | D/V |
+| **4.8.1** | **検証:** エッジ AI デバイスは相互 TLS を使用して中央インフラストラクチャに対して認証している。 | 2 | D/V |
+| **4.8.2** | **検証:** エッジデバイスは、ファームウェアダウングレード攻撃を防ぐために、検証済みの署名とロールバック保護を備えたセキュアブートを実装している。 | 2 | D/V |
+| **4.8.3** | **検証:** 分散型 AI 協調は、協力者バリデーションと悪意のあるノードの検出を備える、ビザンチンフォールトトレラントコンセンサスメカニズムを使用している。 | 3 | D/V |
+| **4.8.4** | **検証:** エッジとクラウドの通信は、帯域幅スロットリング、データ圧縮、暗号化されたローカルストレージでのオフライン操作機能をサポートしている。 | 3 | D/V |
 
 ---
 
