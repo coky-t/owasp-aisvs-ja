@@ -79,13 +79,13 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 
 ## C4.6 AI インフラストラクチャリソース管理、バックアップとリカバリ (AI Infrastructure Resource Management, Backup and Recovery)
 
-Prevent resource exhaustion attacks and ensure fair resource allocation through quotas and monitoring. Maintain infrastructure resilience through secure backups, tested recovery procedures, and disaster recovery capabilities.
+リソース枯渇攻撃を防ぎ、クォータと監視を通じて公平なリソース割り当てを確保します。安全なバックアップ、テスト済みのリカバリ手順、災害復旧機能を通じて、インフラストラクチャ耐性を維持します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.6.1** | **Verify that** workload's resource consumption is limited appropriately with e.g. Kubernetes ResourceQuotas or similar to mitigate Denial of Service attacks. | 2 | D/V |
-| **4.6.2** | **Verify that** resource exhaustion triggers automated protections (e.g., rate limiting or workload isolation) once defined CPU, memory, or request thresholds are exceeded. | 2 | D/V |
-| **4.6.3** | **Verify that** backup systems run in isolated networks with separate credentials, and the storage system is either run in an air-gapped network or implements WORM (write-once-read-many) protection against unauthorized modification. | 2 | D/V |
+| **4.6.1** | **検証:** ワークロードのリソース消費は、サービス拒否攻撃を緩和するために、Kubernetes ResourceQuotas などで適切に制限されている。 | 2 | D/V |
+| **4.6.2** | **検証:** リソース枯渇は、定義された CPU、メモリ、リクエスト閾値を超過すると、自動保護 (レート制限やワークロード分離など) をトリガーしている。 | 2 | D/V |
+| **4.6.3** | **検証:** バックアップシステムは個別のクレデンシャルでの分離されたネットワークで実行しており、ストレージシステムはエアギャップネットワークで実行されているか、不正な変更に対する WORM (write-once-read-many) 保護を実装している。 | 2 | D/V |
 
 ---
 
