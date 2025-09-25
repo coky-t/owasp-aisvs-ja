@@ -49,15 +49,15 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 
 ## C4.4 シークレットと暗号鍵管理 (Secrets & Cryptographic Key Management)
 
-Protect secrets and cryptographic keys with secure storage, automated rotation, and strong access controls.
+安全なストレージ、自動ローテーション、強力なアクセス制御で、シークレットと暗号鍵を保護します。
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.4.1** | **Verify that** secrets are stored in a dedicated secrets management system with encryption at rest and isolated from application workloads. | 1 | D/V |
-| **4.4.2** | **Verify that** cryptographic keys are generated and stored in hardware-backed modules (e.g., HSMs, cloud KMS). | 1 | D/V |
-| **4.4.3** | **Verify that** secrets rotation is automated. | 2 | D/V |
-| **4.4.4** | **Verify that** access to production secrets requires strong authentication. |
-| **4.4.5** | **Verify that** secrets are deployed to applications at runtime through a secrets management solution. Secrets must never be embedded in source code, configuration files, build artifacts, container images, or environment variables. | 2 | D/V |
+| **4.4.1** | **検証:** シークレットは、保存時に暗号化され、アプリケーションワークロードから分離された、専用のシークレット管理システムに保存されている。 | 1 | D/V |
+| **4.4.2** | **検証:** 暗号鍵はハードウェア支援モジュール (HSM、クラウド KMS など) で生成され、保護されている。 | 1 | D/V |
+| **4.4.3** | **検証:** シークレットのローテーションは自動化されている。 | 2 | D/V |
+| **4.4.4** | **検証:** 本番環境のシークレットへのアクセスは強力な認証を必要としている。 |
+| **4.4.5** | **検証:** シークレットはシークレット管理ソリューションを通じて実行時にアプリケーションにデプロイされている。シークレットは、ソースコード、構成ファイル、ビルドアーティファクト、コンテナイメージ、環境変数に埋め込んではいけない。 | 2 | D/V |
 
 ---
 
