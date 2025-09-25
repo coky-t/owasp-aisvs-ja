@@ -14,11 +14,11 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **4.1.1** | **Verify that** all AI workloads run with minimal permissions needed on the operating system, by e.g. dropping unnecessary Linux capabilities in case of a container. | 1 | D/V |
-| **4.1.2** | **Verify that** workloads are protected by technologies limiting exploitation such as sandboxing, seccomp profiles, AppArmor, SELinux or similar, and that the configuration is appropriate. | 1 | D/V |
-| **4.1.3** | **Verify that** workloads run with a read-only root filesystem, and that any writable mounts are explicitly defined and hardened with restrictive options (e.g., noexec, nosuid, nodev). | 2 | D/V |
-| **4.1.4** | **Verify that** runtime monitoring detects privilege-escalation and container-escape behaviors and automatically terminates offending processes. | 2 | D/V |
-| **4.1.5** | **Verify that** high-risk AI workloads run in hardware-isolated environments (e.g., TEEs, trusted hypervisors, or bare-metal nodes) only after successful remote attestation. | 3 | D/V |
+| **4.1.1** | **検証:** すべての AI ワークロードは、たとえばコンテナの場合は不要な Linux 機能を削除するなどにより、オペレーティングシステムに必要な最小限のパーミッションで実行している。 | 1 | D/V |
+| **4.1.2** | **検証:** ワークロードは、サンドボックス、seccomp プロファイル、AppArmor、SELinux などの悪用を制限するテクノロジによって保護されており、構成は適切である。 | 1 | D/V |
+| **4.1.3** | **検証:** ワークロードは読み取り専用のルートファイルシステムで実行し、書き込み可能なマウントは明示的に定義され、制限オプション (noexec, nosuid, nodev など) で堅牢化されている。 | 2 | D/V |
+| **4.1.4** | **検証:** ランタイム監視は権限昇格やコンテナ脱出の動作を検出し、問題のあるプロセスを自動的に終了している。 | 2 | D/V |
+| **4.1.5** | **検証:** 高リスクの AI ワークロードは、リモートアテステーションに成功した後にのみ、ハードウェア分離された環境 (TEE、信頼できるハイパーバイザー、ベアメタルノードなど) で実行している。 | 3 | D/V |
 
 ---
 
