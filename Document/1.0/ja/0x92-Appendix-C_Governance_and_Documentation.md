@@ -278,11 +278,11 @@
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.10.1** | **検証:** 環境プロモーションは組織で認可された担当者から暗号署名と不変な監査証跡での承認を必要としている。 | 1 | D/V |
 
-### AC.9.11 IaC Governance
+### AC.9.11 IaC ガバナンス (IaC Governance)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.11.1** | **Verify that** infrastructure-as-code changes require peer review with automated testing and security scanning before merge to main branch. |   2   |  D/V |
+| **AC.9.11.1** | **検証:** Infrastructure as Code の変更は、メインブランチにマージする前に、自動テストとセキュリティスキャンでのピアレビューを必要としている。 | 2 | D/V |
 
 ### AC.9.12 Data Handling in Non-Production
 
