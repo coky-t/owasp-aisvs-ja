@@ -137,12 +137,12 @@
 | **AC.6.7.2** | **検証:** 影響分析の結果は文書化され、関連する利害関係者によってレビューされている。 | 2 | D/V |
 | **AC.6.7.3** | **検証:** ロールバック計画は、新しいバージョンで許容できないリスクや回帰が発生した場合に備えて、存在している。 | 2 | D/V |
 
-### AC.6.8 Synthetic Data Governance
+### AC.6.8 合成データガバナンス (Synthetic Data Governance)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.8.1** | **Verify that** the generation process, parameters, and intended use of synthetic data are documented.                         |   2   |  D/V |
-| **AC.6.8.2** | **Verify that** synthetic data is risk-assessed for bias, privacy leakage, and representational issues before use in training. |   2   |  D/V |
+| **AC.6.8.1** | **検証:** 合成データの生成プロセス、パラメータ、使用目的は文書化されている。 | 2 | D/V |
+| **AC.6.8.2** | **検証:** 合成データは、トレーニングで使用する前に、バイアス、プライバシー漏洩、表現上の問題についてリスク評価されている。 | 2 | D/V |
 
 ### AC.6.9 Access Monitoring
 
