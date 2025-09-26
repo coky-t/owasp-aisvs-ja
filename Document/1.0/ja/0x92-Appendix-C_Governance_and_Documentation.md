@@ -95,13 +95,13 @@
 |  **AC.6.3.12** | **検証:** すべてのアノテーション担当者は機密保持と非開示契約に署名している。 | 2 | D/V |
 |  **AC.6.3.13** | **検証:** アノテーションプラットフォームはアクセス制御を実施し、内部脅威を監視している。 | 2 | D/V |
 
-### AC.6.4 Dataset Quality Gates & Quarantine
+### AC.6.4 データ品質ゲートと検疫 (Dataset Quality Gates & Quarantine)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.4.1** | **Verify that** failed datasets are quarantined with audit trails.                                                                                                                                                                                |   2   |  D/V |
-| **AC.6.4.2** | **Verify that** quality gates block sub-par datasets unless exceptions are approved.                                                                                                                                                              |   2   |  D/V |
-| **AC.6.4.3** | **Verify that** manual spot-checks by domain experts cover a statistically significant sample (e.g., ≥1% or 1,000 samples, whichever is greater, or as determined by risk assessment) to identify subtle quality issues not caught by automation. |   2   |   V  |
+| **AC.6.4.1** | **検証:** 不合格のデータセットは監査証跡とともに隔離されている。 | 2 | D/V |
+| **AC.6.4.2** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
+| **AC.6.4.3** | **検証:** ドメイン専門家による手動スポットチェックは、統計的に優位なサンプル (例: 1% 以上または 1,000 サンプルのいずれか大きい方、またはリスク評価によって決定) をカバーし、自動では捕捉できない精緻な品質問題を特定している。 | 2 | V |
 
 ### AC.6.5 Threat/Poisoning Detection & Drift
 
