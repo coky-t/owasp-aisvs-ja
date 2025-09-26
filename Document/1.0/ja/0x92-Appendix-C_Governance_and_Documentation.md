@@ -233,11 +233,11 @@
 | **AC.9.3.1** | **検証:** コンテナイメージは、ハードコードされたシークレット (API キー、クレデンシャル、証明書など) をブロックするために、スキャンされている。 | 2 | D/V |
 | **AC.9.3.2** | **検証:** コンテナイメージは組織のスケジュールに従ってスキャンされており、重大 (CRITICAL) な脆弱性がある場合は組織のリスク閾値に基づいてデプロイメントをブロックしている。 | 1 | D/V |
 
-### AC.9.4 Monitoring, Alerting & SIEM
+### AC.9.4 監視、アラート、SIEM (Monitoring, Alerting & SIEM)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.4.1** | **Verify that** security alerts integrate with SIEM platforms (Splunk, Elastic, or Sentinel) using CEF or STIX/TAXII formats with automated enrichment. |   2   |   V  |
+| **AC.9.4.1** | **検証:** セキュリティアラートは自動エンリッチメントを備えた CEF または STIX/TAXII 形式を使用する SIEM プラットフォーム (Splunk、Elastic、または Sentinel) と統合している。 | 2 | V |
 
 ### AC.9.5 Vulnerability Management
 
