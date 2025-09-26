@@ -103,14 +103,14 @@
 | **AC.6.4.2** | **検証:** 品質ゲートは、例外が承認されない限り、標準以下のデータセットをブロックしている。 | 2 | D/V |
 | **AC.6.4.3** | **検証:** ドメイン専門家による手動スポットチェックは、統計的に優位なサンプル (例: 1% 以上または 1,000 サンプルのいずれか大きい方、またはリスク評価によって決定) をカバーし、自動では捕捉できない精緻な品質問題を特定している。 | 2 | V |
 
-### AC.6.5 Threat/Poisoning Detection & Drift
+### AC.6.5 脅威/ポイズニング検出とドリフト (Threat/Poisoning Detection & Drift)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.5.1** | **Verify that** flagged samples trigger manual review before training.                            |   2   |  D/V |
-| **AC.6.5.2** | **Verify that** results feed the model's security dossier and inform ongoing threat intelligence. |   2   |   V  |
-| **AC.6.5.3** | **Verify that** detection logic is refreshed with new threat intel.                               |   3   |  D/V |
-| **AC.6.5.4** | **Verify that** online-learning pipelines monitor distribution drift.                             |   3   |  D/V |
+| **AC.6.5.1** | **検証:** フラグが付けられたサンプルはトレーニング前に手動レビューをトリガーしている。 | 2 | D/V |
+| **AC.6.5.2** | **検証:** 結果はモデルのセキュリティファイルに反映し、継続的な脅威インテリジェンスに情報提供している。 | 2 | V |
+| **AC.6.5.3** | **検証:** 検出ロジックは新しい脅威インテリジェンスで更新されている。 | 3 | D/V |
+| **AC.6.5.4** | **検証:** オンライン学習パイプラインは分布ドリフトを監視している。 | 3 | D/V |
 
 ### AC.6.6 Deletion, Consent, Rights, Retention & Compliance
 
