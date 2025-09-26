@@ -58,15 +58,15 @@
 
 ## AC.6 トレーニングデータガバナンス、ドキュメント、プロセス (Training Data Governance, Documentation & Process)
 
-### AC.6.1 Data Sourcing & Due Diligence
+### AC.6.1 データソーシングとデューディリジェンス (Data Sourcing & Due Diligence)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.1.1** | **Verify that** only datasets vetted for quality, representativeness, ethical sourcing, and licence compliance are allowed, reducing risks of poisoning, embedded bias, and intellectual property infringement.                                                               |   1   |  D/V |
-| **AC.6.1.2** | **Verify that** third-party data suppliers, including providers of pre-trained models and external datasets, undergo security, privacy, ethical sourcing, and data quality due diligence before their data or models are integrated.                                          |   2   |  D/V |
-| **AC.6.1.3** | **Verify that** external transfers use TLS/auth and integrity checks.                                                                                                                                                                                                         |   1   |   D  |
-| **AC.6.1.4** | **Verify that** high-risk data sources (e.g., open-source datasets with unknown provenance, unvetted suppliers) receive enhanced scrutiny, such as sandboxed analysis, extensive quality/bias checks, and targeted poisoning detection, before use in sensitive applications. |   2   |  D/V |
-| **AC.6.1.5** | **Verify that** Verify that pre-trained models obtained from third parties are evaluated for embedded biases, potential backdoors, integrity of their architecture, and the provenance of their original training data before fine-tuning or deployment.                      |   3   |  D/V |
+| **AC.6.1.1** | **検証:** 品質、代表性、倫理的調達、ライセンス遵守について精査されたデータセットのみを許可し、ポイズニング、埋め込まれたバイアス、知的財産侵害のリスクを低減している。 | 1 | D/V |
+| **AC.6.1.2** | **検証:** 事前トレーニング済みモデルや外部データセットのプロバイダを含むサードパーティのデータサプライヤは、そのデータやモデルを統合する前に、セキュリティ、プライバシー、倫理的調達、データ品質のデューディリジェンスを受けている。 | 2 | D/V |
+| **AC.6.1.3** | **検証:** 外部転送は TLS/auth と完全性チェックを使用している。 | 1 | D |
+| **AC.6.1.4** | **検証:** 高リスクのデータソース (来歴不明のオープンソースデータセット、審査されていないサプライヤなど) は、機密性の高いアプリケーションで使用する前に、サンドボックス解析、広範な品質/バイアスチェック、標的を絞ったポイズニング検出などの強化された精査を受けている。 | 2 | D/V |
+| **AC.6.1.5** | **検証:** サードパーティから取得した事前トレーニング済みモデルは、ファインチューニングやデプロイメントの前に、埋め込まれたバイアス、潜在的なバックドア、アーキテクチャの完全性、元のトレーニングデータの来歴について評価されている。 | 3 | D/V |
 
 ### AC.6.2 Bias & Fairness Management
 
