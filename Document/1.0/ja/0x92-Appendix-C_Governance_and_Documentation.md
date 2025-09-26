@@ -290,13 +290,13 @@
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.12.1** | **検証:** 非本番データは組織のプライバシー要件、合成データ生成、または PII 削除が検証された完全なデータマスキングに従って匿名化されている。 | 2 | D/V |
 
-### AC.9.13 Backup & Disaster Recovery
+### AC.9.13 バックアップと災害復旧 (Backup & Disaster Recovery)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.13.1** | **Verify that** infrastructure configurations are backed up according to organizational backup schedules to geographically separate regions with 3-2-1 backup strategy implementation.     |   1   |  D/V |
-| **AC.9.13.2** | **Verify that** recovery procedures are tested and validated through automated testing according to organizational schedules with RTO and RPO targets meeting organizational requirements. |   2   |   V  |
-| **AC.9.13.3** | **Verify that** disaster recovery includes AI-specific runbooks with model weight restoration, GPU cluster rebuilding, and service dependency mapping.                                     |   3   |   V  |
+| **AC.9.13.1** | **検証:** インフラストラクチャ構成は、組織のバックアップスケジュールに従って、3-2-1 バックアップ戦略の実装により地理的に分離されたリージョンにバックアップされている。 | 1 | D/V |
+| **AC.9.13.2** | **検証:** リカバリ手順は、RTO および RPO ターゲットが組織の要件を満たす、組織のスケジュールに従って自動テストを通じてテストおよび検証されている。 | 2 | V |
+| **AC.9.13.3** | **検証:** 災害復旧は、モデルの重みの復元、GPU クラスタの再構築、サービス依存関係のマッピングでの AI 固有のランブックを含んでいる。 | 3 | V |
 
 ### AC.9.14 Compliance & Documentation
 
