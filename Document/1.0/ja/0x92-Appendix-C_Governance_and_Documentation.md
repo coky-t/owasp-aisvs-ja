@@ -112,22 +112,22 @@
 | **AC.6.5.3** | **検証:** 検出ロジックは新しい脅威インテリジェンスで更新されている。 | 3 | D/V |
 | **AC.6.5.4** | **検証:** オンライン学習パイプラインは分布ドリフトを監視している。 | 3 | D/V |
 
-### AC.6.6 Deletion, Consent, Rights, Retention & Compliance
+### AC.6.6 削除、同意、権利、保持、コンプライアンス (Deletion, Consent, Rights, Retention & Compliance)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-|  **AC.6.6.1** | **Verify that** training data deletion workflows purge primary and derived data and assess model impact, and that the impact on affected models is assessed and, if necessary, addressed (e.g., through retraining or recalibration).                              |   1   |  D/V |
-|  **AC.6.6.2** | **Verify that** mechanisms are in place to track and respect the scope and status of user consent (and withdrawals) for data used in training, and that consent is validated before data is incorporated into new training processes or significant model updates. |   2   |   D  |
-|  **AC.6.6.3** | **Verify that** workflows are tested annually and logged.                                                                                                                                                                                                          |   2   |   V  |
-|  **AC.6.6.4** | **Verify that** explicit retention periods are defined for all training datasets.                                                                                                                                                                                  |   1   |  D/V |
-|  **AC.6.6.5** | **Verify that** datasets are automatically expired, deleted, or reviewed for deletion at the end of their lifecycle.                                                                                                                                               |   2   |  D/V |
-|  **AC.6.6.6** | **Verify that** retention and deletion actions are logged and auditable.                                                                                                                                                                                           |   2   |  D/V |
-|  **AC.6.6.7** | **Verify that** data residency and cross-border transfer requirements are identified and enforced for all datasets.                                                                                                                                                |   2   |  D/V |
-|  **AC.6.6.8** | **Verify that** sector-specific regulations (e.g., healthcare, finance) are identified and addressed in data handling.                                                                                                                                             |   2   |  D/V |
-|  **AC.6.6.9** | **Verify that** compliance with relevant privacy laws (e.g., GDPR, CCPA) is documented and reviewed regularly.                                                                                                                                                     |   2   |  D/V |
-| **AC.6.6.10** | **Verify that** mechanisms exist to respond to data subject requests for access, rectification, restriction, or objection.                                                                                                                                         |   2   |  D/V |
-| **AC.6.6.11** | **Verify that** requests are logged, tracked, and fulfilled within legally mandated timeframes.                                                                                                                                                                    |   2   |  D/V |
-| **AC.6.6.12** | **Verify that** data subject rights processes are tested and reviewed regularly for effectiveness.                                                                                                                                                                 |   2   |  D/V |
+|  **AC.6.6.1** | **検証:** トレーニングデータ削除ワークフローはプライマリデータと派生データを消去し、モデルへの影響を評価している。また、影響を受けるモデルへの影響が評価され、必要に応じて対処されている (再トレーニングや再キャリブレーションなど)。 | 1 | D/V |
+|  **AC.6.6.2** | **検証:** トレーニングで使用されるデータに対するユーザーの同意 (および撤回) のスコープとステータスを追跡して尊重するためのメカニズムが存在している。また、データが新しいトレーニングプロセスや重要なモデルアップデートに組み込まれる前にその同意が検証されている。 | 2 | D |
+|  **AC.6.6.3** | **検証:** ワークフローは毎年テストされ、ログ記録されている。 | 2 | V |
+|  **AC.6.6.4** | **検証:** 明示的な保持期間はすべてのトレーニングデータセットに対して定義されている。 | 1 | D/V |
+|  **AC.6.6.5** | **検証:** データセットは、ライフサイクルの終了時に自動的に期限切れ、削除、または削除対象としてレビューされている。 | 2 | D/V |
+|  **AC.6.6.6** | **検証:** 保持および削除アクションはログ記録され、監査可能である。 | 2 | D/V |
+|  **AC.6.6.7** | **検証:** データ保存場所と越境転送要件はすべてのデータセットに対して特定され、適用されている。 | 2 | D/V |
+|  **AC.6.6.8** | **検証:** セクター固有の規制 (医療、金融など) はデータ処理で特定され、対処されている。 | 2 | D/V |
+|  **AC.6.6.9** | **検証:** 関連するプライバシー法 (GDPR, CCPA など) への準拠は文書化され、定期的にレビューされている。 | 2 | D/V |
+| **AC.6.6.10** | **検証:** データ主体からのアクセス、訂正、制限、異議申し立ての要求に応じるメカニズムは存在している。 | 2 | D/V |
+| **AC.6.6.11** | **検証:** リクエストはログ記録され、追跡され、法的に定められた期間内に実行されている。 | 2 | D/V |
+| **AC.6.6.12** | **検証:** データ主体の権利プロセスは有効性を定期的にテストおよびレビューされている。 | 2 | D/V |
 
 ### AC.6.7 Versioning & Change Management
 
