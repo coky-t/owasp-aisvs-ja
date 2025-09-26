@@ -129,13 +129,13 @@
 | **AC.6.6.11** | **検証:** リクエストはログ記録され、追跡され、法的に定められた期間内に実行されている。 | 2 | D/V |
 | **AC.6.6.12** | **検証:** データ主体の権利プロセスは有効性を定期的にテストおよびレビューされている。 | 2 | D/V |
 
-### AC.6.7 Versioning & Change Management
+### AC.6.7 バージョン管理と変更管理 (Versioning & Change Management)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.7.1** | **Verify that** an impact analysis is performed before updating or replacing a dataset version, covering model performance, fairness, and compliance. |   2   |  D/V |
-| **AC.6.7.2** | **Verify that** results of the impact analysis are documented and reviewed by relevant stakeholders.                                                  |   2   |  D/V |
-| **AC.6.7.3** | **Verify that** rollback plans exist in case new versions introduce unacceptable risks or regressions.                                                |   2   |  D/V |
+| **AC.6.7.1** | **検証:** モデルのパフォーマンス、公平性、コンプライアンスをカバーする影響分析は、データセットのバージョンを更新または置き換える前に、実行されている。 | 2 | D/V |
+| **AC.6.7.2** | **検証:** 影響分析の結果は文書化され、関連する利害関係者によってレビューされている。 | 2 | D/V |
+| **AC.6.7.3** | **検証:** ロールバック計画は、新しいバージョンで許容できないリスクや回帰が発生した場合に備えて、存在している。 | 2 | D/V |
 
 ### AC.6.8 Synthetic Data Governance
 
