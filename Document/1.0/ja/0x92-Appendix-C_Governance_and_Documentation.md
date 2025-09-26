@@ -272,11 +272,11 @@
 | **AC.9.9.3** | **検証:** コスト監視はワークロード/テナントごとの支出を追跡しており、組織の予算閾値に基づいてアラートし、予算超過に対して自動制御している。 | 2 | V |
 | **AC.9.9.4** | **検証:** キャパシティ計画は組織で定義された予測期間での履歴データを使用しており、需要パターンに基づいて自動リソースプロビジョニングしている。 | 3 | V |
 
-### AC.9.10 Approvals & Audit Trails
+### AC.9.10 承認と監査証跡 (Approvals & Audit Trails)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.10.1** | **Verify that** environment promotion requires approval from organizationally defined authorized personnel with cryptographic signatures and immutable audit trails. |   1   |  D/V |
+| **AC.9.10.1** | **検証:** 環境プロモーションは組織で認可された担当者から暗号署名と不変な監査証跡での承認を必要としている。 | 1 | D/V |
 
 ### AC.9.11 IaC Governance
 
