@@ -298,13 +298,13 @@
 | **AC.9.13.2** | **検証:** リカバリ手順は、RTO および RPO ターゲットが組織の要件を満たす、組織のスケジュールに従って自動テストを通じてテストおよび検証されている。 | 2 | V |
 | **AC.9.13.3** | **検証:** 災害復旧は、モデルの重みの復元、GPU クラスタの再構築、サービス依存関係のマッピングでの AI 固有のランブックを含んでいる。 | 3 | V |
 
-### AC.9.14 Compliance & Documentation
+### AC.9.14 コンプライアンスとドキュメント (Compliance & Documentation)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.14.1** | **Verify that** infrastructure compliance is assessed according to organizational schedules against SOC 2, ISO 27001, or FedRAMP controls with automated evidence collection. |   2   |  D/V |
-| **AC.9.14.2** | **Verify that** infrastructure documentation includes network diagrams, data flow maps, and threat models updated according to organizational change management requirements. |   2   |   V  |
-| **AC.9.14.3** | **Verify that** infrastructure changes undergo automated compliance impact assessment with regulatory approval workflows for high-risk modifications.                         |   3   |  D/V |
+| **AC.9.14.1** | **検証:** インフラストラクチャコンプライアンスは、自動証跡収集で SOC 2、ISO 27001、または FedRAMP のコントロールに対して、組織のスケジュールに従って評価されている。 | 2 | D/V |
+| **AC.9.14.2** | **検証:** インフラストラクチャドキュメントは、ネットワークダイアグラム、データフローマップ、脅威モデルを含み、組織の変更管理要件に従って更新されている。 | 2 | V |
+| **AC.9.14.3** | **検証:** インフラストラクチャの変更は、リスクの高い変更に対する規制承認ワークフローでの、自動化されたコンプライアンス影響評価を受けている。 | 3 | D/V |
 
 ### AC.9.15 Hardware & Supply Chain
 
