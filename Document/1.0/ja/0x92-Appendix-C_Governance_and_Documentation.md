@@ -251,11 +251,11 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.6.1** | **検証:** 構成ドリフトは組織の監視要件に従ってツール (Chef InSpec, AWS Config) を使用して検出されており、不正な変更については自動ロールバックしている。 | 2 | D/V |
 
-### AC.9.7 Production Environment Hardening
+### AC.9.7 本番環境の堅牢化 (Production Environment Hardening)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.7.1** | **Verify that** production environments block SSH access, disable debug endpoints, and require change requests with organizational advance notice requirements except emergencies. |   2   |  D/V |
+| **AC.9.7.1** | **検証:** 本番環境は SSH アクセスをブロックし、デバッグエンドポイントを無効にし、緊急時を除き、組織への事前通知要件を伴う変更リクエストを要求している。 | 2 | D/V |
 
 ### AC.9.8 Release Promotion Gates
 
