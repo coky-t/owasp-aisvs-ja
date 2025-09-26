@@ -327,12 +327,12 @@
 | **AC.9.17.1** | **検証:** GitOps リポジトリは GPG キーによる署名付きコミットと、メインブランチへの直接プッシュを防ぐブランチ保護ルールを必要としている。 | 2 | D/V |
 | **AC.9.17.2** | **検証:** 自己修復インフラストラクチャは、自動化されたインシデント対応と利害関係者通知ワークフローでのセキュリティイベントの相関関係を含んでいる。 | 3 | V |
 
-### AC.9.18 Zero-Trust, Agents, Provisioning & Residency Attestation
+### AC.9.18 ゼロトラスト、エージェント、プロビジョニング、所在アテステーション (Zero-Trust, Agents, Provisioning & Residency Attestation)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.18.1** | **Verify that** cloud resource access includes zero-trust verification with continuous authentication.                                                     |   2   |  D/V |
-| **AC.9.18.2** | **Verify that** automated infrastructure provisioning includes security policy validation with deployment blocking for non-compliant configurations.       |   2   |  D/V |
-| **AC.9.18.3** | **Verify that** automated infrastructure provisioning validates security policies during CI/CD, with non-compliant configurations blocked from deployment. |   2   |  D/V |
-| **AC.9.18.4** | **Verify that** data residency requirements are enforced by cryptographic attestation of storage locations.                                                |   3   |  D/V |
-| **AC.9.18.5** | **Verify that** cloud provider security assessments include agent-specific threat modeling and risk evaluation.                                            |   3   |  D/V |
+| **AC.9.18.1** | **検証:** クラウドリソースアクセスは継続的認証でのゼロトラスト検証を含んでいる。 | 2 | D/V |
+| **AC.9.18.2** | **検証:** 自動化されたインフラストラクチャのプロビジョニングは、非準拠構成のデプロイメントをブロックする、セキュリティポリシーバリデーションを含んでいる。 | 2 | D/V |
+| **AC.9.18.3** | **検証:** 自動化されたインフラストラクチャのプロビジョニングは、CI/CD 中にセキュリティポリシーを検証しており、準拠していない構成はデプロイメントからブロックされている。 | 2 | D/V |
+| **AC.9.18.4** | **検証:** データ所在要件はストレージロケーションの暗号化アテステーションにより強制されている。 | 3 | D/V |
+| **AC.9.18.5** | **検証:** クラウドプロバイダのセキュリティ評価はエージェント固有の脅威モデリングとリスク評価を含んでいる。 | 3 | D/V |
