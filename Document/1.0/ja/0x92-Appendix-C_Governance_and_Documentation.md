@@ -144,12 +144,12 @@
 | **AC.6.8.1** | **検証:** 合成データの生成プロセス、パラメータ、使用目的は文書化されている。 | 2 | D/V |
 | **AC.6.8.2** | **検証:** 合成データは、トレーニングで使用する前に、バイアス、プライバシー漏洩、表現上の問題についてリスク評価されている。 | 2 | D/V |
 
-### AC.6.9 Access Monitoring
+### AC.6.9 アクセス監視 (Access Monitoring)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.9.1** | **Verify that** access logs are regularly reviewed for unusual patterns, such as large exports or access from new locations. |   2   |  D/V |
-| **AC.6.9.2** | **Verify that** alerts are generated for suspicious access events and investigated promptly.                                 |   2   |  D/V |
+| **AC.6.9.1** | **検証:** アクセスログは、大規模なエクスポートや新しい場所からのアクセスなど、異常なパターンについて定期的にレビューされている。 | 2 | D/V |
+| **AC.6.9.2** | **検証:** アラートは疑わしいアクセスイベントに対して生成され、即時調査されている。 | 2 | D/V |
 
 ### AC.6.10 Adversarial Training Governance
 
