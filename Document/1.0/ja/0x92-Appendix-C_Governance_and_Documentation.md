@@ -284,11 +284,11 @@
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.11.1** | **検証:** Infrastructure as Code の変更は、メインブランチにマージする前に、自動テストとセキュリティスキャンでのピアレビューを必要としている。 | 2 | D/V |
 
-### AC.9.12 Data Handling in Non-Production
+### AC.9.12 非本番でのデータ処理 (Data Handling in Non-Production)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.12.1** | **Verify that** non-production data is anonymized according to organizational privacy requirements, synthetic data generation, or complete data masking with PII removal verified. |   2   |  D/V |
+| **AC.9.12.1** | **検証:** 非本番データは組織のプライバシー要件、合成データ生成、または PII 削除が検証された完全なデータマスキングに従って匿名化されている。 | 2 | D/V |
 
 ### AC.9.13 Backup & Disaster Recovery
 
