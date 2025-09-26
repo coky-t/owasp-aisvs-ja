@@ -313,12 +313,12 @@
 | **AC.9.15.1** | **検証:** AI アクセラレータファームウェア (GPU BIOS、TPU ファームウェア) は暗号署名で検証され、組織のパッチ管理タイムラインに従って更新されている。 | 2 | D/V |
 | **AC.9.15.2** | **検証:** AI ハードウェアサプライチェーンは製造元証明書での来歴検証と改竄防止パッケージングバリデーションを含んでいる。 | 3 | V |
 
-### AC.9.16 Cloud Strategy & Portability
+### AC.9.16 クラウド戦略とポータビリティ (Cloud Strategy & Portability)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.16.1** | **Verify that** cloud vendor lock-in prevention includes portable infrastructure-as-code, standardized APIs, and data export capabilities with format conversion tools. |   3   |   V  |
-| **AC.9.16.2** | **Verify that** multi-cloud cost optimization includes security controls preventing resource sprawl as well as unauthorized cross-cloud data transfer charges.          |   3   |   V  |
+| **AC.9.16.1** | **検証:** クラウドベンダーロックイン防止は、ポータブルな Infrastructure as Code、標準化された API、形式変換ツールでのデータエクスポート機能を含んでいる。 | 3 | V |
+| **AC.9.16.2** | **検証:** マルチクラウドコスト最適化は、リソースの無秩序の増加や不正なクラウド間データ転送料金を防止する、セキュリティコントロールを含んでいる。 | 3 | V |
 
 ### AC.9.17 GitOps & Self-Healing
 
