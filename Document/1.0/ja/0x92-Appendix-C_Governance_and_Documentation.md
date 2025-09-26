@@ -245,11 +245,11 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.5.1** | **検証:** 重大度が HIGH の脆弱性は、積極的に悪用される CVE に対する緊急手順を伴う、組織のリスク管理タイムラインに従ってパッチ適用されている。 | 2 | D/V |
 
-### AC.9.6 Configuration & Drift Control
+### AC.9.6 構成とドリフトの制御 (Configuration & Drift Control)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.6.1** | **Verify that** configuration drift is detected using tools (Chef InSpec, AWS Config) according to organizational monitoring requirements with automatic rollback for unauthorized changes. |   2   |  D/V |
+| **AC.9.6.1** | **検証:** 構成ドリフトは組織の監視要件に従ってツール (Chef InSpec, AWS Config) を使用して検出されており、不正な変更については自動ロールバックしている。 | 2 | D/V |
 
 ### AC.9.7 Production Environment Hardening
 
