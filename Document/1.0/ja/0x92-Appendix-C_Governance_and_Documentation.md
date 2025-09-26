@@ -68,14 +68,14 @@
 | **AC.6.1.4** | **検証:** 高リスクのデータソース (来歴不明のオープンソースデータセット、審査されていないサプライヤなど) は、機密性の高いアプリケーションで使用する前に、サンドボックス解析、広範な品質/バイアスチェック、標的を絞ったポイズニング検出などの強化された精査を受けている。 | 2 | D/V |
 | **AC.6.1.5** | **検証:** サードパーティから取得した事前トレーニング済みモデルは、ファインチューニングやデプロイメントの前に、埋め込まれたバイアス、潜在的なバックドア、アーキテクチャの完全性、元のトレーニングデータの来歴について評価されている。 | 3 | D/V |
 
-### AC.6.2 Bias & Fairness Management
+### AC.6.2 バイアスと公平性の管理 (Bias & Fairness Management)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.2.1** | **Verify that** datasets are profiled for representational imbalance and potential biases across legally protected attributes (e.g., race, gender, age) and other ethically sensitive characteristics relevant to the model's application domain (e.g., socio-economic status, location).                                             |   1   |  D/V |
-| **AC.6.2.2** | **Verify that** that identified biases are mitigated via documented strategies such as re-balancing, targeted data augmentation, algorithmic adjustments (e.g., pre-processing, in-processing, post-processing techniques), or re-weighting, and the impact of mitigation on both fairness and overall model performance is assessed. |   2   |  D/V |
-| **AC.6.2.3** | **Verify that** post-training fairness metrics are evaluated and documented.                                                                                                                                                                                                                                                          |   2   |  D/V |
-| **AC.6.2.4** | **Verify that** a lifecycle bias-management policy assigns owners and review cadence.                                                                                                                                                                                                                                                 |   3   |  D/V |
+| **AC.6.2.1** | **検証:** データセットは、法的に保護された属性 (人種、性別、年齢など) とモデルの適用ドメインに関連するその他の倫理的にセンシティブな特定 (社会経済的ステータス、位置情報など) にわたって、表現の不均衡と潜在的なバイアスについてプロファイルされている。 | 1 | D/V |
+| **AC.6.2.2** | **検証:** 特定されたバイアスは、再バランス調整、対象を絞ったデータ拡張、アルゴリズム調整 (前処理、中処理、後処理技法など)、再重み付けなどの文書化された戦略によって緩和され、緩和策が公平性と全体的なモデルパフォーマンスの両方に与える影響を評価している。 | 2 | D/V |
+| **AC.6.2.3** | **検証:** トレーニング後の公平性のメトリクスが評価され、文書化されている。 | 2 | D/V |
+| **AC.6.2.4** | **検証:** ライフサイクルバイアス管理ポリシーは所有者とレビュー頻度を割り当てている。 | 3 | D/V |
 
 ### AC.6.3 Labeling & Annotation Governance
 
