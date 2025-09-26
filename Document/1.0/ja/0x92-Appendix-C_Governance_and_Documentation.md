@@ -210,7 +210,7 @@
 
 ---
 
-## AC.9 Multimodal Validation, MLOps & Infrastructure Governance
+## AC.9 マルチモーダルバリデーション、MLOps、インフラストラクチャガバナンス (Multimodal Validation, MLOps & Infrastructure Governance)
 
 ### AC.9.1 マルチモーダルセキュリティバリデーションパイプライン (Multimodal Security Validation Pipeline)
 
@@ -218,13 +218,13 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.1.1** | **検証:** 様式固有のコンテンツ分類子は、文書化されたスケジュール (最低四半期ごと) に従って更新され、新しい脅威パターン、敵対的サンプル、パフォーマンスベンチマークがベースライン閾値を上回るように維持している。 | 3 | D/V |
 
-### AC.9.2 CI/CD & Build Security
+### AC.9.2 CI/CD とビルドセキュリティ (CI/CD & Build Security)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.2.1** | **Verify that** infrastructure-as-code is scanned on every commit, and merges are blocked on critical or high-severity findings. |   1   |  D/V |
-| **AC.9.2.2** | **Verify that** CI/CD pipelines use short-lived, scoped identities for access to secrets and infrastructure.                     |   2   |  D/V |
-| **AC.9.2.3** | **Verify that** build environments are isolated from production networks and data.                                               |   2   |  D/V |
+| **AC.9.2.1** | **検証:** Infrastructure as Code はコミットごとにスキャンされており、重大な結果や重大度の高い結果の場合はマージがブロックされている。 | 1 | D/V |
+| **AC.9.2.2** | **検証:** CI/CD パイプラインは、シークレットとインフラストラクチャのアクセスに、有効期間が短いスコープ付きアイデンティティを使用している。 | 2 | D/V |
+| **AC.9.2.3** | **検証:** ビルド環境は本番ネットワークおよびデータから分離されている。 | 2 | D/V |
 
 ### AC.9.3 Container & Image Security
 
