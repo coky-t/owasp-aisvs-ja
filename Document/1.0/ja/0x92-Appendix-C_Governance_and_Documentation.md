@@ -239,11 +239,11 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.4.1** | **検証:** セキュリティアラートは自動エンリッチメントを備えた CEF または STIX/TAXII 形式を使用する SIEM プラットフォーム (Splunk、Elastic、または Sentinel) と統合している。 | 2 | V |
 
-### AC.9.5 Vulnerability Management
+### AC.9.5 脆弱性管理 (Vulnerability Management)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.5.1** | **Verify that** HIGH severity vulnerabilities are patched according to organizational risk management timelines with emergency procedures for actively exploited CVEs. |   2   |  D/V |
+| **AC.9.5.1** | **検証:** 重大度が HIGH の脆弱性は、積極的に悪用される CVE に対する緊急手順を伴う、組織のリスク管理タイムラインに従ってパッチ適用されている。 | 2 | D/V |
 
 ### AC.9.6 Configuration & Drift Control
 
