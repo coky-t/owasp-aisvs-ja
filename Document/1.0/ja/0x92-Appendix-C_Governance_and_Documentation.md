@@ -257,11 +257,11 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.7.1** | **検証:** 本番環境は SSH アクセスをブロックし、デバッグエンドポイントを無効にし、緊急時を除き、組織への事前通知要件を伴う変更リクエストを要求している。 | 2 | D/V |
 
-### AC.9.8 Release Promotion Gates
+### AC.9.8 リリースプロモーションゲート (Release Promotion Gates)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.8.1** | **Verify that** promotion gates include automated security tests (SAST, DAST, container scanning) with zero CRITICAL findings required for approval. |   2   |  D/V |
+| **AC.9.8.1** | **検証:** プロモーションゲートは自動セキュリティテスト (SAST、DAST、コンテナスキャン) を含み、承認には重大 (CRITICAL) な問題が一切ないことを要求している。 | 2 | D/V |
 
 ### AC.9.9 Workload, Capacity & Cost Monitoring
 
