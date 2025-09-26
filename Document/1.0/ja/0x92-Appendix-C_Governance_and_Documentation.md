@@ -320,12 +320,12 @@
 | **AC.9.16.1** | **検証:** クラウドベンダーロックイン防止は、ポータブルな Infrastructure as Code、標準化された API、形式変換ツールでのデータエクスポート機能を含んでいる。 | 3 | V |
 | **AC.9.16.2** | **検証:** マルチクラウドコスト最適化は、リソースの無秩序の増加や不正なクラウド間データ転送料金を防止する、セキュリティコントロールを含んでいる。 | 3 | V |
 
-### AC.9.17 GitOps & Self-Healing
+### AC.9.17 GitOps と自己修復 (GitOps & Self-Healing)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.17.1** | **Verify that** GitOps repositories require signed commits with GPG keys and branch protection rules preventing direct pushes to main branches.          |   2   |  D/V |
-| **AC.9.17.2** | **Verify that** self-healing infrastructure includes security event correlation with automated incident response and stakeholder notification workflows. |   3   |   V  |
+| **AC.9.17.1** | **検証:** GitOps リポジトリは GPG キーによる署名付きコミットと、メインブランチへの直接プッシュを防ぐブランチ保護ルールを必要としている。 | 2 | D/V |
+| **AC.9.17.2** | **検証:** 自己修復インフラストラクチャは、自動化されたインシデント対応と利害関係者通知ワークフローでのセキュリティイベントの相関関係を含んでいる。 | 3 | V |
 
 ### AC.9.18 Zero-Trust, Agents, Provisioning & Residency Attestation
 
