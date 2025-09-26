@@ -263,14 +263,14 @@
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **AC.9.8.1** | **検証:** プロモーションゲートは自動セキュリティテスト (SAST、DAST、コンテナスキャン) を含み、承認には重大 (CRITICAL) な問題が一切ないことを要求している。 | 2 | D/V |
 
-### AC.9.9 Workload, Capacity & Cost Monitoring
+### AC.9.9 ワークロード、キャパシティ、コストの監視 (Workload, Capacity & Cost Monitoring)
 
 | # | 説明 | レベル | ロール |
 | :----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.9.1** | **Verify that** GPU/TPU utilization is monitored with alerts triggered at organizationally defined thresholds and automatic scaling or load balancing activated based on capacity management policies. |   1   |  D/V |
-| **AC.9.9.2** | **Verify that** AI workload metrics (inference latency, throughput, error rates) are collected according to organizational monitoring requirements and correlated with infrastructure utilization.     |   1   |  D/V |
-| **AC.9.9.3** | **Verify that** cost monitoring tracks spending per workload/tenant with alerts based on organizational budget thresholds and automated controls for budget overruns.                                  |   2   |   V  |
-| **AC.9.9.4** | **Verify that** capacity planning uses historical data with organizationally defined forecasting periods and automated resource provisioning based on demand patterns.                                 |   3   |   V  |
+| **AC.9.9.1** | **検証:** GPU/TPU の使用率は監視されており、組織で定義された閾値でアラートし、キャパシティ管理ポリシーに基づいてアクティブ化される自動スケーリングまたはロードバランシングしている。 | 1 | D/V |
+| **AC.9.9.2** | **検証:** AI ワークロードメトリクス (推論の遅延、スループット、エラー率) は組織の管理要件に従って収集されており、インフラストラクチャの使用率との相互関係を比較されている。 | 1 | D/V |
+| **AC.9.9.3** | **検証:** コスト監視はワークロード/テナントごとの支出を追跡しており、組織の予算閾値に基づいてアラートし、予算超過に対して自動制御している。 | 2 | V |
+| **AC.9.9.4** | **検証:** キャパシティ計画は組織で定義された予測期間での履歴データを使用しており、需要パターンに基づいて自動リソースプロビジョニングしている。 | 3 | V |
 
 ### AC.9.10 Approvals & Audit Trails
 
