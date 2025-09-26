@@ -306,12 +306,12 @@
 | **AC.9.14.2** | **検証:** インフラストラクチャドキュメントは、ネットワークダイアグラム、データフローマップ、脅威モデルを含み、組織の変更管理要件に従って更新されている。 | 2 | V |
 | **AC.9.14.3** | **検証:** インフラストラクチャの変更は、リスクの高い変更に対する規制承認ワークフローでの、自動化されたコンプライアンス影響評価を受けている。 | 3 | D/V |
 
-### AC.9.15 Hardware & Supply Chain
+### AC.9.15 ハードウェアとサプライチェーン (Hardware & Supply Chain)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.9.15.1** | **Verify that** AI accelerator firmware (GPU BIOS, TPU firmware) is verified with cryptographic signatures and updated according to organizational patch management timelines. |   2   |  D/V |
-| **AC.9.15.2** | **Verify that** the AI hardware supply chain includes provenance verification with manufacturer certificates and tamper-evident packaging validation.                          |   3   |   V  |
+| **AC.9.15.1** | **検証:** AI アクセラレータファームウェア (GPU BIOS、TPU ファームウェア) は暗号署名で検証され、組織のパッチ管理タイムラインに従って更新されている。 | 2 | D/V |
+| **AC.9.15.2** | **検証:** AI ハードウェアサプライチェーンは製造元証明書での来歴検証と改竄防止パッケージングバリデーションを含んでいる。 | 3 | V |
 
 ### AC.9.16 Cloud Strategy & Portability
 
