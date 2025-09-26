@@ -151,13 +151,13 @@
 | **AC.6.9.1** | **検証:** アクセスログは、大規模なエクスポートや新しい場所からのアクセスなど、異常なパターンについて定期的にレビューされている。 | 2 | D/V |
 | **AC.6.9.2** | **検証:** アラートは疑わしいアクセスイベントに対して生成され、即時調査されている。 | 2 | D/V |
 
-### AC.6.10 Adversarial Training Governance
+### AC.6.10 敵対的トレーニングガバナンス (Adversarial Training Governance)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-| **AC.6.10.1** | **Verify that** if adversarial training is used, the generation, management, and versioning of adversarial datasets are documented and controlled.                                           |   2   |  D/V |
-| **AC.6.10.2** | **Verify that** the impact of adversarial robustness training on model performance (against both clean and adversarial inputs) and fairness metrics is evaluated, documented, and monitored. |   3   |  D/V |
-| **AC.6.10.3** | **Verify that** strategies for adversarial training and robustness are periodically reviewed and updated to counter evolving adversarial attack techniques.                                  |   3   |  D/V |
+| **AC.6.10.1** | **検証:** 敵対的トレーニングが使用される場合、敵対的データセットの生成、管理、バージョン管理は文書化され、制御されている。 | 2 | D/V |
+| **AC.6.10.2** | **検証:** 敵対的堅牢性トレーニングがモデルのパフォーマンス (クリーンな入力と敵対的な入力の両方に対して) と公平性メトリクスに及ぼす影響は評価、文書化、監視されている。 | 3 | D/V |
+| **AC.6.10.3** | **検証:** 敵対的トレーニングと堅牢性に関する戦略は、進化する敵対的攻撃技法に対抗するために、定期的に見直され、更新されている。 | 3 | D/V |
 
 ---
 
