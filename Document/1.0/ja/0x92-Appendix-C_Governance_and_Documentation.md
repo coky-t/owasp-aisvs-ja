@@ -77,23 +77,23 @@
 | **AC.6.2.3** | **検証:** トレーニング後の公平性のメトリクスが評価され、文書化されている。 | 2 | D/V |
 | **AC.6.2.4** | **検証:** ライフサイクルバイアス管理ポリシーは所有者とレビュー頻度を割り当てている。 | 3 | D/V |
 
-### AC.6.3 Labeling & Annotation Governance
+### AC.6.3 ラベリングとアノテーションのガバナンス (Labeling & Annotation Governance)
 
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
-|  **AC.6.3.1** | **Verify that** labelling/annotation quality is ensured via reviewer cross-checks or consensus.                                                                                                                                         |   2   |  D/V |
-|  **AC.6.3.2** | **Verify that** data cards are maintained for significant training datasets, detailing characteristics, motivations, composition, collection processes, preprocessing, licenses, and recommended/discouraged uses.                      |   2   |  D/V |
-|  **AC.6.3.3** | **Verify that** data cards document bias risks, demographic skews, and ethical considerations relevant to the dataset.                                                                                                                  |   2   |  D/V |
-|  **AC.6.3.4** | **Verify that** data cards are versioned alongside datasets and updated whenever the dataset is modified.                                                                                                                               |   2   |  D/V |
-|  **AC.6.3.5** | **Verify that** data cards are reviewed and approved by both technical and non-technical stakeholders (e.g., compliance, ethics, domain experts).                                                                                       |   2   |  D/V |
-|  **AC.6.3.6** | **Verify that** labeling/annotation quality is ensured via clear guidelines, reviewer cross-checks, consensus mechanisms (e.g., monitoring inter-annotator agreement), and defined processes for resolving discrepancies.               |   2   |  D/V |
-|  **AC.6.3.7** | **Verify that** labels critical to safety, security, or fairness (e.g., identifying toxic content, critical medical findings) receive mandatory independent dual review or equivalent robust verification.                              |   3   |  D/V |
-|  **AC.6.3.8** | **Verify that** labeling guides and instructions are comprehensive, version-controlled, and peer-reviewed.                                                                                                                              |   2   |  D/V |
-|  **AC.6.3.9** | **Verify that** data schemas for labels are clearly defined, and version-controlled.                                                                                                                                                    |   2   |  D/V |
-|  **AC.6.3.10** | **Verify that** outsourced or crowdsourced labeling workflows include technical/procedural safeguards to ensure data confidentiality, integrity, label quality, and prevent data leakage.                                              |   2   |  D/V |
-|  **AC.6.3.11** | **Verify that** all personnel involved in data annotation are background-checked and trained in data security and privacy.                                                                                                             |   2   |  D/V |
-|  **AC.6.3.12** | **Verify that** all annotation personnel sign confidentiality and non-disclosure agreements.                                                                                                                                           |   2   |  D/V |
-|  **AC.6.3.13** | **Verify that** annotation platforms enforce access controls and monitor for insider threats.                                                                                                                                          |   2   |  D/V |
+|  **AC.6.3.1** | **検証:** ラベリングやアノテーションの品質はレビュー担当者のクロスチェックまたはコンセンサスによって確保している。 | 2 | D/V |
+|  **AC.6.3.2** | **検証:** データカードは重要なトレーニングデータセットに対して維持しており、特性、動機、構成、収集プロセス、前処理、ライセンス、推奨される使用方法、推奨されない使用方法を詳述している。 | 2 | D/V |
+|  **AC.6.3.3** | **検証:** データカードはデータセットに関連するバイアスのリスク、人口統計上の偏り、倫理的考慮事項を記載している。 | 2 | D/V |
+|  **AC.6.3.4** | **検証:** データカードはデータセットとともにバージョン管理され、データセットが変更されるたびに更新されている。 | 2 | D/V |
+|  **AC.6.3.5** | **検証:** データカードは技術的な利害関係者と非技術的な利害関係者の両方 (コンプライアンス、倫理、ドメインエキスパートなど) によってレビューおよび承認されている。 | 2 | D/V |
+|  **AC.6.3.6** | **検証:** ラベリングやアノテーションの品質は、明確なガイドライン、レビュー担当者によるクロスチェック、同意メカニズム (注釈者間の合意の監視など)、不整合を解決するために定義されたプロセスによって確保されている。 | 2 | D/V |
+|  **AC.6.3.7** | **検証:** 安全性、セキュリティ、公平性にとって重要なラベル (有毒コンテンツの特定、重要な医療所見など) は、独立した二重レビューまたは同等の堅牢な検証を必ず受けている。 | 3 | D/V |
+|  **AC.6.3.8** | **検証:** ラベリングガイドとインストラクションは包括的であり、バージョン管理され、ピアレビューされている。 | 2 | D/V |
+|  **AC.6.3.9** | **検証:** ラベルに対するデータスキーマは明確に定義され、バージョン管理されている。 | 2 | D/V |
+|  **AC.6.3.10** | **検証:** アウトソースまたはクラウドソースしたラベリングワークフローは技術的/手順的な保護策を含み、データの機密性、完全性、ラベルの品質を確保し、データ漏洩を防いでいる。 | 2 | D/V |
+|  **AC.6.3.11** | **検証:** データアノテーションに関わる全ての担当者は身元調査を受けており、データセキュリティとプライバシーの訓練を受けている。 | 2 | D/V |
+|  **AC.6.3.12** | **検証:** すべてのアノテーション担当者は機密保持と非開示契約に署名している。 | 2 | D/V |
+|  **AC.6.3.13** | **検証:** アノテーションプラットフォームはアクセス制御を実施し、内部脅威を監視している。 | 2 | D/V |
 
 ### AC.6.4 Dataset Quality Gates & Quarantine
 
