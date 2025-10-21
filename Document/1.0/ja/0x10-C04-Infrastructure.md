@@ -54,9 +54,9 @@ OS レベルの分離プリミティブにより、コンテナエスケープ�
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
 | **4.4.1** | **検証:** シークレットは、保存時に暗号化され、アプリケーションワークロードから分離された、専用のシークレット管理システムに保存されている。 | 1 | D/V |
 | **4.4.2** | **検証:** 暗号鍵はハードウェア支援モジュール (HSM、クラウド KMS など) で生成され、保護されている。 | 1 | D/V |
-| **4.4.3** | **検証:** シークレットのローテーションは自動化されている。 | 2 | D/V |
-| **4.4.4** | **検証:** 本番環境のシークレットへのアクセスは強力な認証を必要としている。 |
-| **4.4.5** | **検証:** シークレットはシークレット管理ソリューションを通じて実行時にアプリケーションにデプロイされている。シークレットは、ソースコード、構成ファイル、ビルドアーティファクト、コンテナイメージ、環境変数に埋め込んではいけない。 | 2 | D/V |
+| **4.4.3** | **検証:** 本番環境のシークレットへのアクセスは強力な認証を必要としている。 | 1 | D/V |
+| **4.4.4** | **検証:** シークレットは専用のシークレット管理システムを通じて実行時にアプリケーションにデプロイされている。シークレットは、ソースコード、構成ファイル、ビルドアーティファクト、コンテナイメージ、環境変数に埋め込んではいけない。 | 2 | D/V |
+| **4.4.5** | **検証:** シークレットのローテーションは自動化されている。 | 2 | D/V |
 
 ---
 
@@ -122,9 +122,7 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 * [NIST Cybersecurity Framework 2.0](https://www.nist.gov/cyberframework)
 * [CIS Controls v8](https://www.cisecurity.org/controls/v8)
-* [OWASP Container Security Verification Standard](https://github.com/OWASP/Container-Security-Verification-Standard)
 * [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/)
-* [SLSA Supply Chain Security Framework](https://slsa.dev/)
 * [Cloud Security Alliance: Cloud Controls Matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/)
 * [ENISA: Secure Infrastructure Design](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services)
 * [ISO 27001:2022 Information Security Management](https://www.iso.org/standard/27001)
