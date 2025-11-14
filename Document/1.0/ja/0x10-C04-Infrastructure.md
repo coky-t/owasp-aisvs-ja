@@ -4,8 +4,6 @@
 
 AI インフラストラクチャは、安全な構成、ランタイム分離、信頼できるデプロイメントパイプライン、包括的な監視を通じて、権限昇格、サプライチェーン改竄、ラテラルムーブメントに対して堅牢化される必要があります。セキュリティ、完全性、監査可能性を確保する、管理されたプロセスを通じて、検証されて認可されたインフラストラクチャコンポーネントのみが本番環境に到達します。
 
-**主要なセキュリティ目標:** 暗号署名され、脆弱性スキャンされたインフラストラクチャコンポーネントのみが、セキュリティポリシーを適用し、不変の監査証跡を維持する自動バリデーションパイプラインを通じて、本番環境に到達します。
-
 ---
 
 ## C4.1 ランタイム環境の分離 (Runtime Environment Isolation)
@@ -130,5 +128,4 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 * [Kubernetes Security Best Practices](https://kubernetes.io/docs/concepts/security/)
 * [Cloud Security Alliance: Cloud Controls Matrix](https://cloudsecurityalliance.org/research/cloud-controls-matrix/)
 * [ENISA: Secure Infrastructure Design](https://www.enisa.europa.eu/topics/critical-information-infrastructures-and-services)
-* [ISO 27001:2022 Information Security Management](https://www.iso.org/standard/27001)
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
