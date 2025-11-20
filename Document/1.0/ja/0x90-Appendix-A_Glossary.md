@@ -58,6 +58,8 @@
 
 * **LIME (Local Interpretable Model-agnostic Explanations)**: 解釈可能なモデルで局所的に近似することで、機械学習分類器の予測を説明する技法です。
 
+* **MCP (Model Context Protocol)**: 定義されたトランスポートを介して、構造化され型指定されたリクエストとレスポンスを交換することにより、AI モデルとエージェントが外部ツール、データソース、リソースにアクセスできるようにするプロトコルです。
+
 * **メンバーシップ推論攻撃 (Membership Inference Attack)**: 特定のデータポイントが機械学習モデルの訓練に使用されたかどうかを判断することを目的とした攻撃です。
 
 * **MITRE ATLAS**: 人工知能システムに対する敵対的脅威の状況 (Adversarial Threat Landscape for Artificial-Intelligence Systems); AI システムに対する敵対的戦術と技法の知識ベースです。
