@@ -195,14 +195,14 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 | **9.13.5** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 2 | D/V |
 | **9.13.6** | **検証:** 各 MCP ツールやリソースは明示的な認可スコープ (読み取り専用、制限付きクエリ、副作用レベルなど) を定義しており、エージェントは割り当てられたスコープ外で MCP 機能を呼び出すことはできない。 | 2 | D/V |
 
-### 安全な転送とネットワーク境界保護 (Secure Transport & Network Boundary Protection)
+### 安全なトランスポートとネットワーク境界保護 (Secure Transport & Network Boundary Protection)
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.7** | **検証:** authenticated, encrypted streamable-HTTP is used as the primary MCP transport in production environments; alternate transports (stdio, SSE) are restricted to local or tightly controlled environments with explicit justification. | 2 | D/V |
-| **9.13.8** | **検証:** streamable-HTTP MCP transports use authenticated, encrypted channels (TLS 1.3 or later) with certificate validation and forward secrecy to ensure confidentiality and integrity of streamed MCP messages. | 2 | D/V |
-| **9.13.9** | **検証:** SSE-based MCP transports are used only within private, authenticated internal channels and enforce TLS, authentication, schema validation, payload size limits, and rate limiting; SSE endpoints must not be exposed to the public internet. | 2 | D/V |
-| **9.13.10** | **検証:** MCP servers validate the `Origin` and `Host` headers on all HTTP-based transports (including SSE and streamable-HTTP) to prevent DNS rebinding attacks, and reject requests from untrusted, mismatched, or missing origins. | 2 | D/V |
+| **9.13.7** | **検証:** 認証され、暗号化されたストリーミング可能な HTTP は本番環境のプライマリ MCP トランスポートとして使用されている。代替トランスポート (stdio, SSE) は明示的な理由でローカルまたは厳密に制御された環境に制限されている。 | 2 | D/V |
+| **9.13.8** | **検証:** ストリーミング可能な HTTP MCP トランスポートは、ストリームされる MCP メッセージの機密性と完全性を確保するために、証明書バリデーションと前方秘匿性を備えた認証済みの暗号化チャネル (TLS 1.3 以降) を使用している。 | 2 | D/V |
+| **9.13.9** | **検証:** SSE ベースの MCP トランスポートはプライベートで、認証された内部チャネル内でのみ使用されており、TLS、認証、スキーマバリデーション、ペイロードサイズ制限、レート制限を適用している。SSE エンドポイントはパブリックインターネットに公開されてはいけない。 | 2 | D/V |
+| **9.13.10** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダを検証しており、信頼できない、一致しない、または欠落しているオリジンからのリクエストを拒否している。 | 2 | D/V |
 
 ### スキーマ、メッセージ、入力バリデーション (Schema, Message, and Input Validation)
 
