@@ -208,9 +208,9 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.11** | **検証:** MCP tool and resource schemas (e.g., JSON schemas or capability descriptors) are validated for authenticity and integrity using signatures, checksums, or server attestation to prevent schema tampering or malicious parameter modification. | 2 | D/V |
-| **9.13.12** | **検証:** all MCP transports enforce message-framing integrity, strict schema validation, maximum payload sizes, and rejection of malformed, truncated, or interleaved frames to prevent desynchronization or injection attacks. | 2 | D/V |
-| **9.13.13** | **検証:** MCP servers perform strict input validation for all function calls, including type checking, boundary checking, enumeration enforcement, and rejection of unrecognized or oversized parameters. | 2 | D/V |
+| **9.13.11** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) は、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名、チェックサム、またはサーバーアテステーションを使用して真正性と完全性を検証されている。 | 2 | D/V |
+| **9.13.12** | **検証:** すべての MCP トランスポートは、非同期攻撃やインジェクション攻撃を防ぐために、メッセージフレーミングの完全性、厳密なスキーマバリデーション、最大ペイロードサイズを強制しており、不正なフレーム、切り捨てられたフレーム、不連続なフレームを拒否している。 | 2 | D/V |
+| **9.13.13** | **検証:** MCP サーバーは、型チェック、境界チェック、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 | D/V |
 
 ### アウトバウンドアクセスとエージェント実行の安全性 (Outbound Access & Agent Execution Safety)
 
