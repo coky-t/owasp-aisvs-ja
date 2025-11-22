@@ -216,9 +216,9 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.14** | **検証:** MCP servers may only initiate outbound requests to approved internal or external destinations following least-privilege egress policies, and cannot access arbitrary network targets or internal cloud metadata services. | 2 | D/V |
-| **9.13.15** | **検証:** outbound MCP actions implement execution limits (timeouts, recursion limits, concurrency caps, circuit breakers) to prevent unbounded agent-driven tool invocation or chained side effects. | 2 | D/V |
-| **9.13.16** | **検証:** MCP request and response metadata (server ID, resource name, tool name, session identifier, tenant, environment) is logged with integrity protection and correlated to agent activity for forensic analysis. | 2 | D/V |
+| **9.13.14** | **検証:** MCP サーバーは最小権限の送出 (egress) ポリシーに従って承認された内部または外部の宛先へのアウトバウンドリクエストのみを開始でき、任意のネットワークターゲットや内部クラウドメタデータサービスにはアクセスできない。 | 2 | D/V |
+| **9.13.15** | **検証:** アウトバウンド MCP アクションは、無制限のエージェント駆動型ツールの呼び出しや連鎖的な副作用を防ぐために、、実行制限 (タイムアウト、再帰制限、並列実行上限、サーキットブレーカー) を実装している。 | 2 | D/V |
+| **9.13.16** | **検証:** MCP リクエストおよびレスポンスメタデータ (サーバー ID、リソース名、ツール名、セッション識別子、テナント、環境) は完全性保護とともにログ記録されており、フォレンジック解析のためにエージェントアクティビティと相関付けられている。 | 2 | D/V |
 
 ### 転送制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
 
