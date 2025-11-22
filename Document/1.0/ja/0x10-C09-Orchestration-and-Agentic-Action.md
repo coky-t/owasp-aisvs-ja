@@ -177,7 +177,7 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 ## C9.13 モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)
 
-コンテキストの混乱、不正なツールの呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、転送、使用を確保します。
+コンテキストの混乱、不正なツールの呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。
 
 ### コンポーネントの完全性とサプライチェーンの衛生管理 (Component Integrity & Supply Chain Hygiene)
 
@@ -220,13 +220,13 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 | **9.13.15** | **検証:** アウトバウンド MCP アクションは、無制限のエージェント駆動型ツールの呼び出しや連鎖的な副作用を防ぐために、、実行制限 (タイムアウト、再帰制限、並列実行上限、サーキットブレーカー) を実装している。 | 2 | D/V |
 | **9.13.16** | **検証:** MCP リクエストおよびレスポンスメタデータ (サーバー ID、リソース名、ツール名、セッション識別子、テナント、環境) は完全性保護とともにログ記録されており、フォレンジック解析のためにエージェントアクティビティと相関付けられている。 | 2 | D/V |
 
-### 転送制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
+### トランスポート制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.17** | **検証:** stdio-based MCP transports are limited to co-located, single-process development scenarios, isolated from shell execution, terminal injection, and process-spawning capabilities; stdio must never cross network or multi-tenant boundaries. | 3 | D/V |
-| **9.13.18** | **検証:** MCP servers expose only allow-listed functions and resources, and prohibit dynamic dispatch, reflective invocation, or execution of function names influenced by user or model-provided input. | 3 | D/V |
-| **9.13.19** | **検証:** tenant boundaries, environment boundaries (dev/test/prod), and data domain boundaries are enforced at the MCP layer, preventing cross-tenant or cross-environment server or resource discovery. | 3 | D/V |
+| **9.13.17** | **検証:** stdio ベースの MCP トランスポートは、シェル実行、ターミナルインジェクション、プロセス生成機能から分離された、共存する単一プロセス開発シナリオに制限されている。stdio はネットワークやマルチテナント境界を超えることができない。 | 3 | D/V |
+| **9.13.18** | **検証:** MCP サーバーは許可リストにある機能とリソースのみを露出しており、ユーザーまたはモデルが提供する入力によって影響を受ける関数名の動的ディスパッチ、リフレクション呼び出し、実行を禁止している。 | 3 | D/V |
+| **9.13.19** | **検証:** テナント境界、環境境界 (開発/テスト/本番)、データドメイン境界は MCP レイヤで強制されており、テナント間や環境間のサーバーやリソースの発見を防いでいる。 | 3 | D/V |
 
 ---
 
