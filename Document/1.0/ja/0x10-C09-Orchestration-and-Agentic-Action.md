@@ -191,9 +191,9 @@ ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざま�
 
 | # | 説明 | レベル | ロール |
 |:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.4** | **検証:** MCP clients and servers mutually authenticate using strong, non-user credentials (e.g., mTLS, signed tokens, or platform-issued identities), and that unauthenticated MCP endpoints are rejected. | 2 | D/V |
-| **9.13.5** | **検証:** MCP servers are registered through a controlled technical onboarding mechanism requiring explicit owner, environment, and resource definitions; unregistered or undiscoverable servers must not be callable in production. | 2 | D/V |
-| **9.13.6** | **検証:** each MCP tool or resource defines explicit authorization scopes (e.g., read-only, restricted queries, side-effect levels), and that agents cannot invoke MCP functions outside their assigned scope. | 2 | D/V |
+| **9.13.4** | **検証:** MCP クライアントとサーバーは強力な非ユーザークレデンシャル (mTLS、署名付きトークン、プラットフォーム発行のアイデンティティなど) を使用して相互に認証しており、認証されていない MCP エンドポイントは拒否されている。 | 2 | D/V |
+| **9.13.5** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 2 | D/V |
+| **9.13.6** | **検証:** 各 MCP ツールやリソースは明示的な認可スコープ (読み取り専用、制限付きクエリ、副作用レベルなど) を定義しており、エージェントは割り当てられたスコープ外で MCP 機能を呼び出すことはできない。 | 2 | D/V |
 
 ### 安全な転送とネットワーク境界保護 (Secure Transport & Network Boundary Protection)
 
