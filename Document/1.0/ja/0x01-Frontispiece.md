@@ -10,7 +10,7 @@ Version 0.1 (First Public Draft - Work In Progress), 2025
 
 ![license](../images/license.png)
 
-Copyright © 2025 The AISVS Project.  
+Copyright © 2025-2026 The AISVS Project.  
 
 [Creative Commons Attribution‑ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の下で公開されています。
 再利用または配布する場合には、本著作物のライセンス条項を他者に対して明確に伝える必要があります。
