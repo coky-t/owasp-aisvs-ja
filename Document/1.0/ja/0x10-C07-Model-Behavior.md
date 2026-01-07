@@ -8,14 +8,14 @@
 
 ## C7.1 出力形式の強制 (Output Format Enforcement)
 
-Ensure the model outputs data in a way that helps prevents injection.
+モデルがインジェクションを防ぐのに役立つ方法でデータを出力するようにします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.1.1** | **Verify that** the application validates all model outputs against a strict schema (like JSON Schema) and rejects any output that does not match. | 1 | D/V |
-| **7.1.2** | **Verify that** the system uses "stop sequences" or token limits to strictly cut off generation before it can overflow buffers or executes unintended commands. | 1 | D/V |
-| **7.1.3** | **Verify that** components processing model output treat it as untrusted input (e.g., using parameterized queries or safe de-serializers). | 2 | D/V |
-| **7.1.4** | **Verify that** the system logs the specific error type when an output is rejected for bad formatting. | 3 | V |
+| **7.1.1** | **検証:** アプリケーションはすべてのモデル出力を厳密なスキーマ (JSON スキーマなど) に対して検証し、一致しない出力を拒否している。 | 1 | D/V |
+| **7.1.2** | **検証:** システムは、バッファをオーバーフローしたり、意図しないコマンドを実行する前に、生成を厳密に遮断するための「停止シーケンス」またはトークン制限を使用している。 | 1 | D/V |
+| **7.1.3** | **検証:** モデル出力を処理するコンポーネントはそれを信頼できない入力として扱っている (パラメータ化クエリや安全なデシリアライザを使用するなど)。 | 2 | D/V |
+| **7.1.4** | **検証:** システムは、出力が不正なフォーマットのために拒否された場合、特定のエラータイプをログ記録している。 | 3 | V |
 
 ---
 
