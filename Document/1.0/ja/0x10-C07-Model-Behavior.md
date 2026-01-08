@@ -21,13 +21,13 @@
 
 ## C7.2 ハルシネーションの検出と緩和 (Hallucination Detection & Mitigation)
 
-Detect when the model is unsure or lying, and stop that information from reaching the user.
+モデルが不確実である場合や噓をついている場合を検出し、その情報がユーザーに届かないようにします。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.2.1** | **Verify that** the system calculates a numerical confidence score (e.g., using log-probabilities) for generated answers. | 1 | D/V |
-| **7.2.2** | **Verify that** the application automatically blocks answers or switches to a fallback message if the confidence score drops below a defined threshold. | 1 | D/V |
-| **7.2.3** | **Verify that** hallucination events (low-confidence responses) are logged with input/output metadata for analysis. | 2 | D/V |
+| **7.2.1** | **検証:** システムは生成された回答に対して数値の信頼スコア (たとえば、対数確率を使用する) を計算している。 | 1 | D/V |
+| **7.2.2** | **検証:** アプリケーションは、信頼スコアが定義された閾値を下回ると、自動的に回答をブロックするか、フォールバックメッセージに切り替えている。 | 1 | D/V |
+| **7.2.3** | **検証:** ハルシネーションイベント (低い信頼性のレスポンス) は分析のために入力/出力メタデータとともにログ記録されている。 | 2 | D/V |
 
 ---
 
