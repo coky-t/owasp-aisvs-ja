@@ -33,15 +33,15 @@
 
 ## C7.3 出力の安全性とプライバシーフィルタリング (Output Safety & Privacy Filtering)
 
-Technical controls to detect and scrub bad content before it is shown to the user.
+不適切なコンテンツがユーザーに表示される前に検出して除去する技術的コントロールです。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.3.1** | **Verify that** automated classifiers scan every response and block content that matches hate, harassment, or sexual violence categories. | 1 | D/V |
-| **7.3.2** | **Verify that** the system scans every response for PII (like credit cards or emails) and automatically redacts it before display. | 1 | D/V |
-| **7.3.3** | **Verify that** data labeled as "confidential" in the system remains blocked or redacted. | 2 | D |
-| **7.3.4** | **Verify that** the system requires a human approval step or re-authentication if the model generates high-risk content. | 3 | D/V |
-| **7.3.5** | **Verify that** safety filters can be configured differently based on the user's role or location (e.g., stricter filters for minors). | 3 | D/V |
+| **7.3.1** | **検証:** 自動分類器はすべてのレスポンスをスキャンし、ヘイト、ハラスメント、性的暴力のカテゴリに一致するコンテンツをブロックしている。 | 1 | D/V |
+| **7.3.2** | **検証:** システムはすべての回答を PII (クレジットカードや電子メールなど) についてスキャンし、表示前に自動的に訂正している。 | 1 | D/V |
+| **7.3.3** | **検証:** システム内で「機密」とラベル付けされたデータはブロックまたは訂正している。 | 2 | D |
+| **7.3.4** | **検証:** システムは、モデルが高リスクコンテンツを生成する場合、人間による承認手順または再認証を必要としている。 | 3 | D/V |
+| **7.3.5** | **検証:** 安全フィルタはユーザーの役割や場所に基づいて異なる設定を可能としている (たとえば、未成年者向けの厳格なフィルタ)。 | 3 | D/V |
 
 ---
 
