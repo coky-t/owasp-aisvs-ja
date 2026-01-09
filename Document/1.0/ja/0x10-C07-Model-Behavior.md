@@ -47,13 +47,13 @@
 
 ## C7.4 出力と動作の制限 (Output & Action Limiting)
 
-Prevent the model from doing too much, too fast, or accessing things it should not.
+モデルが過剰な実行、速過ぎる実行、アクセスすべきではないものへアクセスすることを防ぎます。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **7.4.1** | **Verify that** the system enforces hard limits on requests and tokens per user to prevent cost spikes and denial of service. | 1 | D |
-| **7.4.2** | **Verify that** the model cannot execute high-impact actions (like writing files, sending emails, or executing code) without explicit user confirmation. | 1 | D/V |
-| **7.4.3** | **Verify that** the agent framework explicitly configures and enforces the maximum depth of recursive calls, delegation limits, and the list of allowed external tools. | 2 | D |
+| **7.4.1** | **検証:** システムは、コストの急上昇やサービス拒否を防ぐために、ユーザーあたりのリクエストとトークンに厳しい制限を課している。 | 1 | D |
+| **7.4.2** | **検証:** モデルは、明示的なユーザー確認なしに、影響の大きいアクション (ファイルの書き込み、電子メールの送信、コードの実行など) を実行できないようにしている。 | 1 | D/V |
+| **7.4.3** | **検証:** エージェントフレームワークは、再起呼び出しの最大深度、委譲制限、許可される外部ツールのリストを明示的に構成および適用している。 | 2 | D |
 
 ---
 
