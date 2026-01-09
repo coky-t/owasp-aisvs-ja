@@ -83,15 +83,15 @@
 
 ## 7.7 生成メディアの安全対策 (Generative Media Safeguards)
 
-Prevent the creation of illegal or fake media.
+違法または偽造メディアの作成を防ぎます。
 
 | # | 説明 | レベル | ロール |
 | :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
-| **7.7.1** | **Verify that** the system refuses to generate media (images/audio) that depicts real people without verified consent. | 1 | D/V |
-| **7.7.2** | **Verify that** input filters block prompts requesting explicit or deepfake content before the model processes them. | 2 | D/V  |
-| **7.7.3** | **Verify that** the system checks generated content for copyright violations before releasing it. | 2 | V |
-| **7.7.4** | **Verify that** all generated media includes an invisible watermark or cryptographic signature to prove it was AI-generated. | 3 | D/V  |
-| **7.7.5** | **Verify that** attempts to bypass filters are detected and logged as security events. | 3 | V |
+| **7.7.1** | **検証:** システムは、確認済みの同意なしに実在の人物を描写するメディア (画像/音声) を生成することを拒否している。 | 1 | D/V |
+| **7.7.2** | **検証:** 入力フィルタは、モデルが処理する前に、露骨なコンテンツやディープフェイクコンテンツを要求するプロンプトをブロックしている。 | 2 | D/V  |
+| **7.7.3** | **検証:** システムは、生成されたコンテンツを公開する前に、著作権侵害に関してチェックしている。 | 2 | V |
+| **7.7.4** | **検証:** 生成されたすべてのメディアは、AI によって生成されたことを証明する、不可視の透かしまたは暗号署名を含んでいる。 | 3 | D/V  |
+| **7.7.5** | **検証:** フィルタをバイパスする試みは検出され、セキュリティイベントとしてログ記録されている。 | 3 | V |
 
 ## 参考情報
 
