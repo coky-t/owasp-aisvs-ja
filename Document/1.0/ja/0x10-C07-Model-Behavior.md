@@ -71,13 +71,13 @@
 
 ## C7.6 監視統合 (Monitoring Integration)
 
-Ensure the application sends the right signals for security teams to watch.
+アプリケーションはセキュリティチームが監視すべき適切な信号を送信することを確認します。
 
 | # | 説明 | レベル | ロール |
 | :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: | :--: |
-| **7.6.1** | **Verify that** the system logs real-time metrics for safety violations (e.g., "Hallucination Detected", "PII Blocked").| 1 | D |
-| **7.6.2** | **Verify that** the system triggers an alert if safety violation rates exceed a defined threshold within a specific time window. | 1 | V |
-| **7.6.3** | **Verify that** logs include the specific model version and other details necessary to investigate potential abuse. | 2 | V |
+| **7.6.1** | **検証:** システムは安全違反に関するリアルタイムの指標をログ記録している (例、「ハルシネーションが検出されました」、「PII がブロックされました」)。 | 1 | D |
+| **7.6.2** | **検証:** システムは、安全違反率が特定の時間枠内で定義された閾値を超えた場合、アラートをトリガーしている。 | 1 | V |
+| **7.6.3** | **検証:** ログは、特定のモデルバージョンや、不正使用の可能性を調査するために必要なその他の詳細を含んでいる。 | 2 | V |
 
 ---
 
