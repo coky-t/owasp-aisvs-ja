@@ -59,13 +59,13 @@
 
 ## C7.5 説明可能性と透明性 (Explainability & Transparency)
 
-Ensure the user knows why a decision was made.
+ユーザーが決定の理由を理解していることを確認します。
 
 | # | 説明 | レベル | ロール |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------ | :---: | :--: |
-| **7.5.1** | **Verify that** the UI displays a confidence score or "reasoning summary" to the user for critical decisions. | 2 | D/V |
-| **7.5.2** | **Verify that** explanations provided to the user are sanitized to remove system prompts or backend data. | 2 | D/V |
-| **7.5.3** | **Verify that** technical evidence of the model's decision (like attention maps or log-probs) are logged.| 3 | D |
+| **7.5.1** | **検証:** UI は重要な決定についてユーザーに信頼スコアまたは「推論の要約」を表示している。 | 2 | D/V |
+| **7.5.2** | **検証:** ユーザーに提供される説明はシステムプロンプトやバックエンドデータを削除するようにサニタイズされている。 | 2 | D/V |
+| **7.5.3** | **検証:** モデルの決定の技術的証跡 (アテンションマップや対数確率など) がログ記録されている。 | 3 | D |
 
 ---
 
