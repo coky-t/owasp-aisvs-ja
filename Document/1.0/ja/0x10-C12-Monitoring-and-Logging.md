@@ -104,6 +104,3 @@ AI モデルのパフォーマンスと品質の低下を時間の経過とと�
 ---
 
 ## 参考情報
-
-* [NIST AI Risk Management Framework 1.0 - Manage 4.1 and 4.3](https://nvlpubs.nist.gov/nistpubs/ai/nist.ai.100-1.pdf)
-* [ISO/IEC 42001:2023 — AI Management Systems Requirements - Annex B 6.2.6](https://www.iso.org/standard/81230.html)
