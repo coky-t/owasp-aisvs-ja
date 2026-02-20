@@ -362,3 +362,19 @@
 | **7.5.4** | **検証:** 説明可能性アーティファクトは監査可能性のためにモデルリリースとともにバージョン管理されている。 | 3 | V |
 | **7.6.5** | **検証:** 監視パイプラインはペネトレーションテストされており、機密ログの漏洩を避けるためにアクセス制御されている。 | 3 | V |
 | **7.6.4** | **検証:** 監視データは、文書化された MLOps ワークフロー内での再トレーニング、ファインチューニング、ルールの更新にフィードバックしている。 | 2 | D/V |
+
+### C8 メモリ、エンベディング、ベクトルデータベースセキュリティ (Memory, Embeddings & Vector Database Security)
+
+| # | 説明 | レベル | ロール |
+| :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
+| **8.1.4** | **検証:** ベクトル DB 監査ログは、認証されたプリンシパル、テナント/ユーザースコープ、操作タイプ、コレクション/名前空間、クエリフィルタ、類似度閾値/トップk、結果数を記録している。 | 2 | D/V |
+| **8.1.4** | **検証:** automated tests validate authorization and scope enforcement (including negative tests) whenever the vector engine, index settings, or sharding/partition rules change. | 3 | V |
+| **8.2.3** | **検証:** when privacy-enhancing transforms are used for embeddings (e.g., differential privacy, projection, or noise mechanisms), the chosen mechanism and parameters are **documented, version-controlled, and empirically evaluated** for privacy/utility tradeoffs using a defined test harness. | 2 | D/V |
+| **8.2.4** | **検証:** sanitization efficacy is measured using benchmark corpora and internal samples, tracking at minimum: PII detection/redaction recall, false positives, and semantic drift/utility impact. | 2 | V |
+| **8.4.1** | **検証:** a threat model for embedding leakage (inversion, membership inference, attribute inference) exists for each memory/RAG deployment and is reviewed on a defined cadence (e.g., annually) and after major architecture changes. | 1 | V |
+| **8.4.4** | **検証:** embedding leakage tests (e.g., inversion attempts or membership inference probes appropriate to the system) are part of release gates for high-sensitivity deployments, with documented pass/fail criteria and trend tracking over time. | 3 | D/V |
+| **8.6.1** | **検証:** each memory type (episodic, semantic, working) has an explicitly defined security context: distinct scopes, distinct access policies, and distinct encryption keys (or equivalent isolation controls). | 1 | D/V |
+| **8.6.2** | **検証:** memory consolidation pipelines (summarization, merging, distillation) validate and sanitize content before storage, including prompt-injection style directives and tool-generated artifacts. | 2 | D/V |
+| **8.6.3** | **検証:** memory retrieval queries are validated to prevent extraction patterns (e.g., iterative top-k scraping, similarity probing) and are gated by rate limits and anomaly detection. | 2 | D/V |
+| **8.6.4** | **検証:** “forgetting” operations (delete/revoke) are enforced consistently across all memory types, derived indices, caches, and backups, with verifiable completion evidence. | 3 | D/V |
+| **8.6.5** | **検証:** integrity monitoring detects unauthorized modifications to memory content and indexing structures (checksums, audit logs, alerting on unexpected write sources). | 3 | D/V |
