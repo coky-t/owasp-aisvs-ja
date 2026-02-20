@@ -368,13 +368,13 @@
 | # | 説明 | レベル | ロール |
 | :-----------: | :------------------------------------------------------------------------------- | :---: | :--: |
 | **8.1.4** | **検証:** ベクトル DB 監査ログは、認証されたプリンシパル、テナント/ユーザースコープ、操作タイプ、コレクション/名前空間、クエリフィルタ、類似度閾値/トップk、結果数を記録している。 | 2 | D/V |
-| **8.1.4** | **検証:** automated tests validate authorization and scope enforcement (including negative tests) whenever the vector engine, index settings, or sharding/partition rules change. | 3 | V |
-| **8.2.3** | **検証:** when privacy-enhancing transforms are used for embeddings (e.g., differential privacy, projection, or noise mechanisms), the chosen mechanism and parameters are **documented, version-controlled, and empirically evaluated** for privacy/utility tradeoffs using a defined test harness. | 2 | D/V |
-| **8.2.4** | **検証:** sanitization efficacy is measured using benchmark corpora and internal samples, tracking at minimum: PII detection/redaction recall, false positives, and semantic drift/utility impact. | 2 | V |
-| **8.4.1** | **検証:** a threat model for embedding leakage (inversion, membership inference, attribute inference) exists for each memory/RAG deployment and is reviewed on a defined cadence (e.g., annually) and after major architecture changes. | 1 | V |
-| **8.4.4** | **検証:** embedding leakage tests (e.g., inversion attempts or membership inference probes appropriate to the system) are part of release gates for high-sensitivity deployments, with documented pass/fail criteria and trend tracking over time. | 3 | D/V |
-| **8.6.1** | **検証:** each memory type (episodic, semantic, working) has an explicitly defined security context: distinct scopes, distinct access policies, and distinct encryption keys (or equivalent isolation controls). | 1 | D/V |
-| **8.6.2** | **検証:** memory consolidation pipelines (summarization, merging, distillation) validate and sanitize content before storage, including prompt-injection style directives and tool-generated artifacts. | 2 | D/V |
-| **8.6.3** | **検証:** memory retrieval queries are validated to prevent extraction patterns (e.g., iterative top-k scraping, similarity probing) and are gated by rate limits and anomaly detection. | 2 | D/V |
-| **8.6.4** | **検証:** “forgetting” operations (delete/revoke) are enforced consistently across all memory types, derived indices, caches, and backups, with verifiable completion evidence. | 3 | D/V |
-| **8.6.5** | **検証:** integrity monitoring detects unauthorized modifications to memory content and indexing structures (checksums, audit logs, alerting on unexpected write sources). | 3 | D/V |
+| **8.1.4** | **検証:** 自動テストは、ベクトルエンジン、インデックス設定、シャーディング/パーティションルールが変更されるたびに、認可とスコープの適用 (ネガティブテストを含む) を検証している。 | 3 | V |
+| **8.2.3** | **検証:** プライバシー強化変換がエンベディング (差分プライバシー、投影、ノイズメカニズムなど) に使用される場合、選択したメカニズムとパラメータは、定義されたテストハーネスを使用してプライバシー/ユーティリティのトレードオフについて **文書化され、バージョン管理され、実証的に評価され** ている。 | 2 | D/V |
+| **8.2.4** | **検証:** サニタイゼーションの有効性はベンチマークコーパスと内部サンプルを使用して測定され、少なくとも、PII の検出/修正リコール、誤検知、セマンティックドリフト/ユーティリティの影響を追跡している。 | 2 | V |
+| **8.4.1** | **検証:** 各メモリ/RAG デプロイメントごとにエンベディング漏洩 (反転、メンバーシップ推論、属性推論) についての脅威モデルが存在し、定義された頻度 (年次など) および主要なアーキテクチャの変更後にレビューされている。 | 1 | V |
+| **8.4.4** | **検証:** エンベディング漏洩のテスト (システムに適した反転試行やメンバーシップ推論プローブなど) は、文書化された合格/不合格基準と時間の経過に伴う傾向追跡を備えた、高感度デプロイメントのリリースゲートの一部である。 | 3 | D/V |
+| **8.6.1** | **検証:** さまざまなメモリタイプ (エピソード、セマンティック、ワーキング) は、明示的に定義されたセキュリティコンテキスト (異なるスコープ、異なるアクセスポリシー、異なる暗号鍵 (または同等の分離制御)) を有している。 | 1 | D/V |
+| **8.6.2** | **検証:** メモリ統合パイプライン (要約、マージ、蒸留) は、プロンプトインジェクションスタイルディレクティブやツールが生成したアーティファクトなど、保存前にコンテンツを検証およびサニタイズしている。 | 2 | D/V |
+| **8.6.3** | **検証:** メモリ取得クエリは抽出パターン (反復トップ k スクレイピング、類似性プローブなど) を防ぐために検証され、レート制限と異常検出によってゲートされている。 | 2 | D/V |
+| **8.6.4** | **検証:** 「忘れる」操作 (削除/取消) は、検証可能な完了証跡とともに、すべてのメモリタイプ、導出インデックス、キャッシュ、バックアップにわたって一貫して適用されている。 | 3 | D/V |
+| **8.6.5** | **検証:** 完全性監視はメモリの内容とインデックス構造への不正な改変を検出します (チェックサム、監査ログ、予期しない書き込みソースについてのアラート)。 | 3 | D/V |
