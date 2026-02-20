@@ -2,90 +2,59 @@
 
 ## 管理目標
 
-エンベディングとベクトルストアは現代の AI システムの「ライブメモリ」として機能し、ユーザーが提供するデータを継続的に受け入れ、検索拡張生成 (Retrieval-Augmented Generation, RAG) を介してモデルのコンテキストに再表示します。管理されていない状態で放置すると、このメモリは PII を漏洩したり、同意を違反したり、元のテキストを再構築するために反転される可能性があります。このコントロールファミリーの目的は、メモリパイプラインとベクトルデータベースを堅牢化することであり、アクセスは最小権限であり、エンベディングはプライバシーを保護しており、保存されたベクトルは期限切れになるか、必要に応じて取り消すことができ、ユーザーごとのメモリは他のユーザーのプロンプトやコンプリーションを汚染しないようにすることです。
-
----
+Embeddings and vector stores act as semi-persistent amd persistent "memory" for AI systems via Retrieval-Augmented Generation (RAG). This memory can become a high-risk data sink and data exfiltration path. This control family hardens memory pipelines and vector databases so that access is least-privilege, data is sanitized before vectorization, retention is explicit, and systems are resilient to embedding inversion, membership inference, and cross-tenant leakage.
 
 ## C8.1 メモリと RAG インデックスのアクセス制御 (Access Controls on Memory & RAG Indices)
 
-すべてのベクトルコレクションに対してきめ細かいアクセス制御を適用します。
+Enforce fine-grained access controls and query-time scope enforcement for every vector collection.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.1.1** | **検証:** 行/名前空間レベルのアクセス制御ルールは、テナント、コレクション、またはドキュメントタグごとに、挿入、削除、クエリ操作を制限している。 | 1 | D/V |
-| **8.1.2** | **検証:** API キーや JWT はスコープ指定されたクレーム (コレクション ID、アクション動詞など) を持ち、少なくとも四半期ごとに入れ替えられている。 | 1 | D/V |
-| **8.1.3** | **検証:** 権限昇格の試み (名前空間をまたぐ類似性クエリなど) は検出されており、5 分以内に SIEM にログ記録されている。 | 2 | D/V |
-| **8.1.4** | **検証:** ベクトル DB 監査は、サブジェクト識別子、操作、ベクトル ID/名前空間、類似度閾値、結果数をログ記録している。 | 2 | D/V |
-| **8.1.5** | **検証:** アクセス決定は、エンジンがアップグレードされるか、インデックスシャーディングルールが変更されるたびに、バイパス欠陥についてテストされている。 | 3 | V |
-
----
+| :--: | --- | :---: | :--: |
+| **8.1.1** | **Verify that** vector insert, update, delete, and query operations are enforced with namespace/collection/document-tag scope controls (e.g., tenant ID, user ID, data classification labels) with default-deny. | 1 | D/V |
+| **8.1.2** | **Verify that** API credentials used for vector operations carry **scoped claims** (e.g., permitted collections, allowed verbs, tenant binding). | 1 | D/V |
+| **8.1.3** | **Verify that** cross-scope access attempts (e.g., cross-tenant similarity queries, namespace traversal, tag bypass) are detected and rejected. | 2 | D/V |
 
 ## C8.2 エンベディングのサニタイゼーションとバリデーション (Embedding Sanitization & Validation)
 
-テキストを PII について事前に選別して、ベクトル化の前に編集または仮名化し、残留信号を除去するためにオプションでエンベディングを後処理します。
+Pre-screen content before vectorization; treat memory writes as untrusted inputs; prevent ingestion of unsafe payloads.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.2.1** | **検証:** PII と規制データは自動分類器を介して検出され、エンベディング前にマスク、トークン化、または削除されている。 | 1 | D/V |
-| **8.2.2** | **検証:** エンベディングパイプラインは、インデックスを汚染する可能性のある実行可能コードまたは非 UTF-8 アーティファクトを含む入力を拒否または隔離している。 | 1 | D |
-| **8.2.3** | **検証:** ローカルまたはメトリックの差分プライバシーサニタイゼーションは、既知の PII トークンとの距離が設定可能な閾値を下回る文のエンベディングに適用されている。 | 2 | D/V |
-| **8.2.4** | **検証:** サニタイゼーションの有効性 (PII 修正のリコール、意味的ドリフトなど) は、少なくとも半年ごとにベンチマークコーパスに対して検証されている。 | 2 | V |
-| **8.2.5** | **検証:** サニタイゼーション設定はバージョン管理されており、変更はピアレビューを受けている。 | 3 | D/V |
-
----
+| :--: | --- | :---: | :--: |
+| **8.2.1** | **Verify that** regulated data and sensitive fields are detected prior to embedding and are masked, tokenized, transformed, or dropped based on policy. | 1 | D/V |
+| **8.2.2** | **Verify that** embedding ingestion rejects or quarantines inputs that violate required content constraints (e.g., non-UTF-8, malformed encodings, oversized payloads, invisible ASCII characters, or executable content intended to poison retrieval). | 1 | D/V |
 
 ## C8.3 メモリの有効期限、失効、削除 (Memory Expiry, Revocation & Deletion)
 
-GDPR の「忘れられる権利」や同様の法律はタイムリーな消去を求めています。したがって、ベクトルストアは、実行したベクトルが復元されたり、再インデックス付けされたりしないように、TTL、ハード削除、トゥームストーンをサポートする必要があります。
+Retention must be explicit and enforceable; deletions must propagate to derived indices and caches.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.3.1** | **検証:** すべてのベクトルとメタデータレコードは、自動クリーンアップジョブによって尊重される、TTL または明示的な保持ラベルを有している。 | 1 | D/V |
-| **8.3.2** | **検証:** ユーザーが開始した削除リクエストは、ベクトル、メタデータ、キャッシュコピー、派生インデックスを 30 日以内に削除している。 | 1 | D/V |
-| **8.3.3** | **検証:** 論理削除の後は、ハードウェアがサポートしている場合にはストレージブロックの暗号シュレッディング、または key-valut のキーの破棄が行われている。 | 2 | D |
-| **8.3.4** | **検証:** 期限切れのベクトルは期限切れ後の 500 ミリ秒以内に最近傍探索結果から除外されている。 | 3 | D/V |
-
----
+| :--: | --- | :---: | :--: |
+| **8.3.1** | **Verify that** retention times are applied to every stored vector and related metadata across memory storage. | 1 | D/V |
+| **8.3.2** | **Verify that** deletion requests purge vectors, metadata, cache copies, and derivative indices within an organization-defined maximum time. | 1 | D/V |
+| **8.3.3** | **Verify that** deleted or expired vectors are removed reliably and are unrecoverable. | 2 | D |
+| **8.3.4** | **Verify that** expired vectors are excluded from retrieval results within a measured and monitored propagation windows. | 3 | D/V |
 
 ## C8.4 エンベディングの反転とリークの防止 (Prevent Embedding Inversion & Leakage)
 
-最近の防御策 (ノイズ重ね合わせ、投影ネットワーク、プライバシーニューロン摂動、アプリケーション層暗号化) はトークンレベルの反転率を 5 ％未満に削減できます。
+Address inversion, membership inference, and attribute inference with explicit threat modeling, mitigations, and regression testing gates.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.4.1** | **検証:** 反転攻撃、メンバーシップ攻撃、属性推論攻撃をカバーする形式脅威モデルが存在しており、毎年見直されている。 | 1 | V |
-| **8.4.2** | **検証:** アプリケーション層暗号化または検索可能な暗号化は、インフラストラクチャ管理者またはクラウドスタッフによる直接読み取りから、ベクトルを保護している。 | 2 | D/V |
-| **8.4.3** | **検証:** 防御パラメータ (DP の ε、ノイズ σ、投影ランク k) はプライバシー 99 % 以上のトークン保護とユーティリティ 3 % 以下の精度損失のバランスを取っている。 | 3 | V |
-| **8.4.4** | **検証:** 反転耐性メトリクスはモデル更新のリリースゲートの一環であり、回帰予算が定義されている。 | 3 | D/V |
-
----
+| :--: | --- | :---: | :--: |
+| **8.4.1** | **Verify that** sensitive vector collections are protected against direct read access by infrastructure administrators via technical controls such as application-layer encryption, envelope encryption with strict KMS policies, or equivalent compensating controls. | 2 | D/V |
+| **8.4.2** | **Verify that** privacy/utility targets for embedding leakage resistance are **defined and measured**, and that changes to embedding models, tokenizers, retrieval settings, or privacy transforms are gated by regression tests against those targets. | 3 | D/V |
 
 ## C8.5 ユーザー固有メモリのスコープの強制 (Scope Enforcement for User-Specific Memory)
 
-テナント間の漏洩は依然として RAG の最大のリスクです。不適切にフィルタされた類似性クエリが別の顧客のプライベートドキュメントを提示する可能性があります。
+Prevent cross-tenant and cross-user leakage in retrieval and prompt assembly.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.5.1** | **検証:** すべての取得クエリは、LLM プロンプトに渡される前に、テナント/ユーザー ID によって事後フィルタされている。 | 1 | D/V |
-| **8.5.2** | **検証:** コレクション名または名前空間 ID はユーザーまたはテナントごとにソルト化されているため、ベクトルはスコープ間で衝突できない。 | 1 | D |
-| **8.5.3** | **検証:** 類似性結果は、設定可能な距離閾値を超えていて、呼び出し元のスコープ外にあると、破棄されており、セキュリティアラートをトリガーしている。 | 2 | D/V |
-| **8.5.4** | **検証:** マルチテナントストレステストは、スコープ外のドキュメントを取得しようとする敵対的クエリをシミュレートしており、漏洩がゼロであることを示している。 | 2 | V |
-| **8.5.5** | **検証:** 暗号鍵はテナントごとに分離されており、物理ストレージが共有されている場合でも暗号論的分離を確保している。 | 3 | D/V |
+| :--: | --- | :---: | :--: |
+| **8.5.1** | **Verify that** every retrieval operation enforces scope constraints (tenant/user/classification) **in the vector engine query** and verifies them again **before prompt assembly** (post-filter). | 1 | D/V |
+| **8.5.2** | **Verify that** vector identifiers, namespaces, and metadata indexing prevent cross-scope collisions and enforce uniqueness per tenant. | 1 | D |
+| **8.5.3** | **Verify that** retrieval results that match similarity criteria but fail scope checks are discarded. | 2 | D/V |
+| **8.5.4** | **Verify that** multi-tenant tests simulate adversarial retrieval attempts (prompt-based and query-based) and demonstrate zero out-of-scope document inclusion in prompts and outputs. | 2 | V |
+| **8.5.5** | **Verify that** encryption keys and access policies are segregated per tenant for memory/vector storage, providing cryptographic isolation in shared infrastructure. | 3 | D/V |
 
----
+## 参考情報 (推奨追補)
 
-## C8.6 高度なメモリシステムセキュリティ (Advanced Memory System Security)
-
-特定の分離およびバリデーション要件を備えたエピソードメモリ、セマンティックメモリ、ワーキングメモリなどの高度なメモリアーキテクチャのためのセキュリティコントロールです。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **8.6.1** | **検証:** さまざまなメモリタイプ (エピソード、セマンティック、ワーキング) は、ロールベースのアクセス制御、個別の暗号鍵、各メモリごとに文書化されたアクセスパターンを備えた、分離されたセキュリティコンテキストを有している。 | 1 | D/V |
-| **8.6.2** | **検証:** メモリ統合プロセスは、コンテキストサニタイゼーション、ソース検証、保存前の完全性チェックを通じた、悪意のあるメモリの挿入を防ぐためのセキュリティバリデーションを含んでいる。 | 2 | D/V |
-| **8.6.3** | **検証:** メモリ取得クエリは、クエリパターン分析、アクセス制御適用、結果フィルタリングを通じて、不正な情報の抽出を防ぐために、検証およびサニタイズされている。 | 2 | D/V |
-| **8.6.4** | **検証:** メモリ忘却メカニズムは、鍵の削除を使用する暗号化による消去保証、マルチパスの上書き、または検証証明書を用いたハードウェアベースの安全な削除で、機密情報を安全に削除している。 | 3 | D/V |
-| **8.6.5** | **検証:** メモリシステムの完全性は、チェックサム、監査ログ、メモリの内容が通常操作外で変更した場合の自動アラートを通じて、不正な改変や破損について継続的に監視されている。 | 3 | D/V |
-
----
-
-## 参考情報
+* OWASP Foundation. **OWASP Top 10 for Large Language Model Applications (LLM) 2025**. https://owasp.org/www-project-top-10-for-large-language-model-applications/assets/PDF/OWASP-Top-10-for-LLMs-v2025.pdf
