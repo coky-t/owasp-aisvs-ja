@@ -16,12 +16,12 @@
 
 ## C8.2 エンベディングのサニタイゼーションとバリデーション (Embedding Sanitization & Validation)
 
-Pre-screen content before vectorization; treat memory writes as untrusted inputs; prevent ingestion of unsafe payloads.
+ベクトル化前にコンテンツを事前スクリーンし、メモリ書き込みを信頼できない入力として扱い、安全でないペイロードの取り込みを防止します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **8.2.1** | **Verify that** regulated data and sensitive fields are detected prior to embedding and are masked, tokenized, transformed, or dropped based on policy. | 1 | D/V |
-| **8.2.2** | **Verify that** embedding ingestion rejects or quarantines inputs that violate required content constraints (e.g., non-UTF-8, malformed encodings, oversized payloads, invisible ASCII characters, or executable content intended to poison retrieval). | 1 | D/V |
+| **8.2.1** | **検証:** 規制対象データと機密フィールドはエンベディング前に検出され、ポリシーに基づいてマスク、トークン化、変換、または削除されている。 | 1 | D/V |
+| **8.2.2** | **検証:** エンベディング取り込みは、必要なコンテンツ制約に違反する入力 (非 UTF-8、不正なエンコーディング、サイズが大きすぎるペイロード、非表示 ASCII 文字、取得を害することを目的とした実行可能コンテンツ) を拒否または隔離している。 | 1 | D/V |
 
 ## C8.3 メモリの有効期限、失効、削除 (Memory Expiry, Revocation & Deletion)
 
