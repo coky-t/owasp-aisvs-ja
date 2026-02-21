@@ -6,13 +6,13 @@
 
 ## C8.1 メモリと RAG インデックスのアクセス制御 (Access Controls on Memory & RAG Indices)
 
-Enforce fine-grained access controls and query-time scope enforcement for every vector collection.
+すべてのベクトルコレクションに対してきめ細かなアクセス制御とクエリ時のスコープ適用を強制します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **8.1.1** | **Verify that** vector insert, update, delete, and query operations are enforced with namespace/collection/document-tag scope controls (e.g., tenant ID, user ID, data classification labels) with default-deny. | 1 | D/V |
-| **8.1.2** | **Verify that** API credentials used for vector operations carry **scoped claims** (e.g., permitted collections, allowed verbs, tenant binding). | 1 | D/V |
-| **8.1.3** | **Verify that** cross-scope access attempts (e.g., cross-tenant similarity queries, namespace traversal, tag bypass) are detected and rejected. | 2 | D/V |
+| **8.1.1** | **検証:** ベクトルの挿入、更新、削除、クエリ操作はデフォルトで拒否された名前空間/コレクション/ドキュメントタグのスコープ制御 (テナント ID、ユーザー ID、データ分類ラベルなど) で強制されている。 | 1 | D/V |
+| **8.1.2** | **検証:** ベクトル操作に使用される API クレデンシャルは **スコープされたクレーム** (許可されたコレクション、許可された動詞、テナントバインディングなど) を保持している。 | 1 | D/V |
+| **8.1.3** | **検証:** クロススコープアクセス試行 (クロステナント類似性クエリ、名前空間トラバーサル、タグバイパスなど) は検出され、拒否されている。 | 2 | D/V |
 
 ## C8.2 エンベディングのサニタイゼーションとバリデーション (Embedding Sanitization & Validation)
 
