@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Embeddings and vector stores act as semi-persistent amd persistent "memory" for AI systems via Retrieval-Augmented Generation (RAG). This memory can become a high-risk data sink and data exfiltration path. This control family hardens memory pipelines and vector databases so that access is least-privilege, data is sanitized before vectorization, retention is explicit, and systems are resilient to embedding inversion, membership inference, and cross-tenant leakage.
+エンベディングとベクトルストアは検索拡張生成 (Retrieval-Augmented Generation, RAG) を介して AI システムの半永続的および永続的な「メモリ」として機能します。このメモリは高リスクのデータシンクやデータ抽出パスとなる可能性があります。このコントロールファミリーはメモリパイプラインやベクトルデータベースを強化し、アクセスが最小権限であり、ベクトル化前にデータがサニタイズされ、保持が明示的であり、システムがエンベディング反転、メンバーシップ推論、テナント間漏洩に耐性があるようにします。
 
 ## C8.1 メモリと RAG インデックスのアクセス制御 (Access Controls on Memory & RAG Indices)
 
