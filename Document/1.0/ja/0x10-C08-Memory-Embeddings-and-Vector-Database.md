@@ -21,7 +21,7 @@
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
 | **8.2.1** | **検証:** 規制対象データと機密フィールドはエンベディング前に検出され、ポリシーに基づいてマスク、トークン化、変換、または削除されている。 | 1 | D/V |
-| **8.2.2** | **検証:** エンベディング取り込みは、必要なコンテンツ制約に違反する入力 (非 UTF-8、不正なエンコーディング、サイズが大きすぎるペイロード、非表示 ASCII 文字、取得を害することを目的とした実行可能コンテンツ) を拒否または隔離している。 | 1 | D/V |
+| **8.2.2** | **検証:** エンベディング取り込みは、必要なコンテンツ制約に違反する入力 (非 UTF-8、不正なエンコーディング、サイズが大きすぎるペイロード、非表示 ASCII 文字、検索を害することを目的とした実行可能コンテンツ) を拒否または隔離している。 | 1 | D/V |
 
 ## C8.3 メモリの有効期限、失効、削除 (Memory Expiry, Revocation & Deletion)
 
@@ -32,7 +32,7 @@
 | **8.3.1** | **検証:** 保持期間はメモリストレージ全体にわたって保存されているすべてのベクトルと関連するメタデータに適用されている。 | 1 | D/V |
 | **8.3.2** | **検証:** 削除リクエストは、組織が定義した最大時間内に、ベクトル、メタデータ、キャッシュコピー、導出インデックスを消去している。 | 1 | D/V |
 | **8.3.3** | **検証:** 削除されたベクトルや期限切れのベクトルは確実に削除されており、回復できない。 | 2 | D |
-| **8.3.4** | **検証:** 期限切れのベクトルは、測定および監視された伝播ウィンドウ内の取得結果から除外されている。 | 3 | D/V |
+| **8.3.4** | **検証:** 期限切れのベクトルは、測定および監視された伝播ウィンドウ内の検索結果から除外されている。 | 3 | D/V |
 
 ## C8.4 エンベディングの反転とリークの防止 (Prevent Embedding Inversion & Leakage)
 
@@ -41,19 +41,19 @@
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
 | **8.4.1** | **検証:** 機密ベクトルコレクションは、アプリケーション層の暗号化、厳格な KMS ポリシーでのエンベロープ暗号化、または同等の補完コントロールなどの技術的なコントロールを介して、インフラストラクチャ管理者による直接読み取りアクセスに対して保護されている。 | 2 | D/V |
-| **8.4.2** | **検証:** エンベディング漏洩耐性のプライバシー/ユーティリティターゲットは **定義および測定** されており、エンベディングモデル、トークナイザ、取得設定、プライバシー変換の変更はそれらのターゲットに対する回帰テストによってゲート制御されている。 | 3 | D/V |
+| **8.4.2** | **検証:** エンベディング漏洩耐性のプライバシー/ユーティリティターゲットは **定義および測定** されており、エンベディングモデル、トークナイザ、検索設定、プライバシー変換の変更はそれらのターゲットに対する回帰テストによってゲート制御されている。 | 3 | D/V |
 
 ## C8.5 ユーザー固有メモリのスコープの強制 (Scope Enforcement for User-Specific Memory)
 
-Prevent cross-tenant and cross-user leakage in retrieval and prompt assembly.
+検索およびプロンプトアセンブリでのテナント間およびユーザー間の漏洩を防止します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **8.5.1** | **Verify that** every retrieval operation enforces scope constraints (tenant/user/classification) **in the vector engine query** and verifies them again **before prompt assembly** (post-filter). | 1 | D/V |
-| **8.5.2** | **Verify that** vector identifiers, namespaces, and metadata indexing prevent cross-scope collisions and enforce uniqueness per tenant. | 1 | D |
-| **8.5.3** | **Verify that** retrieval results that match similarity criteria but fail scope checks are discarded. | 2 | D/V |
-| **8.5.4** | **Verify that** multi-tenant tests simulate adversarial retrieval attempts (prompt-based and query-based) and demonstrate zero out-of-scope document inclusion in prompts and outputs. | 2 | V |
-| **8.5.5** | **Verify that** encryption keys and access policies are segregated per tenant for memory/vector storage, providing cryptographic isolation in shared infrastructure. | 3 | D/V |
+| **8.5.1** | **検証:** すべての検索操作は **ベクトルエンジンクエリでの** スコープ制約 (テナント/ユーザー/分類) を適用し、**プロンプトアセンブリの前に** (ポストフィルター) 再度検証している。 | 1 | D/V |
+| **8.5.2** | **検証:** ベクトル識別子、名前空間、メタデータインデックスはスコープ間の衝突を防ぎ、テナントごとに一意性を強制している。 | 1 | D |
+| **8.5.3** | **検証:** 類似基準に一致するがスコープチェックに失敗した検索結果は破棄されている。 | 2 | D/V |
+| **8.5.4** | **検証:** マルチテナントテストは敵対的検索試行 (プロンプトベースおよびクエリベース) をシミュレートし、プロンプトと出力にスコープ外のドキュメントがまったく含まないことを示している。 | 2 | V |
+| **8.5.5** | **検証:** 暗号鍵とアクセスポリシーはメモリ/ベクトルストレージのテナントごとに分離されており、共有インフラストラクチャでの暗号的分離を提供している。 | 3 | D/V |
 
 ## 参考情報 (推奨追補)
 
