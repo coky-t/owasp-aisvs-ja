@@ -25,14 +25,14 @@
 
 ## C8.3 メモリの有効期限、失効、削除 (Memory Expiry, Revocation & Deletion)
 
-Retention must be explicit and enforceable; deletions must propagate to derived indices and caches.
+保持は明示的かつ強制可能である必要があり、削除は導出インデックスとキャッシュに伝播する必要があります。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **8.3.1** | **Verify that** retention times are applied to every stored vector and related metadata across memory storage. | 1 | D/V |
-| **8.3.2** | **Verify that** deletion requests purge vectors, metadata, cache copies, and derivative indices within an organization-defined maximum time. | 1 | D/V |
-| **8.3.3** | **Verify that** deleted or expired vectors are removed reliably and are unrecoverable. | 2 | D |
-| **8.3.4** | **Verify that** expired vectors are excluded from retrieval results within a measured and monitored propagation windows. | 3 | D/V |
+| **8.3.1** | **検証:** 保持期間はメモリストレージ全体にわたって保存されているすべてのベクトルと関連するメタデータに適用されている。 | 1 | D/V |
+| **8.3.2** | **検証:** 削除リクエストは、組織が定義した最大時間内に、ベクトル、メタデータ、キャッシュコピー、導出インデックスを消去している。 | 1 | D/V |
+| **8.3.3** | **検証:** 削除されたベクトルや期限切れのベクトルは確実に削除されており、回復できない。 | 2 | D |
+| **8.3.4** | **検証:** 期限切れのベクトルは、測定および監視された伝播ウィンドウ内の取得結果から除外されている。 | 3 | D/V |
 
 ## C8.4 エンベディングの反転とリークの防止 (Prevent Embedding Inversion & Leakage)
 
