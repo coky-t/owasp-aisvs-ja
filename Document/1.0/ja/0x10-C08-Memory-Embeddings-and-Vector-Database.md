@@ -36,12 +36,12 @@
 
 ## C8.4 エンベディングの反転とリークの防止 (Prevent Embedding Inversion & Leakage)
 
-Address inversion, membership inference, and attribute inference with explicit threat modeling, mitigations, and regression testing gates.
+明示的な脅威モデリング、緩和策、回帰テストゲートで反転、メンバーシップ推論、属性推論を対処します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **8.4.1** | **Verify that** sensitive vector collections are protected against direct read access by infrastructure administrators via technical controls such as application-layer encryption, envelope encryption with strict KMS policies, or equivalent compensating controls. | 2 | D/V |
-| **8.4.2** | **Verify that** privacy/utility targets for embedding leakage resistance are **defined and measured**, and that changes to embedding models, tokenizers, retrieval settings, or privacy transforms are gated by regression tests against those targets. | 3 | D/V |
+| **8.4.1** | **検証:** 機密ベクトルコレクションは、アプリケーション層の暗号化、厳格な KMS ポリシーでのエンベロープ暗号化、または同等の補完コントロールなどの技術的なコントロールを介して、インフラストラクチャ管理者による直接読み取りアクセスに対して保護されている。 | 2 | D/V |
+| **8.4.2** | **検証:** エンベディング漏洩耐性のプライバシー/ユーティリティターゲットは **定義および測定** されており、エンベディングモデル、トークナイザ、取得設定、プライバシー変換の変更はそれらのターゲットに対する回帰テストによってゲート制御されている。 | 3 | D/V |
 
 ## C8.5 ユーザー固有メモリのスコープの強制 (Scope Enforcement for User-Specific Memory)
 
