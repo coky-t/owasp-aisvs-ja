@@ -2,232 +2,164 @@
 
 ## 管理目標
 
-自律型またはマルチエージェント型の AI システムが、明示的に意図され、認証され、監査可能であり、コストとリスクの閾値の境界内でのアクション **のみ** を実行できるようにします。これは、自律システムの侵害、ツールの不正使用、エージェントループの検出、通信のハイジャック、アイデンティティのなりすまし、スウォーム操作、インテント操作などの脅威から保護します。
+Autonomous and multi-agent systems must execute only **authorized, intended, and bounded** actions. This control family reduces risk from tool misuse, privilege escalation, uncontrolled recursion/cost growth, protocol manipulation, and cross-agent or cross-tenant interference by enforcing: explicit authorization, sandboxed execution, cryptographic identity and tamper-evident audit, message security, and intent/constraint gates.
 
 ---
 
-## 9.1 エージェントのタスク計画と再帰予算 (Agent Task-Planning & Recursion Budgets)
+## C9.1 実行予算、ループ制御、サーキットブレーカー (Execution Budgets, Loop Control, and Circuit Breakers)
 
-再帰計画を抑制し、特権アクションに対して人間によるチェックポイントを強制します。
+Bound runtime expansion (recursion, concurrency, cost) and halt safely on runaway behavior.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.1.1** | **検証:** エージェント実行あたりの最大再帰深度、幅、経過実時間、トークン、金銭コストは集中的に構成され、バージョン管理されている。 | 1 | D/V |
-| **9.1.2** | **検証:** 特権アクションや取り消し不可能なアクション (コードコミット、送金など) は、実行前に、監査可能なチャネルを介して人間による明示的な承認を必要としている。 | 1 | D/V |
-| **9.1.3** | **検証:** リアルタイムリソースモニターは予算閾値を超えるとサーキットブレーカー不通をトリガーし、それ以上のタスク拡張を停止している。 | 2 | D |
-| **9.1.4** | **検証:** サーキットブレーカーイベントは、フォレンジックレビューのために、エージェント ID、トリガー条件、キャプチャされた計画の状態とともにログ記録されている。 | 2 | D/V |
-| **9.1.5** | **検証:** セキュリティテストは予算枯渇や暴走計画のシナリオをカバーし、データ損失のない安全な停止を確認している。 | 3 | V |
-| **9.1.6** | **検証:** 予算ポリシーは Policy as Code として表現されており、構成ドリフトをブロックするために CI/CD に適用されている。 | 3 | D |
+| :--: | --- | :---: | :--: |
+| **9.1.1** | **Verify that** per-execution budgets (max recursion depth, max fan-out/concurrency, wall-clock time, tokens, and monetary spend) are configured and enforced by the orchestration runtime. | 1 | D/V |
+| **9.1.2** | **Verify that** cumulative resource/spend counters are tracked per request chain and hard-stop the chain when thresholds are exceeded. | 2 | D/V |
+| **9.1.3** | **Verify that** circuit breakers terminate execution on budget violations. | 2 | D/V |
+| **9.1.4** | **Verify that** security testing covers runaway loops, budget exhaustion, and partial-failure scenarios, confirming safe termination and consistent state. | 3 | V |
+| **9.1.5** | **Verify that** budget and circuit-breaker policies are expressed as policy-as-code and are validated in CI/CD to prevent drift and unsafe configuration changes. | 3 | D/V |
 
 ---
 
-## 9.2 ツールプラグインのサンドボックス化 (Tool Plugin Sandboxing)
+## C9.2 影響度の高いアクションの承認と不可逆性の制御 (High-Impact Action Approval and Irreversibility Controls)
 
-ツールのインタラクションを分離して、不正なシステムアクセスやコード実行を防止します。
+Require explicit checkpoints for privileged or irreversible outcomes.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.2.1** | **検証:** すべてのツール/プラグインは、最小権限のファイルシステム、ネットワーク、システムコールポリシーを備えた、OS、コンテナ、または WASM レベルのサンドボックス内で実行している。 | 1 | D/V |
-| **9.2.2** | **検証:** サンドボックスのリソースクォータ (CPU、メモリ、ディスク、ネットワーク送出 (egress)) と実行タイムアウトが適用され、ログ記録されている。 | 1 | D/V |
-| **9.2.3** | **検証:** ツールのバイナリまたは記述子はデジタル署名されている。署名はロード前に検証されている。 | 2 | D/V |
-| **9.2.4** | **検証:** サンドボックステレメトリは SIEM に配信している。異常 (送信接続の試行など) はアラートを発している。 | 2 | V |
-| **9.2.5** | **検証:** 高リスクのプラグインは、本番デプロイメント前に、セキュリティレビューとペネトレーションテストを受けている。 | 3 | V |
-| **9.2.6** | **検証:** サンドボックス脱出の試行は自動的にブロックされており、問題のあるプラグインは調査中隔離されている。 | 3 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.2.1** | **Verify that** privileged or irreversible actions (e.g., code merges/deploys, financial transfers, user access changes, destructive deletes, external notifications) require explicit human-in-loop approval. | 1 | D/V |
+| **9.2.2** | **Verify that** approval requests present the exact action parameters (diff/command/recipient/amount/scope) and bind approvals to those parameters to prevent “approve one thing, execute another.” | 2 | D/V |
+| **9.2.3** | **Verify that** where rollback is feasible, compensating actions are defined and tested (transactional semantics), and failures trigger rollback or safe containment. | 3 | V |
 
 ---
 
-## 9.3 自律ループとコスト制限 (Autonomous Loop & Cost Bounding)
+## C9.3 ツールとプラグインの分離と安全な統合 (Tool and Plugin Isolation and Safe Integration)
 
-制御されていないエージェント間の再帰とコストの爆発を検出して停止します。
+Constrain tool execution, loading, and outputs to prevent unauthorized system access and unsafe side effects.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.3.1** | **検証:** エージェント間呼び出しは、ランタイムが減少と強制する、ホップ制限または TTL を含んでいる。 | 1 | D/V |
-| **9.3.2** | **検証:** エージェントは、自己呼び出しや周期的なパターンを見つけるために、一意の呼び出しグラフ ID を維持している。 | 2 | D |
-| **9.3.3** | **検証:** 累積計算ユニットと支出カウンタはリクエストチェーンごとに追跡されている。制限を超えるとチェーンを中止している。 | 2 | D/V |
-| **9.3.4** | **検証:** 形式解析またはモデル検査はエージェントプロトコルに無制限の再帰がないことを論証している。 | 3 | V |
-| **9.3.5** | **検証:** ループ中止イベントはアラートを生成し、継続的な改善メトリクスをフィードしている。 | 3 | D |
+| :--: | --- | :---: | :--: |
+| **9.3.1** | **Verify that** each tool/plugin executes in an isolated sandbox (container/VM/WASM/OS sandbox) with least-privilege filesystem, network egress, and syscall permissions appropriate to the tool’s function. | 1 | D/V |
+| **9.3.2** | **Verify that** per-tool quotas and timeouts (CPU, memory, disk, egress, execution time) are enforced and logged, and that quota breaches fail closed. | 1 | D/V |
+| **9.3.3** | **Verify that** tool manifests declare required privileges, side-effect level, resource limits, and output validation requirements, and that the runtime enforces these declarations. | 2 | D/V |
+| **9.3.4** | **Verify that** tool outputs are validated against strict schemas and security policies before being incorporated into downstream reasoning or follow-on actions. | 2 | D/V |
+| **9.3.5** | **Verify that** tool binaries are integrity-protected and validated prior to loading. | 2 | D/V |
+| **9.3.6** | **Verify that** sandbox escape indicators or policy violations trigger automated containment (tool disabled/quarantined). | 3 | D/V |
 
 ---
 
-## 9.4 プロトコルレベルの不正使用防止 (Protocol-Level Misuse Protection)
+## C9.4 エージェントとオーケストレータのアイデンティティ、署名、改竄防止の監査 (Agent and Orchestrator Identity, Signing, and Tamper-Evident Audit)
 
-エージェントと外部システム間の通信チャネルを保護し、ハイジャックや操作を防止します。
+Make every action attributable and every mutation detectable.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.4.1** | **検証:** すべてのエージェントとツールの間およびエージェント間のメッセージは認証 (相互 TLS や JWT など) されており、エンドツーエンドで暗号化されている。 | 1 | D/V |
-| **9.4.2** | **検証:** スキーマは厳密に検証されている。不明なフィールドや不正なメッセージは拒否されている。 | 1 | D |
-| **9.4.3** | **検証:** 完全性チェック (MAC またはデジタル署名) は、ツールパラメータを含む、メッセージペイロード全体をカバーしている。 | 2 | D/V |
-| **9.4.4** | **検証:** リプレイ保護 (ノンスまたはタイムスタンプウィンドウ) はプロトコル層で適用されている。 | 2 | D |
-| **9.4.5** | **検証:** プロトコル実装は、インジェクションやデシリアライゼーションの欠陥について、ファジングと静的解析を受けている。 | 3 | V |
+| :--: | --- | :---: | :--: |
+| **9.4.1** | **Verify that** each agent instance (and orchestrator/runtime) has a unique cryptographic identity and authenticates as a first-class principal to downstream systems (no reuse of end-user credentials). | 1 | D/V |
+| **9.4.2** | **Verify that** agent-initiated actions are cryptographically bound to the execution chain (chain ID) and are signed and timestamped for non-repudiation and traceability. | 2 | D/V |
+| **9.4.3** | **Verify that** audit logs are tamper-evident (append-only/WORM/immutable log store) and include sufficient context to reconstruct who/what acted, initiating user identifier, delegation scope, authorization decision (policy/version), tool parameters, approvals (where applicable), and outcomes. | 2 | D/V |
+| **9.4.4** | **Verify that** agent identity credentials (keys/certs/tokens) rotate on a defined schedule and on compromise indicators, with rapid revocation and quarantine on suspected compromise or spoofing attempts. | 3 | D/V |
 
 ---
 
-## 9.5 エージェントアイデンティティと改竄防止 (Agent Identity & Tamper-Evidence)
+## C9.5 安全なメッセージングとプロトコルの堅牢化 (Secure Messaging and Protocol Hardening)
 
-アクションが帰属可能であり、変更が検出可能であることを確保します。
+Protect agent-to-agent and agent-to-tool communications from hijacking, injection, replay, and desynchronization.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.5.1** | **検証:** 各エージェントインスタンスは一意の暗号アイデンティティ (鍵ペアまたはハードウェアルートのクレデンシャル) を保持している。 | 1 | D/V |
-| **9.5.2** | **検証:** すべてのエージェントアクションは署名され、タイムスタンプ付けされている。ログは否認防止のための署名を含んでいる。 | 2 | D/V |
-| **9.5.3** | **検証:** 改善防止ログは追記専用または一回のみ書き込み可能なメディアに保存されている。 | 2 | V |
-| **9.5.4** | **検証:** アイデンティティキーは定義されたスケジュールと侵害インジケータで入れ替えられている。 | 3 | D |
-| **9.5.5** | **検証:** なりすましまたはキー競合は影響を受けるエージェントの即時隔離をトリガーしている。 | 3 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.5.1** | **Verify that** agent-to-agent and agent-to-tool channels enforce mutual authentication and encryption with modern protocols (e.g., TLS 1.3) and strong certificate/token validation. | 1 | D/V |
+| **9.5.2** | **Verify that** all messages are strictly schema-validated; unknown fields, malformed payloads, and oversized frames are rejected. | 1 | D/V |
+| **9.5.3** | **Verify that** message integrity covers the full payload including tool parameters, and that replay protections (nonces/sequence numbers/timestamp windows) are enforced. | 2 | D/V |
 
 ---
 
-## 9.6 マルチエージェント群のリスク軽減 (Multi-Agent Swarm Risk Reduction)
+## C9.6 認可、委譲、継続的施行 (Authorization, Delegation, and Continuous Enforcement)
 
-隔離と形式安全性モデリングを通じて集団行動の危険性を緩和します。
+Ensure every action is authorized at execution time and constrained by scope.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.6.1** | **検証:** 異なるセキュリティドメインで動作するエージェントは、分離されたランタイムサンドボックスまたはネットワークセグメントで実行している。 | 1 | D/V |
-| **9.6.2** | **検証:** 群集の行動はモデル化されており、デプロイメント前に生存性と安全性について形式検証されている。 | 3 | V |
-| **9.6.3** | **検証:** ランタイム監視は、発生する安全でないパターン (オシレーション、デッドロックなど) を検出し、矯正アクションを開始している。 | 3 | D |
+| :--: | --- | :---: | :--: |
+| **9.6.1** | **Verify that** agent actions are authorized against fine-grained policies that restrict which tools an agent may invoke and which parameters it may supply (allow-list plus parameter constraints), enforced by the runtime. | 2 | D/V |
+| **9.6.2** | **Verify that** when an agent acts on a user’s behalf, the runtime propagates an integrity-protected delegation context (user ID, tenant, session, scopes) and enforces that context at every downstream call without using the user’s credentials. | 2 | D/V |
+| **9.6.3** | **Verify that** authorization is re-evaluated on every call (continuous authorization) using current context (tenant, environment, data classification, time, risk), and that delegated scopes are time-bound and automatically expire. | 3 | D/V |
 
 ---
 
-## 9.7 ユーザーとツールの認証/認可 (User & Tool Authentication / Authorization)
+## C9.7 意思の検証と制約ゲート (Intent Verification and Constraint Gates)
 
-エージェントによってトリガーされるすべてのアクションに対して堅牢なアクセス制御を実装します。
+Prevent “technically authorized but unintended” actions by binding execution to user intent and hard constraints.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.7.1** | **検証:** エージェントはダウンストリームのシステムに対してファーストクラスのプリンシパルとして認証しており、決してエンドユーザークレデンシャルを再使用していない。 | 1 | D/V |
-| **9.7.2** | **検証:** きめ細かい認可ポリシーは、エージェントが呼び出せるツールと提供できるパラメータを制限している。 | 2 | D |
-| **9.7.3** | **検証:** 権限チェックは、セッション開始時だけでなく、呼び出しごとに再評価 (継続的な認可) されている。 | 2 | V |
-| **9.7.4** | **検証:** 委譲された権限は自動的に期限切れとなり、タイムアウトまたはスコープ変更の後に再度の同意を必要としている。 | 3 | D |
+| :--: | --- | :---: | :--: |
+| **9.7.1** | **Verify that** pre-execution gates evaluate proposed actions and parameters against hard policy constraints (deny rules, data handling constraints, allow-lists, side-effect budgets) and block execution on any violation. | 1 | D/V |
+| **9.7.2** | **Verify that** high-impact actions require explicit user intent confirmation that is integrity-protected and bound to the exact action parameters (and expires quickly) to prevent stale or substituted approvals. | 2 | D/V |
+| **9.7.3** | **Verify that** post-condition checks confirm the intended outcome and detect unintended side effects; any mismatch triggers containment (and compensating actions where supported). | 2 | V |
 
 ---
 
-## 9.8 エージェント間通信セキュリティ (Agent-to-Agent Communication Security)
+## C9.8 マルチエージェントのドメイン分離と群集リスク制御 (Multi-Agent Domain Isolation and Swarm Risk Controls)
 
-すべてのエージェント間メッセージを暗号化して完全性を保護し、盗聴や改竄を阻止します。
+Reduce cross-domain interference and emergent unsafe collective behavior.
 
 | # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.8.1** | **検証:** 相互認証と完全前方秘匿性 (perfect-forward-secret) 暗号化 (TLS 1.3) はエージェントチャネルで必須としている。 | 1 | D/V |
-| **9.8.2** | **検証:** メッセージの完全性と発信元は処理前に検証されている。失敗はアラートを発し、メッセージを取り下げている。 | 1 | D |
-| **9.8.3** | **検証:** 通信メタデータ (タイムスタンプ、シーケンス番号) は、フォレンジック再構築をサポートするために、ログ記録されている。 | 2 | D/V |
-| **9.8.4** | **検証:** 形式検証またはモデル検査は、プロトコル状態マシンが安全でない状態に陥らないことを確認している。 | 3 | V |
+| :--: | --- | :---: | :--: |
+| **9.8.1** | **Verify that** agents in different tenants, security domains, or environments (dev/test/prod) run in isolated runtimes and network segments, with default-deny controls that prevent cross-domain discovery and calls. | 1 | D/V |
+| **9.8.2** | **Verify that** runtime monitoring detects unsafe emergent behavior (oscillation, deadlocks, uncontrolled broadcast, abnormal call graphs) and automatically applies corrective actions (throttle, isolate, terminate). | 3 | D/V |
 
 ---
 
-## 9.9 意思の検証と制約の適用 (Intent Verification & Constraint Enforcement)
+## C9.9 モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)
 
-エージェントアクションがユーザーの表明した意思とシステム制約に一致していることを検証します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.9.1** | **検証:** 実行前制約ソルバーは、ハードコードされた安全性およびポリシーのルールに対して、提案されたアクションをチェックしている。 | 1 | D |
-| **9.9.2** | **検証:** 影響の大きいアクション (金銭的、破壊的、プライバシー配慮が必要) は、開始したユーザーからの明示的な意思の確認を必要としている。 | 2 | D/V |
-| **9.9.3** | **検証:** 事後条件チェックは、完了したアクションが副作用なしに意図した効果を達成したことを検証している。不整合はロールバックをトリガーしている。 | 2 | V |
-| **9.9.4** | **検証:** 形式手法 (モデルチェック、定理証明など) またはプロパティベースのテストは、エージェント計画が宣言されたすべての制約を満たしていることを実証している。 | 3 | V |
-| **9.9.5** | **検証:** 意思の不一致や制約違反のインシデントは継続的な改善サイクルと脅威情報の共有につなげている。 | 3 | D |
-
----
-
-## 9.10 エージェント推論戦略セキュリティ (Agent Reasoning Strategy Security)
-
-ReAct, Chain-of-Thought, Tree-of-Thoughts アプローチを含むさまざまな推論戦略の選択と実行を保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.10.1** | **検証:** 推論戦略の選択は決定論的基準 (入力の複雑さ、タスクの種類、セキュリティコンテキスト) を使用しており、同一の入力は同じセキュリティコンテキスト内では同一の戦略選択を生成している。 | 1 | D/V |
-| **9.10.2** | **検証:** 各推論戦略 (ReAct, Chain-of-Thought, Tree-of-Thoughts) はその認知アプローチに固有の専用の入力バリデーション、出力サニタイゼーション、実行時間制限を有している。 | 1 | D/V |
-| **9.10.3** | **検証:** 推論戦略の遷移は、監査証跡の再構築のために、入力特性、選択基準値、実行メタデータなどの完全なコンテキストとともにログ記録されている。 | 2 | D/V |
-| **9.10.4** | **検証:** Tree-of-Thoughts 推論は、ポリシー違反、リソース制限、安全境界が検出された際に、探索を終了するブランチプルーニングメカニズムを含んでいる。 | 2 | D/V |
-| **9.10.5** | **検証:** ReAct (Reason-Act-Observe) サイクルは、推論ステップのバリデーション、アクションの認可、続行前の観察のサニタイゼーションといった、各フェーズでのバリデーションチェックポイントを含んでいる。 | 2 | D/V |
-| **9.10.6** | **検証:** 推論戦略のパフォーマンスメトリクス (実行時間、リソース使用量、出力品質) は監視されており、設定された閾値をメトリクスが逸脱する場合に自動的にアラートしている。 | 3 | D/V |
-| **9.10.7** | **検証:** 複数の戦略を組み合わせたハイブリッド推論アプローチは、セキュリティコントロールをバイパスすることなく、すべての構成戦略の入力バリデーションと出力制約を維持している。 | 3 | D/V |
-| **9.10.8** | **検証:** 推論戦略のセキュリティテストは、不正な入力でのファジング、戦略の切り替えを強制するように設計された敵対的プロンプト、各認知アプローチの境界条件テストを含んでいる。 | 3 | D/V |
-
----
-
-## 9.11 エージェントライフサイクル状態管理とセキュリティ (Agent Lifecycle State Management & Security)
-
-暗号化された監査証跡と定義されたリカバリ手順で、エージェントの初期化、状態遷移、終了を保護します。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.11.1** | **検証:** エージェントの初期化は、ハードウェア支援のクレデンシャルでの暗号化されたアイデンティティの確立と、エージェント ID、タイムスタンプ、構成ハッシュ、初期化パラメータを含む不変の起動監査ログを含んでいる。 | 1 | D/V |
-| **9.11.2** | **検証:** エージェントの状態遷移は暗号論的に署名され、タイムスタンプ付けされ、トリガーイベント、以前の状態ハッシュ、新しい状態ハッシュ、実行されたセキュリティバリデーションなどの完全なコンテキストとともにログ記録されている。 | 2 | D/V |
-| **9.11.3** | **検証:** エージェントのシャットダウン手順は、暗号消去またはマルチパス上書きを使用した安全なメモリ消去、認証局通知でのクレデンシャルの失効、改竄防止修了証明書の生成を含んでいる。 | 2 | D/V |
-| **9.11.4** | **検証:** エージェントリカバリメカニズムは、暗号チェックサム (最低でも SHA-256) を使用して状態の完全性を検証しており、破損が検出された場合は自動アラートと手動承認要件で既知の正常な状態にロールバックしている。 | 3 | D/V |
-| **9.11.5** | **検証:** エージェント永続化メカニズムは、エージェントごとに AES-256 鍵で機密状態データを暗号化し、構成可能なスケジュール (最大 90 日) においてダウンタイムなしのデプロイメントで安全な鍵ローテーションを実装している。 | 3 | D/V |
-
----
-
-## 9.12 ツール統合セキュリティフレームワーク (Tool Integration Security Framework)
-
-定義されたリスク評価と承認プロセスでの動的ツールローディング、実行、結果のバリデーションのためのセキュリティコントロールです。
-
-| # | 説明 | レベル | ロール |
-|:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.12.1** | **検証:** ツール記述子は、必要な権限 (読み取り/書き込み/実行)、リスクレベル (低/中/高)、 リソース制限 (CPU、メモリ、ネットワーク)、ツールマニフェストに記載されたバリデーション要件を指定するセキュリティメタデータを含んでいる。 | 1 | D/V |
-| **9.12.2** | **検証:** ツール実行結果は、タイムアウト制限およびエラー処理手順との統合の前に、期待されるスキーマ (JSON スキーマ、XML スキーマ) およびセキュリティポリシー (出力サニタイゼーション、データ分類) に対して検証されている。 | 1 | D/V |
-| **9.12.3** | **検証:** ツールインタラクションログは、SIEM 統合のための構造化ログで、権限の使用状況、データアクセスパターン、実行時間、リソース消費量、戻りコードなどの詳細なセキュリティコンテキストを含んでいる。 | 2 | D/V |
-| **9.12.4** | **検証:** 動的ツールローディングメカニズムは PKI インフラストラクチャを使用してデジタル署名を検証し、実行前にサンドボックス分離とパーミッション検証で安全なローディングプロトコルを実装している。 | 2 | D/V |
-| **9.12.5** | **検証:** ツールのセキュリティ評価は、静的解析、動的テスト、文書化された承認基準と SLA 要件でのセキュリティチームレビューなどの必須の承認ゲートで、新しいバージョンに対して自動的にトリガーされている。 | 3 | D/V |
-
----
-
-## C9.13 モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)
-
-コンテキストの混乱、不正なツールの呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。
+Ensure secure discovery, authentication, authorization, transport, and use of MCP-based tool and resource integrations to prevent context confusion, unauthorized tool invocation, or cross-tenant data exposure.
 
 ### コンポーネントの完全性とサプライチェーンの衛生管理 (Component Integrity & Supply Chain Hygiene)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.1** | **検証:** MCP サーバー、クライアント、ツールの実装は、安全でない機能の露出、安全でないデフォルト、認証の欠落、入力バリデーションの欠落を特定するために、手動でレビューされるか自動で解析されている。 | 1 | D/V |
-| **9.13.2** | **検証:** 外部またはオープンソースの MCP サーバーまたはパッケージは統合前に自動の脆弱性およびサプライチェーンスキャン (SCA など) を受けており、既知の重大な脆弱性を持つコンポーネントは使用されていない。 | 1 | D/V |
-| **9.13.3** | **検証:** MCP サーバーおよびクライアントコンポーネントは信頼できるソースからのみ取得され、署名、チェックサム、または安全なパッケージメタデータを使用して検証され、改竄されたビルドや署名されていないビルドは拒否されている。 | 1 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.1** | **Verify that** MCP server and client components are obtained only from trusted sources and verified using signatures, checksums, or secure package metadata, rejecting tampered or unsigned builds. | 1 | D/V |
 
 ### 認証と認可 (Authentication & Authorization)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.4** | **検証:** MCP クライアントとサーバーは強力な非ユーザークレデンシャル (mTLS、署名付きトークン、プラットフォーム発行のアイデンティティなど) を使用して相互に認証しており、認証されていない MCP エンドポイントは拒否されている。 | 2 | D/V |
-| **9.13.5** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 2 | D/V |
-| **9.13.6** | **検証:** 各 MCP ツールやリソースは明示的な認可スコープ (読み取り専用、制限付きクエリ、副作用レベルなど) を定義しており、エージェントは割り当てられたスコープ外で MCP 機能を呼び出すことはできない。 | 2 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.2** | **Verify that** MCP clients and servers mutually authenticate using strong, non-user credentials (e.g., mTLS, DPoP), and that unauthenticated MCP requests are rejected. | 2 | D/V |
+| **9.9.3** | **Verify that** MCP servers are registered through a controlled technical onboarding mechanism requiring explicit owner, environment, and resource definitions; unregistered or undiscoverable servers must not be callable in production. | 2 | D/V |
+| **9.9.4** | **Verify that** each MCP tool or resource defines explicit authorization scopes (e.g., read-only, restricted queries, side-effect levels), and that agents cannot invoke MCP functions outside their assigned scope. | 2 | D/V |
 
 ### 安全なトランスポートとネットワーク境界保護 (Secure Transport & Network Boundary Protection)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.7** | **検証:** 認証され、暗号化されたストリーミング可能な HTTP は本番環境のプライマリ MCP トランスポートとして使用されている。代替トランスポート (stdio, SSE) は明示的な理由でローカルまたは厳密に制御された環境に制限されている。 | 2 | D/V |
-| **9.13.8** | **検証:** ストリーミング可能な HTTP MCP トランスポートは、ストリームされる MCP メッセージの機密性と完全性を確保するために、証明書バリデーションと前方秘匿性を備えた認証済みの暗号化チャネル (TLS 1.3 以降) を使用している。 | 2 | D/V |
-| **9.13.9** | **検証:** SSE ベースの MCP トランスポートはプライベートで、認証された内部チャネル内でのみ使用されており、TLS、認証、スキーマバリデーション、ペイロードサイズ制限、レート制限を適用している。SSE エンドポイントはパブリックインターネットに公開されてはいけない。 | 2 | D/V |
-| **9.13.10** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダを検証しており、信頼できない、一致しない、または欠落しているオリジンからのリクエストを拒否している。 | 2 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.5** | **Verify that** authenticated, encrypted streamable-HTTP is used as the primary MCP transport in production environments; alternate transports (stdio, SSE) are restricted to local or tightly controlled environments with explicit justification. | 2 | D/V |
+| **9.9.6** | **Verify that** streamable-HTTP MCP transports use authenticated, encrypted channels (TLS 1.3 or later) with certificate validation. | 2 | D/V |
+| **9.9.7** | **Verify that** SSE-based MCP transports are used only within private, authenticated internal channels and enforce TLS, authentication, schema validation, payload size limits, and rate limiting; SSE endpoints must not be exposed to the public internet. | 2 | D/V |
+| **9.9.8** | **Verify that** MCP servers validate the `Origin` and `Host` headers on all HTTP-based transports (including SSE and streamable-HTTP) to prevent DNS rebinding attacks, and reject requests from untrusted, mismatched, or missing origins. | 2 | D/V |
 
 ### スキーマ、メッセージ、入力バリデーション (Schema, Message, and Input Validation)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.11** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) は、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名、チェックサム、またはサーバーアテステーションを使用して真正性と完全性を検証されている。 | 2 | D/V |
-| **9.13.12** | **検証:** すべての MCP トランスポートは、非同期攻撃やインジェクション攻撃を防ぐために、メッセージフレーミングの完全性、厳密なスキーマバリデーション、最大ペイロードサイズを強制しており、不正なフレーム、切り捨てられたフレーム、不連続なフレームを拒否している。 | 2 | D/V |
-| **9.13.13** | **検証:** MCP サーバーは、型チェック、境界チェック、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.9** | **Verify that** MCP tool and resource schemas (e.g., JSON schemas or capability descriptors) are validated for authenticity and integrity using signatures to prevent schema tampering or malicious parameter modification. | 2 | D/V |
+| **9.9.10** | **Verify that** all MCP transports enforce message-framing integrity, strict schema validation, maximum payload sizes, and rejection of malformed, truncated, or interleaved frames to prevent desynchronization or injection attacks. | 2 | D/V |
+| **9.9.11** | **Verify that** MCP servers perform strict input validation for all function calls, including type checking, boundary checking, enumeration enforcement, and rejection of unrecognized or oversized parameters. | 2 | D/V |
 
 ### アウトバウンドアクセスとエージェント実行の安全性 (Outbound Access & Agent Execution Safety)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.14** | **検証:** MCP サーバーは最小権限の送出 (egress) ポリシーに従って承認された内部または外部の宛先へのアウトバウンドリクエストのみを開始でき、任意のネットワークターゲットや内部クラウドメタデータサービスにはアクセスできない。 | 2 | D/V |
-| **9.13.15** | **検証:** アウトバウンド MCP アクションは、無制限のエージェント駆動型ツールの呼び出しや連鎖的な副作用を防ぐために、、実行制限 (タイムアウト、再帰制限、並列実行上限、サーキットブレーカー) を実装している。 | 2 | D/V |
-| **9.13.16** | **検証:** MCP リクエストおよびレスポンスメタデータ (サーバー ID、リソース名、ツール名、セッション識別子、テナント、環境) は完全性保護とともにログ記録されており、フォレンジック解析のためにエージェントアクティビティと相関付けられている。 | 2 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.12** | **Verify that** MCP servers may only initiate outbound requests to approved internal or external destinations following least-privilege egress policies, and cannot access arbitrary network targets or internal cloud metadata services. | 2 | D/V |
+| **9.9.15** | **Verify that** outbound MCP actions implement execution limits (timeouts, recursion limits, concurrency caps, circuit breakers) to prevent unbounded agent-driven tool invocation or chained side effects. | 2 | D/V |
 
 ### トランスポート制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
 
 | # | 説明 | レベル | ロール |
-|:--------:|--------------------------------------------------------------------------------------------|:---:|:---:|
-| **9.13.17** | **検証:** stdio ベースの MCP トランスポートは、シェル実行、ターミナルインジェクション、プロセス生成機能から分離された、共存する単一プロセス開発シナリオに制限されている。stdio はネットワークやマルチテナント境界を超えることができない。 | 3 | D/V |
-| **9.13.18** | **検証:** MCP サーバーは許可リストにある機能とリソースのみを露出しており、ユーザーまたはモデルが提供する入力によって影響を受ける関数名の動的ディスパッチ、リフレクション呼び出し、実行を禁止している。 | 3 | D/V |
-| **9.13.19** | **検証:** テナント境界、環境境界 (開発/テスト/本番)、データドメイン境界は MCP レイヤで強制されており、テナント間や環境間のサーバーやリソースの発見を防いでいる。 | 3 | D/V |
+| :--: | --- | :---: | :--: |
+| **9.9.16** | **Verify that** stdio-based MCP transports are limited to co-located, single-process development scenarios, isolated from shell execution, terminal injection, and process-spawning capabilities; stdio must never cross network or multi-tenant boundaries. | 3 | D/V |
+| **9.9.17** | **Verify that** MCP servers expose only allow-listed functions and resources, and prohibit dynamic dispatch, reflective invocation, or execution of function names influenced by user or model-provided input. | 3 | D/V |
+| **9.9.18** | **Verify that** tenant boundaries, environment boundaries (dev/test/prod), and data domain boundaries are enforced at the MCP layer, preventing cross-tenant or cross-environment server or resource discovery. | 3 | D/V |
 
 ---
 
-### 参考情報
+## 参考情報
+
+* [Model Context Protocol (MCP) Specification](https://modelcontextprotocol.io/)
+* [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)
