@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-Autonomous and multi-agent systems must execute only **authorized, intended, and bounded** actions. This control family reduces risk from tool misuse, privilege escalation, uncontrolled recursion/cost growth, protocol manipulation, and cross-agent or cross-tenant interference by enforcing: explicit authorization, sandboxed execution, cryptographic identity and tamper-evident audit, message security, and intent/constraint gates.
+自律型およびマルチエージェント型のシステムは **認可され、意図され、かつ制限された** アクションのみを実行する必要があります。このコントロールファミリーは、明示的な認可、サンドボックス化された実行、暗号化されたアイデンティティと改竄防止監査、メッセージセキュリティ、インテント/制約ゲートを適用することで、ツールの不正使用、権限昇格、制御不能な再帰/コスト増加、プロトコル操作、エージェント間またはテナント間の干渉によるリスクを軽減します。
 
 ---
 
