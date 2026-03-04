@@ -22,13 +22,13 @@
 
 ## C9.2 影響度の高いアクションの承認と不可逆性の制御 (High-Impact Action Approval and Irreversibility Controls)
 
-Require explicit checkpoints for privileged or irreversible outcomes.
+特権的または不可逆的な結果に対して明示的なチェックポイントを要求します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.2.1** | **Verify that** privileged or irreversible actions (e.g., code merges/deploys, financial transfers, user access changes, destructive deletes, external notifications) require explicit human-in-loop approval. | 1 | D/V |
-| **9.2.2** | **Verify that** approval requests present the exact action parameters (diff/command/recipient/amount/scope) and bind approvals to those parameters to prevent “approve one thing, execute another.” | 2 | D/V |
-| **9.2.3** | **Verify that** where rollback is feasible, compensating actions are defined and tested (transactional semantics), and failures trigger rollback or safe containment. | 3 | V |
+| **9.2.1** | **検証:** 特権的または不可逆的なアクション (コードのマージ/デプロイ、送金、ユーザーアクセスの変更、破壊的な削除、外部への通知) は明示的なヒューマンインザループ (human-in-loop) での承認を要求している。 | 1 | D/V |
+| **9.2.2** | **検証:** 承認リクエストは正確なアクションパラメータ (diff/command/recipient/amount/scope) を提示し、承認をそれらのパラメータにバインドし、「一つの承認と別の実行」を防いでいる。 | 2 | D/V |
+| **9.2.3** | **検証:** ロールバックが実現可能である場合は、補償アクションが定義およびテストされ (トランザクションのセマンティクス)、障害はロールバックまたは安全な封じ込めをトリガーしている。 | 3 | V |
 
 ---
 
