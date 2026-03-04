@@ -8,15 +8,15 @@
 
 ## C9.1 実行予算、ループ制御、サーキットブレーカー (Execution Budgets, Loop Control, and Circuit Breakers)
 
-Bound runtime expansion (recursion, concurrency, cost) and halt safely on runaway behavior.
+実行時の拡張 (再帰、同時実行、コスト) を制限し、暴走動作を安全に停止します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.1.1** | **Verify that** per-execution budgets (max recursion depth, max fan-out/concurrency, wall-clock time, tokens, and monetary spend) are configured and enforced by the orchestration runtime. | 1 | D/V |
-| **9.1.2** | **Verify that** cumulative resource/spend counters are tracked per request chain and hard-stop the chain when thresholds are exceeded. | 2 | D/V |
-| **9.1.3** | **Verify that** circuit breakers terminate execution on budget violations. | 2 | D/V |
-| **9.1.4** | **Verify that** security testing covers runaway loops, budget exhaustion, and partial-failure scenarios, confirming safe termination and consistent state. | 3 | V |
-| **9.1.5** | **Verify that** budget and circuit-breaker policies are expressed as policy-as-code and are validated in CI/CD to prevent drift and unsafe configuration changes. | 3 | D/V |
+| **9.1.1** | **検証:** 実行ごとの予算 (最大再帰深度、最大ファンアウト/同時実行、経過実時間、トークン、金銭支出) はオーケストレーションランタイムによって構成および適用されている。 | 1 | D/V |
+| **9.1.2** | **検証:** 累積リソース/支出カウンタはリクエストチェーンごとに追跡され、閾値を超える場合にはそのチェーンをハード停止している。 | 2 | D/V |
+| **9.1.3** | **検証:** サーキットブレーカーは予算違反で実行を停止している。 | 2 | D/V |
+| **9.1.4** | **検証:** セキュリティテストは、暴走ループ、予算枯渇、部分的な障害のシナリオをカバーし、安全な終了と一貫した状態を確認している。 | 3 | V |
+| **9.1.5** | **検証:** 予算とサーキットブレーカーのポリシーは Policy as Code として表現され、CI/CD で検証され、ドリフトと安全でない構成変更を防いでいる。 | 3 | D/V |
 
 ---
 
