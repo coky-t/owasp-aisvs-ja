@@ -34,16 +34,16 @@
 
 ## C9.3 ツールとプラグインの分離と安全な統合 (Tool and Plugin Isolation and Safe Integration)
 
-Constrain tool execution, loading, and outputs to prevent unauthorized system access and unsafe side effects.
+ツールの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.3.1** | **Verify that** each tool/plugin executes in an isolated sandbox (container/VM/WASM/OS sandbox) with least-privilege filesystem, network egress, and syscall permissions appropriate to the tool’s function. | 1 | D/V |
-| **9.3.2** | **Verify that** per-tool quotas and timeouts (CPU, memory, disk, egress, execution time) are enforced and logged, and that quota breaches fail closed. | 1 | D/V |
-| **9.3.3** | **Verify that** tool manifests declare required privileges, side-effect level, resource limits, and output validation requirements, and that the runtime enforces these declarations. | 2 | D/V |
-| **9.3.4** | **Verify that** tool outputs are validated against strict schemas and security policies before being incorporated into downstream reasoning or follow-on actions. | 2 | D/V |
-| **9.3.5** | **Verify that** tool binaries are integrity-protected and validated prior to loading. | 2 | D/V |
-| **9.3.6** | **Verify that** sandbox escape indicators or policy violations trigger automated containment (tool disabled/quarantined). | 3 | D/V |
+| **9.3.1** | **検証:** 各ツール/プラグインは、ツールの機能に適した最小権限のファイルシステム、ネットワーク送出 (egress)、システムコールパーミッションを備える分離されたサンドボックス (コンテナ/VM/WASM/OS サンドボックス) 内で実行している。 | 1 | D/V |
+| **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制され、ログ記録され、クォータ違反はフェイルクローズされている。 | 1 | D/V |
+| **9.3.3** | **検証:** ツールマニフェストは、必要な権限、副作用レベル、リソース制限、出力バリデーション要件を宣言し、ランタイムはこれらの宣言を強制している。 | 2 | D/V |
+| **9.3.4** | **検証:** ツール出力は、ダウンストリームの推論や後続のアクションに組み込まれる前に、厳格なスキーマとセキュリティポリシーに対して検証されている。 | 2 | D/V |
+| **9.3.5** | **検証:** ツールバイナリは完全性保護されており、ロード前に検証されている。 | 2 | D/V |
+| **9.3.6** | **検証:** サンドボックスのエスケープインジケータまたはポリシー違反は自動封じ込め (ツールの無効化/隔離) をトリガーしている。 | 3 | D/V |
 
 ---
 
