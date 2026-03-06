@@ -74,13 +74,13 @@
 
 ## C9.6 認可、委譲、継続的施行 (Authorization, Delegation, and Continuous Enforcement)
 
-Ensure every action is authorized at execution time and constrained by scope.
+すべてのアクションは実行時に認可され、スコープによって制約されていることを確保します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.6.1** | **Verify that** agent actions are authorized against fine-grained policies that restrict which tools an agent may invoke and which parameters it may supply (allow-list plus parameter constraints), enforced by the runtime. | 2 | D/V |
-| **9.6.2** | **Verify that** when an agent acts on a user’s behalf, the runtime propagates an integrity-protected delegation context (user ID, tenant, session, scopes) and enforces that context at every downstream call without using the user’s credentials. | 2 | D/V |
-| **9.6.3** | **Verify that** authorization is re-evaluated on every call (continuous authorization) using current context (tenant, environment, data classification, time, risk), and that delegated scopes are time-bound and automatically expire. | 3 | D/V |
+| **9.6.1** | **検証:** エージェントのアクションは、ランタイムによって強制される、エージェントが呼び出せるツールとエージェントが提供できるパラメータ (許可リストとパラメータ制約) を制限するきめ細かいポリシーに基づいて認可されている。 | 2 | D/V |
+| **9.6.2** | **検証:** エージェントがユーザーの代わりに動作する場合、ランタイムは完全性が保護された委譲コンテキスト (ユーザー ID、テナント、セッション、スコープ) を伝播し、ユーザーのクレデンシャルを使用せずに、すべてのダウンストリーム呼び出しでそのコンテキストを適用している。 | 2 | D/V |
+| **9.6.3** | **検証:** 認可は現在のコンテキスト (テナント、環境、データ分類、時間、リスク) を使用してすべての呼び出しで再評価 (継続的な認可) され、委譲されたスコープは時間制限され、自動的に期限切れしている。 | 3 | D/V |
 
 ---
 
