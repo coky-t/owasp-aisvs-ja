@@ -86,13 +86,13 @@
 
 ## C9.7 意思の検証と制約ゲート (Intent Verification and Constraint Gates)
 
-Prevent “technically authorized but unintended” actions by binding execution to user intent and hard constraints.
+実行をユーザーの意図と厳格な制約にバインドすることで、「技術的には認可されているが意図していない」アクションを防止します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.7.1** | **Verify that** pre-execution gates evaluate proposed actions and parameters against hard policy constraints (deny rules, data handling constraints, allow-lists, side-effect budgets) and block execution on any violation. | 1 | D/V |
-| **9.7.2** | **Verify that** high-impact actions require explicit user intent confirmation that is integrity-protected and bound to the exact action parameters (and expires quickly) to prevent stale or substituted approvals. | 2 | D/V |
-| **9.7.3** | **Verify that** post-condition checks confirm the intended outcome and detect unintended side effects; any mismatch triggers containment (and compensating actions where supported). | 2 | V |
+| **9.7.1** | **検証:** 実行前ゲートは提案されたアクションとパラメータを厳格なポリシー制約 (拒否ルール、データ処理制約、許可リスト、副作用予算) に照らして評価し、なんらかの違反で実行をブロックしている。 | 1 | D/V |
+| **9.7.2** | **検証:** 影響の大きいアクションは、古い商人や代替承認を防ぐために、完全性が保護され、正確なアクションパラメータにバインドされた (すぐに期限切れする) 明示的なユーザー意思確認を要求している。 | 2 | D/V |
+| **9.7.3** | **検証:** 事後条件チェックは意図した結果を確認し、意図しない副作用を検出している。なんらかの不一致が封じ込めを (サポートしている場合、補償アクションも) トリガーしている。 | 2 | V |
 
 ---
 
