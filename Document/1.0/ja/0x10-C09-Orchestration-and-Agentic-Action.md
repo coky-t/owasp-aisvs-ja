@@ -98,12 +98,12 @@
 
 ## C9.8 マルチエージェントのドメイン分離と群集リスク制御 (Multi-Agent Domain Isolation and Swarm Risk Controls)
 
-Reduce cross-domain interference and emergent unsafe collective behavior.
+ドメイン間の干渉と緊急の安全でない集団行動を軽減します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.8.1** | **Verify that** agents in different tenants, security domains, or environments (dev/test/prod) run in isolated runtimes and network segments, with default-deny controls that prevent cross-domain discovery and calls. | 1 | D/V |
-| **9.8.2** | **Verify that** runtime monitoring detects unsafe emergent behavior (oscillation, deadlocks, uncontrolled broadcast, abnormal call graphs) and automatically applies corrective actions (throttle, isolate, terminate). | 3 | D/V |
+| **9.8.1** | **検証:** 異なるテナント、セキュリティドメイン、環境 (開発/テスト/本番) のエージェントは、クロスドメイン発掘と呼び出しを防止するデフォルト拒否制御での、分離されたランタイムとネットワークセグメントで実行している。 | 1 | D/V |
+| **9.8.2** | **検証:** ランタイム監視は安全でない緊急動作 (変動、デッドロック、制御されていないブロードキャスト、異常な呼び出しグラフ) を検出し、自動的に是正アクション (抑制、隔離、終了) を適用している。 | 3 | D/V |
 
 ---
 
