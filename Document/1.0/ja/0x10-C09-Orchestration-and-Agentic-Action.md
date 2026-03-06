@@ -62,13 +62,13 @@
 
 ## C9.5 安全なメッセージングとプロトコルの堅牢化 (Secure Messaging and Protocol Hardening)
 
-Protect agent-to-agent and agent-to-tool communications from hijacking, injection, replay, and desynchronization.
+エージェント間およびエージェントとツール間の通信をハイジャック、インジェクション、リプレイ、非同期化から保護します。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.5.1** | **Verify that** agent-to-agent and agent-to-tool channels enforce mutual authentication and encryption with modern protocols (e.g., TLS 1.3) and strong certificate/token validation. | 1 | D/V |
-| **9.5.2** | **Verify that** all messages are strictly schema-validated; unknown fields, malformed payloads, and oversized frames are rejected. | 1 | D/V |
-| **9.5.3** | **Verify that** message integrity covers the full payload including tool parameters, and that replay protections (nonces/sequence numbers/timestamp windows) are enforced. | 2 | D/V |
+| **9.5.1** | **検証:** エージェント間およびエージェントとツール間のチャネルは、最新のプロトコル (TLS 1.3 など) と強力な証明書/トークンバリデーションで、相互認証と暗号化を強制している。 | 1 | D/V |
+| **9.5.2** | **検証:** すべてのメッセージは厳密にスキーマ検証され、不明なフィールド、不正なペイロード、サイズが大きすぎるフレームは拒否されている。 | 1 | D/V |
+| **9.5.3** | **検証:** メッセージの完全性はツールパラメータを含む完全なペイロードをカバーし、リプレイ保護 (ノンス/シーケンス番号/タイムスタンプウィンドウ) が適用されている。 | 2 | D/V |
 
 ---
 
