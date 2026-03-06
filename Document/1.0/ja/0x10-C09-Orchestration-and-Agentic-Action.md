@@ -49,14 +49,14 @@
 
 ## C9.4 エージェントとオーケストレータのアイデンティティ、署名、改竄防止の監査 (Agent and Orchestrator Identity, Signing, and Tamper-Evident Audit)
 
-Make every action attributable and every mutation detectable.
+すべてのアクションを帰属可能にし、すべての変異を検出可能にします。
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.4.1** | **Verify that** each agent instance (and orchestrator/runtime) has a unique cryptographic identity and authenticates as a first-class principal to downstream systems (no reuse of end-user credentials). | 1 | D/V |
-| **9.4.2** | **Verify that** agent-initiated actions are cryptographically bound to the execution chain (chain ID) and are signed and timestamped for non-repudiation and traceability. | 2 | D/V |
-| **9.4.3** | **Verify that** audit logs are tamper-evident (append-only/WORM/immutable log store) and include sufficient context to reconstruct who/what acted, initiating user identifier, delegation scope, authorization decision (policy/version), tool parameters, approvals (where applicable), and outcomes. | 2 | D/V |
-| **9.4.4** | **Verify that** agent identity credentials (keys/certs/tokens) rotate on a defined schedule and on compromise indicators, with rapid revocation and quarantine on suspected compromise or spoofing attempts. | 3 | D/V |
+| **9.4.1** | **検証:** 各エージェントインスタンス (およびオーケストレータ/ランタイム) は一意の暗号アイデンティティを持ち、ダウンストリームシステムへのファーストクラスのプリンシパルとして認証している (エンドユーザークレデンシャルを再使用していない)。 | 1 | D/V |
+| **9.4.2** | **検証:** エージェントが開始したアクションは実行チェーン (チェーン ID) に暗号的にバインドされ、否認防止と追跡可能性のために署名され、タイムスタンプ付けされている。 | 2 | D/V |
+| **9.4.3** | **検証:** 監査ログは改竄防止 (追加専用/WORM/不変ログストア) を備えており、誰が何を実行したか、開始ユーザー識別子、委譲範囲、認可決定 (ポリシー/バージョン)、ツールパラメータ、承認 (適用可能な場合)、結果を再構築するのに十分なコンテキストを含んでいる。 | 2 | D/V |
+| **9.4.4** | **検証:** エージェントのアイデンティティクレデンシャル (鍵/証明書/トークン) は定義されたスケジュールと侵害の兆候で入れ替わり、傷害の疑いやなりすましの試みですぐに失効して隔離している。 | 3 | D/V |
 
 ---
 
