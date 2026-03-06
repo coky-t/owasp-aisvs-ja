@@ -109,53 +109,53 @@
 
 ## C9.9 モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)
 
-Ensure secure discovery, authentication, authorization, transport, and use of MCP-based tool and resource integrations to prevent context confusion, unauthorized tool invocation, or cross-tenant data exposure.
+コンテキストの混乱、不正なツールの呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。
 
 ### コンポーネントの完全性とサプライチェーンの衛生管理 (Component Integrity & Supply Chain Hygiene)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.1** | **Verify that** MCP server and client components are obtained only from trusted sources and verified using signatures, checksums, or secure package metadata, rejecting tampered or unsigned builds. | 1 | D/V |
+| **9.9.1** | **検証:** MCP サーバーおよびクライアントコンポーネントは信頼できるソースからのみ取得され、署名、チェックサム、または安全なパッケージメタデータを使用して検証され、改竄されたビルドや署名されていないビルドは拒否されている。 | 1 | D/V |
 
 ### 認証と認可 (Authentication & Authorization)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.2** | **Verify that** MCP clients and servers mutually authenticate using strong, non-user credentials (e.g., mTLS, DPoP), and that unauthenticated MCP requests are rejected. | 2 | D/V |
-| **9.9.3** | **Verify that** MCP servers are registered through a controlled technical onboarding mechanism requiring explicit owner, environment, and resource definitions; unregistered or undiscoverable servers must not be callable in production. | 2 | D/V |
-| **9.9.4** | **Verify that** each MCP tool or resource defines explicit authorization scopes (e.g., read-only, restricted queries, side-effect levels), and that agents cannot invoke MCP functions outside their assigned scope. | 2 | D/V |
+| **9.9.2** | **検証:** MCP クライアントとサーバーは強力な非ユーザークレデンシャル (mTLS、DPoP など) を使用して相互に認証しており、認証されていない MCP リクエストは拒否されている。 | 2 | D/V |
+| **9.9.3** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 2 | D/V |
+| **9.9.4** | **検証:** 各 MCP ツールやリソースは明示的な認可スコープ (読み取り専用、制限付きクエリ、副作用レベルなど) を定義しており、エージェントは割り当てられたスコープ外で MCP 機能を呼び出すことはできない。 | 2 | D/V |
 
 ### 安全なトランスポートとネットワーク境界保護 (Secure Transport & Network Boundary Protection)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.5** | **Verify that** authenticated, encrypted streamable-HTTP is used as the primary MCP transport in production environments; alternate transports (stdio, SSE) are restricted to local or tightly controlled environments with explicit justification. | 2 | D/V |
-| **9.9.6** | **Verify that** streamable-HTTP MCP transports use authenticated, encrypted channels (TLS 1.3 or later) with certificate validation. | 2 | D/V |
-| **9.9.7** | **Verify that** SSE-based MCP transports are used only within private, authenticated internal channels and enforce TLS, authentication, schema validation, payload size limits, and rate limiting; SSE endpoints must not be exposed to the public internet. | 2 | D/V |
-| **9.9.8** | **Verify that** MCP servers validate the `Origin` and `Host` headers on all HTTP-based transports (including SSE and streamable-HTTP) to prevent DNS rebinding attacks, and reject requests from untrusted, mismatched, or missing origins. | 2 | D/V |
+| **9.9.5** | **検証:** 認証され、暗号化されたストリーミング可能な HTTP は本番環境のプライマリ MCP トランスポートとして使用されている。代替トランスポート (stdio, SSE) は明示的な理由でローカルまたは厳密に制御された環境に制限されている。 | 2 | D/V |
+| **9.9.6** | **検証:** ストリーミング可能な HTTP MCP トランスポートは証明書バリデーションを備えた認証済みの暗号化チャネル (TLS 1.3 以降) を使用している。 | 2 | D/V |
+| **9.9.7** | **検証:** SSE ベースの MCP トランスポートはプライベートで、認証された内部チャネル内でのみ使用されており、TLS、認証、スキーマバリデーション、ペイロードサイズ制限、レート制限を適用している。SSE エンドポイントはパブリックインターネットに公開されてはいけない。 | 2 | D/V |
+| **9.9.8** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダを検証しており、信頼できない、一致しない、または欠落しているオリジンからのリクエストを拒否している。 | 2 | D/V |
 
 ### スキーマ、メッセージ、入力バリデーション (Schema, Message, and Input Validation)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.9** | **Verify that** MCP tool and resource schemas (e.g., JSON schemas or capability descriptors) are validated for authenticity and integrity using signatures to prevent schema tampering or malicious parameter modification. | 2 | D/V |
-| **9.9.10** | **Verify that** all MCP transports enforce message-framing integrity, strict schema validation, maximum payload sizes, and rejection of malformed, truncated, or interleaved frames to prevent desynchronization or injection attacks. | 2 | D/V |
-| **9.9.11** | **Verify that** MCP servers perform strict input validation for all function calls, including type checking, boundary checking, enumeration enforcement, and rejection of unrecognized or oversized parameters. | 2 | D/V |
+| **9.9.9** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) は、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名を使用して真正性と完全性を検証されている。 | 2 | D/V |
+| **9.9.10** | **検証:** すべての MCP トランスポートは、非同期攻撃やインジェクション攻撃を防ぐために、メッセージフレーミングの完全性、厳密なスキーマバリデーション、最大ペイロードサイズを強制しており、不正なフレーム、切り捨てられたフレーム、不連続なフレームを拒否している。 | 2 | D/V |
+| **9.9.11** | **検証:** MCP サーバーは、型チェック、境界チェック、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 | D/V |
 
 ### アウトバウンドアクセスとエージェント実行の安全性 (Outbound Access & Agent Execution Safety)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.12** | **Verify that** MCP servers may only initiate outbound requests to approved internal or external destinations following least-privilege egress policies, and cannot access arbitrary network targets or internal cloud metadata services. | 2 | D/V |
-| **9.9.15** | **Verify that** outbound MCP actions implement execution limits (timeouts, recursion limits, concurrency caps, circuit breakers) to prevent unbounded agent-driven tool invocation or chained side effects. | 2 | D/V |
+| **9.9.12** | **検証:** MCP サーバーは最小権限の送出 (egress) ポリシーに従って承認された内部または外部の宛先へのアウトバウンドリクエストのみを開始でき、任意のネットワークターゲットや内部クラウドメタデータサービスにはアクセスできない。 | 2 | D/V |
+| **9.9.15** | **検証:** アウトバウンド MCP アクションは、無制限のエージェント駆動型ツールの呼び出しや連鎖的な副作用を防ぐために、、実行制限 (タイムアウト、再帰制限、並列実行上限、サーキットブレーカー) を実装している。 | 2 | D/V |
 
 ### トランスポート制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
 
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
-| **9.9.16** | **Verify that** stdio-based MCP transports are limited to co-located, single-process development scenarios, isolated from shell execution, terminal injection, and process-spawning capabilities; stdio must never cross network or multi-tenant boundaries. | 3 | D/V |
-| **9.9.17** | **Verify that** MCP servers expose only allow-listed functions and resources, and prohibit dynamic dispatch, reflective invocation, or execution of function names influenced by user or model-provided input. | 3 | D/V |
-| **9.9.18** | **Verify that** tenant boundaries, environment boundaries (dev/test/prod), and data domain boundaries are enforced at the MCP layer, preventing cross-tenant or cross-environment server or resource discovery. | 3 | D/V |
+| **9.9.16** | **検証:** stdio ベースの MCP トランスポートは、シェル実行、ターミナルインジェクション、プロセス生成機能から分離された、共存する単一プロセス開発シナリオに制限されている。stdio はネットワークやマルチテナント境界を超えることができない。 | 3 | D/V |
+| **9.9.17** | **検証:** MCP サーバーは許可リストにある機能とリソースのみを露出しており、ユーザーまたはモデルが提供する入力によって影響を受ける関数名の動的ディスパッチ、リフレクション呼び出し、実行を禁止している。 | 3 | D/V |
+| **9.9.18** | **検証:** テナント境界、環境境界 (開発/テスト/本番)、データドメイン境界は MCP レイヤで強制されており、テナント間や環境間のサーバーやリソースの発見を防いでいる。 | 3 | D/V |
 
 ---
 
