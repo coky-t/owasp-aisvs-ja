@@ -13,7 +13,7 @@
 
 ## はじめに
 
-人工知能セキュリティ検証標準 (AISVS) は開発者、アーキテクト、セキュリティ専門家に、AI 駆動型アプリケーションのセキュリティと倫理的考慮事項を評価および検証するための構造化されたチェックリストを提供することに重点を置いています。既存の OWASP 標準 (ウェブアプリケーション向けの ASVS など) をモデルとした AISVS は、以下の領域における要件のカテゴリを定義します。
+人工知能セキュリティ検証標準 (AISVS) は開発者、アーキテクト、セキュリティ専門家に、AI 駆動型アプリケーションのセキュリティと倫理的考慮事項を評価および検証するための構造化されたチェックリストを提供することに重点を置いています。既存の OWASP 標準 (ウェブアプリケーション向けの [ASVS](https://owasp.org/www-project-application-security-verification-standard/) など) をモデルとした AISVS は、以下の領域における要件のカテゴリを定義します。
 
 1. [トレーニングデータガバナンスとバイアス管理 (Training Data Governance & Bias Management)](1.0/ja/0x10-C01-Training-Data-Governance.md)
 2. [ユーザー入力バリデーション (User Input Validation)](1.0/ja/0x10-C02-User-Input-Validation.md)
