@@ -11,6 +11,7 @@
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
 | **10.1.1** | **検証:** MCP サーバーおよびクライアントコンポーネントは信頼できるソースからのみ取得され、署名、チェックサム、または安全なパッケージメタデータを使用して検証され、改竄されたビルドや署名されていないビルドは拒否されている。 | 1 | D/V |
+| **10.1.2** | **Verify that** MCP client and server configurations do not contain plaintext secrets (API keys, tokens, client secrets) and that credentials are injected or resolved at runtime rather than stored in configuration files, environment variables, or source code. | 1 | D/V |
 
 ---
 
@@ -25,6 +26,11 @@
 | **10.2.5** | **検証:** MCP サーバーは、外部認可サーバーによって発行されたトークンを検証し、トークンやユーザークレデンシャルを保存しないことによってのみ、OAuth 2.1 リソースサーバーとして機能している。 | 2 | D/V |
 | **10.2.6** | **検証:** MCP `tools/list` およびリソース発見レスポンスはエンドユーザーの認可済みスコープに基づいてフィルタされており、エージェントはユーザーが呼び出すことを許可されているツールとリソースの定義のみを受け取っている。 | 2 | D/V |
 | **10.2.7** | **検証:** MCP サーバーはすべてのツール呼び出しに対してアクセス制御を実施し、ユーザーのアクセストークンはリクエストされたツールと指定された特定の引数値の両方を認可することを検証している。 | 2 | D/V |
+| **10.2.8** | **Verify that** MCP session identifiers are treated as state, not identity: generated using cryptographically secure random values, bound to the authenticated user, and never relied on for authentication or authorization decisions. | 1 | D/V |
+| **10.2.9** | **Verify that** MCP servers do not pass through access tokens received from clients to downstream APIs and instead obtain a separate token scoped to the server's own identity (e.g., via on-behalf-of or client credentials flow). | 2 | D/V |
+| **10.2.10** | **Verify that** MCP servers acting as OAuth proxies to third-party APIs enforce per-client consent before forwarding authorization requests, preventing cached approvals from being reused across dynamically registered clients. | 2 | D/V |
+| **10.2.11** | **Verify that** MCP clients request only the minimum scopes needed for the current operation, elevate progressively via step-up authorization, and that servers reject wildcard or overly broad scopes. | 2 | D/V |
+| **10.2.12** | **Verify that** MCP servers enforce deterministic session teardown, destroying cached tokens, in-memory state, temporary storage, and file handles when a session terminates, disconnects, or times out. | 2 | D/V |
 
 ---
 
@@ -47,6 +53,8 @@
 | **10.4.2** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) は、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名を使用して真正性と完全性を検証されている。 | 2 | D/V |
 | **10.4.3** | **検証:** すべての MCP トランスポートは、非同期攻撃やインジェクション攻撃を防ぐために、メッセージフレーミングの完全性、厳密なスキーマバリデーション、最大ペイロードサイズを強制しており、不正なフレーム、切り捨てられたフレーム、不連続なフレームを拒否している。 | 2 | D/V |
 | **10.4.4** | **検証:** MCP サーバーは、型チェック、境界バリデーション、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 | D/V |
+| **10.4.5** | **Verify that** MCP clients maintain a hash or versioned snapshot of tool definitions and that any change to a tool definition (via `notifications/tools/list_changed` or between sessions) triggers re-approval before the modified tool can be invoked. | 2 | D/V |
+| **10.4.6** | **Verify that** MCP server error and exception responses do not expose stack traces, internal file paths, tokens, or tool implementation details to the client or model context. | 1 | D/V |
 
 ---
 
@@ -56,6 +64,7 @@
 | :--: | --- | :---: | :--: |
 | **10.5.1** | **検証:** MCP サーバーは最小権限の送出 (egress) ポリシーに従って承認された内部または外部の宛先へのアウトバウンドリクエストのみを開始でき、任意のネットワークターゲットや内部クラウドメタデータサービスにはアクセスできない。 | 2 | D/V |
 | **10.5.2** | **検証:** アウトバウンド MCP アクションは、無制限のエージェント駆動型ツールの呼び出しや連鎖的な副作用を防ぐために、、実行制限 (タイムアウト、再帰制限、並列実行上限、サーキットブレーカーなど) を実装している。 | 2 | D/V |
+| **10.5.3** | **Verify that** MCP tool invocations classified as high-risk or destructive (e.g., data deletion, financial transactions, system configuration changes) require explicit user confirmation before execution. | 2 | D/V |
 
 ---
 
@@ -72,4 +81,4 @@
 ## 参考情報
 
 * [Model Context Protocol (MCP) Specification](https://modelcontextprotocol.io/)
-* [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)
+* [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/detail/sp/800-207/final)
