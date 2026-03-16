@@ -1,28 +1,58 @@
 # 序文
 
-**人工知能セキュリティ検証標準 (AISVS) バージョン 1.0** へようこそ！
+**人工知能セキュリティ検証標準 (AISVS) バージョン 1.0** へようこそ。
 
-## はじめに
+## AISVS が存在する理由
 
-**AISVS** は 2025 年にコミュニティの共同作業を通じて設立され、**現代の AI モデル、パイプライン、AI 対応サービスを設計、開発、デプロイ、運用** する際に考慮すべきセキュリティ要件を定義しています。
+AI systems introduce security risks that traditional application security standards were not designed to address. Prompt injection allows attackers to override model instructions through crafted inputs, turning a language model into a tool for data exfiltration, unauthorized actions, or safety bypass. Training data can be poisoned to install backdoors or degrade model behavior. Models can be extracted, inverted, or manipulated through adversarial inputs. Autonomous agents can take actions with real world consequences based on prompt injected instructions they cannot distinguish from legitimate ones. Retrieval pipelines can be exploited to leak sensitive information or to inject malicious content into model context. And the supply chain for models, datasets, and frameworks presents novel integrity challenges that existing software composition analysis alone cannot solve.
 
-AISVS v1.0 は、プロジェクトリーダー、ワーキンググループ、幅広いコミュニティ貢献者の共同作業の成果であり、AI システムを保護するための実用的でテスト可能なベースラインとなります。
+AISVS was created to give organizations a structured, testable set of security controls purpose built for these risks. It does not replace existing standards; it fills the gap that none of them cover.
 
-このリリースの目標は AISVS を簡単に採用できるようにすることであり、定義されたスコープに焦点を絞り、急速に進化する AI 特有のリスク状況に対処することです。
+## 設計原則
 
-## AISVS バージョン 1.0 の主な目的
+Every requirement in AISVS follows four principles derived from the standard's name:
 
-バージョン 1.0 はいくつかの指針に沿って作成されます。
+* **Artificial Intelligence.** Each control operates at the AI or ML layer (data, model, pipeline, agent, or inference) and addresses risks specific to AI systems rather than general application security.
+* **Security.** Each requirement directly mitigates an identified security, privacy, or safety risk. Controls that serve only operational or business objectives are out of scope.
+* **Verification.** Requirements are written so that conformance can be objectively validated through testing, inspection, or audit. Subjective or aspirational guidance is excluded.
+* **Standard.** All chapters follow a consistent structure and terminology to form a coherent, navigable reference document.
 
-### 明確なスコープ
+## 本標準の読み方
 
-各要件は AISVS の名称や使命と合致する必要があります。
+### 章構成
 
-* **人工知能 (Artificial Intelligence)** – コントロールは AI/ML 層 (データ、モデル、パイプライン、推論) で動作し、AI 実務者の責任となります。
-* **セキュリティ (Security)** – 要件は、特定されたセキュリティ、プライバシー、安全性のリスクを直接緩和します。
-* **検証 (Verification)** – 言語は適合性を客観的に検証できるように記述されます。
-* **標準 (Standard)** – セクションは一貫した構造と用語に従い、整然としたリファレンスを形成します。
+Each of the 14 requirement chapters follows the same format:
 
----
+* **Control Objective.** A brief statement of the security goal for the chapter.
+* **Sections.** Requirements are grouped into related sections, each with a short description of the defense goal.
+* **Requirement Tables.** Individual requirements are presented in tables with the following columns:
 
-AISVS に従うことで、組織は AI ソリューションのセキュリティ態勢を体系的に評価および強化し、安全な AI エンジニアリングの文化を醸成できます。
+| Column | Meaning |
+|---|---|
+| **#** | Unique requirement identifier (e.g., 1.1.1, 9.3.2). |
+| **Description** | The requirement text, always beginning with "Verify that" to emphasize testability. |
+| **Level** | The verification level (1, 2, or 3) indicating the depth of assurance required. |
+| **Role** | Who is responsible: **D** (developer/builder), **V** (verifier/auditor), or **D/V** (both). |
+
+### 付録
+
+Four appendices support the core requirements:
+
+* **Appendix A (Glossary)** defines key terms and acronyms used throughout the standard.
+* **Appendix B (References)** lists external standards, research, and frameworks referenced by AISVS requirements.
+* **Appendix C (AI-Assisted Secure Coding)** provides controls for the safe use of AI coding tools during software development.
+* **Appendix D (AI Security Controls Inventory)** is a cross reference of every defense technique in AISVS, organized by security control category (authentication, authorization, encryption, input validation, and so on) with mappings back to specific requirement identifiers.
+
+## スコープ境界
+
+AISVS focuses on security controls that are specific to AI and ML systems. It intentionally excludes:
+
+* **General application security.** Requirements covered by the [OWASP ASVS](https://owasp.org/www-project-application-security-verification-standard/) (such as session management, CSRF protection, or SQL injection prevention) are not repeated here. Organizations should apply ASVS alongside AISVS.
+* **AI governance and risk management.** Organizational governance, risk assessment methodology, and compliance processes are better addressed by frameworks such as the NIST AI RMF and ISO/IEC 42001.
+* **Vendor specific guidance.** AISVS is vendor neutral. It specifies what to verify, not which product to use.
+
+## 謝辞
+
+AISVS v1.0 is the result of a collaborative effort by its project leads, working group members, and community contributors. We thank everyone who has contributed requirements, reviews, and feedback to make this standard possible. A full list of contributors is available in the [Frontispiece](0x01-Frontispiece.md).
+
+By adopting AISVS, organizations can systematically evaluate and strengthen the security posture of their AI systems, building a foundation of secure AI engineering practices that evolves alongside the technology itself.
