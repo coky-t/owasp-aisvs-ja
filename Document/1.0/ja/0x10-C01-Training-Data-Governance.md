@@ -2,11 +2,11 @@
 
 ## 管理目標
 
-トレーニングデータは、来歴、セキュリティ、品質、公平性を保持する方法で、調達、処理、維持する必要があります。そうすることで、法的義務を果たし、AI ライフサイクル全体に影響を及ぼす可能性のあるバイアス、ポイズニング、プライバシー侵害のリスクを低減します。
+トレーニングデータは、オリジンのトレーサビリティ、セキュリティ、品質、公平性を保持する方法で、調達、処理、維持する必要があります。そうすることで、法的義務を果たし、AI ライフサイクル全体に影響を及ぼす可能性のあるバイアス、ポイズニング、プライバシー侵害のリスクを低減します。
 
 ---
 
-## C1.1 トレーニングデータの来歴 (Training Data Provenance)
+## C1.1 トレーニングデータのオリジンとトレーサビリティ (Training Data Origin & Traceability)
 
 すべてのデータセットの検証可能なインベントリを維持し、信頼できるソースのみを受け入れ、監査可能なようにすべての変更をログ記録します。
 
@@ -77,6 +77,6 @@
 ## 参考情報
 
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
-* [EU AI Act – Article 10: Data & Data Governance](https://artificialintelligenceact.eu/article/10/)
+* [EU AI Act: Article 10: Data & Data Governance](https://artificialintelligenceact.eu/article/10/)
 * [CISA Advisory: Securing Data for AI Systems](https://www.cisa.gov/news-events/cybersecurity-advisories/aa25-142a)
-* [OpenAI Privacy Center – Data Deletion Controls](https://privacy.openai.com/policies?modal=take-control)
+* [OpenAI Privacy Center: Data Deletion Controls](https://privacy.openai.com/policies?modal=take-control)
