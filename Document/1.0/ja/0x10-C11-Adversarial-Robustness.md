@@ -1,130 +1,137 @@
-# C11 敵対的堅牢性とプライバシー防御 (Adversarial Robustness & Privacy Defense)
+# C11 敵対的堅牢性と攻撃耐性 (Adversarial Robustness & Attack Resistance)
 
 ## 管理目標
 
-回避、推論、抽出、またはポイズニング攻撃に直面した場合でも、AI モデルが信頼性、プライバシー保護、不正使用耐性を維持することを確保します。
+Ensure that AI systems remain reliable, privacy-preserving, and abuse-resistant when facing evasion, inference, extraction, or poisoning attacks. These controls cover model alignment testing, adversarial hardening, privacy attack resistance, model theft deterrence, and security adaptation for autonomous agents.
 
 ---
 
 ## C11.1 モデルの整合と安全性 (Model Alignment & Safety)
 
-有害な出力やポリシー違反の出力をガードします。
+Guard against harmful or policy-breaking outputs through systematic testing and guardrails.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.1.1** | **検証:** アライメントテストスイート (レッドチームプロンプト、ジェイルブレイクプローブ、許可されていないコンテンツ) はバージョン管理されており、すべてのモデルリリースで実行している。 | 1 | D/V |
-| **11.1.2** | **検証:** 拒否と安全な完了のガードレールは実施されている。 | 1 | D |
-| **11.1.3** | **検証:** 自動評価器は有害コンテンツ率を測定し、設定した閾値を超える回帰にフラグ付けしている。 | 2 | D/V |
-| **11.1.4** | **検証:** ジェイルブレイク対策トレーニングは文書化されており、再現可能である。 | 2 | D |
-| **11.1.5** | **検証:** 形式ポリシーコンプライアンス証明または認定モニタリングは重要なドメインをカバーしている。 | 3 | V |
+| **11.1.1** | **Verify that** refusal and safe-completion guardrails are enforced to prevent the model from generating disallowed content categories. | 1 | D |
+| **11.1.2** | **Verify that** an alignment test suite (red-team prompts, jailbreak probes, disallowed-content checks) is version-controlled and run on every model update or release. | 1 | D/V |
+| **11.1.3** | **Verify that** an automated evaluator measures harmful-content rate and flags regressions beyond a defined threshold. | 2 | D/V |
+| **11.1.4** | **Verify that** alignment and safety training procedures (e.g., RLHF, constitutional AI, or equivalent) are documented and reproducible. | 2 | D |
+| **11.1.5** | **Verify that** alignment evaluation includes assessments for evaluation awareness, where the model may behave differently when it detects it is being tested versus deployed. | 3 | V |
 
 ---
 
 ## C11.2 敵対的サンプルの堅牢化 (Adversarial-Example Hardening)
 
-操作された入力に対する耐性を高めます。堅牢な敵対的トレーニングとベンチマークスコアリングが現在のベストプラクティスです。
+Increase resilience to manipulated inputs designed to cause misclassification or policy bypass. Adversarial testing and robustness benchmarking are the current best practices.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.2.1** | **検証:** プロジェクトリポジトリは、再現可能なシードでの敵対的トレーニング構成を含んでいる。 | 1 | D |
-| **11.2.2** | **検証:** 敵対的サンプル検出は本番パイプラインでブロックアラートを発している。 | 2 | D/V |
-| **11.2.4** | **検証:** 認定された堅牢性の証明または区間境界証明書は少なくとも最上位の重要なクラスをカバーしている。 | 3 | V |
-| **11.2.5** | **検証:** 回帰テストは、測定可能な堅牢性の損失がないことを確認するために、適応型攻撃を使用している。 | 3 | V |
+| **11.2.1** | **Verify that** models serving high-risk functions are evaluated against known adversarial attack techniques relevant to their modality (e.g., perturbation attacks for vision, token-manipulation attacks for text). | 1 | D/V |
+| **11.2.2** | **Verify that** adversarial-example detection raises alerts in production pipelines, with blocking or degraded-capability responses for high-risk endpoints or use cases. | 2 | D/V |
+| **11.2.3** | **Verify that** adversarial training or equivalent hardening techniques are applied where feasible, with documented configurations and reproducible procedures. | 2 | D |
+| **11.2.4** | **Verify that** robustness evaluations use adaptive attacks (attacks specifically designed to defeat the deployed defenses) to confirm no measurable robustness loss across releases. | 3 | V |
+| **11.2.5** | **Verify that** formal robustness verification methods (e.g., certified bounds, interval-bound propagation) are applied to safety-critical model components where the model architecture supports them. | 3 | V |
 
 ---
 
 ## C11.3 メンバーシップ推論の緩和 (Membership-Inference Mitigation)
 
-レコードがトレーニングデータにあるかどうかを判断する能力を制限します。差分プライバシーと信頼スコアマスキングは依然として最も効果的な既知の防御策です。
+Limit the ability to determine whether a specific record was in the training data. Differential privacy and output calibration are the most effective known defenses.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.3.1** | **検証:** クエリごとのエントロピー正則化または温度スケーリングは過信した予測を削減している。 | 1 | D |
-| **11.3.2** | **検証:** トレーニングは機密データセットに対して ε 境界の差分プライベート最適化を採用している。 | 2 | D |
-| **11.3.3** | **検証:** 攻撃シミュレーション (シャドウモデルまたはブラックボックス) はホールドアウトデータに対して攻撃 AUC ≤ 0.60 を示している。 | 2 | V |
+| **11.3.1** | **Verify that** model outputs are calibrated (e.g., via temperature scaling or output perturbation) to reduce overconfident predictions that facilitate membership-inference attacks. | 2 | D |
+| **11.3.2** | **Verify that** training on sensitive datasets employs differentially-private optimization (e.g., DP-SGD) with a documented privacy budget (epsilon). | 2 | D |
+| **11.3.3** | **Verify that** membership-inference attack simulations (e.g., shadow-model, likelihood-ratio, or label-only attacks) demonstrate that attack accuracy does not meaningfully exceed random guessing on held-out data. | 3 | V |
 
 ---
 
 ## C11.4 モデル反転の耐性 (Model-Inversion Resistance)
 
-プライベート属性の再構築を防止します。最近の調査では出力の切り捨てと DP 保証を実用的な防御策として重視しています。
+Prevent reconstruction of private training data or sensitive attributes from model outputs.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.4.1** | **検証:** 機密属性は決して直接出力されることがない。必要な場合は、バケットまたは一方向変換を使用している。 | 1 | D |
-| **11.4.2** | **検証:** クエリレート制限は同じプリンシパルからの繰り返しの適応型クエリを抑制している。 | 1 | D/V |
-| **11.4.3** | **検証:** モデルはプライバシーを保護するノイズを用いて訓練されている。 | 2 | D |
+| **11.4.1** | **Verify that** sensitive attributes are never directly output; where needed, outputs use generalized categories (e.g., ranges, buckets) or one-way transforms. | 1 | D |
+| **11.4.2** | **Verify that** query-rate limits throttle repeated adaptive queries from the same principal to raise the cost of inversion attacks. | 1 | D/V |
+| **11.4.3** | **Verify that** models handling sensitive data are trained with privacy-preserving techniques (e.g., differential privacy, gradient clipping) to limit information leakage through outputs. | 2 | D |
 
 ---
 
 ## C11.5 モデル抽出の防御 (Model-Extraction Defense)
 
-不正なクローニングを検出して阻止します。透かし入れとクエリパターン解析が推奨されています。
+Detect and deter unauthorized model cloning through API abuse. Rate limiting, query-pattern analysis, and watermarking are recommended defenses.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.5.1** | **検証:** 推論ゲートウェイは、モデルのメモ化閾値に合わせて調整された、グローバルおよび API キーごとのレート制限を適用している。 | 1 | D |
-| **11.5.2** | **検証:** クエリエントロピーと入力の複数性の統計は自動抽出検出器に供給している。 | 2 | D/V |
-| **11.5.3** | **検証:** 脆弱な透かしや確率的な透かしは、疑わしいクローンに対して 1000 クエリ以下のクエリで p < 0.01 で証明できる。 | 2 | V |
-| **11.5.4** | **検証:** 透かしの鍵とトリガーのセットはハードウェアセキュリティモジュールに保存されており、毎年入れ替えられている。 | 3 | D |
-| **11.5.5** | **検証:** 抽出アラートイベントは問題のあるクエリを含んでおり、インシデント対応プレイブックと統合されている。 | 3 | V |
+| **11.5.1** | **Verify that** inference endpoints enforce per-principal and global rate limits designed to make large-scale query harvesting impractical. | 1 | D |
+| **11.5.2** | **Verify that** extraction-alert events include offending query metadata and are integrated with incident-response playbooks. | 2 | V |
+| **11.5.3** | **Verify that** query-pattern analysis (e.g., query diversity, input distribution anomalies) feeds an automated extraction-attempt detector. | 2 | D/V |
+| **11.5.4** | **Verify that** model watermarking or fingerprinting techniques are applied so that unauthorized copies can be identified. | 3 | D |
+| **11.5.5** | **Verify that** watermark verification keys and trigger sets are protected with access controls equivalent to other critical cryptographic material. | 3 | D |
 
 ---
 
 ## C11.6 推論時の汚染データ検出 (Inference-Time Poisoned-Data Detection)
 
-バックドアのある入力や汚染された入力を識別して無効化します。
+Identify and neutralize backdoored or poisoned inputs at inference time, particularly in systems that consume external data (e.g., RAG pipelines, tool outputs).
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.6.1** | **検証:** 入力は、モデル推論前に、異常検出器 (STRIP、一貫性スコアリング) を通過している。 | 1 | D |
-| **11.6.2** | **検証:** 検出器閾値は、誤検出率 5% 未満になるように、清浄/汚染バリデーションセットを調整されている。 | 1 | V |
-| **11.6.3** | **検証:** 汚染ありとフラグ付けされた入力はソフトブロッキングと人間によるレビューワークフローをトリガーしている。 | 2 | D |
-| **11.6.4** | **検証:** 検出器は、適応型のトリガーレスバックドア攻撃で、ストレステストされている。 | 2 | V |
-| **11.6.5** | **検証:** 検出有効性メトリクスはログ記録されており、最新の脅威インテリジェンスで定期的に再評価されている。 | 3 | D |
+| **11.6.1** | **Verify that** inputs from external or untrusted sources pass through anomaly detection (e.g., statistical outlier detection, consistency scoring) before model inference. | 2 | D |
+| **11.6.2** | **Verify that** anomaly-detection thresholds are tuned on representative clean and adversarial validation sets and that the false-positive rate is measured and documented. | 2 | V |
+| **11.6.3** | **Verify that** inputs flagged as anomalous trigger gating actions (blocking, capability degradation, or human review) appropriate to the risk level. | 2 | D |
+| **11.6.4** | **Verify that** detection methods are periodically stress-tested with current adversarial techniques, including adaptive attacks designed to evade the specific detectors in use. | 3 | V |
+| **11.6.5** | **Verify that** detection efficacy metrics are logged and periodically re-evaluated against updated threat intelligence. | 3 | D/V |
 
 ---
 
-## C11.7 動的セキュリティポリシー適応 (Dynamic Security Policy Adaptation)
+## C11.7 セキュリティポリシー適応 (Security Policy Adaptation)
 
 脅威インテリジェンスと行動分析に基づいたリアルタイムのセキュリティポリシー更新です。
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.7.1** | **検証:** セキュリティポリシーは、ポリシーバージョンの完全性を維持しながら、エージェントを再起動せずに動的に更新できる。 | 1 | D/V |
-| **11.7.2** | **検証:** ポリシーの更新は認可されたセキュリティ担当者によって暗号署名され、適用前に検証されている。 | 2 | D/V |
-| **11.7.3** | **検証:** 動的なポリシーの変更は、正当性、承認チェーン、ロールバック手順を含む完全な監査証跡とともにログ記録されている。 | 2 | D/V |
-| **11.7.4** | **検証:** 適応型セキュリティメカニズムは、リスクの状況と行動パターンに基づいて、脅威検出の感度を調整している。 | 3 | D/V |
-| **11.7.5** | **検証:** ポリシー適応の決定は説明可能であり、セキュリティチームレビューのために証拠の証跡を含んでいる。 | 3 | D/V |
+| **11.7.1** | **Verify that** security policies (e.g., content filters, rate-limit thresholds, guardrail configurations) can be updated without full system redeployment, and that policy versions are tracked. | 1 | D/V |
+| **11.7.2** | **Verify that** policy updates are authorized, integrity-protected (e.g., cryptographically signed), and validated before application. | 2 | D/V |
+| **11.7.3** | **Verify that** policy changes are logged with audit trails including timestamp, author, justification, and rollback procedures. | 2 | D/V |
+| **11.7.4** | **Verify that** threat-detection sensitivity can be adjusted based on risk context (e.g., elevated threat level, incident response) with appropriate authorization. | 3 | D/V |
 
 ---
 
-## C11.8 リフレクションベースのセキュリティ分析 (Reflection-Based Security Analysis)
+## C11.8 エージェントセキュリティ自己評価 (Agent Security Self-Assessment)
 
-エージェントのセルフリフレクションとメタ認知分析を通じたセキュリティバリデーションです。
+For agentic AI systems, validate that the agent's reasoning and actions are subject to security-focused review mechanisms.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.8.1** | **検証:** エージェントのリフレクションメカニズムは、セキュリティに重点を置いた、意思決定とアクションの自己評価を含んでいる。 | 1 | D/V |
-| **11.8.2** | **検証:** リフレクション出力は、敵対的な入力による自己評価メカニズムの操作を防ぐために、検証されている。 | 2 | D/V |
-| **11.8.3** | **検証:** メタ認知セキュリティ分析は、エージェントの推論プロセスにおける潜在的なバイアス、操作、侵害を特定している。 | 2 | D/V |
-| **11.8.4** | **検証:** リフレクションベースのセキュリティ警告は、強化された監視と潜在的な人間の介入ワークフローをトリガーしている。 | 3 | D/V |
-| **11.8.5** | **検証:** セキュリティリフレクションからの継続的な学習は、正当な機能を劣化することなく、脅威の検出を向上している。 | 3 | D/V |
+| **11.8.1** | **Verify that** agentic systems include a mechanism to review planned high-risk actions against security policy before execution (e.g., a secondary model, rule-based checker, or structured self-review step). | 2 | D/V |
+| **11.8.2** | **Verify that** security review mechanisms are protected against manipulation by adversarial inputs (e.g., the review step cannot be overridden or bypassed through prompt injection). | 2 | D/V |
+| **11.8.3** | **Verify that** security review warnings trigger enhanced monitoring or human intervention workflows for the affected session or task. | 3 | D/V |
 
 ---
 
-## C11.9 セキュリティの進化と自己改善 (Evolution & Self-Improvement Security)
+## C11.9 自己修正と自律的なアップデートセキュリティ (Self-Modification & Autonomous Update Security)
 
-自己修正および進化が可能なエージェントシステムのセキュリティコントロールです。
+Security controls for systems where the AI can modify its own configuration, prompts, tool access, or learned behaviors.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **11.9.1** | **検証:** 自己修正機能は形式検証境界で指定された安全領域に制限されている。 | 1 | D/V |
-| **11.9.2** | **検証:** 進化の提案は実施前にセキュリティ影響評価を受けている。 | 2 | D/V |
-| **11.9.3** | **検証:** 自己改善メカニズムは完全性検証を備えたロールバック機能を含んでいる。 | 2 | D/V |
-| **11.9.4** | **検証:** メタ学習セキュリティは改善アルゴリズムの敵対的操作を防いでいる。 | 3 | D/V |
-| **11.9.5** | **検証:** 再帰的な自己改善は収束の数学的証明を伴う形式安全制約によって制限されている。 | 3 | D/V |
+| **11.9.1** | **Verify that** any self-modification capability (e.g., prompt rewriting, tool-list changes, parameter updates) is restricted to explicitly designated areas with enforced boundaries. | 2 | D/V |
+| **11.9.2** | **Verify that** proposed self-modifications undergo security impact assessment or policy validation before taking effect. | 2 | D/V |
+| **11.9.3** | **Verify that** all self-modifications are logged, reversible, and subject to integrity verification, enabling rollback to a known-good state. | 2 | D/V |
+| **11.9.4** | **Verify that** self-modification scope is bounded (e.g., maximum change magnitude, rate limits on updates, prohibited modification targets) to prevent runaway or adversarially induced changes. | 3 | D/V |
+| **11.9.5** | **Verify that** when safety violation data (blocked inputs, filtered outputs, flagged hallucinations) is used as training signal for model improvement, the feedback pipeline includes integrity verification, poisoning detection, and human review gates to prevent adversarial manipulation of the improvement mechanism. | 3 | D/V |
 
 ---
 
-### 参考情報
+## 参考情報
+
+* [OWASP LLM02:2025 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
+* [OWASP LLM04:2025 Data and Model Poisoning](https://genai.owasp.org/llmrisk/llm042025-data-and-model-poisoning/)
+* [OWASP LLM10:2025 Unbounded Consumption](https://genai.owasp.org/llmrisk/llm102025-unbounded-consumption/)
+* [MITRE ATLAS: Infer Training Data Membership](https://atlas.mitre.org/techniques/AML.T0024.000)
+* [MITRE ATLAS: Invert ML Model](https://atlas.mitre.org/techniques/AML.T0024.001)
+* [MITRE ATLAS: Extract ML Model](https://atlas.mitre.org/techniques/AML.T0024.002)
+* [MITRE ATLAS: Backdoor ML Model](https://atlas.mitre.org/techniques/AML.T0018)
+* [NIST AI 100-2e2023 Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations](https://csrc.nist.gov/pubs/ai/100/2/e2023/final)
