@@ -8,6 +8,8 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 ## C12.1 匿名化とデータ最小化 (Anonymization & Data Minimization)
 
+Remove or transform personal identifiers before training to prevent re-identification and minimize privacy exposure.
+
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **12.1.1** | **検証:** 直接識別子と準識別子は削除され、ハッシュされている。 | 1 | D/V |
@@ -19,26 +21,33 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 ## C12.2 忘れられる権利と削除の強制 (Right-to-be-Forgotten & Deletion Enforcement)
 
+Ensure data-subject deletion requests propagate across all AI artifacts and that model unlearning is verifiable.
+
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **12.2.1** | **検証:** データ主体の削除要求は、30 日未満のサービスレベル契約内で、未加工データセット、チェックポイント、エンベディング、ログ、バックアップに伝播している。 | 1 | D/V |
 | **12.2.2** | **検証:** 「機械学習解除 (machine-unlearning)」ルーチンは、認定された学習解除アルゴリズムを使用して、物理的に再訓練するか、削除を近似している。 | 2 | D |
 | **12.2.3** | **検証:** シャドウモデルの評価は忘れられたレコードが与える影響が学習解除後の出力の 1% 未満であることを証明している。 | 2 | V |
-| **12.2.4** | **検証:** 削除イベントは不変にログ記録されており、規制当局により監査可能である。 | 3 | V
+| **12.2.4** | **検証:** 削除イベントは不変にログ記録されており、規制当局により監査可能である。 | 3 | V |
 
 ---
 
 ## C12.3 差分プライバシーの安全対策 (Differential-Privacy Safeguards)
 
+Track and enforce privacy budgets to provide formal guarantees against individual data leakage.
+
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| **12.3.1** | **検証:** プライバシー損失会計ダッシュボードは累積 ε がポリシー閾値を超えると警告を発している。 | 2 | D/V |
+| **12.3.1** | **Verify that** differential privacy budget consumption is tracked per training round (both ε and δ values) and that cumulative budget dashboards alert when ε exceeds policy thresholds. | 2 | D/V |
 | **12.3.2** | **検証:** ブラックボックスプライバシー監査は宣言値の 10% 以内で ε̂ を推定している。 | 2 | V |
 | **12.3.3** | **検証:** 形式証明はトレーニング後のすべてのファインチューンとエンベディングをカバーしている。 | 3 | V |
+| **12.3.4** | **Verify that** federated learning systems implement canary-based privacy auditing to empirically bound privacy leakage, with audit results logged and reviewed per training cycle. | 3 | V |
 
 ---
 
 ## C12.4 目的の制限とスコープクリープの保護 (Purpose-Limitation & Scope-Creep Protection)
+
+Prevent models and datasets from being used beyond their originally consented purpose.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
@@ -51,6 +60,8 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 
 ## C12.5 同意管理と法的根拠の追跡 (Consent Management & Lawful-Basis Tracking)
 
+Record, enforce, and revoke consent across AI processing pipelines.
+
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
 | **12.5.1** | **検証:** 同意管理プラットフォーム (CMP) はデータ主体ごとにオプトインステータス、目的、保持期間を記録している。 | 1 | D/V |
@@ -60,6 +71,8 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 ---
 
 ## C12.6 プライバシー制御を備えた連合学習 (Federated Learning with Privacy Controls)
+
+Apply differential privacy and poisoning-resistant aggregation to federated learning to protect individual participant data.
 
 | # | 説明 | レベル | ロール |
 |:--------:|---------------------------------------------------------------------------------------------------------------------|:---:|:---:|
@@ -71,3 +84,9 @@ AI ライフサイクル全体 (収集、トレーニング、推論、インシ
 ---
 
 ### 参考情報
+
+* [OWASP LLM02:2025 Sensitive Information Disclosure](https://genai.owasp.org/llmrisk/llm022025-sensitive-information-disclosure/)
+* [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/)
+* [California Consumer Privacy Act (CCPA)](https://oag.ca.gov/privacy/ccpa)
+* [EU Artificial Intelligence Act](https://artificialintelligenceact.eu/)
+* [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
