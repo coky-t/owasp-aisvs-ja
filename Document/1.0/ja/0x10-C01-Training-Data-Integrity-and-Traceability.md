@@ -1,8 +1,10 @@
-# C1 トレーニングデータガバナンスとバイアス管理 (Training Data Governance & Bias Management)
+# C1 トレーニングデータ完全性とトレーサビリティ (Training Data Integrity & Traceability)
 
 ## 管理目標
 
-トレーニングデータは、オリジンのトレーサビリティ、セキュリティ、品質、公平性を保持する方法で、調達、処理、維持する必要があります。そうすることで、法的義務を果たし、AI ライフサイクル全体に影響を及ぼす可能性のあるバイアス、ポイズニング、プライバシー侵害のリスクを低減します。
+Training data must be sourced, handled, and maintained in a way that preserves origin traceability, integrity, and quality. The core security concern is ensuring data has not been tampered with, poisoned, or corrupted. Security-relevant bias (e.g., skewed abuse-detection training data that allows attackers to bypass controls) is treated as a possible consequence of compromised or unvalidated data, not as a standalone control category.
+
+> **Scope note — bias.** AISVS addresses bias only where it introduces security risk (e.g., bypass of abuse detection, authentication heuristics, or automated trust decisions). Broader fairness governance requirements are out of scope; see ISO/IEC 42001 or the NIST AI RMF for general fairness and ethics guidance.
 
 ---
 
@@ -59,6 +61,7 @@
 | **1.4.3** | **検証:** (モデルや弱いスーパービジョンなどを介して) 自動的に生成されたラベルは、誤解を招くラベルや信頼性の低いラベルを検出するために、信頼性閾値と一貫性チェックの対象としている。 | 2 | D/V |
 | **1.4.4** | **検証:** リスク評価に基づいて、関連するモデルに対して、敵対的トレーニング、摂動入力によるデータ拡張、堅牢な最適化技法など、適切な防御策が実装および調整されている。 | 3 | D/V |
 | **1.4.5** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、ラベルスキューを捕捉している。 | 2 | D |
+| **1.4.6** | **Verify that** models used in security-relevant decisions (e.g., abuse detection, fraud scoring, automated trust decisions) are evaluated for systematic bias patterns that an adversary could exploit to evade controls (e.g., mimicking a trusted language style or demographic pattern to bypass detection). | 2 | D/V |
 
 ---
 
