@@ -42,6 +42,7 @@
 | **10.3.2** | **検証:** ストリーミング可能な HTTP MCP トランスポートは証明書バリデーションを備えた認証済みの暗号化チャネル (TLS 1.3 以降) を使用している。 | 2 | D/V |
 | **10.3.3** | **検証:** SSE ベースの MCP トランスポートはプライベートで、認証された内部チャネル内でのみ使用されており、TLS、認証、スキーマバリデーション、ペイロードサイズ制限、レート制限を適用している。SSE エンドポイントはパブリックインターネットに公開されてはいけない。 | 2 | D/V |
 | **10.3.4** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダを検証しており、信頼できない、一致しない、または欠落しているオリジンからのリクエストを拒否している。 | 2 | D/V |
+| **10.3.5** | **Verify that** intermediaries do not alter or remove the `Mcp-Protocol-Version` header on streamable-HTTP transports unless explicitly required by the protocol specification, preventing protocol downgrade via header stripping. | 2 | D/V |
 
 ---
 
@@ -55,6 +56,8 @@
 | **10.4.4** | **検証:** MCP サーバーは、型チェック、境界バリデーション、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 | D/V |
 | **10.4.5** | **Verify that** MCP clients maintain a hash or versioned snapshot of tool definitions and that any change to a tool definition (via `notifications/tools/list_changed` or between sessions) triggers re-approval before the modified tool can be invoked. | 2 | D/V |
 | **10.4.6** | **Verify that** MCP server error and exception responses do not expose stack traces, internal file paths, tokens, or tool implementation details to the client or model context. | 1 | D/V |
+| **10.4.7** | **Verify that** MCP implementations reject JSON-RPC messages containing duplicate keys at any nesting level, preventing parser disagreement where different components resolve the same message to different values. | 2 | D/V |
+| **10.4.8** | **Verify that** intermediaries evaluating message content either forward the canonicalized representation they evaluated or reject messages where multiple byte representations could produce different parsed structures. | 3 | D/V |
 
 ---
 
