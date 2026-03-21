@@ -45,6 +45,8 @@
 | **7.3.4** | **検証:** システム内で「機密」とラベル付けされたデータはブロックまたは訂正している。 | 2 | D |
 | **7.3.5** | **検証:** 安全フィルタは必要に応じてユーザーの役割や場所に基づいて異なる設定 (未成年者向けのより厳格なフィルタなど) を可能としている。 | 3 | D/V |
 | **7.3.6** | **検証:** システムは、モデルが高リスクコンテンツを生成する場合、人間による承認手順または再認証を必要としている。 | 3 | D/V |
+| **7.3.7** | **Verify that** output filters detect and block responses that reproduce verbatim segments of system prompt content. | 2 | D/V |
+| **7.3.8** | **Verify that** LLM client applications prevent model-generated output from triggering automatic outbound requests (e.g., auto-rendered images, iframes, or link prefetching) to attacker-controlled endpoints, for example by disabling automatic external resource loading or restricting it to explicitly allowlisted origins as appropriate. | 2 | D/V |
 
 ---
 
