@@ -61,7 +61,7 @@
 | **1.4.3** | **検証:** (モデルや弱いスーパービジョンなどを介して) 自動的に生成されたラベルは、誤解を招くラベルや信頼性の低いラベルを検出するために、信頼性閾値と一貫性チェックの対象としている。 | 2 | D/V |
 | **1.4.4** | **検証:** リスク評価に基づいて、関連するモデルに対して、敵対的トレーニング、摂動入力によるデータ拡張、堅牢な最適化技法など、適切な防御策が実装および調整されている。 | 3 | D/V |
 | **1.4.5** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、ラベルスキューを捕捉している。 | 2 | D |
-| **1.4.6** | **Verify that** models used in security-relevant decisions (e.g., abuse detection, fraud scoring, automated trust decisions) are evaluated for systematic bias patterns that an adversary could exploit to evade controls (e.g., mimicking a trusted language style or demographic pattern to bypass detection). | 2 | D/V |
+| **1.4.6** | **検証:** セキュリティ関連の判断 (不正使用の検出、不正スコアリング、自動的な信頼性判断など) に使用されるモデルは、攻撃者がコントロールを回避するために悪用する可能性のある体系的なバイアスパターン (例: 信頼できる言語スタイルや人口統計パターンを模倣して検出をバイパスするなど) について評価されている。 | 2 | D/V |
 
 ---
 
