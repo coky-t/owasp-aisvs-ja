@@ -2,9 +2,9 @@
 
 ## 管理目標
 
-Training data must be sourced, handled, and maintained in a way that preserves origin traceability, integrity, and quality. The core security concern is ensuring data has not been tampered with, poisoned, or corrupted. Security-relevant bias (e.g., skewed abuse-detection training data that allows attackers to bypass controls) is treated as a possible consequence of compromised or unvalidated data, not as a standalone control category.
+トレーニングデータは、オリジンのトレーサビリティ、完全性、品質を保持する方法で入手、取り扱い、維持しなければなりません。主要なセキュリティ上の懸念は、データが改竄、汚染、破損されていないことを確保することです。セキュリティに関連するバイアス (例: 攻撃者がコントロールをバイパスできる、不正検出トレーニングデータの偏りなど) は、侵害されたデータや検証されていないデータの結果として起こり得る事象として扱われ、独立したコントロールカテゴリとしては扱われません。
 
-> **Scope note — bias.** AISVS addresses bias only where it introduces security risk (e.g., bypass of abuse detection, authentication heuristics, or automated trust decisions). Broader fairness governance requirements are out of scope; see ISO/IEC 42001 or the NIST AI RMF for general fairness and ethics guidance.
+> **スコープに関する注記 — バイアス。** AISVS はバイアスがセキュリティリスク (不正検出のバイパス、認証ヒューリスティック、自動的な信頼判断など) をもたらす場合にのみ対処します。より広範な公平性ガバナンス要件はスコープ外です。一般的な公平性と倫理のガイダンスについては ISO/IEC 42001 や NIST AI RMF を参照してください。
 
 ---
 
