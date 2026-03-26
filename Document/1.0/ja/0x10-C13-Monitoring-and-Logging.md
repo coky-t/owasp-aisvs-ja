@@ -31,7 +31,7 @@
 | **13.2.6** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、モデル抽出攻撃などの AI 固有の脅威パターンを検出するために、含んでいる。 | 2 | D/V |
 | **13.2.7** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックし、重大なセキュリティイベントをエスカレートできる。 | 3 | D/V |
 | **13.2.8** | **Verify that** session-level conversation trajectory analysis detects multi-turn jailbreak patterns where no individual turn is overtly malicious in isolation but the aggregate conversation exhibits attack indicators. | 3 | D/V |
-| **13.2.9** | **Verify that** per-user and per-session token consumption is tracked, with anomaly detection alerting when consumption exceeds defined thresholds. | 2 | D/V |
+| **13.2.9** | **Verify that** per-user and per-session token consumption triggers an alert when consumption exceeds defined thresholds. | 2 | D/V |
 | **13.2.10** | **Verify that** LLM API traffic is monitored for covert channel indicators, including Base64-encoded payloads, structured non-human query patterns, and communication signatures consistent with malware command-and-control activity using LLM endpoints. | 3 | D/V |
 
 ---
