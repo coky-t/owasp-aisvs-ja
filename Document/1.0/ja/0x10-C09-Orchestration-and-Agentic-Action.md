@@ -27,8 +27,11 @@
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
 | **9.2.1** | **検証:** 特権的または不可逆的なアクション (コードのマージ/デプロイ、送金、ユーザーアクセスの変更、破壊的な削除、外部への通知) は明示的なヒューマンインザループ (human-in-loop) での承認を要求している。 | 1 | D/V |
-| **9.2.2** | **検証:** 承認リクエストは正確なアクションパラメータ (diff/command/recipient/amount/scope) を提示し、承認をそれらのパラメータにバインドし、「一つの承認と別の実行」を防いでいる。 | 2 | D/V |
-| **9.2.3** | **検証:** ロールバックが実現可能である場合は、補償アクションが定義およびテストされ (トランザクションのセマンティクス)、障害はロールバックまたは安全な封じ込めをトリガーしている。 | 3 | V |
+| **9.2.2** | **Verify that** approval requests display canonicalized and complete action parameters (diff, command, recipient, amount, scope) without truncation or transformation. | 2 | D/V |
+| **9.2.3** | **Verify that** approvals are cryptographically bound (e.g., signed or MACed) to the exact action parameters, requester identity, and execution context. | 2 | D/V |
+| **9.2.4** | **Verify that** approvals include a unique nonce and are single-use to prevent replay or substitution. | 2 | D/V |
+| **9.2.5** | **Verify that** approvals expire within a defined maximum time-to-live (TTL) and are rejected after expiration. | 2 | D/V |
+| **9.2.6** | **検証:** ロールバックが実現可能である場合は、補償アクションが定義およびテストされ (トランザクションのセマンティクス)、障害はロールバックまたは安全な封じ込めをトリガーしている。 | 3 | V |
 
 ---
 
@@ -93,9 +96,10 @@
 | # | 説明 | レベル | ロール |
 | :--: | --- | :---: | :--: |
 | **9.7.1** | **検証:** 実行前ゲートは提案されたアクションとパラメータを厳格なポリシー制約 (拒否ルール、データ処理制約、許可リスト、副作用予算) に照らして評価し、なんらかの違反で実行をブロックしている。 | 1 | D/V |
-| **9.7.2** | **検証:** 影響の大きいアクションは、古い商人や代替承認を防ぐために、完全性が保護され、正確なアクションパラメータにバインドされた (すぐに期限切れする) 明示的なユーザー意思確認を要求している。 | 2 | D/V |
-| **9.7.3** | **検証:** 事後条件チェックは意図した結果を確認し、意図しない副作用を検出している。なんらかの不一致が封じ込めを (サポートしている場合、補償アクションも) トリガーしている。 | 2 | V |
-| **9.7.4** | **検証:** プロンプトテンプレートとエージェントポリシー構成はロード時に認証済みバージョン (ハッシュや署名など) と比較して完全性検証されている。 | 3 | D/V |
+| **9.7.2** | **Verify that** post-execution checks confirm the intended outcome was achieved. | 2 | V |
+| **9.7.3** | **Verify that** post-execution checks detect unintended side effects. | 2 | V |
+| **9.7.4** | **Verify that** any mismatch between intended outcome and actual results triggers containment and, where supported, compensating actions. | 2 | V |
+| **9.7.5** | **検証:** リモートリソースから取得されたプロンプトテンプレートとエージェントポリシー構成はロード時に承認済みバージョン (ハッシュや署名など) と比較して完全性検証されている。 | 3 | D/V |
 
 ---
 
