@@ -89,6 +89,7 @@
 | **9.6.3** | **検証:** 認可は現在のコンテキスト (ユーザー、テナント、環境、データ分類、時間、リスク) を使用してすべての呼び出しで再評価 (継続的な認可) されている。 | 2 |
 | **9.6.4** | **検証:** すべてのアクセス制御の決定は、AI モデル自体ではなく、アプリケーションロジックまたはポリシーエンジンによって強制されており、モデルが生成する出力 (「ユーザーはこれを行うことが許可されている」など) はアクセス制御チェックを上書きやバイパスできない。 | 2 |
 | **9.6.5** | **Verify that** secrets and credentials required by an agent at runtime are not exposed within the model's observable context, including the context window, system prompts, or tool call parameters, and are instead provided via out-of-band mechanisms such as credential proxies, secrets manager injection, runtime sidecar authentication, or short-lived scoped tokens. | 2 |
+| **9.6.6** | **Verify that** when an agent acts under delegated authority, the policy decision point evaluates both the agent's own granted permissions and the initiating principal's delegated scope as independent constraints, denying the action if either is insufficient for the requested operation. | 2 |
 
 ---
 
