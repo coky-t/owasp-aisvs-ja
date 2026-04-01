@@ -69,7 +69,8 @@ Detect and deter unauthorized model cloning through API abuse. Rate limiting, qu
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **11.5.1** | **Verify that** inference endpoints enforce per-principal and global rate limits designed to make large-scale query harvesting impractical. | 1 |
-| **11.5.2** | **Verify that** extraction-alert events include offending query metadata and are integrated with incident-response playbooks. | 2 |
+| **11.5.2** | **Verify that** extraction-alert events include offending query metadata (e.g., source principal, query volume, input distribution statistics) to support investigation. | 2 |
+| **11.5.6** | **Verify that** extraction-alert events are integrated with incident-response playbooks that define escalation and remediation steps. | 2 |
 | **11.5.3** | **Verify that** query-pattern analysis (e.g., query diversity, input distribution anomalies) feeds an automated extraction-attempt detector. | 2 |
 | **11.5.4** | **Verify that** model watermarking or fingerprinting techniques are applied so that unauthorized copies can be identified. | 3 |
 | **11.5.5** | **Verify that** watermark verification keys and trigger sets are protected with access controls equivalent to other critical cryptographic material. | 3 |
@@ -98,7 +99,8 @@ Identify and neutralize backdoored or poisoned inputs at inference time, particu
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **11.7.1** | **Verify that** security policies (e.g., content filters, rate-limit thresholds, guardrail configurations) can be updated without full system redeployment, and that policy versions are tracked. | 1 |
 | **11.7.2** | **Verify that** policy updates are authorized, integrity-protected (e.g., cryptographically signed), and validated before application. | 2 |
-| **11.7.3** | **Verify that** policy changes are logged with audit trails including timestamp, author, justification, and rollback procedures. | 2 |
+| **11.7.3** | **Verify that** policy changes are logged with audit trails including timestamp, author, and justification. | 2 |
+| **11.7.5** | **Verify that** rollback procedures exist for policy changes and are tested to confirm they restore the previous policy state. | 2 |
 | **11.7.4** | **Verify that** threat-detection sensitivity can be adjusted based on risk context (e.g., elevated threat level, incident response) with appropriate authorization. | 3 |
 
 ---
@@ -123,7 +125,8 @@ Security controls for systems where the AI can modify its own configuration, pro
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **11.9.1** | **Verify that** any self-modification capability (e.g., prompt rewriting, tool-list changes, parameter updates) is restricted to explicitly designated areas with enforced boundaries. | 2 |
 | **11.9.2** | **Verify that** proposed self-modifications undergo security impact assessment or policy validation before taking effect. | 2 |
-| **11.9.3** | **Verify that** all self-modifications are logged, reversible, and subject to integrity verification, enabling rollback to a known-good state. | 2 |
+| **11.9.3** | **Verify that** all self-modifications are logged with sufficient detail to reconstruct what changed, when, and under what authorization. | 2 |
+| **11.9.6** | **Verify that** self-modifications are reversible and subject to integrity verification, so that rollback to a known-good state is possible and can be confirmed. | 2 |
 | **11.9.4** | **Verify that** self-modification scope is bounded (e.g., maximum change magnitude, rate limits on updates, prohibited modification targets) to prevent runaway or adversarially induced changes. | 3 |
 | **11.9.5** | **Verify that** when safety violation data (blocked inputs, filtered outputs, flagged hallucinations) is used as training signal for model improvement, the feedback pipeline includes integrity verification, poisoning detection, and human review gates to prevent adversarial manipulation of the improvement mechanism. | 3 |
 
