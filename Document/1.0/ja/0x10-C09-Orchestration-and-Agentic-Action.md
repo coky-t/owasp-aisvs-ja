@@ -44,7 +44,8 @@
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **9.3.1** | **検証:** 各ツール/プラグインは、ツールの機能に適した最小権限のファイルシステム、ネットワーク送出 (egress)、システムコールパーミッションを備える分離されたサンドボックス (コンテナ/VM/WASM/OS サンドボックス) 内で実行している。 | 1 |
-| **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制され、ログ記録され、クォータ違反はフェイルクローズされている。 | 1 |
+| **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制され、ログ記録されている。 | 1 |
+| **9.3.7** | **Verify that** quota or timeout breaches fail closed, terminating the tool execution rather than continuing with degraded or uncontrolled behavior. | 1 |
 | **9.3.3** | **検証:** ツール出力は、ダウンストリームの推論や後続のアクションに組み込まれる前に、厳格なスキーマとセキュリティポリシーに対して検証されている。 | 1 |
 | **9.3.4** | **検証:** ツールバイナリやパッケージはロード前に完全性検証 (署名、チェックサムなど) されている。 | 2 |
 | **9.3.5** | **検証:** ツールマニフェストは、必要な権限、副作用レベル、リソース制限、出力バリデーション要件を宣言し、ランタイムはこれらの宣言を強制している。 | 2 |
@@ -60,7 +61,8 @@
 | :--: | --- | :---: |
 | **9.4.1** | **検証:** 各エージェントインスタンス (およびオーケストレータ/ランタイム) は一意の暗号アイデンティティを持ち、ダウンストリームシステムへのファーストクラスのプリンシパルとして認証している (エンドユーザークレデンシャルを再使用していない)。 | 1 |
 | **9.4.2** | **検証:** エージェントが開始したアクションは実行チェーン (チェーン ID) に暗号的にバインドされ、否認防止と追跡可能性のために署名され、タイムスタンプ付けされている。 | 2 |
-| **9.4.3** | **検証:** 監査ログは改竄防止を (追加専用/WORM/不変ログストア、各レコードが前のレコードのハッシュを含む暗号ハッシュチェーン、または独立して検証可能な同等の完全性保証により) 備えており、誰が何を実行したか、開始ユーザー識別子、委譲範囲、認可決定 (ポリシー/バージョン)、ツールパラメータ、承認 (適用可能な場合)、結果を再構築するのに十分なコンテキストを含んでいる。 | 2 |
+| **9.4.3** | **検証:** 監査ログは、追加専用/WORM/不変ログストア、各レコードが前のレコードのハッシュを含む暗号ハッシュチェーン、または独立して検証可能な同等の完全性保証により、改竄防止を備えている。 | 2 |
+| **9.4.5** | **検証:** 監査ログレコードは、誰が何を実行したか、開始ユーザー識別子、委譲範囲、認可決定 (ポリシー/バージョン)、ツールパラメータ、承認 (適用可能な場合)、結果を再構築するのに十分なコンテキストを含んでいる。 | 2 |
 | **9.4.4** | **検証:** エージェントのアイデンティティクレデンシャル (鍵/証明書/トークン) は定義されたスケジュールと侵害の兆候で入れ替わり、傷害の疑いやなりすましの試みですぐに失効して隔離している。 | 3 |
 
 ---
@@ -116,7 +118,8 @@
 | **9.8.1** | **検証:** 異なるテナント、セキュリティドメイン、環境 (開発/テスト/本番) のエージェントは、クロスドメイン発掘と呼び出しを防止するデフォルト拒否制御での、分離されたランタイムとネットワークセグメントで実行している。 | 1 |
 | **9.8.2** | **検証:** ランタイム監視は安全でない緊急動作 (変動、デッドロック、制御されていないブロードキャスト、異常な呼び出しグラフ) を検出し、自動的に是正アクション (抑制、隔離、終了) を適用している。 | 3 |
 | **9.8.3** | **Verify that** each agent is restricted to its own memory namespace and is technically prevented from reading or modifying peer agent state, preventing unauthorized cross-agent access within the same swarm. | 2 |
-| **9.8.4** | **Verify that** each agent operates with an isolated context window and dedicated credentials scoped to its role, preventing peer agents from accessing or influencing another agent's context or credential scope to prevent unauthorized cross-agent access within the same swarm. | 3 |
+| **9.8.4** | **Verify that** each agent operates with an isolated context window that peer agents cannot read or influence, preventing unauthorized cross-agent context access within the same swarm. | 3 |
+| **9.8.7** | **Verify that** each agent is issued dedicated credentials scoped to its role that are not shared with or accessible to peer agents within the same swarm. | 3 |
 | **9.8.5** | **Verify that** swarm-level aggregate action rate limits (e.g., total external API calls, file writes, or network requests per time window across all agents) are enforced to prevent bursts that cause denial-of-service or abuse of external systems. | 3 |
 | **9.8.6** | **Verify that** a swarm-level shutdown capability exists that can halt all active agent instances or selected problematic instances in an organized fashion and prevents new agent spawning, with shutdown completable within a pre-defined response time. | 3 |
 
