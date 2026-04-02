@@ -96,12 +96,14 @@ Monitor and detect drift and degradation across model outputs, input distributio
 
 プロアクティブなエージェントの動作分析を通じてセキュリティ脅威を検出および防止します。
 
+> **Scope note:** C13.7 addresses monitoring and logging of proactive agent behaviors. 13.7.4 requires audit trail coverage for approval events on security-critical actions. The requirement to obtain approval before executing such actions is governed by C9.2 (runtime execution gate) and C14.2 (oversight policy). Satisfying 13.7.4 requires evidence that approval events are logged with sufficient detail — not merely that approvals occur.
+
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **13.7.1** | **検証:** プロアクティブなエージェントの動作は、リスク評価の統合により実行前にセキュリティ検証されている。 | 1 |
 | **13.7.2** | **検証:** 自律的なイニチアチブトリガーはセキュリティコンテキストの評価と脅威状況の評価を含んでいる。 | 2 |
 | **13.7.3** | **検証:** プロアクティブな動作パターンは、潜在的なセキュリティ影響と意図しない結果について分析されている。 | 2 |
-| **13.7.4** | **検証:** セキュリティ上重要なプロアクティブなアクションは監査証跡を含む明示的な承認チェーンを必要としている。 | 3 |
+| **13.7.4** | **Verify that** audit logs capture the complete approval chain for security-critical proactive actions, including approver identity, timestamp, action parameters, and decision outcome. | 3 |
 | **13.7.5** | **検証:** 動作異常検出は、侵害を示す可能性のあるプロアクティブなエージェントパターンの逸脱を識別している。 | 3 |
 
 ---
