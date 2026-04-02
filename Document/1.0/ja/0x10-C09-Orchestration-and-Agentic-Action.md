@@ -26,9 +26,11 @@
 
 特権的または不可逆的な結果に対して明示的なチェックポイントを要求します。
 
+> **Scope note:** C9.2 governs the runtime execution gate: the mechanism by which the agent system blocks a privileged or irreversible action and waits for an explicit approval signal before proceeding. Organizational policy that defines which decisions qualify as high-risk and what approval authority is required is in C14.2. Logging and auditing of approval events is in C13.7.4. All three controls address different aspects of the same workflow and require separate evidence.
+
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **9.2.1** | **検証:** 特権的または不可逆的なアクション (コードのマージ/デプロイ、送金、ユーザーアクセスの変更、破壊的な削除、外部への通知) は明示的なヒューマンインザループ (human-in-loop) での承認を要求している。 | 1 |
+| **9.2.1** | **Verify that** the agent runtime enforces an execution gate that blocks privileged or irreversible actions (e.g., code merges/deploys, financial transfers, user access changes, destructive deletes, external notifications) until an explicit human approval is received and verified. | 1 |
 | **9.2.2** | **Verify that** approval requests display canonicalized and complete action parameters (diff, command, recipient, amount, scope) without truncation or transformation. | 2 |
 | **9.2.3** | **Verify that** approvals are cryptographically bound (e.g., signed or MACed) to the exact action parameters, requester identity, and execution context. | 2 |
 | **9.2.4** | **Verify that** approvals include a unique nonce and are single-use to prevent replay or substitution. | 2 |
