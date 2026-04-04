@@ -56,6 +56,7 @@ Enforce access decisions across users, agents, tools, data, and MCP resources us
 | Wildcard and overly broad scope rejection | 10.2.14 |
 | MCP policy enforcement that model output cannot bypass | 10.2.4 |
 | Output format restriction by permission level | 5.4.3 |
+| Peer authorization policy (approved agent registry) for agent-to-agent task delegation | 9.6.7 |
 | Dedicated scoped credentials per agent, not shared across swarm peers | 9.8.7 |
 
 **Common pitfalls:** granting broad OAuth scopes instead of minimal required; not re-evaluating authorization when context changes mid-session; allowing model-generated output to override hard policy decisions.
@@ -143,7 +144,9 @@ Verify authenticity and detect tampering of models, artifacts, messages, logs, a
 | MCP component signature and checksum verification | 10.1.1 |
 | MCP schema integrity signing and tool definition hash tracking | 10.4.2, 10.4.5 |
 | DAG cryptographic signatures and tamper-evident storage | 13.7.3 |
+| Publisher key pinning per source registry with rotation re-approval | 6.4.6 |
 | Document metadata tag immutability after initial ingestion write | 8.1.7 |
+| Agent persisted state integrity protection (MAC/signature, rejection on failure) | 9.4.6 |
 
 **Common pitfalls:** using mutable `:latest` tags instead of immutable digests; not re-verifying tool definition hashes between MCP invocations; missing replay protection on agent messages.
 
