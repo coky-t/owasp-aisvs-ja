@@ -66,6 +66,7 @@
 | **9.4.3** | **検証:** 監査ログは、追加専用/WORM/不変ログストア、各レコードが前のレコードのハッシュを含む暗号ハッシュチェーン、または独立して検証可能な同等の完全性保証により、改竄防止を備えている。 | 2 |
 | **9.4.5** | **検証:** 監査ログレコードは、誰が何を実行したか、開始ユーザー識別子、委譲範囲、認可決定 (ポリシー/バージョン)、ツールパラメータ、承認 (適用可能な場合)、結果を再構築するのに十分なコンテキストを含んでいる。 | 2 |
 | **9.4.4** | **検証:** エージェントのアイデンティティクレデンシャル (鍵/証明書/トークン) は定義されたスケジュールと侵害の兆候で入れ替わり、傷害の疑いやなりすましの試みですぐに失効して隔離している。 | 3 |
+| **9.4.6** | **Verify that** agent state persisted between invocations (including memory, task context, goals, and partial results) is integrity-protected (e.g., via cryptographic MACs or signatures), and that the runtime rejects or quarantines state that fails integrity verification before resuming execution. | 3 |
 
 ---
 
@@ -94,6 +95,7 @@
 | **9.6.4** | **検証:** すべてのアクセス制御の決定は、AI モデル自体ではなく、アプリケーションロジックまたはポリシーエンジンによって強制されており、モデルが生成する出力 (「ユーザーはこれを行うことが許可されている」など) はアクセス制御チェックを上書きやバイパスできない。 | 2 |
 | **9.6.5** | **Verify that** secrets and credentials required by an agent at runtime are not exposed within the model's observable context, including the context window, system prompts, or tool call parameters, and are instead provided via out-of-band mechanisms such as credential proxies, secrets manager injection, runtime sidecar authentication, or short-lived scoped tokens. | 2 |
 | **9.6.6** | **Verify that** when an agent acts under delegated authority, the policy decision point evaluates both the agent's own granted permissions and the initiating principal's delegated scope as independent constraints, denying the action if either is insufficient for the requested operation. | 2 |
+| **9.6.7** | **Verify that** agent-to-agent task delegation is restricted by an explicit peer authorization policy (e.g., an approved agent registry or allowlist) so that even authenticated agents can only delegate to or accept delegations from pre-approved peers, with delegation attempts from unlisted agents rejected by default. | 2 |
 
 ---
 
