@@ -12,10 +12,10 @@
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.1.1** | **Verify that** all external or derived inputs that may steer model behavior are treated as untrusted and screened by a prompt injection detection ruleset or classifier before being included in prompts or used to trigger actions. | 1 |
-| **2.1.2** | **Verify that** the system enforces an instruction hierarchy in which system and developer messages override user instructions and other untrusted inputs, even after processing user instructions. This enforcement must be preserved across multi-step interactions and tool-augmented workflows. In such cases, prompt composition or intermediate outputs must not allow user-controlled content to influence or override system or developer instructions. | 1 |
+| **2.1.1** | **検証:** モデルの動作を制御する可能性のあるすべての外部入力または派生入力は信頼できないものとして扱われ、プロンプトに含めたりアクションをトリガーするために使用する前に、プロンプトインジェクション検出ルールセットまたは分類器によってスクリーンされている。 | 1 |
+| **2.1.2** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。この強制は複数ステップの命令やツール拡張ワークフローにわたって維持されなければならない。そのような場合、プロンプトの合成や中間出力はユーザーが制御するコンテンツがシステムまたは開発者の命令に影響を与えたり上書きしてはいけない。 | 1 |
 | **2.1.3** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
-| **2.1.4** | **Verify that** input length controls prevent user-supplied content from exceeding a defined proportion of the context window, ensuring system instructions and safety directives are not displaced from the model's effective attention. | 1 |
+| **2.1.4** | **検証:** 入力長制御はユーザーが提供したコンテンツがコンテキストウィンドウの定義された割合を超えないようにし、システム命令や安全指示がモデルの有効な注意から逸れないようにしている。 | 1 |
 
 ---
 
