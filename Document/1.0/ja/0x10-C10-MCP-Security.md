@@ -86,6 +86,7 @@
 | **10.6.2** | **検証:** MCP サーバーは許可リストにある機能とリソースのみを露出しており、ユーザーまたはモデルが提供する入力によって影響を受ける関数名の動的ディスパッチ、リフレクション呼び出し、実行を禁止している。 | 3 |
 | **10.6.3** | **検証:** テナント境界、環境境界 (開発/テスト/本番)、データドメイン境界は MCP レイヤで強制されており、テナント間や環境間のサーバーやリソースの発見を防いでいる。 | 3 |
 | **10.6.4** | **Verify that** MCP security controls enforce fail-closed semantics: if a signature verification, authentication check, or policy evaluation fails or cannot be completed, the default action is to deny the request rather than permit it. | 2 |
+| **10.6.5** | **Verify that** the client or orchestration layer maintains an authoritative tool namespace mapping that detects tool name collisions and prevents a lower-trust or newly registered server from shadowing tool definitions from a higher-trust server. | 3 |
 
 ---
 
