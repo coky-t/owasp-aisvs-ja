@@ -16,9 +16,9 @@
 | **2.1.2** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。この強制は複数ステップの命令やツール拡張ワークフローにわたって維持されなければならない。そのような場合、プロンプトの合成や中間出力はユーザーが制御するコンテンツがシステムまたは開発者の命令に影響を与えたり上書きしてはいけない。 | 1 |
 | **2.1.3** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
 | **2.1.4** | **検証:** 入力長制御はユーザーが提供したコンテンツがコンテキストウィンドウの定義された割合を超えないようにし、システム命令や安全指示がモデルの有効な注意から逸れないようにしている。 | 1 |
-| **2.1.5** | **Verify that** the system enforces per-request limits on the number of user-supplied demonstrations included in a single context window. | 2 |
-| **2.1.6** | **Verify that** the system detects patterns indicative of systematic in-context behavioral override attempts consistent with many-shot jailbreaking. | 2 |
-| **2.1.7** | **Verify that** detected in-context behavioral override attempts are classified and handled as prompt injection events. | 2 |
+| **2.1.5** | **検証:** システムは、単一のコンテキストウィンドウに含まれるユーザー提供のデモンストレーションの数について、リクエストごとの制限を適用している。 | 2 |
+| **2.1.6** | **検証:** システムは、複数回のジェイルブレーキングに一致する、体系的でコンテキストに応じた動作の上書き試行を示すパターンを検出している。 | 2 |
+| **2.1.7** | **検証:** 検出されたコンテキストに応じた動作の上書き試行はプロンプトインジェクションイベントとして分類され、処理されている。 | 2 |
 
 ---
 
