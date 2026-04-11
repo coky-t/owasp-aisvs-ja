@@ -110,6 +110,7 @@
 | **9.7.3** | **Verify that** post-execution checks detect unintended side effects. | 2 |
 | **9.7.4** | **Verify that** any mismatch between intended outcome and actual results triggers containment and, where supported, compensating actions. | 2 |
 | **9.7.5** | **検証:** リモートリソースから取得されたプロンプトテンプレートとエージェントポリシー構成はロード時に承認済みバージョン (ハッシュや署名など) と比較して完全性検証されている。 | 3 |
+| **9.7.6** | **Verify that** all write operations to persistent external state are authorized by either explicit human approval or an independent policy-based authorization mechanism that evaluates the operation against the original user intent, and not solely on agent-generated output. | 2 |
 
 ---
 
