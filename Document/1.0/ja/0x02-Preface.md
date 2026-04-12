@@ -4,9 +4,9 @@
 
 ## AISVS が存在する理由
 
-AI systems introduce security risks that traditional application security standards were not designed to address. Prompt injection allows attackers to override model instructions through crafted inputs, turning a language model into a tool for data exfiltration, unauthorized actions, or safety bypass. Training data can be poisoned to install backdoors or degrade model behavior. Models can be extracted, inverted, or manipulated through adversarial inputs. Autonomous agents can take actions with real-world consequences based on prompt-injected instructions they cannot distinguish from legitimate ones. Retrieval pipelines can be exploited to leak sensitive information or to inject malicious content into model context. And the supply chain for models, datasets, and frameworks presents novel integrity challenges that existing software composition analysis alone cannot solve.
+AI システムは従来のアプリケーションセキュリティ標準では対処するように設計されていなかったセキュリティリスクをもたらします。プロンプトインジェクションは攻撃者が細工した入力を通じてモデルの命令を上書きし、言語モデルをデータ抽出、不正なアクション、または安全性のバイパスのためのツールに変えることができます。トレーニングデータはバックドアの設置やモデルの動作劣化によって侵害される可能性があります。モデルは敵対的入力を通じて抽出、反転、操作される可能性があります。自律エージェントは、正当な命令と区別できないプロンプトインジェクションされた命令に基づいて、現実世界に影響のあるアクションを取る可能性があります。検索パイプラインは機密情報の漏洩やモデルコンテキストへの悪意のあるコンテンツの注入に悪用される可能性があります。さらに、モデル、データセット、フレームワークのサプライチェーンは、既存のソフトウェアコンポジション解析だけでは解決できない、新たな完全性の課題を抱えています。
 
-AISVS was created to give organizations a structured, testable set of security controls purpose-built for these risks. It does not replace existing standards; it fills the gap that none of them cover.
+AISVS は、組織がこれらのリスクのために専用に設計された、構造化されテスト可能な一連のセキュリティコントロールを提供するために作成されました。既存の標準を置き換えるものではなく、それらではカバーできないギャップを埋めるものです。
 
 ## 設計原則
 
