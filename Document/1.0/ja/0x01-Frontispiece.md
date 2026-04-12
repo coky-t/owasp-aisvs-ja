@@ -25,7 +25,7 @@ Copyright &copy; 2025-2026 The AISVS Project.
 
 ## 執筆者とレビュー担当者
 
-The following individuals have contributed to the AISVS through requirements authoring, review, or technical feedback:
+以下の人物は、要件作成、レビュー、または技術的なフィードバックを通じて AISVS に貢献しました。
 
 * [Josh Beck](https://github.com/Josh-Beck)
 * [Blake Gatto](https://github.com/BlakeGatto)
