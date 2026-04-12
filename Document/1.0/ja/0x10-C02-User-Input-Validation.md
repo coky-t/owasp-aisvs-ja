@@ -4,6 +4,8 @@
 
 ユーザー入力の堅牢なバリデーションは AI システムで最もダメージのある攻撃のいくつかに対する最前線の防御策です。プロンプトインジェクション攻撃は、システム命令を上書きしたり、機密データを漏洩したり、モデルを許可されていない動作に誘導する可能性があります。専用のフィルタとその他のバリデーションが配備されていない限り、コンテキストウィンドウを悪用するジェイルブレイクが引き続き有効になることが研究で示されています。
 
+> **Scope note:** This chapter covers AI-specific input validation concerns that go beyond general application input validation. Standard input validation (schema enforcement, type checking, character allow-listing, rate limiting, file upload validation, server-side enforcement, logging of validation failures) is addressed by OWASP ASVS v5 chapters V1, V2, V4, V5, and V16, and should be implemented as a baseline. This chapter focuses on threats unique to AI systems: prompt injection, adversarial inputs targeting model behavior, AI-specific content screening, and multi-modal attack vectors.
+
 ---
 
 ## C2.1 プロンプトインジェクションの防御 (Prompt Injection Defense)
@@ -14,113 +16,57 @@
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **2.1.1** | **検証:** モデルの動作を制御する可能性のあるすべての外部入力または派生入力は信頼できないものとして扱われ、プロンプトに含めたりアクションをトリガーするために使用する前に、プロンプトインジェクション検出ルールセットまたは分類器によってスクリーンされている。 | 1 |
 | **2.1.2** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。この強制は複数ステップの命令やツール拡張ワークフローにわたって維持されなければならない。そのような場合、プロンプトの合成や中間出力はユーザーが制御するコンテンツがシステムまたは開発者の命令に影響を与えたり上書きしてはいけない。 | 1 |
-| **2.1.3** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
-| **2.1.4** | **検証:** 入力長制御はユーザーが提供したコンテンツがコンテキストウィンドウの定義された割合を超えないようにし、システム命令や安全指示がモデルの有効な注意から逸れないようにしている。 | 1 |
+| **2.1.3** | **Verify that** input length controls prevent user-supplied content from exceeding a defined proportion of the context window, and that inputs exceeding token limits are rejected rather than silently truncated, ensuring system instructions and safety directives are not displaced from the model's effective attention. | 1 |
+| **2.1.4** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
 | **2.1.5** | **検証:** システムは、単一のコンテキストウィンドウに含まれるユーザー提供のデモンストレーションの数について、リクエストごとの制限を適用している。 | 2 |
 | **2.1.6** | **検証:** システムは、複数回のジェイルブレーキングに一致する、体系的でコンテキストに応じた動作の上書き試行を示すパターンを検出している。 | 2 |
 | **2.1.7** | **検証:** 検出されたコンテキストに応じた動作の上書き試行はプロンプトインジェクションイベントとして分類され、処理されている。 | 2 |
+| **2.1.8** | **Verify that** prompt injection screening respects user-specific policies (age and regional legal constraints) via attribute-based rules resolved at request time, including the role or permission level of the calling agent. | 2 |
+| **2.1.9** | **Verify that** the system implements a character set limitation for user inputs to model prompts, allowing only characters that are explicitly required for business purposes using an allow-list approach. | 1 |
 
 ---
 
-## C2.2 敵対的サンプルへの耐性 (Adversarial-Example Resistance)
+## C2.2 Pre-Tokenization Input Normalization
 
-AI モデルは、人間が見逃しがちだがモデルは誤分類する傾向がある、入力の微妙な摂動に対して脆弱です。
+AI models process text through tokenizers and embeddings that can be exploited via encoding tricks invisible to conventional input validation. Normalization before tokenization closes attack vectors such as homoglyph substitution, invisible character injection, and bidirectional text manipulation that bypass standard allow-list filters but alter model behavior.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.2.1** | **検証:** 基本的な入力正規化手順 (Unicode NFC、ホモグリフマッピング、空白トリミング、制御文字と不可視の Unicode 文字の削除) はトークン化やエンベディングの前、およびツールや MCP 引数に解析する前に実行されている。 | 1 |
+| **2.2.1** | **Verify that** input normalization (Unicode NFC canonicalization, homoglyph mapping, removal of control and invisible Unicode characters, and bidirectional text neutralization) is applied before tokenization or embedding, and that inputs which still contain suspicious encoding artifacts after normalization are rejected or flagged for review. | 1 |
 | **2.2.2** | **検証:** 敵対的であることが疑われる入力は隔離され、ログ記録されている。 | 1 |
-| **2.2.3** | **検証:** 統計的または意味的な異常検出によって、想定した入力パターンから逸脱していると判断された入力は、プロンプトへの包含やアクションの実行前にゲート処理されている。 | 2 |
-| **2.2.4** | **検証:** 推論パイプラインは、高リスクのエンドポイントに対して、敵対的トレーニング強化モデルのバリアントや防御レイヤ (ランダム化、防御蒸留、アラインメントチェックなど) をサポートしている。 | 2 |
-| **2.2.5** | **検証:** 入力と出力の両方でエンコーディングと表現のスマグリング (不可視の Unicode/制御文字、ホモグリフのスワップ、混合方向テキスト) は検出され、緩和されている。承認された緩和策は、正規化、厳密なスキーマバリデーション、ポリシーベースの拒否、明示的なマーキングを含んでいる。 | 3 |
+| **2.2.3** | **検証:** 入力と出力の両方でエンコーディングと表現のスマグリング (不可視の Unicode/制御文字、ホモグリフのスワップ、混合方向テキスト) は検出され、緩和されている。承認された緩和策は、正規化、厳密なスキーマバリデーション、ポリシーベースの拒否、明示的なマーキングを含んでいる。 | 3 |
 
 ---
 
-## C2.3 プロンプト文字セット (Prompt Character Set)
+## C2.3 コンテンツとポリシーの審査 (Content & Policy Screening)
 
-ユーザー入力の文字セットをビジネス要件に必要な文字のみを許可するように制限すると、さまざまな種類の攻撃を防ぐのに役立ちます。
+Syntactically valid prompts may request disallowed content such as policy-violating instructions, harmful content, or restricted material. Input-side content screening prevents such prompts from reaching the model. For output-side content filtering, see C7.3.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.3.1** | **検証:** システムはユーザー入力に対して文字セット制限を実装し、許可リストアプローチを使用してビジネス目的に明示的に必要な文字のみを許可している。 | 1 |
-| **2.3.2** | **検証:** 許可されたセット外の文字を含む入力は拒否され、トレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともにログ記録されている。 | 1 |
+| **2.3.1** | **Verify that** a content classifier scores every inbound prompt for violence, self-harm, hate, sexual content and illegal requests, with configurable thresholds, before the prompt is included in model context. | 1 |
+| **2.3.2** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
+| **2.3.3** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 3 |
 
 ---
 
-## C2.4 スキーマ、タイプ、長さのバリデーション (Schema, Type & Length Validation)
+## C2.4 マルチモーダル入力バリデーション (Multi-Modal Input Validation)
 
-不正な形式の入力や大きすぎる入力を特徴とする AI 攻撃は、解析エラー、フィールド間のプロンプトの流出、リソース枯渇を引き起こす可能性があります。決定論的なツール呼び出しを実行する場合も、厳格なスキーマ適用が前提条件になります。
+AI systems that accept non-textual inputs (images, audio, video, files) face unique attack vectors where malicious content can be embedded across modalities and extracted into text that feeds the model's context.
+
+> **Scope note:** Standard file upload validation (type, size, format, malware scanning, path traversal prevention) is covered by OWASP ASVS v5 chapter V5 and should be implemented as a baseline. This section addresses AI-specific risks: extraction of text from non-text inputs feeding into prompts, adversarial perturbations targeting model perception, and coordinated cross-modal attacks.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.4.1** | **検証:** すべての API、ツールまたは MCP エンドポイントは明示的な入力スキーマ (JSON スキーマ、プロトコルバッファ、またはマルチモーダル同等物など) を定義している。 | 1 |
-| **2.4.2** | **検証:** 入力バリデーションは余分なフィールドや不明なフィールド、暗黙的な型強制を拒否している (厳格なスキーマ提供)。 | 1 |
-| **2.4.3** | **検証:** すべての入力バリデーションは、プロンプトアセンブリやツール実行の前に、サーバーサイドで発生している。 | 1 |
-| **2.4.4** | **検証:** 最大トークンやバイト制限を超える入力は、安全なエラーで拒否され、暗黙的に切り捨てられることはない。 | 1 |
-| **2.4.5** | **検証:** 型チェック (数値範囲、列挙された値、および画像や音声の MIME タイプなど) は、ツールや MCP 引数を含め、すべてのサーバーサイド入力に対して強制されている。 | 1 |
-| **2.4.6** | **検証:** セマンティックバリデータは、アルゴリズムによる DoS を防ぐために、一定時間で実行し、外部ネットワーク呼び出しを回避している。 | 2 |
-| **2.4.7** | **検証:** バリデーションの失敗は、セキュリティトリアージを支援するために、リダクション後のペイロードスニペットと正確なエラーコードとともに、トレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) を含めて、ログ記録されている。 | 3 |
+| **2.4.1** | 非テキスト入力から抽出されたテキスト (画像からテキスト、音声からテキストなど) および非表示または埋め込まれたコンテンツ (メタデータ、レイヤ、代替テキスト、コメント) は 2.1.1 に従って信頼できないものとして扱われている。 | 1 |
+| **2.4.2** | **検証:** 画像/音声入力は敵対的な摂動、ステガノグラフィペイロード、既知の攻撃パターンについてチェックされており、検出するとモデル使用前にゲーティング (ブロックまたは機能のデグレード) をトリガーしている。 | 2 |
+| **2.4.3** | **検証:** クロスモーダル攻撃検出は、相関ルールとアラート生成で複数の入力タイプ (画像内のステガノグラフィペイロードとテキスト内のプロンプトインジェクションの組み合わせなど) にまたがる協調攻撃を識別しており、確認された検出はブロックされるか、HITL (human-in-the-loop) の承認を要求している。 | 3 |
 
 ---
-
-## C2.5 コンテンツとポリシーの審査 (Content & Policy Screening)
-
-開発者は、許可されていないコンテンツ (ポリシー違反の命令、有害なコンテンツ、制限されたマテリアルなど) を要求する構文的に有効なプロンプトを検出し、それらの拡散を防ぐことができる必要があります。
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.5.1** | **検証:** コンテンツ分類器は、設定可能な閾値で、すべての入力と出力に、暴力、自傷、ヘイト、性的コンテンツ、不正なリクエストについてスコア付けしている。 | 1 |
-| **2.5.2** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
-| **2.5.3** | **検証:** スクリーニングは、呼び出し側のエージェントのロールやパーミッションレベルなどの、リクエスト時に解決される属性ベースのルールを介して、ユーザー固有のポリシー (年齢および地域の法的制約) を尊重している。 | 2 |
-| **2.5.4** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 3 |
-
----
-
-## C2.6 入力レート制限と不正使用防止 (Input Rate Limiting & Abuse Prevention)
-
-開発者は、入力レートを制限し、異常な使用パターンを検出することで、AI システムに対する不正使用、リソース枯渇、自動攻撃を防ぐ必要があります。
-
-> **スコープについての注意:** このセクションのコントロールは AI 処理に入る前のインバウンドリクエストに適用されるエッジ/API レベルのスロットリング (一般的な不正使用防止、DoS 対抗策、ブルートフォース緩和策) を扱います。これらは、エージェントタスクの内部実行を制御するオーケストレーション実行時予算 (C9.1) や、モデル反転やモデル抽出の試みを阻止するために設計された攻撃固有のスロットリング (C11.4, C11.5) とは異なります。C9.1 や C11 のコントロールを満たす証跡は C2.6 を満たさず、逆も同様です。
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.6.1** | **検証:** ユーザーごと、IP ごと、API キーごと、エージェントごと、セッション/タスクごとのレート制限は、すべての入力およびツール/MCP エンドポイントに対して適用されている。 | 1 |
-| **2.6.2** | **検証:** バーストおよび持続レート制限は、DoS 攻撃やブルートフォース攻撃を防ぐために調整されている。 | 2 |
-| **2.6.3** | **検証:** 異常な使用パターン (連続したリクエスト、入力フラッディング、ツール/MCP 呼び出しの繰り返しの失敗、再帰的なエージェントループなど) は自動ブロックまたはエスカレーションをトリガーしている。 | 2 |
-| **2.6.4** | **検証:** 不正使用防止ログは保持され、トレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、新たな攻撃パターンがないかレビューされている。 | 3 |
-
----
-
-## C2.7 マルチモーダル入力バリデーション (Multi-Modal Input Validation)
-
-AI システムは、インジェクション、回避、リソース不正使用を防ぐために、非テキスト入力 (画像、音声、ファイル) に対する堅牢なバリデーションを含む必要があります。
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.7.1** | **検証:** すべての非テキスト入力 (画像、音声、ファイル) は処理前にタイプ、サイズ、形式について検証されている。 | 1 |
-| **2.7.2** | **検証:** 非テキスト入力から抽出されたテキスト (画像からテキスト、音声からテキストなど) および非表示または埋め込まれたコンテンツ (メタデータ、レイヤ、代替テキスト、コメント) は 2.1.1 に従って信頼できないものとして扱われている。 | 1 |
-| **2.7.3** | **検証:** ファイルは取り込む前にマルウェアやステガノグラフィのペイロードについてスキャンされており、アクティブコンテンツ (スクリプトやマクロなど) は削除されるか、そのファイルは隔離されている。 | 2 |
-| **2.7.4** | **検証:** 画像/音声入力は敵対的な摂動や既知の攻撃パターンについてチェックされており、検出するとモデル使用前にゲーティング (ブロックまたは機能のデグレード) をトリガーしている。 | 2 |
-| **2.7.5** | **検証:** マルチモーダル入力バリデーションの失敗は、すべての入力様式、バリデーション結果、脅威スコア、トレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、該当するセッション) を含む詳細なログ記録をトリガーし、調査のためのアラートを生成している。 | 3 |
-| **2.7.6** | **検証:** クロスモーダル攻撃検出は、相関ルールとアラート生成で複数の入力タイプ (画像内のステガノグラフィペイロードとテキスト内のプロンプトインジェクションの組み合わせなど) にまたがる協調攻撃を識別しており、確認された検出はブロックされるか、HITL (human-in-the-loop) の承認を要求している。 | 3 |
-
----
-
-## C2.8 リアルタイム適応型脅威検出 (Real-Time Adaptive Threat Detection)
-
-開発者は、新しい攻撃パターンに適応し、リアルタイム保護を提供する AI 向けの高度な脅威検出システムを採用する必要があります。
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.8.1** | **検証:** パターンマッチング (例: コンパイルされた正規表現) は、すべての入力と出力 (ツール/MCP サーフェスを含む) に対して実行している。 | 1 |
-| **2.8.2** | **検証:** 脅威検出モデルは最新の攻撃活動に基づいて感度を調整しており、新しいパターンで更新されている。 | 2 |
-| **2.8.3** | **検証:** 脅威検出はリスクに応じたレスポンス (ツールを無効にする、コンテキストを縮小する、HITL 承認を要求するなど) をトリガーしている。 | 2 |
-| **2.8.4** | **検証:** 検出精度は、トレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) を含む、ユーザー履歴、ソース、セッションの動作のコンテキスト分析を介して、改善されている。 | 3 |
-| **2.8.5** | **検証:** 検出パフォーマンスメトリクス (検出率、誤検出率、処理遅延) は、ブロックまでの時間とステージ (プロンプト前/レスポンス後) を含め、継続的に監視および最適化されている。 | 3 |
 
 ## 参考情報
 
 * [OWASP LLM01:2025 Prompt Injection](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
 * [LLM Prompt Injection Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html)
-* [MITRE ATLAS : Adversarial Input Detection](https://atlas.mitre.org/mitigations/AML.M00150)
+* [MITRE ATLAS: Adversarial Input Detection](https://atlas.mitre.org/mitigations/AML.M00150)
 * [Mitigate jailbreaks and prompt injections](https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks)
