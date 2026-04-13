@@ -111,6 +111,7 @@
 | **9.7.4** | **Verify that** any mismatch between intended outcome and actual results triggers containment and, where supported, compensating actions. | 2 |
 | **9.7.5** | **検証:** リモートリソースから取得されたプロンプトテンプレートとエージェントポリシー構成はロード時に承認済みバージョン (ハッシュや署名など) と比較して完全性検証されている。 | 3 |
 | **9.7.6** | **Verify that** all write operations to persistent external state are authorized by either explicit human approval or an independent policy-based authorization mechanism that evaluates the operation against the original user intent, and not solely on agent-generated output. | 2 |
+| **9.7.7** | **Verify that** when the policy decision point (PDP) used for governance evaluation is unavailable (e.g., timeout, network partition, service failure), agent execution fails closed by blocking the proposed action, and the unavailability event is logged with sufficient detail for incident investigation. | 2 |
 
 ---
 
@@ -138,3 +139,4 @@
 * [OWASP Agentic AI Threats and Mitigations](https://genai.owasp.org/resource/agentic-ai-threats-and-mitigations/)
 * [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/detail/sp/800-207/final)
 * [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026)
+* [OpenAPI x-agent-trust Extension (OAI Extensions Registry)](https://spec.openapis.org/registry/extension/x-agent-trust.html)
