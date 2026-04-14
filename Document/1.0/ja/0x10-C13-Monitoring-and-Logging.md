@@ -21,6 +21,8 @@
 
 ## C13.2 不正使用の検出と警告 (Abuse Detection and Alerting)
 
+> **Scope note:** Monitoring under C13.2.10 should include token-level metadata access patterns (e.g., high-frequency logprob API requests, systematic enumeration of token probabilities) as a signal for data exfiltration via timing or token-probability side channels. Anomalous logprob access patterns fall within the "structured non-human query patterns" indicator. C4.7.8 covers accelerator-level side-channel telemetry; C13.2.4 covers behavioral anomaly detection for systematic probing.
+
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **13.2.1** | **検証:** システムは、シグネチャベースの検出を使用して、既知のジェイルブレイクパターン、プロンプトインジェクションの試み、敵対的入力を検出し、警告している。 | 1 |
