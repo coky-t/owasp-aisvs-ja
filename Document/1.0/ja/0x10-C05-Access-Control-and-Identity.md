@@ -2,103 +2,79 @@
 
 ## 管理目標
 
-AI システムへの効果的なアクセス制御には、堅牢なアイデンティティ管理、コンテキストに応じた認可、ゼロトラスト原則に従ったランタイム強制が必要です。これらの制御により、人間、サービス、自律エージェントが、明示的に許可されたスコープ内でのみ、モデル、データ、計算リソースとやり取りでき、継続的検証と監査機能を備えています。
+AI systems introduce access control challenges beyond traditional application security: classification labels must follow data through AI-specific transformations (embeddings, caches, model outputs), multi-tenant inference infrastructure creates novel side channels, and retrieval-augmented pipelines must enforce caller entitlements at every stage. 
+
+This chapter addresses AI-specific access control and identity concerns only. General identity management and authentication (centralized IdP, federation, MFA, step-up authentication) are covered by ASVS v5 V6. General authorization patterns (RBAC/ABAC design, externalized PDP, dynamic attribute evaluation, policy caching), access control audit logging, and multi-tenant networking are covered by ASVS v5 V8, V14, and V16. 
+
+Agent-specific authorization policies and delegation are covered in C9.6; single-system agent identity is in C9.4.1; this chapter covers runtime isolation of the policy decision point from agent execution (complementing C9.6.4). Vector database scope enforcement is in C8.1 and C8.5. General output safety filtering (PII redaction, content moderation, confidential data blocking) is in C7.3; this chapter covers authorization-aware output filtering where entitlements vary per caller.
 
 ---
 
-## C5.1 アイデンティティ管理と認証 (Identity Management & Authentication)
-
-リスクレベルに適した認証強度で、AI システムとやり取りするすべてのエンティティに対して検証済みのアイデンティティを確立します。
+## C5.1 Authentication
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.1.1** | **検証:** すべての人間のユーザーとサービスプリンシパルは、業界標準のフェデレーションプロトコル (OIDC, SAML など) を使用して、集中型エンタープライズアイデンティティプロバイダを通じて認証している。 | 1 | D/V |
-| **5.1.2** | **検証:** 高リスクの操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、多要素認証またはセッション再バリデーションでのステップアップ認証を必要としている。 | 2 | D/V |
-| **5.1.3** | **検証:** 連合またはマルチシステムデプロイメントの AI エージェントは、リスクレベルに適した最大有効期間を持ち、オリジンの暗号論的証明を含む、有効期間が短く、暗号で署名された認証トークン (署名付き JWT アサーションなど) を介して認証している。 | 3 | D/V |
+| **5.1.1** | **検証:** 高リスクの AI 操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、セッション再バリデーションでのステップアップ認証を必要としている。 | 2 |
+| **5.1.2** | **検証:** 連合またはマルチシステムデプロイメントの AI エージェントは、リスクレベルに適した最大有効期間を持ち、オリジンの暗号論的証明を含む、有効期間が短く、暗号で署名された認証トークン (署名付き JWT アサーションなど) を介して認証している。 | 3 |
 
 ---
 
-## C5.2 認可とポリシー (Authorization & Policy)
-
-明示的なパーミッションモデルと監査証跡で、すべての AI リソースに対してアクセス制御を実装します。
-
-> **Scope note:** ASVS v5 14.1.1 requires all sensitive data to be identified and classified into protection levels. C5.2.11 extends this to AI-specific data types not enumerated in ASVS. C5.2.4 and C5.2.7 assume a classification scheme exists but do not require it to be defined for AI-specific data types.
+## C5.2 AI Resource Authorization & Classification
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクトルコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、アクセス制御 (RBAC, ABAC など) を適用している。 | 1 |
-| **5.2.2** | **検証:** すべてのアクセス制御の変更は、タイムスタンプ、アクターアイデンティティ、リソース識別子、パーミッション変更とともにログ記録されている。 | 1 |
-| **5.2.3** | **検証:** アクセス制御監査ログは不変に保存され、改竄防止している。 | 2 |
-| **5.2.4** | **検証:** データ分類ラベル (PII、PHI、独自など) は派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 2 |
-| **5.2.5** | **検証:** 不正アクセスの試みや権限昇格イベントはコンテキストメタデータとともにリアルタイムアラートをトリガーしている。 | 2 |
-| **5.2.6** | **検証:** 認可決定は専用のポリシー決定ポイント (OPA、Cedar、または同等のものなど) に外部化されている。 | 1 |
-| **5.2.7** | **検証:** ポリシーは、ユーザーロールまたはグループ、リソース分類、リクエストコンテキスト、テナント分離、時間的制約など、動的な属性を実行時に評価している。 | 3 |
-| **5.2.8** | **検証:** ポリシーキャッシュの TTL 値はリソースの機密性に基づいて定義され、高機密リソースでは TTL がより短くなり、キャッシュ無効化機能が利用可能になる。 | 3 |
-| **5.2.9** | **Verify that** privileged access to model weights, training pipelines, and production AI configuration is provisioned on a just-in-time basis with a defined maximum session duration and automatic expiry, and permanent standing privileged access to these resources is not permitted. | 2 |
-| **5.2.10** | **Verify that** authorization policies governing AI agent tool access and action permissions include defined validity periods, and that expired policies are automatically revoked or excluded from evaluation rather than persisting as default-allow, ensuring that permission scope remains bounded as available tools and capabilities evolve. | 3 |
-| **5.2.11** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined, and that AI assets are labeled in accordance with this taxonomy. | 2 |
+| **5.2.2** | **Verify that** privileged access to model weights, training pipelines, and production AI configuration is provisioned on a just-in-time basis with a defined maximum session duration and automatic expiry, and permanent standing privileged access to these resources is not permitted. | 2 |
+| **5.2.3** | **検証:** データ分類ラベル (PII、PHI、独自など) は派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 3 |
+| **5.2.4** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined, and that AI assets are labeled in accordance with this taxonomy. | 2 |
 
 ---
 
-## C5.3 クエリ時のセキュリティ強化 (Query-Time Security Enforcement)
+## C5.3 Query-Time Authorization
 
-データアクセス層での認可を適用し、AI クエリによる不正なデータ取得を防止します。
+Enforce the caller's authorization context through AI-specific query pipelines (RAG retrieval, embedding lookups, inference chains) so that the AI system does not return data the caller is not entitled to access.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.3.1** | **検証:** すべてのデータストアクエリ (ベクトルデータベース、SQL データベース、検索インデックスなど) は、データアクセス層で適用される必須のセキュリティフィルタ (テナント ID、機密ラベル、ユーザースコープ) を含んでいる。 | 1 |
-| **5.3.2** | **検証:** 失敗した認可評価は、クエリを直ちに中止し、明示的な認可エラーコードを返している。 | 1 |
-| **5.3.3** | **検証:** 行レベルセキュリティポリシーは AI システムで使用される機密データを含むすべてのデータストアに対して有効にされている。 | 2 |
-| **5.3.4** | **検証:** クエリ再試行メカニズムは、アクティブセッション内での動的なパーミッション変更を考慮して認可ポリシーを再評価している。 | 3 |
-| **5.3.5** | **Verify that** field-level masking is applied to sensitive fields in all data stores used by AI systems, restricting access to only authorized principals. | 2 |
-| **5.3.6** | **Verify that** row-level security and field-level masking policies are inherited by derived or replicated data stores and are not bypassed by replication or ETL processes. | 2 |
+| **5.3.1** | **Verify that** AI inference and retrieval pipelines (e.g., RAG queries, embedding lookups) enforce the end-user's authorization context at each retrieval and assembly stage, rather than relying solely on the service account's permissions. | 1 |
 
 ---
 
-## C5.4 出力フィルタリングとデータ損失防止 (Output Filtering & Data Loss Prevention)
+## C5.4 Output Entitlement Enforcement
 
-AI 生成コンテンツでの不正なデータ公開を防ぐために、後処理制御を導入します。
+Ensure that AI-generated outputs, including citations and source attributions, respect the caller's data entitlements.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.4.1** | **検証:** 推論後フィルタリングメカニズムは、要求者が受信することを認可されていない機密情報や専有データをレスポンスに含むことを防いでいる。 | 1 |
 | **5.4.2** | **検証:** モデル出力内の引用、参照、ソース属性は呼び出し元のエンタイトルメントに対して検証されており、不正アクセスが検出された場合は削除されている。 | 2 |
-| **5.4.3** | **検証:** 出力形式の制限 (サニタイズされたドキュメント、メタデータが除去された画像、承認されたファイルタイプ) はユーザーパーミッションレベルとデータ分類に基づいて適用されている。 | 2 |
 
 ---
 
-## C5.5 マルチテナントの分離 (Multi-Tenant Isolation)
+## C5.5 Policy Decision Point Isolation
 
-共有 AI インフラストラクチャ内のテナント間では論理的および暗号的な分離を確保します。
+Ensure that authorization decision infrastructure for AI agents is protected from compromise and manipulation by the agents it governs.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.5.1** | **検証:** ネットワークポリシーは、テナント間通信に対して、デフォルト拒否のルールを実装している。 | 2 |
-| **5.5.2** | **検証:** すべての API リクエストは、セッションコンテキストとユーザーエンタイトルメントに対して暗号論的に検証された、認証済みのテナント識別子を含んでいる。 | 1 |
-| **5.5.3** | **検証:** メモリキャッシュ、エンベディングストア、キャッシュエントリ (結果キャッシュ、エンベディングキャッシュなど)、一時ファイルはテナントごとに名前空間で分離されているため、あるテナントが別のテナントのデータにアクセスできない。 | 2 |
-| **5.5.6** | **Verify that** per-tenant memory spaces, embedding stores, cache entries, and temporary files are securely purged on tenant deletion or session termination. | 2 |
-| **5.5.4** | **検証:** 暗号鍵はテナントごとに一意であり、顧客管理鍵 (CMK) サポートがあり、テナントデータストア間で暗号論的に分離している。 | 3 |
-| **5.5.5** | **検証:** 推論時の KV キャッシュエントリは認証されたセッションまたはテナントアイデンティティによって分割され、自動プレフィックスキャッシュは、タイミングベースのプロンプト再構築攻撃を防ぐために、異なるセキュリティプリンシパル間ではキャッシュされたプレフィックスを共有していない。 | 2 |
+| **5.5.1** | **Verify that** the policy decision point for agent authorization is isolated from the agent's execution environment such that a compromised agent runtime cannot influence or bypass evaluation. | 3 |
+| **5.5.2** | **Verify that** the policy decision point receives structured action descriptions (e.g., action type, target resource, parameters) rather than the agent's raw reasoning context. | 3 |
 
 ---
 
-## C5.6 自律エージェント認可 (Autonomous Agent Authorization)
+## C5.6 マルチテナントの分離 (Multi-Tenant Isolation)
 
-スコープ指定された機能トークンと継続的認可を通じて、AI エージェントと自律システムのパーミッションを制御します。
+Prevent cross-tenant information leakage through AI-specific shared infrastructure components such as inference caches and shared model state.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.6.1** | **検証:** 自律エージェントは、許可されたアクション、アクセス可能なリソース、時間境界、操作上の制約を明示的に列挙する、スコープ指定された機能トークンを受け取っている。 | 1 |
-| **5.6.2** | **検証:** 高リスク機能 (ファイルシステムアクセス、コード実行、外部 API 呼び出し、金融取引) はデフォルトで無効にされており、明示的な認可を必要としている。 | 1 |
-| **5.6.3** | **検証:** 機能トークンはユーザーセッションにバインドされ、暗号論的完全性保護を備えており、セッション間では永続化や再使用できない。 | 2 |
-| **5.6.4** | **検証:** エージェントが開始したアクションは、コンテキスト属性 (ユーザーアイデンティティ、リソースの機密性、アクションの種類、環境コンテキストなど) を評価するポリシー決定ポイントを通じて、認可を受けている。 | 2 |
+| **5.6.1** | **検証:** 推論時の KV キャッシュエントリは認証されたセッションまたはテナントアイデンティティによって分割され、自動プレフィックスキャッシュは、タイミングベースのプロンプト再構築攻撃を防ぐために、異なるセキュリティプリンシパル間ではキャッシュされたプレフィックスを共有していない。 | 2 |
+| **5.6.2** | **Verify that** shared model serving infrastructure prevents one tenant's fine-tuning, inference, or embedding operations from influencing or observing another tenant's operations through shared model state, adapter weights, or compute resources. | 2 |
 
 ---
 
-## 参考情報
+## References
 
-* [NIST SP 800-162: Guide to Attribute Based Access Control (ABAC)](https://csrc.nist.gov/pubs/sp/800/162/final)
 * [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/detail/sp/800-207/final)
 * [NIST SP 800-63-3: Digital Identity Guidelines](https://csrc.nist.gov/pubs/sp/800/63/3/final)
-* [NIST IR 8360: Machine Learning for Access Control Policy Verification](https://csrc.nist.gov/pubs/ir/8360/final)
 * [I Know What You Asked: Prompt Leakage via KV-Cache Sharing in Multi-Tenant LLM Serving (NDSS 2025)](https://www.ndss-symposium.org/ndss-paper/i-know-what-you-asked-prompt-leakage-via-kv-cache-sharing-in-multi-tenant-llm-serving/)
