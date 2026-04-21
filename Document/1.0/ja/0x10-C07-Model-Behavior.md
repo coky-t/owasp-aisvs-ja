@@ -2,7 +2,9 @@
 
 ## 管理目標
 
-このコントロールカテゴリは、モデル出力が技術的に制約、検証、監視され、安全でない、不正な、またはリスクの高いレスポンスがユーザーやダウンストリームのシステムに到達できないようにします。
+このコントロールカテゴリは、モデル出力が技術的に制約、検証、監視され、安全でない、不正な、またはリスクの高いレスポンスがユーザーやダウンストリームのシステムに到達できないようにします。 The chapter focuses on AI-specific output handling concerns and intentionally avoids duplicating controls that already exist in OWASP ASVS v5 or in other AISVS chapters.
+
+General application output controls such as output encoding and escaping, parameterized queries, safe deserialization, anti-automation, security event logging, and error handling are addressed by ASVS v5 chapters V1, V2, V14, and V16.
 
 ---
 
@@ -14,8 +16,7 @@
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **7.1.1** | **検証:** アプリケーションはすべてのモデル出力を厳密なスキーマ (JSON スキーマなど) に対して検証し、一致しない出力を拒否している。 | 1 |
 | **7.1.2** | **検証:** システムは、バッファをオーバーフローしたり、意図しないコマンドを実行する前に、生成を厳密に遮断するための「停止シーケンス」またはトークン制限を使用している。 | 1 |
-| **7.1.3** | **検証:** モデル出力を処理するコンポーネントはそれを信頼できない入力として扱っている (パラメータ化クエリや安全なデシリアライザを使用するなど)。 | 1 |
-| **7.1.4** | **検証:** システムは、出力が不正なフォーマットのために拒否された場合、特定のエラータイプをログ記録している。 | 2 |
+| **7.1.3** | **Verify that** model outputs crossing a trust boundary into downstream interpreters (e.g., databases, shells, deserializers, template engines, browsers) are treated as untrusted input and processed using the corresponding safe APIs as defined in OWASP ASVS v5 chapters V1.2 and V1.5. | 1 |
 
 ---
 
@@ -40,77 +41,42 @@
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **7.3.1** | **検証:** 自動分類器はすべてのレスポンスをスキャンし、ヘイト、ハラスメント、性的暴力のカテゴリに一致するコンテンツをブロックしている。 | 1 |
-| **7.3.2** | **検証:** システムはすべての回答を PII (クレジットカードや電子メールなど) についてスキャンし、表示前に自動的に訂正している。 | 1 |
-| **7.3.3** | **検証:** PII 検出および訂正イベントは、二次的な PII 露出を生み出すことなく監査証跡を維持するために、訂正された PII の値自体を含めずにログ記録されている。 | 1 |
-| **7.3.4** | **検証:** システム内で「機密」とラベル付けされたデータはブロックまたは訂正している。 | 2 |
-| **7.3.5** | **検証:** 安全フィルタは必要に応じてユーザーの役割や場所に基づいて異なる設定 (未成年者向けのより厳格なフィルタなど) を可能としている。 | 3 |
-| **7.3.6** | **検証:** システムは、モデルが高リスクコンテンツを生成する場合、人間による承認手順または再認証を必要としている。 | 3 |
-| **7.3.7** | **Verify that** output filters detect and block responses that reproduce verbatim segments of system prompt content. | 2 |
-| **7.3.8** | **Verify that** LLM client applications prevent model-generated output from triggering automatic outbound requests (e.g., auto-rendered images, iframes, or link prefetching) to attacker-controlled endpoints, for example by disabling automatic external resource loading or restricting it to explicitly allowlisted origins as appropriate. | 2 |
-| **7.3.9** | **Verify that** generated outputs are analyzed for statistical steganographic covert channels (e.g., biased token-choice patterns or output distribution anomalies) that could encode hidden data across the model's valid output space, and that detections are flagged for review. | 3 |
+| **7.3.2** | **Verify that** output filters detect and block responses that reproduce verbatim segments of system prompt content. | 2 |
+| **7.3.3** | **Verify that** LLM client applications prevent model-generated output from triggering automatic outbound requests (e.g., auto-rendered images, iframes, or link prefetching) to attacker-controlled endpoints, for example by disabling automatic external resource loading or restricting it to explicitly allowlisted origins as appropriate. | 2 |
+| **7.3.4** | **Verify that** generated outputs are analyzed for statistical steganographic covert channels (e.g., biased token-choice patterns or output distribution anomalies) that could encode hidden data across the model's valid output space, and that detections are flagged for review. | 3 |
 
 ---
 
-## C7.4 出力と動作の制限 (Output & Action Limiting)
-
-モデルが過剰な実行、速過ぎる実行、アクセスすべきではないものへアクセスすることを防ぎます。
-
-| # | 説明 | レベル |
-| :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
-| **7.4.1** | **検証:** システムは、コストの急上昇やサービス拒否を防ぐために、ユーザーあたりのリクエストとトークンに厳しい制限を課している。 | 1 |
-| **7.4.2** | **検証:** モデルは、明示的なユーザー確認なしに、影響の大きいアクション (ファイルの書き込み、電子メールの送信、コードの実行など) を実行できないようにしている。 | 1 |
-| **7.4.3** | **検証:** アプリケーションまたはオーケストレーションフレームワークは、無制限の再帰を防ぐために、再起呼び出しの最大深度を明示的に構成および適用している。 | 2 |
-| **7.4.4** | **Verify that** the application or orchestration framework explicitly configures and enforces a maximum number of sequential or nested sub-task delegations within a single execution chain, and that chains exceeding this limit are halted. For agent-specific tool and action authorization, see C9.6. | 2 |
-
----
-
-## C7.5 説明可能性と透明性 (Explainability & Transparency)
+## C7.4 説明可能性と透明性 (Explainability & Transparency)
 
 ユーザーが決定の理由を理解していることを確認します。
 
 | # | 説明 | レベル |
 | :-------: | ------------------------------------------------------------------------------------------------------------------------------ | :---: |
-| **7.5.1** | **検証:** ユーザーに提供される説明はシステムプロンプトやバックエンドデータを削除するようにサニタイズされている。 | 1 |
-| **7.5.2** | **検証:** UI は重要な決定についてユーザーに信頼スコアまたは「推論の要約」を表示している。 | 2 |
-| **7.5.3** | **検証:** モデルの解釈可能性アーティファクト (アテンションマップ、特徴属性など) のような、モデルの決定の技術的証跡がログ記録されている。 | 3 |
+| **7.4.1** | **検証:** ユーザーに提供される説明はシステムプロンプトやバックエンドデータを削除するようにサニタイズされている。 | 1 |
+| **7.4.2** | **検証:** モデルの解釈可能性アーティファクト (アテンションマップ、特徴属性など) のような、モデルの決定の技術的証跡がログ記録されている。 | 3 |
 
 ---
 
-## C7.6 監視統合 (Monitoring Integration)
+## C7.5 生成メディアの安全対策 (Generative Media Safeguards)
 
-アプリケーションはセキュリティチームが監視すべき適切な信号を送信することを確認します。
+Provide cryptographic provenance for synthetic media so that downstream consumers can distinguish AI-generated content from authentic content.
 
 | # | 説明 | レベル |
 | :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
-| **7.6.1** | **検証:** システムは安全違反に関するリアルタイムの指標をログ記録している (例、「ハルシネーションが検出されました」、「PII がブロックされました」)。 | 1 |
-| **7.6.2** | **検証:** システムは、安全違反率が特定の時間枠内で定義された閾値を超えた場合、アラートをトリガーしている。 | 2 |
-| **7.6.3** | **検証:** ログは、特定のモデルバージョンや、不正使用の可能性を調査するために必要なその他の詳細を含んでいる。 | 2 |
+| **7.5.1** | **検証:** 生成されたすべてのメディアは、AI によって生成されたことを証明する、不可視の透かしまたは暗号署名を含んでいる。 | 3 |
 
 ---
 
-## C7.7 生成メディアの安全対策 (Generative Media Safeguards)
-
-違法または偽造メディアの作成を防ぎます。
-
-| # | 説明 | レベル |
-| :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
-| **7.7.1** | **検証:** 入力フィルタは、モデルが処理する前に、露骨なまたは合意のない合成コンテンツを要求するプロンプトをブロックしている。 | 2 |
-| **7.7.2** | **検証:** システムは、確認済みの同意なしに実在の人物を描写するメディア (画像/音声) を生成することを拒否している。 | 2 |
-| **7.7.3** | **検証:** システムは、生成されたコンテンツを公開する前に、著作権侵害に関してチェックしている。 | 2 |
-| **7.7.4** | **検証:** フィルタをバイパスする試みは検出され、セキュリティイベントとしてログ記録されている。 | 2 |
-| **7.7.5** | **検証:** 生成されたすべてのメディアは、AI によって生成されたことを証明する、不可視の透かしまたは暗号署名を含んでいる。 | 3 |
-
----
-
-## C7.8 Source Attribution & Citation Integrity
+## C7.6 Source Attribution & Citation Integrity
 
 Ensure RAG-grounded outputs are traceable to their source documents and that cited claims are verifiably supported by retrieved content.
 
-| # | Description | Level |
+| # | 説明 | レベル |
 | :-------: | -------------------------------------------------------------------------------------------------------------------------------------------- | :---: |
-| **7.8.1** | **Verify that** responses generated using retrieval-augmented generation (RAG) include attribution to the source documents that grounded the response. | 1 |
-| **7.8.2** | **Verify that** each sourced claim in a RAG-grounded response can be traced to a specific retrieved chunk, and that the system detects and flags responses where claims are not supported by any retrieved content before the response is served. | 3 |
-| **7.8.3** | **Verify that** RAG attributions are derived from retrieval metadata and are not generated by the model, ensuring provenance cannot be fabricated. | 1 |
+| **7.6.1** | **Verify that** responses generated using retrieval-augmented generation (RAG) include attribution to the source documents that grounded the response. | 1 |
+| **7.6.2** | **Verify that** each sourced claim in a RAG-grounded response can be traced to a specific retrieved chunk, and that the system detects and flags responses where claims are not supported by any retrieved content before the response is served. | 3 |
+| **7.6.3** | **Verify that** RAG attributions are derived from retrieval metadata and are not generated by the model, ensuring provenance cannot be fabricated. | 1 |
 
 ---
 
