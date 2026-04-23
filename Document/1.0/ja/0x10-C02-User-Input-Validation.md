@@ -4,7 +4,7 @@
 
 ユーザー入力の堅牢なバリデーションは AI システムで最もダメージのある攻撃のいくつかに対する最前線の防御策です。プロンプトインジェクション攻撃は、システム命令を上書きしたり、機密データを漏洩したり、モデルを許可されていない動作に誘導する可能性があります。専用のフィルタとその他のバリデーションが配備されていない限り、コンテキストウィンドウを悪用するジェイルブレイクが引き続き有効になることが研究で示されています。
 
-> **Scope note:** This chapter covers AI-specific input validation concerns that go beyond general application input validation. Standard input validation (schema enforcement, type checking, character allow-listing, rate limiting, file upload validation, server-side enforcement, logging of validation failures) is addressed by OWASP ASVS v5 chapters V1, V2, V4, V5, and V16, and should be implemented as a baseline. This chapter focuses on threats unique to AI systems: prompt injection, adversarial inputs targeting model behavior, AI-specific content screening, and multi-modal attack vectors.
+> **スコープに関する注記:** この章では、一般的なアプリケーション入力バリデーションを超えた、AI 特有の入力バリデーションについての懸念事項を取り上げます。標準的な入力バリデーション (スキーマの強制、型チェック、文字許可リスト、レート制限、ファイルアップロードバリデーション、サーバーサイドの強制、バリデーション失敗のログ記録) は OWASP ASVS v5 の V1, V2, V4, V5, V16 の章で取り上げられており、ベースラインとして実装すべきです。この章では AI システムに固有の脅威、すなわちプロンプトインジェクション、モデルの動作を標的とした敵対的入力、AI 特有のコンテンツスクリーニング、マルチモーダル攻撃ベクトルに焦点を当てます。
 
 ---
 
