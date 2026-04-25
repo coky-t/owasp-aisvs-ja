@@ -66,7 +66,7 @@ Generic software supply chain controls (dependency scanning, version pinning, lo
 | **6.5.1** | **検証:** すべてのモデルアーティファクトは、データセット、重み、ハイパーパラメータ、ライセンス、輸出管理タグ、データオリジンの記述をリストした、バージョン管理された AI BOM を発行している。 | 1 |
 | **6.5.2** | **検証:** AI BOM はデプロイメント前に暗号署名されている。 | 2 |
 | **6.5.3** | **検証:** AI BOM 完全性チェックは、コンポーネントメタデータ (ハッシュおよびライセンス) が欠落している場合、失敗している。 | 2 |
-| **6.5.4** | **検証:** ダウンストリームのコンシューマは、デプロイ時にインポートされたモデルを検証するために、API を介して AI BOM をクエリできる。 | 2 |
+| **6.5.4** | **検証:** ダウンストリームのコンシューマは、デプロイメント時にインポートされたモデルを検証するために、API を介して AI BOM をクエリできる。 | 2 |
 
 ---
 
@@ -76,3 +76,4 @@ Generic software supply chain controls (dependency scanning, version pinning, lo
 * [MITRE ATLAS: Supply Chain Compromise](https://atlas.mitre.org/techniques/AML.T0010)
 * [SBOM Overview: CISA](https://www.cisa.gov/sbom)
 * [CycloneDX: Machine Learning Bill of Materials](https://cyclonedx.org/capabilities/mlbom/)
+* [OWASP AIBOM](https://genai.owasp.org/owasp-aibom/)
