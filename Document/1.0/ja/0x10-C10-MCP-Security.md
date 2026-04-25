@@ -12,6 +12,7 @@
 | :--: | --- | :---: |
 | **10.1.1** | **検証:** MCP サーバーおよびクライアントコンポーネントは信頼できるソースからのみ取得され、署名、チェックサム、または安全なパッケージメタデータを使用して検証され、改竄されたビルドや署名されていないビルドは拒否されている。 | 1 |
 | **10.1.2** | **Verify that** only allowlisted MCP server identifiers (name, version, and registry) are permitted in production and that the runtime rejects connections to unlisted or unregistered servers at load time. | 1 |
+| **10.1.3** | **Verify that** all MCP tool and resource schemas include cryptographically verifiable provenance metadata — including author, timestamp, version hash, signature, and approved‑by fields. | 2 |
 
 ---
 
@@ -22,14 +23,14 @@
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.2.1** | **Verify that** MCP clients and servers implement the OAuth 2.1 authorization framework: clients present a valid access token for each request, and servers validate the token's issuer, audience, expiration, and scope claims, acting as resource servers that do not store tokens or user credentials. | 1 |
-| **10.2.3** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 1 |
-| **10.2.6** | **検証:** MCP `tools/list` およびリソース発見レスポンスはエンドユーザーの認可済みスコープに基づいてフィルタされており、エージェントはユーザーが呼び出すことを許可されているツールとリソースの定義のみを受け取っている。 | 2 |
-| **10.2.7** | **検証:** MCP サーバーはすべてのツール呼び出しに対してアクセス制御を実施し、ユーザーのアクセストークンはリクエストされたツールと指定された特定の引数値の両方を認可することを検証している。 | 2 |
-| **10.2.8** | **Verify that** MCP session identifiers are treated as state, not identity: generated using cryptographically secure random values, bound to the authenticated user, and never relied on for authentication or authorization decisions. | 1 |
-| **10.2.9** | **Verify that** MCP servers do not pass through access tokens received from clients to downstream APIs and instead obtain a separate token scoped to the server's own identity (e.g., via on-behalf-of or client credentials flow). | 2 |
-| **10.2.11** | **Verify that** MCP clients request only the minimum scopes needed for the current operation and elevate progressively via step-up authorization for higher-privilege operations. | 2 |
-| **10.2.12** | **Verify that** MCP servers enforce deterministic session teardown, destroying cached tokens, in-memory state, temporary storage, and file handles when a session terminates, disconnects, or times out. | 2 |
-| **10.2.13** | **Verify that** autonomous agents authenticate using cryptographically bound identity credentials (e.g., key-based proof-of-possession) rather than bearer-only tokens, ensuring that agent identity cannot be transferred, replayed, or impersonated by forwarding a shared secret. | 2 |
+| **10.2.2** | **検証:** MCP サーバーは、明示的な所有者、環境、リソースの定義を必要とする制御された技術的なオンボーディングメカニズムを通じて登録されている。登録されていないサーバーや発見できないサーバーは本番環境で呼び出すことはできない。 | 1 |
+| **10.2.3** | **検証:** MCP `tools/list` およびリソース発見レスポンスはエンドユーザーの認可済みスコープに基づいてフィルタされており、エージェントはユーザーが呼び出すことを許可されているツールとリソースの定義のみを受け取っている。 | 2 |
+| **10.2.4** | **検証:** MCP サーバーはすべてのツール呼び出しに対してアクセス制御を実施し、ユーザーのアクセストークンはリクエストされたツールと指定された特定の引数値の両方を認可することを検証している。 | 2 |
+| **10.2.5** | **Verify that** MCP session identifiers are treated as state, not identity: generated using cryptographically secure random values, bound to the authenticated user, and never relied on for authentication or authorization decisions. | 1 |
+| **10.2.6** | **Verify that** MCP servers do not pass through access tokens received from clients to downstream APIs and instead obtain a separate token scoped to the server's own identity (e.g., via on-behalf-of or client credentials flow). | 2 |
+| **10.2.7** | **Verify that** MCP clients request only the minimum scopes needed for the current operation and elevate progressively via step-up authorization for higher-privilege operations. | 2 |
+| **10.2.8** | **Verify that** MCP servers enforce deterministic session teardown, destroying cached tokens, in-memory state, temporary storage, and file handles when a session terminates, disconnects, or times out. | 2 |
+| **10.2.9** | **Verify that** autonomous agents authenticate using cryptographically bound identity credentials (e.g., key-based proof-of-possession) rather than bearer-only tokens, ensuring that agent identity cannot be transferred, replayed, or impersonated by forwarding a shared secret. | 2 |
 
 ---
 
@@ -51,7 +52,7 @@
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.4.1** | **検証:** MCP ツールのレスポンスは、プロンプトインジェクション、悪意のあるツール出力、コンテキスト操作を防ぐために、モデルコンテキストに注入される前に検証されている。 | 1 |
-| **10.4.2** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) は、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名を使用して真正性と完全性を検証されている。 | 3 |
+| **10.4.2** | **検証:** MCP ツールおよびリソーススキーマ (JSON スキーマや機能記述子など) とスキーママニフェストは、スキーマの改竄や悪意のあるパラメータ改変を防ぐために、署名を使用して真正性と完全性を検証されている。 | 3 |
 | **10.4.3** | **検証:** すべての MCP トランスポートは、非同期攻撃やインジェクション攻撃を防ぐために、メッセージフレーミングの完全性、厳密なスキーマバリデーション、最大ペイロードサイズを強制しており、不正なフレーム、切り捨てられたフレーム、不連続なフレームを拒否している。 | 2 |
 | **10.4.4** | **検証:** MCP サーバーは、型チェック、境界バリデーション、列挙の強制など、すべての関数呼び出しに対して厳密な入力バリデーションを実施しており、認識されないパラメータやサイズが大きすぎるパラメータを拒否している。 | 2 |
 | **10.4.5** | **Verify that** MCP clients maintain a hash or versioned snapshot of tool definitions and that any change to a tool definition (via `notifications/tools/list_changed` or between sessions) triggers re-approval before the modified tool can be invoked. | 2 |
