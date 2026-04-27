@@ -33,7 +33,7 @@ AI models process text through tokenizers and embeddings that can be exploited v
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **2.2.1** | **Verify that** input normalization (Unicode NFC canonicalization, homoglyph mapping, removal of control and invisible Unicode characters, and bidirectional text neutralization) is applied before tokenization or embedding, and that inputs which still contain suspicious encoding artifacts after normalization are rejected or flagged for review. | 1 |
-| **2.2.2** | **検証:** 敵対的であることが疑われる入力は隔離され、ログ記録されている。 | 1 |
+| **2.2.2** | **Verify that** inputs identified as adversarial by any detection mechanism are blocked from inclusion in prompts or execution of actions. | 1 |
 | **2.2.3** | **検証:** 入力と出力の両方でエンコーディングと表現のスマグリング (不可視の Unicode/制御文字、ホモグリフのスワップ、混合方向テキスト) は検出され、緩和されている。承認された緩和策は、正規化、厳密なスキーマバリデーション、ポリシーベースの拒否、明示的なマーキングを含んでいる。 | 3 |
 
 ---
