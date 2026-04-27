@@ -93,6 +93,7 @@ Fine-tuning pipelines are high-privilege operations that can alter deployed mode
 ## 参考情報
 
 * [MITRE ATLAS](https://atlas.mitre.org/)
+* [OWASP AI Testing Guide](https://owasp.org/www-project-ai-testing-guide/)
 * [MLOps Principles](https://ml-ops.org/content/mlops-principles)
 * [Reinforcement fine-tuning](https://platform.openai.com/docs/guides/reinforcement-fine-tuning)
 * [What is AI adversarial robustness?: IBM Research](https://research.ibm.com/blog/securing-ai-workflows-with-adversarial-robustness)
