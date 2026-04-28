@@ -2,18 +2,18 @@
 
 ## 管理目標
 
-このセクションでは、モデルやその他の AI コンポーネントが認識、実行、返却する内容についてリアルタイムかつフォレンジックな可視性を実現し、脅威を検出、トリアージ、学習するための要件を示します。
+モデルやその他の AI コンポーネントが認識、実行、返却する内容についてリアルタイムかつフォレンジックな可視性を実現することで、AI 特有の脅威を検出、トリアージ、学習できます。
+
+This chapter focuses on controls unique to AI systems for monitoring, logging and anomaly detection: AI-specific log content (model identifier, token usage, safety filter outcomes, prompt/response handling), AI-specific abuse and attack detection (jailbreak, prompt injection, extraction, multi-turn trajectory, covert channels over LLM endpoints), model and data drift detection, AI-specific telemetry signals (token attribution, output/input ratio anomalies), AI incident response, and proactive agent behavior monitoring.
+
+Generic logging and operational controls (log storage access control, retention, backup, encryption at rest and in transit, sensitive-data redaction and masking, log tamper protection, SIEM integration, log shipping to a separate analysis system, generic alerting workflows, and operational telemetry such as latency, throughput, success/failure rates, error categorization, and CPU/GPU/memory/storage utilization) are covered by ASVS v5 (V12, V14, V16) and standard observability practice and are not repeated here.
 
 ## C13.1 リクエストとレスポンスのログ記録 (Request & Response Logging)
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **13.1.1** | **Verify that** AI interactions are logged with security-relevant metadata (e.g. timestamp, user ID, session ID, model version, token count, input hash, system prompt version, confidence score, safety filter outcome, and safety filter decisions) without logging prompt or response content by default. | 1 |
-| **13.1.2** | **検証:** ログは、適切な保持ポリシーとバックアップ手順で、安全でアクセス制御されたリポジトリに保存されている。 | 1 |
-| **13.1.3** | **検証:** ログストレージシステムは、ログに含まれる機密情報を保護するために、保存時および転送時の暗号化を実装している。 | 1 |
-| **13.1.4** | **検証:** プロンプトと出力内の機密データは、PII、クレデンシャル、プロプライエタリ情報に対する構成可能な修正ルールで、ログ記録前に自動的に修正またはマスクされている。 | 1 |
 | **13.1.5** | **検証:** ポリシー決定と安全フィルタリングアクションは、コンテンツモデレーションシステムの監査とデバッグを可能にするために、十分な詳細でログ記録されている。 | 2 |
-| **13.1.6** | **検証:** ログの完全性は、暗号署名や書き込み専用ストレージなどによって、保護されている。 | 2 |
 | **13.1.7** | **Verify that** log entries for AI inference events capture a structured, interoperable schema that includes at minimum model identifier, token usage (input and output), provider name, and operation type, to enable consistent AI observability across tools and platforms. | 2 |
 | **13.1.8** | **Verify that** full prompt and response content is logged only when a security-relevant event is detected (e.g., safety filter trigger, prompt injection detection, anomaly flag), or when required by explicit user consent and a documented legal basis. | 2 |
 
@@ -21,15 +21,13 @@
 
 ## C13.2 不正使用の検出と警告 (Abuse Detection and Alerting)
 
-> **Scope note:** Monitoring under C13.2.10 should include token-level metadata access patterns (e.g., high-frequency logprob API requests, systematic enumeration of token probabilities) as a signal for data exfiltration via timing or token-probability side channels. Anomalous logprob access patterns fall within the "structured non-human query patterns" indicator. C4.2.8 covers accelerator-level side-channel telemetry; C13.2.4 covers behavioral anomaly detection for systematic probing.
+Detect AI-specific attack patterns (jailbreak, prompt injection, model extraction, multi-turn trajectory attacks, covert channels over LLM endpoints) and enrich security events with AI-specific context so that downstream detection and response systems can act on them.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **13.2.1** | **検証:** システムは、シグネチャベースの検出を使用して、既知のジェイルブレイクパターン、プロンプトインジェクションの試み、敵対的入力を検出し、警告している。 | 1 |
-| **13.2.2** | **検証:** システムは、標準のログ形式とプロトコルを使用して、既存のセキュリティ情報およびイベント管理 (SIEM) プラットフォームと統合している。 | 1 |
 | **13.2.3** | **検証:** 強化されたセキュリティイベントは、モデル識別子、信頼スコア、安全フィルタの決定などの AI 固有のコンテキストを含んでいる。 | 2 |
 | **13.2.4** | **検証:** 行動異常検出は、異常な会話パターン、過度の再試行、体系的な調査行動を識別している。 | 2 |
-| **13.2.5** | **検証:** リアルタイム警告メカニズムは、潜在的なポリシー違反や攻撃の試みが検出されると、セキュリティチームに通知している。 | 2 |
 | **13.2.6** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、モデル抽出攻撃などの AI 固有の脅威パターンを検出するために、含んでいる。 | 2 |
 | **13.2.7** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックしている。 | 3 |
 | **13.2.8** | **Verify that** session-level conversation trajectory analysis detects multi-turn jailbreak patterns where no individual turn is overtly malicious in isolation but the aggregate conversation exhibits attack indicators. | 3 |
@@ -62,9 +60,6 @@ Monitor and detect drift and degradation across model outputs, input distributio
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **13.4.1** | **検証:** リクエストのレイテンシ、トークン消費量、メモリ使用量、スループットなどの運用メトリクスは継続的に収集および監視されている。 | 1 |
-| **13.4.2** | **検証:** 成功率と失敗率はエラーの種類とその根本原因の分類で追跡されている。 | 1 |
-| **13.4.3** | **検証:** リソース利用率の監視は、GPU/CPU 使用率、メモリ消費量、ストレージ要件を含んでおり、閾値違反でアラートしている。 | 2 |
 | **13.4.4** | **Verify that** token usage is tracked at granular attribution levels including per user, per session, per feature endpoint, and per team or workspace. | 2 |
 | **13.4.5** | **Verify that** output-to-input token ratio anomalies are detected and alerted. | 2 |
 
@@ -80,25 +75,9 @@ Monitor and detect drift and degradation across model outputs, input distributio
 
 ---
 
-## C13.6 DAG 視覚化とワークフローセキュリティ (DAG Visualization & Workflow Security)
-
-ワークフロー視覚化システムを情報漏洩や改竄攻撃から保護します。
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **13.6.1** | **検証:** DAG 視覚化データは、保存または転送前に機密情報を削除するために、サニタイズされている。 | 1 |
-| **13.6.2** | **検証:** ワークフロー視覚化アクセス制御は、認可されたユーザーのみがエージェントの決定パスと推論トレースを閲覧できるようにしている。 | 1 |
-| **13.6.3** | **検証:** DAG データの完全性は暗号署名と改竄防止ストレージメカニズムを通じて保護されている。 | 2 |
-| **13.6.4** | **検証:** ワークフロー視覚化システムは、細工されたノードやエッジデータを通じたインジェクション攻撃を防ぐために、入力バリデーションを実装している。 | 2 |
-| **13.6.5** | **検証:** リアルタイム DAG 更新はレート制限されており、視覚化システムに対するサービス拒否攻撃を防ぐために検証されている。 | 3 |
-
----
-
 ## C13.7 プロアクティブなセキュリティ動作監視 (Proactive Security Behavior Monitoring)
 
-プロアクティブなエージェントの動作分析を通じてセキュリティ脅威を検出および防止します。
-
-> **Scope note:** C13.7 addresses monitoring and logging of proactive agent behaviors. 13.7.4 requires audit trail coverage for approval events on security-critical actions. The requirement to obtain approval before executing such actions is governed by C9.2 (runtime execution gate) and C14.2 (oversight policy). Satisfying 13.7.4 requires evidence that approval events are logged with sufficient detail — not merely that approvals occur.
+Detect and prevent security threats arising from proactive (agent-initiated) behavior, including pre-execution validation, behavior pattern analysis, and audit trails for approval of security-critical actions.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
