@@ -16,13 +16,13 @@
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **2.1.1** | **検証:** モデルの動作を制御する可能性のあるすべての外部入力または派生入力は信頼できないものとして扱われ、プロンプトに含めたりアクションをトリガーするために使用する前に、プロンプトインジェクション検出ルールセットまたは分類器によってスクリーンされている。 | 1 |
 | **2.1.2** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。この強制は複数ステップの命令やツール拡張ワークフローにわたって維持されなければならない。そのような場合、プロンプトの合成や中間出力はユーザーが制御するコンテンツがシステムまたは開発者の命令に影響を与えたり上書きしてはいけない。 | 1 |
-| **2.1.3** | **Verify that** input length controls prevent user-supplied content from exceeding a defined proportion of the context window, and that inputs exceeding token limits are rejected rather than silently truncated, ensuring system instructions and safety directives are not displaced from the model's effective attention. | 1 |
+| **2.1.3** | **検証:** 入力長制御はユーザー提供のコンテンツがコンテキストウィンドウの定義された割合を超えることを防止しており、トークン制限を超える入力は暗黙的に切り捨てられるのではなく拒否され、システム命令と安全性指示がモデルの有効な注意から逸れることがないようにしている。 | 1 |
 | **2.1.4** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
 | **2.1.5** | **検証:** システムは、単一のコンテキストウィンドウに含まれるユーザー提供のデモンストレーションの数について、リクエストごとの制限を適用している。 | 2 |
 | **2.1.6** | **検証:** システムは、複数回のジェイルブレーキングに一致する、体系的でコンテキストに応じた動作の上書き試行を示すパターンを検出している。 | 2 |
 | **2.1.7** | **検証:** 検出されたコンテキストに応じた動作の上書き試行はプロンプトインジェクションイベントとして分類され、処理されている。 | 2 |
-| **2.1.8** | **Verify that** prompt injection screening respects user-specific policies (age and regional legal constraints) via attribute-based rules resolved at request time, including the role or permission level of the calling agent. | 2 |
-| **2.1.9** | **Verify that** the system implements a character set limitation for user inputs to model prompts, allowing only characters that are explicitly required for business purposes using an allow-list approach. | 1 |
+| **2.1.8** | **検証:** プロンプトインジェクションスクリーニングは、呼び出しエージェントのロールやパーミッションレベルなど、リクエスト時に解決される属性ベースのルールを介してユーザー固有のポリシー (年齢や地域的な法的制約) を尊重している。 | 2 |
+| **2.1.9** | **検証:** システムはモデルプロンプトのユーザー入力に対して文字セット制限を実装しており、許可リストアプローチを使用してビジネス上の目的で明示的に必要な文字のみを許可している。 | 1 |
 
 ---
 
