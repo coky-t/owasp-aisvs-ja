@@ -83,7 +83,7 @@ Organizations should select a target level based on the risk profile of their AI
 ## Requirement Chapters
 
 1. [トレーニングデータ完全性とトレーサビリティ (Training Data Integrity & Traceability)](1.0/ja/0x10-C01-Training-Data-Integrity-and-Traceability.md)
-2. [ユーザー入力バリデーション (User Input Validation)](1.0/ja/0x10-C02-User-Input-Validation.md)
+2. [入力バリデーション (Input Validation)](1.0/ja/0x10-C02-Input-Validation.md)
 3. [モデルライフサイクル管理と変更管理 (Model Lifecycle Management & Change Control)](1.0/ja/0x10-C03-Model-Lifecycle-Management.md)
 4. [インフラストラクチャ、構成、デプロイメントセキュリティ (Infrastructure, Configuration & Deployment Security)](1.0/ja/0x10-C04-Infrastructure.md)
 5. [アクセス制御とアイデンティティ (Access Control & Identity)](1.0/ja/0x10-C05-Access-Control-and-Identity.md)
