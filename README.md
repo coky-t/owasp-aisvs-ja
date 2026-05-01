@@ -21,7 +21,7 @@ This is the unofficial Japanese translation of the [OWASP Artificial Intelligenc
 * [序文](Document/1.0/ja/0x02-Preface.md)
 * [AISVS を使用するには](Document/1.0/ja/0x03-Using-AISVS.md)
 * [C01 トレーニングデータ完全性とトレーサビリティ (Training Data Integrity & Traceability)](Document/1.0/ja/0x10-C01-Training-Data-Integrity-and-Traceability.md)
-* [C02 ユーザー入力バリデーション (User Input Validation)](Document/1.0/ja/0x10-C02-User-Input-Validation.md)
+* [C02 入力バリデーション (Input Validation)](Document/1.0/ja/0x10-C02-Input-Validation.md)
 * [C03 モデルライフサイクル管理と変更管理 (Model Lifecycle Management & Change Control)](Document/1.0/ja/0x10-C03-Model-Lifecycle-Management.md)
 * [C04 インフラストラクチャ、構成、デプロイメントセキュリティ (Infrastructure, Configuration & Deployment Security)](Document/1.0/ja/0x10-C04-Infrastructure.md)
 * [C05 AI コンポーネントとユーザーのアクセス制御とアイデンティティ (Access Control & Identity for AI Components & Users)](Document/1.0/ja/0x10-C05-Access-Control-and-Identity.md)
