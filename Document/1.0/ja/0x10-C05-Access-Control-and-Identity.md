@@ -25,8 +25,8 @@ Agent-specific authorization policies and delegation are covered in C9.6; single
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクトルコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、アクセス制御 (RBAC, ABAC など) を適用している。 | 1 |
 | **5.2.2** | **Verify that** privileged access to model weights, training pipelines, and production AI configuration is provisioned on a just-in-time basis with a defined maximum session duration and automatic expiry, and permanent standing privileged access to these resources is not permitted. | 2 |
-| **5.2.3** | **検証:** データ分類ラベル (PII、PHI、独自など) は派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 3 |
-| **5.2.4** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined, and that AI assets are labeled in accordance with this taxonomy. | 2 |
+| **5.2.3** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined, and that AI assets are labeled in accordance with this taxonomy. | 2 |
+| **5.2.4** | **検証:** データ分類ラベル (PII、PHI、独自など) は派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 3 |
 
 ---
 
