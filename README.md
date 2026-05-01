@@ -33,7 +33,7 @@ This is the unofficial Japanese translation of the [OWASP Artificial Intelligenc
 * [C11 敵対的堅牢性と攻撃耐性 (Adversarial Robustness & Attack Resistance)](Document/1.0/ja/0x10-C11-Adversarial-Robustness.md)
 * [C12 プライバシー保護と個人データ管理 (Privacy Protection & Personal Data Management)](Document/1.0/ja/0x10-C12-Privacy.md)
 * [C13 監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](Document/1.0/ja/0x10-C13-Monitoring-and-Logging.md)
-* [C14 人間による監視、説明責任、ガバナンス (Human Oversight, Accountability & Governance)](Document/1.0/ja/0x10-C14-Human-Oversight.md)
+* [C14 人間による監視と信頼 (Human Oversight and Trust)](Document/1.0/ja/0x10-C14-Human-Oversight.md)
 * [付録 A: 用語集](Document/1.0/ja/0x90-Appendix-A_Glossary.md)
 * [付録 B: 参考情報](Document/1.0/ja/0x91-Appendix-B_References.md)
 * [付録 C: AI 支援のセキュアコーディング (AI-Assisted Secure Coding)](Document/1.0/ja/0x92-Appendix-C_AI_for_Code_Generation.md)
