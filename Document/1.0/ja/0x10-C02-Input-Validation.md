@@ -1,4 +1,4 @@
-# C2 ユーザー入力バリデーション (User Input Validation)
+# C2 入力バリデーション (Input Validation)
 
 ## 管理目標
 
