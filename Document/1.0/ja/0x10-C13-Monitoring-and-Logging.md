@@ -28,7 +28,7 @@ Detect AI-specific attack patterns (jailbreak, prompt injection, model extractio
 | **13.2.1** | **検証:** システムは、シグネチャベースの検出を使用して、既知のジェイルブレイクパターン、プロンプトインジェクションの試み、敵対的入力を検出し、警告している。 | 1 |
 | **13.2.2** | **検証:** 強化されたセキュリティイベントは、モデル識別子、信頼スコア、安全フィルタの決定などの AI 固有のコンテキストを含んでいる。 | 2 |
 | **13.2.3** | **検証:** 行動異常検出は、異常な会話パターン、過度の再試行、体系的な調査行動を識別している。 | 2 |
-| **13.2.4** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、モデル抽出攻撃などの AI 固有の脅威パターンを検出するために、含んでいる。 | 2 |
+| **13.2.4** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、システムプロンプト抽出試行、モデル抽出攻撃などの AI 固有の脅威パターンを検出するために、含んでいる。 | 2 |
 | **13.2.5** | **Verify that** per-user and per-session token consumption triggers an alert when consumption exceeds defined thresholds. | 2 |
 | **13.2.6** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックしている。 | 3 |
 | **13.2.7** | **Verify that** session-level conversation trajectory analysis detects multi-turn jailbreak patterns where no individual turn is overtly malicious in isolation but the aggregate conversation exhibits attack indicators. | 3 |
