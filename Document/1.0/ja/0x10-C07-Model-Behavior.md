@@ -41,7 +41,7 @@ General application output controls such as output encoding and escaping, parame
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **7.3.1** | **検証:** 自動分類器はすべてのレスポンスをスキャンし、ヘイト、ハラスメント、性的暴力のカテゴリに一致するコンテンツをブロックしている。 | 1 |
-| **7.3.2** | **Verify that** output filters detect and block responses that reproduce verbatim segments of system prompt content. | 2 |
+| **7.3.2** | **Verify that** output filters detect and block responses that disclose system prompt content, including verbatim reproduction and semantically equivalent paraphrases of instructions, role definitions, or policy directives. | 2 |
 | **7.3.3** | **Verify that** LLM client applications prevent model-generated output from triggering automatic outbound requests (e.g., auto-rendered images, iframes, or link prefetching) to attacker-controlled endpoints, for example by disabling automatic external resource loading or restricting it to explicitly allowlisted origins as appropriate. | 2 |
 | **7.3.4** | **Verify that** generated outputs are analyzed for statistical steganographic covert channels (e.g., biased token-choice patterns or output distribution anomalies) that could encode hidden data across the model's valid output space, and that detections are flagged for review. | 3 |
 
