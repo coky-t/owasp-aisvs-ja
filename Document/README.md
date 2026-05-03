@@ -19,11 +19,11 @@
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-blue.svg
 
-## What is AISVS?
+## AISVS とは？
 
-The **Artificial Intelligence Security Verification Standard (AISVS)** is a community-driven catalogue of testable security requirements for AI-enabled systems. It gives developers, architects, security engineers, and auditors a structured framework to design, build, test, and verify the security of AI applications throughout their lifecycle, from data collection and model training to deployment, monitoring, and retirement.
+**Artificial Intelligence Security Verification Standard (AISVS)** は AI 対応システム向けのテスト可能なセキュリティ要件のコミュニティ主導のカタログです。開発者、アーキテクト、セキュリティエンジニア、監査担当者に対し、データ収集やモデルトレーニングから、デプロイメント、モニタリング、廃止に至るまで、AI アプリケーションのライフサイクル全体を通じて、セキュリティの設計、構築、テスト、検証のための構造化されたフレームワークを提供します。
 
-AISVS is modeled after the [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/) and follows the same philosophy: every requirement should be **verifiable, testable, and implementable**.
+AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/) をモデルとしており、すべての要件が **検証可能、テスト可能、実装可能** であるべきという同じ理念に基づいています。
 
 ## プロジェクトリーダー
 
