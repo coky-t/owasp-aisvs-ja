@@ -31,11 +31,11 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ---
 
-### What AISVS is NOT
+### AISVS ではないもの
 
-* **Not a governance framework.** Governance is well-covered by [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework), [ISO/IEC 42001](https://www.iso.org/standard/42001), and EU AI Act compliance guides.
-* **Not a risk management framework.** AISVS provides the technical controls that risk frameworks point to, but does not define risk assessment methodology.
-* **Not a tool recommendation list.** AISVS is vendor-neutral and does not endorse specific products or frameworks.
+* **ガバナンスフレームワークではありません。** ガバナンスは [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework), [ISO/IEC 42001](https://www.iso.org/standard/42001), EU AI Act 準拠ガイドで十分に網羅されています。
+* **リスク管理フレームワークではありません。** AISVS は、リスクフレームワークが指す技術的制御を提供しますが、リスク評価方法論を定義してはいません。
+* **ツール推奨リストではありません。** AISVS はベンダーニュートラルであり、特定の製品やフレームワークを推奨してはいません。
 
 ### How AISVS complements other standards
 
