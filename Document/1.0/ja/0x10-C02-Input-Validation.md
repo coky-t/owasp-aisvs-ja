@@ -44,9 +44,10 @@ Syntactically valid prompts may request disallowed content such as policy-violat
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.3.1** | **Verify that** a content classifier scores every inbound prompt for violence, self-harm, hate, sexual content and illegal requests, with configurable thresholds, before the prompt is included in model context. | 1 |
-| **2.3.2** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
-| **2.3.3** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 3 |
+| **2.3.1** | **Verify that** every inbound prompt is scored by a content classifier for violence, self-harm, hate, sexual content, and illegal requests against configurable thresholds, and that prompts exceeding those thresholds are rejected or sanitized before reaching model context. | 1 |
+| **2.3.2** | **Verify that** prompt content classification is evaluated for unsupported-language abuse and that identified gaps are mitigated through compensating controls such as language detection with rejection, conservative thresholds, or human review routing. | 1 |
+| **2.3.3** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
+| **2.3.4** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 3 |
 
 ---
 
