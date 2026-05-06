@@ -140,8 +140,9 @@ Validate, normalize, and constrain all inputs before they reach models or downst
 | Pre-tokenization input normalization (Unicode NFC, homoglyph mapping, control/invisible character removal, bidirectional text neutralization) | 2.2.1 |
 | Adversarial input quarantine and logging | 2.2.2 |
 | Encoding and representation smuggling detection and mitigation | 2.2.3 |
-| Content classifiers for inbound prompts (hate, violence, sexual, illegal) | 2.3.1 |
-| Policy-violating input rejection before model propagation | 2.3.2 |
+| Content classifiers for inbound prompts (hate, violence, sexual, illegal) with threshold-based rejection or sanitization | 2.3.1 |
+| Multilingual classifier gap evaluation with compensating controls (language detection, conservative thresholds, human review routing) | 2.3.2 |
+| Policy-violating input rejection before model propagation | 2.3.3 |
 | User-specific and agent-aware policy screening | 2.1.9 |
 | Extracted and hidden content from non-text inputs treated as untrusted | 2.4.1 |
 | Adversarial perturbation detection on image/audio inputs | 2.4.2 |
@@ -171,6 +172,7 @@ Constrain, filter, and validate model outputs before they reach users or downstr
 | System prompt leakage detection in outputs (verbatim and paraphrased) | 7.3.2 |
 | Prevention of auto-triggered outbound requests from model-generated output | 7.3.3 |
 | System prompt and backend data removal from explanations | 7.5.1 |
+| RAG unsupported-claim blocking or redaction before serving | 7.6.4 |
 | Authorization-aware post-inference filtering (per-caller entitlement enforcement) | 5.4.1 |
 | Citation and attribution validation against caller entitlements | 5.4.2 |
 | MCP error response sanitization (no stack traces, tokens, internal paths) | 10.4.2 |
@@ -280,9 +282,10 @@ Manage model deployment, rollback, retirement, and emergency response.
 | Automated input validation testing before deployment | 3.2.1 |
 | Automated output sanitization testing before deployment | 3.2.2 |
 | Safety evaluations with pass/fail thresholds before deployment | 3.2.3 |
-| Agent workflow, tool, MCP, and RAG integration testing | 3.2.4 |
-| Immutable audit records for model changes | 3.2.5 |
-| Deployment validation with failure blocking and override approval | 3.2.7 |
+| Automatic deployment block on safety evaluation threshold failure | 3.2.4 |
+| Agent workflow, tool, MCP, and RAG integration testing | 3.2.5 |
+| Immutable audit records for model changes | 3.2.6 |
+| Deployment validation with failure blocking and override approval | 3.2.8 |
 | Canary / blue-green deployments with automated rollback triggers | 3.3.1 |
 | Parallel deployment cohort isolation (A/B, canary, shadow) | 3.3.3 |
 | Atomic state restoration on rollback (weights, config, adapters, safety models) | 3.3.2 |
@@ -382,7 +385,7 @@ Capture security-relevant events with integrity protection for forensic analysis
 | Policy decision and safety filtering action logging | 13.1.2 |
 | Audit log context fields sufficient for forensic reconstruction (actor, delegation, policy, parameters, outcomes) | 9.4.3 |
 | Agent action signing with chain ID binding and timestamps | 9.4.2 |
-| Immutable audit records for model changes (actor, change type, before/after) | 3.2.5 |
+| Immutable audit records for model changes (actor, change type, before/after) | 3.2.6 |
 | Generic audit log immutability and tamper-evidence | ASVS v5 V16.4.2 |
 | CI/CD audit log streaming to SIEM | ASVS v5 V16.4.3 |
 | Detection rules for anomalous package pulls and tampered build steps | ASVS v5 V16.3.3 |
