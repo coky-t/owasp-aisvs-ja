@@ -33,9 +33,9 @@ Boundaries with adjacent controls determine what evidence satisfies each require
 
 ---
 
-## C9.3 ツールとプラグインの分離と安全な統合 (Tool and Plugin Isolation and Safe Integration)
+## C9.3 コンポーネントの分離と安全な統合 (Component Isolation and Safe Integration)
 
-ツールの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。
+ツールとプラグインの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
@@ -100,7 +100,7 @@ Boundaries with adjacent controls determine what evidence satisfies each require
 
 ---
 
-## C9.8 マルチエージェントのドメイン分離と群集リスク制御 (Multi-Agent Domain Isolation and Swarm Risk Controls)
+## C9.8 マルチエージェントのドメイン分離とリスク制御 (Multi-Agent Domain Isolation and Risk Controls)
 
 ドメイン間の干渉と緊急の安全でない集団行動を軽減します。
 
