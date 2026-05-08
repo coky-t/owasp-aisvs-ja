@@ -38,6 +38,7 @@ This is the unofficial Japanese translation of the [OWASP Artificial Intelligenc
 * [付録 B: 参考情報](Document/1.0/ja/0x91-Appendix-B_References.md)
 * [付録 C: AI 支援のセキュアコーディング (AI-Assisted Secure Coding)](Document/1.0/ja/0x92-Appendix-C_AI_for_Code_Generation.md)
 * [付録 D: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](Document/1.0/ja/0x93-Appendix-D_AI_Security_Controls_Inventory.md)
+* [付録 E: 貢献者 (Contributors)](Document/1.0/ja/0x94-Appendix-E_Contributors.md)
 
 ## License
 
