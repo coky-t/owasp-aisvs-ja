@@ -2,9 +2,7 @@
 
 ## 管理目標
 
-すべての入力の堅牢なバリデーションは AI システムで最もダメージのある攻撃のいくつかに対する最前線の防御策です。プロンプトインジェクション攻撃は、システム命令を上書きしたり、機密データを漏洩したり、モデルを許可されていない動作に誘導する可能性があります。専用のフィルタとその他のバリデーションが配備されていない限り、コンテキストウィンドウを悪用するジェイルブレイクが引き続き有効になることが研究で示されています。In agentic and multi-step systems, inputs from tools, retrieved documents, MCP server responses, and sub-agent outputs carry the same risks as direct user input and require the same validation pipeline.
-
-> **スコープに関する注記:** この章では、一般的なアプリケーション入力バリデーションを超えた、AI 特有の入力バリデーションについての懸念事項を取り上げます。標準的な入力バリデーション (スキーマの強制、型チェック、文字許可リスト、レート制限、ファイルアップロードバリデーション、サーバーサイドの強制、バリデーション失敗のログ記録) は OWASP ASVS v5 の V1, V2, V4, V5, V16 の章で取り上げられており、ベースラインとして実装すべきです。この章では AI システムに固有の脅威、すなわちプロンプトインジェクション、モデルの動作を標的とした敵対的入力、AI 特有のコンテンツスクリーニング、マルチモーダル攻撃ベクトルに焦点を当てます。
+すべての入力の堅牢なバリデーションは AI システムで最もダメージのある攻撃のいくつかに対する最前線の防御策です。プロンプトインジェクション攻撃は、システム命令を上書きしたり、機密データを漏洩したり、モデルを許可されていない動作に誘導する可能性があります。専用のフィルタとその他のバリデーションが配備されていない限り、コンテキストウィンドウを悪用するジェイルブレイクが引き続き有効になることが研究で示されています。エージェント型システムとマルチステップシステムでは、ツールからの入力、取得したドキュメント、MCP サーバーのレスポンス、サブエージェントの出力は、直接ユーザー入力と同じリスクを伴い、同じバリデーションパイプラインを必要とします。標準的な入力バリデーション (スキーマの強制、型チェック、文字許可リスト、レート制限、ファイルアップロードバリデーション、サーバーサイドの強制、バリデーション失敗のログ記録) は OWASP ASVS v5 の V1, V2, V4, V5, V16 で取り上げられており、これらのコントロールと並べてベースラインとして実装すべきです。この章では AI システムに固有の脅威、すなわちプロンプトインジェクション、モデルの動作を標的とした敵対的入力、AI 特有のコンテンツスクリーニング、および敵対的摂動、ステガノグラフィペイロード、クロスモーダル攻撃を含むマルチモーダル攻撃ベクトルに焦点を当てます。
 
 ---
 
@@ -54,8 +52,6 @@ Syntactically valid prompts may request disallowed content such as policy-violat
 ## C2.4 マルチモーダル入力バリデーション (Multi-Modal Input Validation)
 
 AI systems that accept non-textual inputs (images, audio, video, files) face unique attack vectors where malicious content can be embedded across modalities and extracted into text that feeds the model's context.
-
-> **Scope note:** Standard file upload validation (type, size, format, malware scanning, path traversal prevention) is covered by OWASP ASVS v5 chapter V5 and should be implemented as a baseline. This section addresses AI-specific risks: extraction of text from non-text inputs feeding into prompts, adversarial perturbations targeting model perception, and coordinated cross-modal attacks.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
