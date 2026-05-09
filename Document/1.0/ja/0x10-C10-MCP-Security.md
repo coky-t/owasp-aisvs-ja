@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。
+コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-protocol-specific controls; general agent authorization is in C9.6, OAuth details in ASVS v5 V10, execution budgets and human approval gates in C9.1–C9.2, sandbox isolation in C9.3, and multi-agent tenant and environment isolation in C9.8.
 
 ---
 
@@ -17,8 +17,6 @@
 ---
 
 ## C10.2 認証と認可 (Authentication & Authorization)
-
-> **Scope note:** General agent authorization principles (model output must not override access control, delegation context, continuous authorization) are covered in C9.6. Controls in this section address MCP-protocol-specific authentication and authorization mechanisms. Refer to ASVSv5 V10 for OAuth specific details.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
@@ -64,8 +62,6 @@
 
 ## C10.5 アウトバウンドアクセスとエージェント実行の安全性 (Outbound Access & Agent Execution Safety)
 
-> **Scope note:** Execution budgets, circuit breakers, and human approval gates for agent-initiated actions (including MCP tool invocations) are covered in C9.1 and C9.2. Controls in this section address MCP-specific outbound network constraints.
-
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.5.1** | **検証:** MCP サーバーは最小権限の送出 (egress) ポリシーに従って承認された内部または外部の宛先へのアウトバウンドリクエストのみを開始でき、任意のネットワークターゲットや内部クラウドメタデータサービスにはアクセスできない。 | 2 |
@@ -73,8 +69,6 @@
 ---
 
 ## C10.6 トランスポート制限と高リスク境界管理 (Transport Restrictions & High-Risk Boundary Controls)
-
-> **Scope note:** General agent sandbox isolation is covered in C9.3. Tenant and environment isolation for multi-agent systems is covered in C9.8. Controls in this section address MCP-specific transport and dispatch restrictions.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
