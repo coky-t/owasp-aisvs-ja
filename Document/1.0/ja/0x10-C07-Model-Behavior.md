@@ -4,15 +4,13 @@
 
 このコントロールカテゴリは、モデル出力が技術的に制約、検証、監視され、安全でない、不正な、またはリスクの高いレスポンスがユーザーやダウンストリームのシステムに到達できないようにします。 The chapter focuses on AI-specific output handling concerns and intentionally avoids duplicating controls that already exist in OWASP ASVS v5 or in other AISVS chapters.
 
-General application output controls such as output encoding and escaping, parameterized queries, safe deserialization, anti-automation, security event logging, and error handling are addressed by ASVS v5 chapters V1, V2, V14, and V16.
+General application output controls such as output encoding and escaping, parameterized queries, safe deserialization, anti-automation, security event logging, and error handling are addressed by ASVS v5 chapters V1, V2, V14, and V16. Schema output validation (7.1.1) applies only to applications that expect structured output (e.g., JSON, XML, typed function-call responses); free-form text outputs are out of scope for schema validation.
 
 ---
 
 ## C7.1 出力形式の強制 (Output Format Enforcement)
 
 モデルがインジェクションを防ぐのに役立つ方法でデータを出力するようにします。
-
-> **Scope note:** 7.1.1 applies only to applications that expect structured output (e.g., JSON, XML, typed function-call responses). Free-form text outputs are out of scope for schema validation.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
