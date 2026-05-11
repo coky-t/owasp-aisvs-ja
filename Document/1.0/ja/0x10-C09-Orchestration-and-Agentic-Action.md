@@ -40,10 +40,12 @@ Boundaries with adjacent controls determine what evidence satisfies each require
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **9.3.1** | **検証:** 各ツール/プラグインは、ツールの機能に適した最小権限のファイルシステム、ネットワーク送出 (egress)、システムコールパーミッションを備える分離されたサンドボックス (コンテナ/VM/WASM/OS サンドボックス) 内で実行している。 | 1 |
-| **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制され、ログ記録されており、 and that quota or timeout breaches fail closed by terminating the tool execution rather than continuing with degraded or uncontrolled behavior. | 1 |
+| **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制されており、 and that quota or timeout breaches fail closed by terminating the tool execution rather than continuing with degraded or uncontrolled behavior. | 1 |
 | **9.3.3** | **検証:** ツール出力は、ダウンストリームの推論や後続のアクションに組み込まれる前に、厳格なスキーマとセキュリティポリシーに対して検証されている。 | 1 |
-| **9.3.4** | **検証:** ツールマニフェストは、必要な権限、副作用レベル、リソース制限、出力バリデーション要件を宣言し、ランタイムはこれらの宣言を強制している。 | 2 |
-| **9.3.5** | **検証:** サンドボックスのエスケープインジケータまたはポリシー違反は自動封じ込め (ツールの無効化/隔離) をトリガーしている。 | 3 |
+| **9.3.4** | **Verify that** quota and timeout breaches are logged with sufficient detail to identify the tool, the exceeded limit, and the time of breach. | 1 |
+| **9.3.5** | **検証:** ツールマニフェストは、必要な権限、副作用レベル、リソース制限、出力バリデーション要件を宣言している。  | 2 |
+| **9.3.6** | **Verify that** the orchestration runtime enforces the declarations specified in tool manifests for required privileges, side-effect level, resource limits, and output validation. | 2 |
+| **9.3.7** | **検証:** サンドボックスのエスケープインジケータまたはポリシー違反は自動封じ込め (ツールの無効化/隔離) をトリガーしている。 | 3 |
 
 ---
 
@@ -54,10 +56,11 @@ Boundaries with adjacent controls determine what evidence satisfies each require
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **9.4.1** | **検証:** 各エージェントインスタンス (およびオーケストレータ/ランタイム) は一意の暗号アイデンティティを持ち、ダウンストリームシステムへのファーストクラスのプリンシパルとして認証している (エンドユーザークレデンシャルを再使用していない)。 | 1 |
-| **9.4.2** | **検証:** エージェントが開始したアクションは実行チェーン (チェーン ID) に暗号的にバインドされ、否認防止と追跡可能性のために署名され、タイムスタンプ付けされている。 | 2 |
+| **9.4.2** | **検証:** エージェントが開始したアクションは実行チェーン (チェーン ID) に暗号的にバインドされている。 | 2 |
 | **9.4.3** | **検証:** 監査ログレコードは、誰が何を実行したか、開始ユーザー識別子、委譲範囲、認可決定 (ポリシー/バージョン)、ツールパラメータ、承認 (適用可能な場合)、結果を再構築するのに十分なコンテキストを含んでいる。 | 2 |
-| **9.4.4** | **検証:** エージェントのアイデンティティクレデンシャル (鍵/証明書/トークン) は定義されたスケジュールと侵害の兆候で入れ替わり、傷害の疑いやなりすましの試みですぐに失効して隔離している。 | 3 |
-| **9.4.5** | **Verify that** agent state persisted between invocations (including memory, task context, goals, and partial results) is integrity-protected (e.g., via cryptographic MACs or signatures), and that the runtime rejects or quarantines state that fails integrity verification before resuming execution. | 3 |
+| **9.4.4** | **検証:** エージェントが開始したアクションは否認防止と追跡可能性のために署名され、タイムスタンプ付けされている。 | 2 |
+| **9.4.5** | **検証:** エージェントのアイデンティティクレデンシャル (鍵/証明書/トークン) は定義されたスケジュールと侵害の兆候で入れ替わり、傷害の疑いやなりすましの試みですぐに失効して隔離している。 | 3 |
+| **9.4.6** | **Verify that** agent state persisted between invocations (including memory, task context, goals, and partial results) is integrity-protected (e.g., via cryptographic MACs or signatures), and that the runtime rejects or quarantines state that fails integrity verification before resuming execution. | 3 |
 
 ---
 
