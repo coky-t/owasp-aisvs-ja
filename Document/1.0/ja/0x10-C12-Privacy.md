@@ -4,8 +4,6 @@
 
 AI ライフサイクル全体 (収集、トレーニング、推論、インシデント対応) にわたって厳格なプライバシー保証を維持し、個人データが明確な同意、必要最小限の範囲、証明可能な消去、形式プライバシー保証でのみ処理されるようにします。 This chapter focuses on AI-specific privacy concerns: privacy properties of training data and derived model artifacts, deletion and unlearning across ML artifacts, differential privacy budget management for training, purpose binding for datasets and models, consent-aware inference gating, and federated-learning privacy controls.
 
-Generic data protection controls (sensitive data classification, encryption at rest and in transit, retention scheduling, secure deletion of conventional storage, audit log immutability, and the existence and operation of a Consent Management Platform or equivalent record of opt-in, purpose, and retention metadata) are covered by ASVS v5 V14 and V16 and are not repeated here.
-
 ---
 
 ## C12.1 匿名化とデータ最小化 (Anonymization & Data Minimization)
@@ -71,7 +69,7 @@ Enforce consent at AI-specific decision points (training data ingestion, inferen
 
 ## C12.6 プライバシー制御を備えた連合学習 (Federated Learning with Privacy Controls)
 
-Apply differential privacy and privacy auditing to federated learning to protect individual participant data. Robust aggregation and anti-poisoning aggregator selection (e.g., Krum, Trimmed-Mean) are integrity controls and are covered by C1 (training data integrity) and C11 (adversarial robustness).
+Apply differential privacy and privacy auditing to federated learning to protect individual participant data.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
