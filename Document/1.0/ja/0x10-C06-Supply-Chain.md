@@ -2,9 +2,7 @@
 
 ## 管理目標
 
-AI サプライチェーン攻撃は、バックドア、バイアス、実行可能コードを埋め込んで、サードパーティモデル、フレームワーク、データセットを悪用します。これらのコントロールは、モデルのライフサイクル全体を通して、AI 固有のサプライチェーンアーティファクトのトレーサビリティ、審査、監視を確保します。
-
-Generic software supply chain controls (dependency scanning, version pinning, lockfile enforcement, container digest pinning, build attestation, reproducible builds, SBOM generation, CI/CD audit logging, etc.) are covered by ASVS v5 (V13, V15), OWASP SCVS, SLSA, and CIS Controls, and are not repeated here. This chapter focuses on supply chain risks unique to AI: model artifact integrity, backdoor detection in pretrained weights, dataset poisoning, AI-specific bills of materials, and model-publisher trust.
+AI サプライチェーン攻撃は、バックドア、バイアス、実行可能コードを埋め込んで、サードパーティモデル、フレームワーク、データセットを悪用します。これらのコントロールは、モデルのライフサイクル全体を通して、AI 固有のサプライチェーンアーティファクトのトレーサビリティ、審査、監視を確保します。 This chapter focuses on supply chain risks unique to AI: model artifact integrity, backdoor detection in pretrained weights, dataset poisoning, AI-specific bills of materials, and model-publisher trust.
 
 ---
 
