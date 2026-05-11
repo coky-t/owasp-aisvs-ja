@@ -2,13 +2,13 @@
 
 ## 管理目標
 
-トレーニングデータは、オリジンのトレーサビリティ、完全性、品質を保持する方法で入手、取り扱い、維持しなければなりません。主要なセキュリティ上の懸念は、データが改竄、汚染、破損されていないことを確保することです。セキュリティに関連するバイアス (例: 攻撃者がコントロールをバイパスできる、不正検出トレーニングデータの偏りなど) は、侵害されたデータや検証されていないデータの結果として起こり得る事象として扱われ、独立したコントロールカテゴリとしては扱われません。より広範な公平性ガバナンス要件はスコープ外であり、ISO/IEC 42001 または NIST AI RMF で扱われます。一般的なデータセキュリティコントロール (アクセス制御、ログ記録、暗号化、データ保持) は ASVS v5 (V8, V11, V12, V14, V16) でカバーされており、ここでは繰り返しません。
+この章では、オリジンのトレーサビリティ、完全性、品質を保持する方法でトレーニングデータの入手、取り扱い、維持を取り扱います。主要なセキュリティ上の懸念は、データが改竄、汚染、破損されていないことを確保することです。
 
 ---
 
 ## C1.1 トレーニングデータのオリジンとトレーサビリティ (Training Data Origin & Traceability)
 
-すべてのデータセットの検証可能なインベントリを維持し、信頼できるソースのみを受け入れ、監査可能なようにすべての変更をログ記録します。
+Training data origin and traceability are critical to the security and trustworthiness of any AI system. Datasets must be sourced from verifiable origins and tracked across their full lifecycle so that tampering or unauthorized modification can be detected.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -21,7 +21,7 @@
 
 ## C1.2 トレーニングデータのセキュリティと完全性 (Training Data Security & Integrity)
 
-トレーニングデータへのアクセスを制限し、保存時と転送時にそれを暗号化し、その完全性を検証して、改竄、窃取、データポイズニングを防止します。
+Training data must be protected against unauthorized access, disclosure, tampering, corruption, and poisoning throughout its lifecycle. Storage systems and data pipelines should enforce access control, preserve auditability, protect confidentiality through encryption, validate integrity during storage and transfer, and maintain immutable dataset versions for rollback and forensic analysis.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -37,7 +37,7 @@
 
 ## C1.3 データラベリングとアノテーションのセキュリティ (Data Labeling and Annotation Security)
 
-ラベリングとアノテーションのプロセスがアクセス制御され、監査可能であることを確保します。
+Labeling and annotation processes must be protected against unauthorized modification, attribution loss, data leakage, and integrity compromise. Annotation platforms should enforce access control, preserve auditability, retain verified annotator attribution, and protect labeling artifacts, preference data, and sensitive label content throughout the training pipeline.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -51,7 +51,7 @@
 
 ## C1.4 トレーニングデータの品質とセキュリティ保証 (Training Data Quality and Security Assurance)
 
-自動バリデーション、手動スポットチェック、ログ記録された修復を組み合わせて、データセットの信頼性を保証します。
+Training data quality and security assurance controls help detect corruption, poisoning, labeling errors, and exploitable dataset patterns before they affect model behavior. Pipelines should combine automated validation, poisoning detection, label quality checks, and bias analysis.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -66,7 +66,7 @@
 
 ## C1.5 データリネージとトレーサビリティ (Data Lineage and Traceability)
 
-監査可能性とインシデント対応のために、ソースからモデル入力までの各データセットの完全な経路を追跡します。
+Data lineage and traceability controls ensure that datasets can be tracked from source through transformation, augmentation, merge, and final model input. Lineage records should be complete, tamper-resistant, auditable, and sufficient to support reproducibility, incident response, rollback, and investigation of compromised or inappropriate training data.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
