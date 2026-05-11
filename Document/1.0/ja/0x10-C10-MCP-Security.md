@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-protocol-specific controls; general agent authorization is in C9.6, OAuth details in ASVS v5 V10, execution budgets and human approval gates in C9.1–C9.2, sandbox isolation in C9.3, and multi-agent tenant and environment isolation in C9.8.
+コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-protocol-specific controls.
 
 ---
 
