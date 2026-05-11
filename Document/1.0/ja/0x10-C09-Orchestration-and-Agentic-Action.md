@@ -2,9 +2,7 @@
 
 ## 管理目標
 
-自律型およびマルチエージェント型のシステムは認可され、意図され、かつ制限されたアクションのみを実行する必要があります。 This chapter focuses on controls unique to agentic AI execution: agent-as-principal identity, agent action chains, model-output-driven authorization risk, intent verification of LLM-decided actions, and multi-agent swarm dynamics. Generic application security controls (transport encryption, schema validation, message integrity, log integrity, concurrency safety, supply chain integrity, service-account rotation, multi-tenant isolation, contextual authorization, and API-edge rate limiting) are covered by ASVS v5 (V2, V4, V8, V11, V12, V13, V15, V16), AISVS C9.4.3 (tamper-evident audit logs), and OWASP SCVS, and are not repeated here.
-
-Boundaries with adjacent controls determine what evidence satisfies each requirement. C9.1 execution budgets apply inside the orchestration runtime and do not substitute for API-edge rate limiting (ASVS v5 V2.4) or anti-extraction/anti-inversion throttling (C11.4, C11.5). C9.2 governs the runtime gate that blocks high-impact actions until approval is received; C14.2 defines the policy that classifies actions as high-risk and assigns approval authority; C13.6.4 covers logging of approval events. C9.5 covers semantic validation of agent-generated outputs flowing into downstream agents, while transport, schema, and replay protections are in ASVS v5 V4/V11/V12 and MCP-specific message and schema controls are in C10.4.
+自律型およびマルチエージェント型のシステムは認可され、意図され、かつ制限されたアクションのみを実行する必要があります。 This chapter focuses on controls unique to agentic AI execution: agent-as-principal identity, agent action chains, model-output-driven authorization risk, intent verification of LLM-decided actions, and multi-agent swarm dynamics.
 
 ---
 
@@ -86,6 +84,7 @@ Boundaries with adjacent controls determine what evidence satisfies each require
 | **9.6.4** | **Verify that** secrets and credentials required by an agent at runtime are not exposed within the model's observable context, including the context window, system prompts, or tool call parameters, and are instead provided via out-of-band mechanisms such as credential proxies, secrets manager injection, runtime sidecar authentication, or short-lived scoped tokens. | 2 |
 | **9.6.5** | **Verify that** when an agent acts under delegated authority, the policy decision point evaluates both the agent's own granted permissions and the initiating principal's delegated scope as independent constraints, denying the action if either is insufficient for the requested operation. | 2 |
 | **9.6.6** | **Verify that** agent-to-agent task delegation is restricted by an explicit peer authorization policy (e.g., an approved agent registry or allowlist) so that even authenticated agents can only delegate to or accept delegations from pre-approved peers, with delegation attempts from unlisted agents rejected by default. | 2 |
+| **9.6.7** | **Verify that** long-running agent sessions re-evaluate current backend authorization policy for the agent’s identity on every privileged action, and reject the action when current policy no longer authorizes it, even if the presented token remains valid. | 3 |
 
 ---
 
