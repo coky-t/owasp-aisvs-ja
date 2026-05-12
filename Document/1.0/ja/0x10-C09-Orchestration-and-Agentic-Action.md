@@ -37,7 +37,7 @@
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **9.3.1** | **検証:** 各ツール/プラグインは、ツールの機能に適した最小権限のファイルシステム、ネットワーク送出 (egress)、システムコールパーミッションを備える分離されたサンドボックス (コンテナ/VM/WASM/OS サンドボックス) 内で実行している。 | 1 |
+| **9.3.1** | **検証:** 各ツール/プラグインは、ツールが操作を実行するために必要なものに制限した、最小権限のファイルシステム、ネットワーク送出 (egress)、システムコールパーミッションを備える分離されたサンドボックス (コンテナ/VM/WASM/OS サンドボックス) 内で実行している。 | 1 |
 | **9.3.2** | **検証:** ツールごとのクォータとタイムアウト (CPU、メモリ、ディスク、送出 (egress)、実行時間) が強制されており、 and that quota or timeout breaches fail closed by terminating the tool execution rather than continuing with degraded or uncontrolled behavior. | 1 |
 | **9.3.3** | **検証:** ツール出力は、ダウンストリームの推論や後続のアクションに組み込まれる前に、厳格なスキーマとセキュリティポリシーに対して検証されている。 | 1 |
 | **9.3.4** | **Verify that** quota and timeout breaches are logged with sufficient detail to identify the tool, the exceeded limit, and the time of breach. | 1 |
