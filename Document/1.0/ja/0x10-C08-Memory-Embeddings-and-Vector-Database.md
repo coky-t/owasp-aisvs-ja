@@ -16,7 +16,8 @@
 | **8.1.2** | **検証:** 取り込まれたすべてのドキュメントは書き込み時に、ソース、書き込み者アイデンティティ (認証済みユーザーまたはシステムプリンシパル)、タイムスタンプ、バッチ ID、エンベディングモデルのバージョンでタグ付けされている。 | 2 |
 | **8.1.3** | **Verify that** document metadata tags applied at ingestion are immutable after initial write and cannot be modified by subsequent pipeline stages or user operations. | 2 |
 | **8.1.4** | **検証:** RAG パイプラインの取得イベントは、発行されたクエリ、取得されたドキュメントやチャンク、類似度スコア、知識ソース、および取得したコンテンツがモデルコンテキストに組み込まれる前にプロンプトインジェクションスキャンに合格したかどうかをログ記録している。 | 2 |
-| **8.1.5** | **検証:** 検索異常検出は、エンベディング密度の外れ値、類似度結果における特定のドキュメントの繰り返し優位、およびベクトルデータベースポイズニングを示唆する可能性のある検索バイアス分布の急激な変化を特定している。 | 3 |
+| **8.1.5** | **Verify that** restricted retrieval indices include uniquely marked canary records that contain no real sensitive content and generate a high-severity security alert if selected by retrieval, matched by similarity search, or passed to the model as context. | 2 |
+| **8.1.6** | **検証:** 検索異常検出は、エンベディング密度の外れ値、類似度結果における特定のドキュメントの繰り返し優位、およびベクトルデータベースポイズニングを示唆する可能性のある検索バイアス分布の急激な変化を特定している。 | 3 |
 
 ---
 
