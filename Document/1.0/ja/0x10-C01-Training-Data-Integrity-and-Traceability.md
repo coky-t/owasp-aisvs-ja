@@ -13,9 +13,9 @@ Training data origin and traceability are critical to the security and trustwort
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **1.1.1** | **検証:** すべてのトレーニングデータソースの最新インベントリ (出所、責任者、ライセンス、収集方法、使用目的の制約、処理履歴) を維持している。 | 1 |
-| **1.1.2** | **検証:** トレーニングデータプロセスは不要な機能、属性、フィールド (未使用のメタデータ、機密性の高い PII、漏洩したテストデータなど) を除外している。 | 1 |
+| **1.1.2** | **Verify that** training data processes include only features, attributes, and fields required for the model's stated purpose, excluding all others (e.g., unused metadata, sensitive PII, leaked test data). | 1 |
 | **1.1.3** | **検証:** すべてのデータセットの変更はログ記録される承認ワークフローの対象としている。 | 1 |
-| **1.1.4** | **検証:** データセットやサブセットは可能な場合にはウォーターマークやフィンガープリントされている。 | 3 |
+| **1.1.4** | **Verify that** datasets or subsets are watermarked or fingerprinted to enable downstream attribution and detection of unauthorized use. | 3 |
 
 ---
 
@@ -28,7 +28,7 @@ Training data must be protected against unauthorized access, disclosure, tamperi
 | **1.2.1** | **検証:** アクセス制御はトレーニングデータのストレージとパイプラインを保護している。 | 1 |
 | **1.2.2** | **検証:** トレーニングデータへのすべてのアクセスは、ユーザー、時間、アクションなど、ログ記録されている。 | 1 |
 | **1.2.3** | **検証:** トレーニングデータセットは転送時と保存時に、現在推奨されている暗号アルゴリズムと鍵管理手法を使用して暗号化されている。 | 2 |
-| **1.2.4** | **検証:** 古くなったトレーニングデータは安全に消去または匿名化されている。 | 1 |
+| **1.2.4** | **Verify that** training data is securely purged or anonymized when it is no longer required for the model's stated purpose. | 1 |
 | **1.2.5** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 |
 | **1.2.6** | **検証:** 自動化された完全性監視を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 |
 | **1.2.7** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 3 |
@@ -45,7 +45,7 @@ Labeling and annotation processes must be protected against unauthorized modific
 | **1.3.2** | **検証:** すべてのラベリングアクティビティは、アノテーターのアイデンティティ、タイムスタンプ、実行されたアクションを含め、監査ログに記録されている。 | 1 |
 | **1.3.3** | **検証:** アノテーターのアイデンティティメタデータはデータセットとともにエクスポートおよび保持されるため、すべてのアノテーションまたはプリファレンスペアは、トレーニングパイプライン全体を通して特定の検証済みの人間のアノテーターに帰属できる。 | 1 |
 | **1.3.4** | **検証:** 暗号化ハッシュまたはデジタル署名はラベリングアーティファクト、アノテーションデータ、ファインチューニングフィードバックレコード (RLHF プリファレンスペアを含む) に適用され、完全性と真正性を確保している。 | 2 |
-| **1.3.5** | **検証:** ラベル内の機密情報は、保存時および転送時に適切な粒度を使用して訂正、匿名化、または暗号化されている。 | 2 |
+| **1.3.5** | **Verify that** sensitive information in labels is redacted, anonymized, or encrypted both at rest and in transit before being used in any labeling artifact. | 2 |
 
 ---
 
