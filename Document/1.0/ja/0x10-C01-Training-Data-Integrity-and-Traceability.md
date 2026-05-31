@@ -21,17 +21,14 @@ Training data origin and traceability are critical to the security and trustwort
 
 ## C1.2 トレーニングデータのセキュリティと完全性 (Training Data Security & Integrity)
 
-Training data must be protected against unauthorized access, disclosure, tampering, corruption, and poisoning throughout its lifecycle. Storage systems and data pipelines should enforce access control, preserve auditability, protect confidentiality through encryption, validate integrity during storage and transfer, and maintain immutable dataset versions for rollback and forensic analysis.
+Training data must be protected against tampering, corruption, and poisoning throughout its lifecycle. Generic data security controls (access control on storage, access logging, and encryption at rest and in transit) are covered by OWASP ASVS v5 (V6, V7, V8) and must be implemented as a baseline. This section addresses AI-specific concerns: integrity verification against data poisoning, immutable dataset versioning for rollback, and the residual-memorization risk that persists in trained models after training data is retired.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
-| **1.2.1** | **検証:** アクセス制御はトレーニングデータのストレージとパイプラインを保護している。 | 1 |
-| **1.2.2** | **検証:** トレーニングデータへのすべてのアクセスは、ユーザー、時間、アクションなど、ログ記録されている。 | 1 |
-| **1.2.3** | **検証:** トレーニングデータセットは転送時と保存時に、現在推奨されている暗号アルゴリズムと鍵管理手法を使用して暗号化されている。 | 2 |
-| **1.2.4** | **Verify that** training data is securely purged or anonymized when it is no longer required for the model's stated purpose. | 1 |
-| **1.2.5** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 |
-| **1.2.6** | **検証:** 自動化された完全性監視を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 |
-| **1.2.7** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 3 |
+| **1.2.1** | **Verify that** when training data is retired or removed, the impact on models trained on that data is assessed, and that residual memorization risks are addressed (e.g., via targeted fine-tuning, machine unlearning, or model retraining). | 1 |
+| **1.2.2** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 |
+| **1.2.3** | **検証:** 自動化された完全性監視を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 |
+| **1.2.4** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 3 |
 
 ---
 
