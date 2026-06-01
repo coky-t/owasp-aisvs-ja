@@ -142,7 +142,7 @@ Validate, normalize, and constrain all inputs before they reach models or downst
 | Pre-tokenization input normalization (Unicode NFC, homoglyph mapping, control/invisible character removal, bidirectional text neutralization) | 2.2.1 |
 | Post-normalization suspicious artifact rejection or flagging | 2.2.3 |
 | Adversarial input quarantine and logging | 2.2.2 |
-| Encoding and representation smuggling detection and mitigation | 2.2.4 |
+| Input encoding and representation smuggling detection and mitigation | 2.2.4 |
 | Content classifiers for inbound prompts (hate, violence, sexual, illegal) with threshold-based rejection or sanitization | 2.3.1 |
 | Multilingual classifier gap evaluation with compensating controls (language detection, conservative thresholds, human review routing) | 2.3.2 |
 | Policy-violating input rejection before model propagation | 2.3.3 |
@@ -176,6 +176,7 @@ Constrain, filter, and validate model outputs before they reach users or downstr
 | Output safety classifiers (hate, harassment, violence) | 7.3.1 |
 | System prompt leakage detection in outputs (verbatim and paraphrased) | 7.3.2 |
 | Prevention of auto-triggered outbound requests from model-generated output | 7.3.3 |
+| Output encoding and representation smuggling detection and sanitization | 7.3.5 |
 | System prompt and backend data removal from explanations | 7.5.1 |
 | RAG unsupported-claim blocking or redaction before serving | 7.6.4 |
 | Authorization-aware post-inference filtering (per-caller entitlement enforcement) | 5.4.1 |
@@ -325,8 +326,9 @@ Protect personal data and enforce data subject rights throughout the AI lifecycl
 | Empirical (black-box) differential privacy audits | 12.3.2 |
 | Formal differential privacy proofs (including post-training and embeddings) | 12.3.3 |
 | Purpose tags with machine-readable alignment and runtime enforcement | 12.4.1, 12.4.2 |
-| Consent-aware inference scope validation (refuse or downgrade off-scope responses) | 12.5.1 |
-| Consent withdrawal propagation through AI artifacts (aligned with deletion SLA) | 12.5.2 |
+| Consent scope validation before model inference (operation and data subjects) | 12.5.1 |
+| Consent scope enforcement: refuse or downgrade response before serving | 12.5.2 |
+| Consent withdrawal propagation through AI artifacts (aligned with deletion SLA) | 12.5.3 |
 | Local or central differential privacy in federated learning | 12.6.1 |
 | Differentially private training metrics | 12.6.2 |
 | Federated canary-based privacy auditing | 12.6.3 |
