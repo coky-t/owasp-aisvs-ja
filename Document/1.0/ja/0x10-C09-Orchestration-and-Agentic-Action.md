@@ -33,7 +33,7 @@
 
 ## C9.3 コンポーネントの分離と安全な統合 (Component Isolation and Safe Integration)
 
-ツールとプラグインの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。
+ツールとプラグインの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。For AI model-loading sandbox isolation at the infrastructure layer, see C4.1.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
