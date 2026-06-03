@@ -25,7 +25,7 @@ Training data must be protected against tampering, corruption, and poisoning thr
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
-| **1.2.1** | **Verify that** when training data is retired or removed, the impact on models trained on that data is assessed, and that residual memorization risks are addressed (e.g., via targeted fine-tuning, machine unlearning, or model retraining). | 1 |
+| **1.2.1** | **Verify that** when training data is retired or removed, an impact assessment is documented covering all models trained on that data, the assessed residual memorization risk, and the selected mitigation (targeted fine-tuning, machine unlearning, model retraining, or documented risk acceptance). | 1 |
 | **1.2.2** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 |
 | **1.2.3** | **検証:** 自動化された完全性監視を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 |
 | **1.2.4** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 3 |
@@ -56,8 +56,8 @@ Training data quality and security assurance controls help detect corruption, po
 | **1.4.2** | **検証:** トレーニングとファインチューニングのパイプラインは、潜在的なデータポイズニングやトレーニングデータ内の意図しない破損を識別するために、データ完全性バリデーションとポイズニング検出技法 (統計解析、外れ値検出、エンベディング解析など) を実装している。 | 2 |
 | **1.4.3** | **検証:** (モデルや弱いスーパービジョンなどを介して) 自動的に生成されたラベルは、誤解を招くラベルや信頼性の低いラベルを検出するために、信頼性閾値と一貫性チェックの対象としている。 | 2 |
 | **1.4.4** | **検証:** 自動テストは、すべての取り込みや重要なデータ変換で、ラベルスキューを捕捉している。 | 2 |
-| **1.4.5** | **検証:** セキュリティ関連の判断 (不正使用の検出、不正スコアリング、自動的な信頼性判断など) に使用されるモデルは、攻撃者がコントロールを回避するために悪用する可能性のある体系的なバイアスパターン (例: 信頼できる言語スタイルや人口統計パターンを模倣して検出をバイパスするなど) について評価されている。 | 2 |
-| **1.4.6** | **検証:** リスク評価に基づいて、関連するモデルに対して、敵対的トレーニング、摂動入力によるデータ拡張、堅牢な最適化技法のような、データポイズニングに対する適切なトレーニング時の防御策が実装および調整されている。 | 2 |
+| **1.4.5** | **検証:** セキュリティ関連の判断 (不正使用の検出、不正スコアリング、自動的な信頼性判断など) に使用されるモデルは、デプロイメント前および重要なモデルの更新後に、攻撃者がコントロールを回避するために悪用する可能性のある体系的なバイアスパターン (例: 信頼できる言語スタイルや人口統計パターンを模倣して検出をバイパスするなど) について評価されている。 | 2 |
+| **1.4.6** | **Verify that** training-time defenses against data poisoning are selected and applied based on a documented risk assessment, with the chosen defense (e.g., adversarial training, data augmentation with perturbed inputs, or robust optimization) and its tuning rationale recorded alongside the model artifact. | 2 |
 | **1.4.7** | **検証:** 信頼できない、または部分的に信頼できるトレーニングデータソースにさらされるモデルに対しては、クリーンラベルポイズニングに対する防御 (入力の精製、k-NN フィルタリング、データ分割および集約など) が実行されている。 | 3 |
 
 ---
