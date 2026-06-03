@@ -40,10 +40,9 @@
 | :--: | --- | :---: |
 | **10.3.1** | **検証:** 認証され、暗号化されたストリーミング可能な HTTP は本番環境のプライマリ MCP トランスポートとして使用されており、代替トランスポート (stdio や SSE など) は明示的な理由でローカルまたは厳密に制御された環境に制限されている。 | 1 |
 | **10.3.2** | **Verify that** SSE-based MCP transports are used only within private, authenticated internal channels with TLS, schema validation, payload size limits, and rate limiting enforced, and are not exposed to the public internet. | 2 |
-| **10.3.3** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダを検証しており、信頼できない、一致しない、または欠落しているオリジンからのリクエストを拒否している。 | 2 |
+| **10.3.3** | **検証:** MCP サーバーは、DNS 再バインディング攻撃を防ぐために、すべての HTTP ベースのトランスポート (SSE およびストリーミング可能な HTTP を含む) の `Origin` ヘッダと `Host` ヘッダの両方を個別に検証している。いずれかのヘッダが欠落している、一致しない、または信頼できないオリジンからのリクエストは拒否されている。 | 2 |
 | **10.3.4** | **Verify that** intermediaries do not alter or remove the `Mcp-Protocol-Version` header on streamable-HTTP transports unless explicitly required by the protocol specification, preventing protocol downgrade via header stripping. | 2 |
-| **10.3.5** | **Verify that** SSE-based MCP transport endpoints enforce TLS, authentication, schema validation, payload size limits, and rate limiting. | 2 |
-| **10.3.6** | **Verify that** MCP clients enforce a minimum acceptable protocol version and reject `initialize` responses that propose a version below that minimum, preventing a server or intermediary from forcing use of a protocol version with weaker security properties. | 2 |
+| **10.3.5** | **Verify that** MCP clients enforce a minimum acceptable protocol version and reject `initialize` responses that propose a version below that minimum, preventing a server or intermediary from forcing use of a protocol version with weaker security properties. | 2 |
 
 ---
 
