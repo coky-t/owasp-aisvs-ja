@@ -8,7 +8,7 @@ AI-specific infrastructure components must be hardened against model theft, data
 
 ## C4.1 AI ワークロードのサンドボックス化とバリデーション (AI Workload Sandboxing & Validation)
 
-信頼できない AI モデルを安全なサンドボックスで分離し、高信頼実行環境 (TEE) と機密コンピューティングテクノロジを使用して機密性の高い AI ワークロードを保護します。
+信頼できない AI モデルを安全なサンドボックスで分離し、高信頼実行環境 (TEE) と機密コンピューティングテクノロジを使用して機密性の高い AI ワークロードを保護します。For tool and plugin execution sandboxing within agentic workflows, see C9.3.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------ | :---: |
