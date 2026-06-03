@@ -30,9 +30,8 @@
 | **8.2.1** | **検証:** 一度埋め込まれたデータは結果として得られるインデックスから確実に訂正できないことを認識しており、規制対象データと機密フィールドはエンベディング前に検出され、ポリシーに基づいてマスク、トークン化、変換、または削除されている。 | 1 |
 | **8.2.2** | **Verify that** content intended to poison retrieval (e.g., text crafted to project to attacker-chosen embedding neighborhoods, hidden instructions intended for downstream model context, or steganographic payloads in non-text inputs) is detected and rejected or quarantined before vectorization. | 1 |
  **8.2.3** | **検証:** 通常のクラスタリングパターンを外れるベクトルは、プロダクションインデックスに入る前に、フラグ付けされ、隔離されている。 | 2 |
-| **8.2.4** | **検証:** エージェント自身の出力は、明示的なバリデーション (書き込みをコミットする前にコンテンツのソースを検証する、コンテンツオリジンのチェックや書き込み認可制御など) なしでは、自動的に書き戻されることはない。 | 2 |
-| **8.2.5** | **Verify that** tool outputs and orchestration results are not automatically written to agent memory without the same source validation and write-authorization controls applied to the agent's own outputs. | 2 |
-| **8.2.6** | **検証:** メモリに書き込漏れた新しいコンテンツはすでに保存されているものとの矛盾がないかチェックされ、矛盾があるとアラートをトリガーしている。 | 3 |
+| **8.2.4** | **検証:** エージェント出力、ツール出力、オーケストレーション結果は、明示的なソースバリデーション (書き込みをコミットする前にコンテンツのソースを検証する、コンテンツオリジンのチェックや書き込み認可制御など) なしでは、信頼できるエージェントメモリに自動的に書き戻されることはない。 | 2 |
+| **8.2.5** | **検証:** メモリに書き込漏れた新しいコンテンツはすでに保存されているものとの矛盾がないかチェックされ、矛盾があるとアラートをトリガーしている。 | 3 |
 
 ---
 
