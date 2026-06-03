@@ -17,7 +17,7 @@
 | **2.1.3** | **検証:** システムはモデルプロンプトのユーザー入力に対して文字セット制限を実装しており、許可リストアプローチを使用してビジネス上の目的で明示的に必要な文字のみを許可している。 | 1 |
 | **2.1.4** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
 | **2.1.5** | **検証:** システムは、単一のコンテキストウィンドウに含まれるユーザー提供のデモンストレーションの数について、リクエストごとの制限を適用している。 | 2 |
-| **2.1.6** | **検証:** プロンプトインジェクションスクリーニングは、呼び出しエージェントのロールやパーミッションレベルなど、リクエスト時に解決される属性ベースのルールを介してユーザー固有のポリシー (年齢や地域的な法的制約) を尊重している。 | 2 |
+| **2.1.6** | **検証:** プロンプトインジェクションスクリーニングは、呼び出しエージェントのロールやパーミッションレベルなど、リクエスト時に解決される属性ベースのルールを介してユーザー固有の属性 (年齢層、認可ロール、リージョンコンテンツポリシー分類など) を尊重している。 | 2 |
 | **2.1.7** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。 | 3 |
 | **2.1.8** | **Verify that** the instruction hierarchy is preserved across multi-step interactions and tool-augmented workflows, including prompt composition and intermediate outputs, such that user-controlled content cannot override system or developer instructions. | 3 |
 | **2.1.9** | **検証:** システムは、複数回のジェイルブレーキングに一致する、体系的でコンテキストに応じた動作の上書き試行を示すパターンを検出している。 | 3 |
@@ -44,7 +44,7 @@ Syntactically valid prompts may request disallowed content such as policy-violat
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.3.1** | **Verify that** every inbound prompt is scored by a content classifier for violence, self-harm, hate, sexual content, and illegal requests against configurable thresholds, and that prompts exceeding those thresholds are rejected or sanitized before reaching model context. | 1 |
+| **2.3.1** | **Verify that** every inbound prompt is scored by a content classifier for violence, self-harm, hate, and sexual content against configurable thresholds, and that prompts exceeding those thresholds are rejected or sanitized before reaching model context. | 1 |
 | **2.3.2** | **Verify that** prompt content classification is evaluated for unsupported-language abuse and that identified gaps are mitigated through compensating controls such as language detection with rejection, conservative thresholds, or human review routing. | 1 |
 | **2.3.3** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
 | **2.3.4** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 2 |
