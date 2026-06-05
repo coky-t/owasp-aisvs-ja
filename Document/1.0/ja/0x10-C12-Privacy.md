@@ -51,8 +51,7 @@ Prevent models and datasets from being used beyond their originally consented pu
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **12.4.1** | **検証:** すべてのデータセットとモデルのチェックポイントは、ソースデータが収集された際の元の同意および法的根拠に沿った、機械読み取り可能な目的タグを伝達している。 | 1 |
 | **12.4.2** | **検証:** ランタイムモニターは、データセットまたはモデルの宣言された目的と一致しないクエリを検出し、検出されたクエリはソフト拒否をトリガーするか、レビュー待ちでブロックされている。 | 1 |
-| **12.4.3** | **検証:** Policy as Code ゲートは DPIA レビューなしでの新しいドメインへのモデルのデプロイメントをブロックしている。 | 3 |
-| **12.4.4** | **検証:** 形式トレーサビリティ証明はすべての個人データのライフサイクルが同意された範囲内にとどまっていることを示している。 | 3 |
+| **12.4.3** | **検証:** Policy as Code ゲートは目的タグ (12.4.1) でカバーされていない目的またはドメインへのモデルのデプロイメントをブロックしている。 | 3 |
 
 ---
 
@@ -62,7 +61,7 @@ Enforce consent at AI-specific decision points (training data ingestion, inferen
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
-| **12.5.1** | **Verify that** model inference validates consent scope before processing, covering both the requested operation and the data subjects whose data materially influences the response. | 2 |
+| **12.5.1** | **Verify that** model inference validates consent scope before processing, covering both the requested operation and the data subjects whose data materially influences the response. | 3 |
 | **12.5.2** | **Verify that** when validated consent scope does not cover the requested operation or the data subjects whose data materially influences the response, the system refuses or downgrades the response before serving it to the caller. | 2 |
 | **12.5.3** | **Verify that** withdrawal of consent triggers the same AI-artifact propagation pipeline as a deletion request (see 12.2.1), and that inference paths relying on the withdrawn data are disabled within the same SLA. | 2 |
 
