@@ -28,7 +28,7 @@ Training data must be protected against tampering, corruption, and poisoning thr
 | **1.2.1** | **Verify that** when training data is retired or removed, an impact assessment is documented covering all models trained on that data, the assessed residual memorization risk, and the selected mitigation (targeted fine-tuning, machine unlearning, model retraining, or documented risk acceptance). | 1 |
 | **1.2.2** | **検証:** 暗号化ハッシュまたはデジタル署名を使用して、トレーニングデータの保存時および転送時のデータ完全性を確保している。 | 2 |
 | **1.2.3** | **検証:** 自動化された完全性監視を適用して、トレーニングデータの不正な変更や破損から保護している。 | 2 |
-| **1.2.4** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 3 |
+| **1.2.4** | **検証:** すべてのトレーニングデータセットのバージョンは、ロールバックとフォレンジック解析をサポートするために、一意に識別され、不変に保存され、監査可能である。 | 2 |
 
 ---
 
