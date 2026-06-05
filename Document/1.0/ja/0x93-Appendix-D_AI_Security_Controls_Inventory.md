@@ -64,7 +64,7 @@ Protect stored data, models, secrets, logs, and backups through encryption.
 | --- | --- |
 | Training data encryption at rest | ASVS v5 V6 |
 | Labeled data encryption | 1.3.5 |
-| Log encryption at rest | 13.1.4 |
+| Log encryption at rest | 13.1.5 |
 
 **Common pitfalls:** encrypting the database but not model checkpoints or embeddings; not encrypting logs that contain prompt/response data; storing encryption keys alongside the data they protect.
 
@@ -79,7 +79,7 @@ Protect data moving between services, agents, tools, and edge devices.
 | Mutual TLS with certificate validation for inter-service communication | 4.3.4 |
 | Authenticated streamable-HTTP transport with TLS 1.3 for MCP | 10.3.1, 10.3.2 |
 | SSE private channel with TLS enforcement | 10.3.2 |
-| Log encryption in transit | 13.1.4 |
+| Log encryption in transit | 13.1.5 |
 | MCP client minimum protocol version enforcement against downgrade negotiation | 10.3.5 |
 
 **Common pitfalls:** allowing plaintext interconnects in multi-tenant GPU clusters; using SSE over public internet without TLS; not validating certificates on internal service calls.
@@ -364,7 +364,7 @@ Test for and defend against evasion, extraction, inversion, poisoning, and align
 | Membership inference attack simulation (shadow-model, likelihood-ratio) | 11.3.3 |
 | Model extraction detection (query-pattern analysis, diversity measurement) | 11.5.3 |
 | Statistical outlier and consistency scoring on external inputs | 11.6.1 |
-| Adaptive attack evasion testing | 11.6.5 |
+| Adaptive attack evasion testing | 11.2.6 |
 | AI-augmented review of high-risk agent actions (secondary model, structured self-review, ensemble-of-judges) supplementing the deterministic policy gate (C9.7.1) | 11.8.1 |
 | AI-augmented review mechanism protected against prompt-injection bypass | 11.8.2 |
 | Self-modification restriction with scope bounds and rate limits | 11.9.1, 11.9.5 |
@@ -385,12 +385,13 @@ Capture security-relevant events with integrity protection for forensic analysis
 
 | Control / Technique | Requirement IDs |
 | --- | --- |
-| Security-relevant metadata logging for AI interactions (timestamp, user ID, session ID, model version, token count, input hash, confidence score, safety filter outcome) | 13.1.1 |
-| AI interaction logs exclude prompt and response content by default, with content logging requiring explicit opt-in and documented justification | 13.1.2 |
-| Secure, access-controlled log repositories with retention policies | 13.1.3 |
-| Log encryption at rest and in transit | 13.1.4 |
-| PII, credential, and proprietary information redaction in logs | 13.1.5 |
-| Policy decision and safety filtering action logging | 13.1.3 |
+| Basic session and model context logging (timestamp, user ID, session ID, model version) | 13.1.1 |
+| AI-specific telemetry logging (token count, input hash, system prompt version, confidence score, safety filter outcome) | 13.1.2 |
+| AI interaction logs exclude prompt and response content by default, with content logging requiring explicit opt-in and documented justification | 13.1.3 |
+| Secure, access-controlled log repositories with retention policies | 13.1.4 |
+| Log encryption at rest and in transit | 13.1.5 |
+| PII, credential, and proprietary information redaction in logs | 13.1.6 |
+| Policy decision and safety filtering action logging | 13.1.4 |
 | Audit log context fields sufficient for forensic reconstruction (actor, delegation, policy, parameters, outcomes) | 9.4.3 |
 | Agent action cryptographic chain ID binding | 9.4.2 |
 | Agent action signing and timestamps for non-repudiation | 9.4.4 |
@@ -457,12 +458,11 @@ Require human review and approval for high-impact, irreversible, or safety-criti
 
 | Control / Technique | Requirement IDs |
 | --- | --- |
-| Documented high-risk action policy (classification criteria, approval authority) | 14.2.1 |
+| Documented high-risk action policy (classification criteria, approval authority; including authorization of any non-fail-closed TTL-expiry default) | 14.2.1 |
 | High-impact action approval gates (deploy, delete, financial, notify) | 9.2.1 |
 | Approval parameter binding (prevent approve-one-execute-another) | 9.2.2 |
 | High-impact intent confirmation with exact parameter binding and quick expiration | 9.2.3 |
 | Fail-closed default action (block pending action) when human approval is not received within TTL | 14.2.2 |
-| Any non-fail-closed TTL-expiry default explicitly authorized and classified as a high-risk policy decision requiring approval authority sign-off | 14.2.3 |
 | Human review on anomaly detection | 11.6.3 |
 | High-risk model quarantine with human review and sign-off | 6.1.3 |
 | Post-condition outcome checking with containment on mismatch | 9.7.2 |
