@@ -64,7 +64,7 @@ Prevent cross-tenant information leakage through AI-specific shared infrastructu
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.6.1** | **検証:** 推論時の KV キャッシュエントリは認証されたセッションまたはテナントアイデンティティによって分割され、自動プレフィックスキャッシュは、タイミングベースのプロンプト再構築攻撃を防ぐために、異なるセキュリティプリンシパル間ではキャッシュされたプレフィックスを共有していない。 | 2 |
+| **5.6.1** | **検証:** 推論時の KV キャッシュエントリは認証されたセッションまたはテナントアイデンティティによって分割され、自動プレフィックスキャッシュは、タイミングベースのプロンプト再構築攻撃を防ぐために、異なるセキュリティプリンシパル間ではキャッシュされたプレフィックスを共有していない。 | 3 |
 | **5.6.2** | **Verify that** shared model serving infrastructure prevents one tenant's fine-tuning, inference, or embedding operations from influencing or observing another tenant's operations through shared model state, adapter weights, or compute resources. | 2 |
 
 ---
