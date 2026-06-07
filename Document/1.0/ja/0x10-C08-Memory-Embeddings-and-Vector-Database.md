@@ -14,8 +14,8 @@
 | :--: | --- | :---: |
 | **8.1.1** | **検証:** ベクトルの挿入、更新、削除、クエリ操作はデフォルトで拒否された名前空間/コレクション/ドキュメントタグのスコープ制御 (テナント ID、ユーザー ID、データ分類ラベルなど) で強制されている。 | 1 |
 | **8.1.2** | **検証:** 取り込まれたすべてのドキュメントは書き込み時に、ソース、書き込み者アイデンティティ (認証済みユーザーまたはシステムプリンシパル)、タイムスタンプ、バッチ ID、エンベディングモデルのバージョンでタグ付けされている。 | 2 |
-| **8.1.3** | **Verify that** document metadata tags applied at ingestion are immutable after initial write and cannot be modified by subsequent pipeline stages or user operations. | 2 |
-| **8.1.4** | **検証:** RAG パイプラインの取得イベントは、発行されたクエリ、取得されたドキュメントやチャンク、類似度スコア、知識ソース、および取得したコンテンツがモデルコンテキストに組み込まれる前にプロンプトインジェクションスキャンに合格したかどうかをログ記録している。 | 2 |
+| **8.1.3** | **Verify that** document metadata tags applied at ingestion are immutable after the initial write and cannot be changed by later pipeline stages or user operations. | 2 |
+| **8.1.4** | **検証:** RAG パイプラインの取得イベントは、発行されたクエリ、取得されたドキュメントやチャンク、類似度スコア、知識ソース、および取得したコンテンツがモデルコンテキストに追加される前にプロンプトインジェクションスキャンに合格したかどうかをログ記録している。 | 2 |
 | **8.1.5** | **Verify that** restricted retrieval indices include uniquely marked canary records that contain no real sensitive content, with markers that survive retrieval, embedding, and context-assembly pipelines. | 2 |
 | **8.1.6** | **Verify that** a high-severity security alert is generated whenever a canary record is selected by retrieval, matched by similarity search, or passed to the model as context. | 2 |
 | **8.1.7** | **検証:** 検索異常検出は、エンベディング密度の外れ値、類似度結果における特定のドキュメントの繰り返し優位、およびベクトルデータベースポイズニングを示唆する可能性のある検索バイアス分布の急激な変化を特定している。 | 3 |
@@ -28,7 +28,7 @@
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **8.2.1** | **検証:** 一度埋め込まれたデータは結果として得られるインデックスから確実に訂正できないことを認識しており、規制対象データと機密フィールドはエンベディング前に検出され、ポリシーに基づいてマスク、トークン化、変換、または削除されている。 | 1 |
+| **8.2.1** | **検証:** 一度埋め込まれたデータは結果として得られるインデックスから確実に訂正できないため、規制対象データと機密フィールドはエンベディング前に検出され、ポリシーに基づいてマスク、トークン化、変換、または削除されている。 | 1 |
 | **8.2.2** | **Verify that** content intended to poison retrieval (e.g., text crafted to project to attacker-chosen embedding neighborhoods, hidden instructions intended for downstream model context, or steganographic payloads in non-text inputs) is detected and rejected or quarantined before vectorization. | 1 |
  **8.2.3** | **検証:** 通常のクラスタリングパターンを外れるベクトルは、プロダクションインデックスに入る前に、フラグ付けされ、隔離されている。 | 2 |
 | **8.2.4** | **検証:** エージェント出力、ツール出力、オーケストレーション結果は、明示的なソースバリデーション (書き込みをコミットする前にコンテンツのソースを検証する、コンテンツオリジンのチェックや書き込み認可制御など) なしでは、信頼できるエージェントメモリに自動的に書き戻されることはない。 | 2 |
@@ -67,7 +67,7 @@ Retention and revocation must be explicit and enforceable for memory and RAG ind
 | **8.5.1** | **検証:** すべての検索操作は **ベクトルエンジンクエリでの** スコープ制約 (テナント/ユーザー/分類) を適用し、**プロンプトアセンブリの前に** (ポストフィルター) 再度検証している。 | 1 |
 | **8.5.2** | **検証:** ベクトル識別子、名前空間、メタデータインデックスはスコープ間の衝突を防ぎ、テナントごとに一意性を強制している。 | 1 |
 | **8.5.3** | **検証:** 類似基準に一致するがスコープチェックに失敗した検索結果は破棄されている。 | 1 |
-| **8.5.4** | **検証:** マルチテナントテストは敵対的検索試行 (プロンプトベースおよびクエリベース) をシミュレートし、プロンプトと出力にスコープ外のドキュメントがまったく含まないことを示している。 | 2 |
+| **8.5.4** | **検証:** マルチテナントテストは敵対的検索試行 (プロンプトベースおよびクエリベース) をシミュレートし、プロンプトや出力にスコープ外のドキュメントが現れないことを示している。 | 2 |
 
 ---
 
