@@ -33,7 +33,7 @@
 
 ## C9.3 コンポーネントの分離と安全な統合 (Component Isolation and Safe Integration)
 
-ツールとプラグインの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。For AI model-loading sandbox isolation at the infrastructure layer, see C4.1.
+ツールとプラグインの実行、ロード、出力を制限して、不正なシステムアクセスや安全でない副作用を防止します。
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
@@ -78,7 +78,7 @@
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **9.6.1** | **検証:** エージェントのアクションは、ランタイムによって強制される、きめ細かいポリシーに基づいて認可されている。エージェントが呼び出せるツール、エージェントが提供できるパラメータ値 (許可リスト、データスコープ、アクションタイプなど) を制限し、ポリシー違反はブロックされている。 | 1 |
+| **9.6.1** | **検証:** エージェントのアクションは、ランタイムによって強制される、きめ細かいポリシーに基づいて認可されている。エージェントが呼び出せるツール、エージェントが提供できるパラメータ値 (許可リスト、データスコープ、アクションタイプなど) を制限し、ポリシー違反をブロックしている。 | 1 |
 | **9.6.2** | **検証:** エージェントがユーザーの代わりに動作する場合、ランタイムは完全性が保護された委譲コンテキスト (ユーザー ID、テナント、セッション、スコープ) を伝播し、ユーザーのクレデンシャルを使用せずに、すべてのダウンストリーム呼び出しでそのコンテキストを適用している。 | 2 |
 | **9.6.3** | **検証:** すべてのアクセス制御の決定は、AI モデル自体ではなく、アプリケーションロジックまたはポリシーエンジンによって強制されており、モデルが生成する出力 (「ユーザーはこれを行うことが許可されている」など) はアクセス制御チェックを上書きやバイパスできない。 | 2 |
 | **9.6.4** | **Verify that** secrets and credentials required by an agent at runtime are not exposed within the model's observable context, including the context window, system prompts, or tool call parameters, and are instead provided via out-of-band mechanisms such as credential proxies, secrets manager injection, runtime sidecar authentication, or short-lived scoped tokens. | 2 |
