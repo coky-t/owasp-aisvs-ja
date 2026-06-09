@@ -10,7 +10,7 @@ AI systems introduce access control challenges beyond traditional application se
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.1.1** | **検証:** 高リスクの AI 操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、セッション再バリデーションでのステップアップ認証を必要としている。 | 2 |
+| **5.1.1** | **検証:** 高リスクの AI 操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、セッション再バリデーションでのステップアップ認証を必要としている。 | 3 |
 | **5.1.2** | **検証:** 連合またはマルチシステムデプロイメントの AI エージェントは、署名鍵が発行システムのアイデンティティ (JWKS, x5c, または DPoP や mTLS などの送信者制約付きトークンなどを介して)、有効期間が短く、暗号で署名されたトークン (署名付き JWT アサーションなど) を使用して認証している。 | 3 |
 
 ---
@@ -21,7 +21,7 @@ AI systems introduce access control challenges beyond traditional application se
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.2.1** | **検証:** すべての AI リソース (データセット、モデル、エンドポイント、ベクトルコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、アクセス制御 (RBAC, ABAC など) を適用している。 | 1 |
 | **5.2.2** | **Verify that** privileged access to model weights, training pipelines, and production AI configuration is granted just in time, with a defined maximum session duration and automatic expiry. Permanent standing privileged access to these resources is not permitted. | 2 |
-| **5.2.3** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined. Verify that AI assets are labeled in accordance with this taxonomy. | 2 |
+| **5.2.3** | **Verify that** a documented data classification taxonomy covering AI-specific data types (embeddings, model weights, prompt templates, RAG context assemblies, fine-tuning datasets, agent tool schemas) is defined. Verify that all AI production assets are labeled in accordance with this taxonomy. | 2 |
 | **5.2.4** | **検証:** データ分類ラベル (PII、PHI、独自など) は派生リソース (エンベディング、プロンプトキャッシュ、モデル出力) に自動的に伝播している。 | 3 |
 
 ---
@@ -32,7 +32,7 @@ Enforce the caller's authorization context through AI-specific query pipelines (
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.3.1** | **Verify that** AI inference and retrieval pipelines (e.g., RAG queries, embedding lookups) enforce the end-user's authorization context at each retrieval and assembly stage, rather than relying solely on the service account's permissions. | 1 |
+| **5.3.1** | **Verify that** AI inference and retrieval pipelines (e.g., RAG queries, embedding lookups) enforce the end-user's authorization context at each retrieval and assembly stage, rather than relying solely on the service account's permissions. | 2 |
 
 ---
 
@@ -42,8 +42,8 @@ Ensure that AI-generated outputs, including citations and source attributions, r
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
-| **5.4.1** | **検証:** 推論後フィルタリングメカニズムは、要求者が受信することを認可されていない機密情報や専有データをレスポンスに含むことを防いでいる。 | 1 |
-| **5.4.2** | **検証:** モデル出力内の引用、参照、ソース属性は呼び出し元のエンタイトルメントに対して検証されており、不正アクセスが検出された場合は削除されている。 | 2 |
+| **5.4.1** | **検証:** 推論後フィルタリングメカニズムは、要求者が受信することを認可されていない機密情報や専有データをレスポンスに含むことを防いでいる。 | 2 |
+| **5.4.2** | **検証:** モデル出力内の引用、参照、ソース属性は呼び出し元のエンタイトルメントに対して検証されており、不正アクセスが検出された場合は削除されている。 | 3 |
 
 ---
 
@@ -65,7 +65,8 @@ Prevent cross-tenant information leakage through AI-specific shared infrastructu
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.6.1** | **検証:** 推論時の KV キャッシュエントリは認証されたセッションまたはテナントアイデンティティによって分割されている。自動プレフィックスキャッシュは、タイミングベースのプロンプト再構築攻撃を防ぐために、異なるセキュリティプリンシパル間ではキャッシュされたプレフィックスを共有していない。 | 3 |
-| **5.6.2** | **Verify that** shared model serving infrastructure prevents one tenant's fine-tuning, inference, or embedding operations from influencing or observing another tenant's operations through shared model state, adapter weights, or compute resources. | 2 |
+| **5.6.2** | **Verify that** shared model serving infrastructure prevents one tenant's fine-tuning, inference, or embedding operations from influencing or observing another tenant's operations through shared model state or adapter weights. | 2 |
+| **5.6.3** | **Verify that** one tenant cannot influence or observe another tenant's operations through shared compute resources, including timing and other side channels arising from co-located execution. Because no software-only mitigation exists in current shared inference servers, satisfying this requirement typically requires hardware partitioning (e.g., NVIDIA MIG, SR-IOV virtual functions), confidential computing (e.g., NVIDIA Confidential Computing on H100+, AWS Nitro Enclaves), or dedicated per-tenant compute allocation. | 3 |
 
 ---
 
