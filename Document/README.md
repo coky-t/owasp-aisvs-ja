@@ -37,15 +37,15 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 * **リスク管理フレームワークではありません。** AISVS は、リスクフレームワークが指す技術的制御を提供しますが、リスク評価方法論を定義してはいません。
 * **ツール推奨リストではありません。** AISVS はベンダーニュートラルであり、特定の製品やフレームワークを推奨してはいません。
 
-### How AISVS complements other standards
+### AISVS は他の標準をどのように補完するか
 
-| Standard | Focus | AISVS relationship |
+| 標準 | 焦点 | AISVS との関係 |
 | --- | --- | --- |
-| OWASP ASVS | Web application security | AISVS extends ASVS concepts to AI-specific threats |
-| [OWASP Top 10 for LLMs](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | Awareness of top LLM risks | AISVS provides the detailed controls to mitigate those risks |
-| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | Awareness of top agentic AI risks | AISVS provides the detailed controls to address agentic-specific threats |
-| NIST AI RMF | AI risk governance | AISVS supplies the testable technical controls that AI RMF references |
-| ISO/IEC 42001 | AI management systems | AISVS complements with implementation-level security verification |
+| OWASP ASVS | ウェブアプリケーションセキュリティ | AISVS は ASVS の概念を AI 固有の脅威に拡張します |
+| [OWASP Top 10 for LLMs](https://owasp.org/www-project-top-10-for-large-language-model-applications/) | 主要な LLM リスクの認識 | AISVS はこれらのリスクを緩和するための詳細なコントロールを提供します |
+| [OWASP Top 10 for Agentic Applications](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | エージェント型 AI リスクの認識 | AISVS はエージェント固有の脅威に対処するための詳細なコントロールを提供します |
+| NIST AI RMF | AI リスクガバナンス | AISVS は AI RMF が参照するテスト可能な技術的コントロールを提供します |
+| ISO/IEC 42001 | AI マネジメントシステム | AISVS は実装レベルのセキュリティ検証で補完します |
 
 ---
 
