@@ -12,54 +12,25 @@
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.1.1** | **検証:** モデルの動作を制御する可能性のあるすべての外部入力または派生入力は信頼できないものとして扱われ、プロンプトに含めたりアクションをトリガーするために使用する前に、プロンプトインジェクション検出ルールセットまたは分類器によってスクリーンされている。 | 1 |
-| **2.1.2** | **検証:** 入力長制御はユーザー提供のコンテンツがコンテキストウィンドウの定義された割合を超えることを防止しており、トークン制限を超える入力は暗黙的に切り捨てられるのではなく拒否されている。これによりシステム命令と安全性指示がモデルの有効な注意から逸れることが防いでいる。 | 1 |
-| **2.1.3** | **検証:** システムはモデルプロンプトのユーザー入力に対して文字セット制限を実装しており、許可リストアプローチを使用してビジネス上の目的で明示的に必要な文字のみを許可している。 | 1 |
-| **2.1.4** | **検証:** サードパーティコンテンツ (ウェブページ、PDF、電子メール) から生成されたプロンプトは、メインプロンプトに連結される前に、個別にサニタイズされている (たとえば、命令のようなディレクティブを除外し、HTML、マークダウン、スクリプトコンテンツを中和している)。 | 2 |
-| **2.1.5** | **検証:** システムは、単一のコンテキストウィンドウに含まれるユーザー提供のデモンストレーションの数について、リクエストごとの制限を適用している。 | 2 |
-| **2.1.6** | **検証:** プロンプトインジェクションスクリーニングは、呼び出しエージェントのロールやパーミッションレベルなど、リクエスト時に解決される属性ベースのルールを介してユーザー固有の属性 (年齢層、認可ロール、リージョンコンテンツポリシー分類など) を尊重している。 | 2 |
-| **2.1.7** | **検証:** システムは、システムおよび開発者メッセージがユーザー命令やその他の信頼できない入力を上書きするという命令階層を、ユーザー命令の処理後であっても、強制している。 | 3 |
-| **2.1.8** | **Verify that** the instruction hierarchy is preserved across multi-step interactions and tool-augmented workflows, including prompt composition and intermediate outputs, such that user-controlled content cannot override system or developer instructions. | 3 |
-| **2.1.9** | **検証:** システムは、複数回のジェイルブレーキングに一致する、体系的でコンテキストに応じた動作の上書き試行を示すパターンを検出している。 | 3 |
-| **2.1.10** | **検証:** 検出されたコンテキストに応じた動作の上書き試行はプロンプトインジェクションイベントとして分類され、処理されている。 | 3 |
+| **2.1.1** | **Verify that** input normalization is applied before tokenization or embedding. | 1 |
+| **2.1.2** | **Verify that** encoding and representation smuggling in inputs is detected and mitigated. Approved mitigations include canonicalization, strict schema validation, policy-based rejection, or explicit marking. | 1 |
+| **2.1.3** | **Verify that** all inputs that may steer model behavior are treated as untrusted and screened by a prompt injection detection ruleset or classifier and blocked. | 1 |
+| **2.1.4** | **Verify that** input length controls prevent content from exceeding the context window, and that inputs exceeding token limits are rejected rather than truncated. | 1 |
+| **2.1.5** | **Verify that** the system implements a character set limitation for all inputs, allowing only characters that are explicitly required using an allow-list approach. | 1 |
+| **2.1.6** | **Verify that** the system enforces an instruction hierarchy in which system and developer messages override user instructions and other untrusted inputs, even after processing user instructions. | 2 |
+| **2.1.7** | **Verify that** the system detects many-shot jailbreaking patterns. | 3 |
 
----
-
-## C2.2 Pre-Tokenization Input Normalization
-
-AI models process text through tokenizers and embeddings that can be exploited via encoding tricks invisible to conventional input validation. Normalization before tokenization closes attack vectors such as homoglyph substitution, invisible character injection, and bidirectional text manipulation that bypass standard allow-list filters but alter model behavior.
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.2.1** | **Verify that** input normalization is applied before tokenization or embedding. This includes Unicode NFC canonicalization, homoglyph mapping, removal of control and invisible Unicode characters, and bidirectional text neutralization. | 1 |
-| **2.2.2** | **Verify that** inputs identified as adversarial by any detection mechanism are blocked from inclusion in prompts or execution of actions. | 1 |
-| **2.2.3** | **Verify that** inputs which still contain suspicious encoding artifacts after normalization are rejected or flagged for review. | 2 |
-| **2.2.4** | **検証:** 入力のエンコーディングと表現のスマグリング (不可視の Unicode/制御文字、ホモグリフのスワップ、混合方向テキスト) は検出され、緩和されている。承認された緩和策は、正規化、厳密なスキーマバリデーション、ポリシーベースの拒否、明示的なマーキングを含んでいる。 | 3 |
-
----
-
-## C2.3 コンテンツとポリシーの審査 (Content & Policy Screening)
+## C2.2 Content & Policy Screening
 
 Syntactically valid prompts may request disallowed content such as policy-violating instructions, harmful content, or restricted material. Input-side content screening prevents such prompts from reaching the model.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.3.1** | **Verify that** every inbound prompt is scored by a content classifier for violence, self-harm, hate, and sexual content against configurable thresholds. Prompts that exceed those thresholds are rejected or sanitized before reaching model context. | 1 |
-| **2.3.2** | **Verify that** prompt content classification is evaluated for unsupported-language abuse. Identified gaps are mitigated through compensating controls such as language detection with rejection, conservative thresholds, or human review routing. | 1 |
-| **2.3.3** | **検証:** ポリシーに違反する入力は拒否されるため、ダウンストリームのモデルやツール/MCP 呼び出しに伝播していない。 | 1 |
-| **2.3.4** | **検証:** スクリーニングログは SOC 相関と将来のレッドチームのリプレイのために分類器の信頼スコアとポリシーカテゴリタグを、適用されたステージ (プロンプト前またはレスポンス後) とトレースメタデータ (ソース、ツールまたは MCP サーバー、エージェント ID、セッション) とともに、含んでいる。 | 2 |
-
----
-
-## C2.4 マルチモーダル入力バリデーション (Multi-Modal Input Validation)
-
-AI systems that accept non-textual inputs (images, audio, video, files) face unique attack vectors where malicious content can be embedded across modalities and extracted into text that feeds the model's context.
-
-| # | 説明 | レベル |
-| :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **2.4.1** | 非テキスト入力から抽出されたテキスト (画像からテキスト、音声からテキストなど) および非表示または埋め込まれたコンテンツ (メタデータ、レイヤ、代替テキスト、コメント) は 2.1.1 に従って信頼できないものとして扱われている。 | 1 |
-| **2.4.2** | **検証:** 画像/音声入力は敵対的な摂動、ステガノグラフィペイロード、既知の攻撃パターンについてチェックされており、検出するとモデル使用前にゲーティング (ブロックまたは機能のデグレード) をトリガーしている。 | 3 |
-| **2.4.3** | **検証:** クロスモーダル攻撃検出は相関ルールを使用して、複数の入力タイプにまたがる協調攻撃 (画像内のステガノグラフィペイロードとテキスト内のプロンプトインジェクションの組み合わせなど) を識別し、アラートを発している。確認された検出はブロックされるか、HITL (human-in-the-loop) の承認を要求している。 | 3 |
+| **2.3.1** | **Verify that** every prompt is scored by a content classifier for violence, self-harm, hate, and sexual content against configurable thresholds. Prompts that exceed those thresholds are rejected or sanitized before reaching model context. | 1 |
+| **2.3.2** | **Verify that** prompt content classification is evaluated for languages that are not supported. | 1 |
+| **2.3.3** | **Verify that** screening logs include classifier confidence scores and policy category tags with applied stage and trace metadata. | 2 |
+| **2.3.4** | **Verify that** non-text inputs (image/video/audio) are checked for adversarial perturbations, steganographic payloads, hidden or embedded content, or known attack patterns. | 2 |
+| **2.3.5** | **Verify that** coordinated attacks spanning multiple input types (e.g., steganographic payloads in images combined with prompt injection in text) are detected and blocked. | 3 |
 
 ---
 
