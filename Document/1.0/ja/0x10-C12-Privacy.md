@@ -25,7 +25,7 @@ Ensure data-subject deletion requests propagate across all AI artifacts and that
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
-| **12.2.1** | **Verify that** data-subject deletion requests propagate to AI-derived artifacts including training and fine-tuning datasets, model checkpoints, evaluation sets, derived caches, and feature stores within a service-level agreement window of less than 30 days. | 1 |
+| **12.2.1** | **Verify that** data-subject deletion requests propagate to AI data artifacts including training and fine-tuning datasets, evaluation sets, derived caches, feature stores, and vector/embedding stores within a service-level agreement window of less than 30 days. | 1 |
 | **12.2.2** | **Verify that** shadow-model or membership-inference evaluation demonstrates that forgotten records influence less than a documented policy threshold of model outputs after unlearning. | 2 |
 | **12.2.3** | **Verify that** machine-unlearning routines, when claimed, either physically retrain the affected model on the retained data or apply a certified unlearning algorithm with documented (ε, δ) guarantees. | 3 |
 
@@ -50,8 +50,8 @@ Prevent models and datasets from being used beyond their originally consented pu
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
 | **12.4.1** | **検証:** すべてのデータセットとモデルのチェックポイントは、ソースデータが収集された際の元の同意および法的根拠に沿った、機械読み取り可能な目的タグを伝達している。 | 1 |
-| **12.4.2** | **検証:** ランタイムモニターは、データセットまたはモデルの宣言された目的と一致しないクエリを検出し、検出されたクエリはソフト拒否をトリガーするか、レビュー待ちでブロックされている。 | 1 |
-| **12.4.3** | **検証:** Policy as Code ゲートは目的タグ (12.4.1) でカバーされていない目的またはドメインへのモデルのデプロイメントをブロックしている。 | 3 |
+| **12.4.2** | **検証:** ランタイムモニターは、データセットまたはモデルの宣言された目的と一致しないクエリを検出し、検出されたクエリはソフト拒否をトリガーするか、レビュー待ちでブロックされている。 | 2 |
+| **12.4.3** | **検証:** Policy as Code ゲートは目的タグ (12.4.1) でカバーされていない目的またはドメインへのモデルのデプロイメントをブロックしている。 | 2 |
 
 ---
 
