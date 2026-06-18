@@ -32,7 +32,7 @@ Detect AI-specific attack patterns (jailbreak, prompt injection, model extractio
 | **13.2.3** | **検証:** 行動異常検出は、異常な会話パターン、過度の再試行、体系的な調査行動を識別している。 | 2 |
 | **13.2.4** | **検証:** カスタムルールは、協調的なジェイルブレイクの試み、プロンプトインジェクションキャンペーン、システムプロンプト抽出試行、モデル抽出攻撃などの AI 固有の脅威パターンを検出している。 | 2 |
 | **13.2.5** | **Verify that** per-user and per-session token consumption triggers an alert when consumption exceeds defined thresholds. | 2 |
-| **13.2.6** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックしている。 | 3 |
+| **13.2.6** | **検証:** 自動インシデント対応ワークフローは侵害されたモデルを隔離し、悪意のあるユーザーをブロックしている。 | 2 |
 | **13.2.7** | **Verify that** session-level conversation trajectory analysis detects multi-turn jailbreak patterns where no single turn looks overtly malicious on its own, but the conversation as a whole shows attack indicators. | 3 |
 | **13.2.8** | **Verify that** LLM API traffic is monitored for covert channel indicators, including Base64-encoded payloads, structured non-human query patterns, and communication signatures consistent with malware command-and-control activity using LLM endpoints. | 3 |
 
@@ -87,7 +87,7 @@ Detect and prevent security threats arising from proactive (agent-initiated) beh
 | **13.6.1** | **検証:** プロアクティブなエージェントの動作は、リスク評価での統合など、実行前にセキュリティ検証されている。 | 1 |
 | **13.6.2** | **検証:** 自律的なイニチアチブトリガーはセキュリティコンテキストの評価と脅威状況の評価を含んでいる。 | 2 |
 | **13.6.3** | **検証:** プロアクティブな動作パターンは、潜在的なセキュリティ影響と意図しない結果について分析されている。 | 2 |
-| **13.6.4** | **Verify that** audit logs capture the complete approval chain for security-critical proactive actions, including approver identity, timestamp, action parameters, and decision outcome. | 3 |
+| **13.6.4** | **Verify that** audit logs capture the complete approval chain for security-critical proactive actions, including approver identity, timestamp, action parameters, and decision outcome. | 2 |
 | **13.6.5** | **検証:** 動作異常検出は、侵害を示す可能性のあるプロアクティブなエージェントパターンの逸脱を識別している。 | 3 |
 
 ---
