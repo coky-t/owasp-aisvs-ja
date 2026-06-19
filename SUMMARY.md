@@ -19,7 +19,7 @@
 - [C08 メモリ、エンベディング、ベクトルデータベースセキュリティ (Memory, Embeddings & Vector Database Security)](Document/1.0/ja/0x10-C08-Memory-Embeddings-and-Vector-Database.md)
 - [C09 オーケストレーションとエージェントセキュリティ (Orchestration & Agentic Security)](Document/1.0/ja/0x10-C09-Orchestration-and-Agentic-Action.md)
 - [C10 モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)](Document/1.0/ja/0x10-C10-MCP-Security.md)
-- [C11 敵対的堅牢性と攻撃耐性 (Adversarial Robustness & Attack Resistance)](Document/1.0/ja/0x10-C11-Adversarial-Robustness.md)
+- [C11 敵対的堅牢性 (Adversarial Robustness)](Document/1.0/ja/0x10-C11-Adversarial-Robustness.md)
 - [C12 監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](Document/1.0/ja/0x10-C12-Monitoring-and-Logging.md)
 - [付録 A: 用語集](Document/1.0/ja/0x90-Appendix-A_Glossary.md)
 - [付録 B: 参考情報](Document/1.0/ja/0x91-Appendix-B_References.md)
