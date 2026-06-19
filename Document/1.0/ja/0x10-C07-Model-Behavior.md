@@ -31,7 +31,7 @@
 
 ## C7.3 出力の安全性、プライバシー、説明可能性 (Output Safety, Privacy & Explainability)
 
-Technical controls to detect and scrub unsafe content before it is shown to the user, and to ensure interpretability of AI decisions.
+Technical controls that detect and scrub unsafe content before it is shown to the user and ensure interpretability of AI decisions.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------------------------------- | :---: |
