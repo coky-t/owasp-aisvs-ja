@@ -2,7 +2,7 @@
 
 ## 管理目標
 
-コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-protocol-specific controls.
+コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-specific controls.
 
 ---
 
@@ -46,8 +46,8 @@
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **10.4.1** | **検証:** MCP ツール/リストおよびツールのレスポンスは、間接プロンプトインジェクションを防ぐために、プロンプトインジェクションガードレールシステムを介して検証されている。 | 1 |
-| **10.4.2** | **Verify that** MCP tools/list and tool responses are schema validated before being injected into the model context. | 1 |
+| **10.4.1** | **検証:** MCP ツール/リストのリクエストおよびツールのレスポンスは、間接プロンプトインジェクションを防ぐために、プロンプトインジェクションガードレールシステムを介して検証されている。 | 1 |
+| **10.4.2** | **Verify that** MCP tools/list requests and tool responses are schema validated before being injected into the model context. | 1 |
 | **10.4.3** | **Verify that** MCP servers reject unrecognized or oversized parameters in function calls. | 1 |
 | **10.4.4** | **Verify that** all MCP servers enforce strict schema validation. | 2 |
 | **10.4.5** | **Verify that** all MCP transports enforce maximum payload size limits. | 2 |
