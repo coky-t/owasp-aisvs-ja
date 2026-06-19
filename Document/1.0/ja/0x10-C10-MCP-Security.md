@@ -11,7 +11,8 @@
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.1.1** | **検証:** MCP は信頼できるソースからのみ取得され、暗号検証されている。 | 1 |
-| **10.1.2** | **Verify that** only allowlisted MCP servers are permitted. | 2 |
+| **10.1.2** | **Verify that** only allow-listed MCP servers are permitted. | 2 |
+| **10.1.3** | **Verify that** locally launched MCP servers run in a least-privilege sandbox with restricted file system, network, and system access. | 2 |
 
 ---
 
@@ -22,9 +23,9 @@
 | **10.2.1** | **Verify that** MCP servers validate access tokens for each request and do not rely on transport security alone. | 1 |
 | **10.2.2** | **Verify that** MCP servers validate the presented access token's issuer, audience, expiration, and scope claims in accordance with OAuth 2.1. | 1 |
 | **10.2.3** | **Verify that** MCP servers acting as OAuth 2.1 resource servers do not store or persist access tokens or user credentials. | 1 |
-| **10.2.4** | **Verify that** MCP tools/list only returns tools that the resource owners authorized scopes allow. | 2 |
+| **10.2.4** | **Verify that** MCP tools/list only returns tools that the resource owners' authorized scopes allow. | 2 |
 | **10.2.5** | **検証:** MCP サーバーはすべてのツール呼び出しに対してアクセス制御を実施し、ユーザーのアクセストークンはリクエストされたツールと指定された特定の引数値の両方を認可することを検証している。 | 2 |
-| **10.2.6** | **Verify that** MCP servers ensure that all session artifacts are removed when a session terminates. | 2 |
+| **10.2.6** | **Verify that** MCP servers ensure all session artifacts are removed when a session terminates. | 2 |
 | **10.2.7** | **Verify that** MCP servers do not pass through access tokens received from clients to downstream APIs. | 2 |
 
 ---
@@ -50,7 +51,7 @@
 | **10.4.3** | **Verify that** MCP servers reject unrecognized or oversized parameters in function calls. | 1 |
 | **10.4.4** | **Verify that** all MCP servers enforce strict schema validation. | 2 |
 | **10.4.5** | **Verify that** all MCP transports enforce maximum payload size limits. | 2 |
-| **10.4.6** | **Verify that** MCP servers sign tool responses with a unique nonce and timestamp so that MCP clients can avoid replay attacks. | 2 |
+| **10.4.6** | **Verify that** MCP servers sign tool responses with a unique nonce and timestamp so MCP clients can avoid replay attacks. | 2 |
 | **10.4.7** | **Verify that** MCP clients maintain a snapshot of tool definitions and that any change to a tool definition triggers re-approval before the modified tool can be invoked. | 3 |
 
 ---
