@@ -20,14 +20,17 @@
 
 ## C9.2 影響度の高いアクションの承認と不可逆性の制御 (High-Impact Action Approval and Irreversibility Controls)
 
-特権的または不可逆的な結果に対して明示的なチェックポイントを要求します。and ensure that approval credentials are isolated from the agent runtime so the agent cannot approve its own actions.
+Require trusted approval checkpoints for agent actions that are privileged, high-impact, or difficult to reverse.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
-| **9.2.1** | **Verify that** the agent runtime blocks privileged or irreversible actions, as defined by a documented policy, until an explicit human approval is received and verified. | 1 |
-| **9.2.2** | **Verify that** approval requests display canonicalized and complete action parameters (diff, command, recipient, amount, scope) without truncation or transformation. | 2 |
-| **9.2.3** | **Verify that** approvals are cryptographically bound to action parameters, requester identity, and execution context with a unique single-use nonce. | 3 |
-| **9.2.4** | **Verify that** the key material used to issue an approval is not accessible to the agent runtime. | 3 |
+| **9.2.1** | **Verify that** the agent runtime blocks execution of privileged, high-impact, or irreversible actions until explicit human approval is received and verified. | 1 |
+| **9.2.2** | **Verify that** approval requests display canonicalized and complete action parameters, such as diffs, commands, recipients, amounts, resources, and scopes, without truncation or unsafe transformation. | 2 |
+| **9.2.3** | **Verify that** each high-impact action has a trusted reversibility classification, such as read-only, reversible, externally reversible, or irreversible. | 2 |
+| **9.2.4** | **Verify that** the agent runtime enforces reversibility classifications by blocking, requiring approval, or restricting actions based on their impact and ability to be reversed. | 2 |
+| **9.2.5** | **Verify that** approvals are cryptographically bound to action parameters, requester identity, execution context, and a unique single-use nonce. | 3 |
+| **9.2.6** | **Verify that** cryptographic key material or credentials used to issue approvals are isolated from the agent runtime. | 3 |
+| **9.2.7** | **Verify that** approval gates for multi-step or multi-agent action chains enforce the highest-impact reversibility classification present anywhere in the chain. | 3 |
 
 ---
 
@@ -42,7 +45,7 @@
 | **9.3.3** | **検証:** ツールマニフェストは、必要な権限、リソース制限、出力バリデーション要件を宣言している。 | 2 |
 | **9.3.4** | **Verify that** the runtime enforces that tool manifests define required privileges, resource limits, and output validation. | 2 |
 | **9.3.5** | **Verify that** components processing untrusted data are isolated from tool-calling capabilities, ensuring that compromised data processing cannot trigger unauthorized tool invocations. | 2 |
-| **9.3.6** | **Verify that** there is architectural separation between untrusted data processing from tool outputs and agent operations. | 2 |
+| **9.3.6** | **Verify that** there is architectural separation between untrusted data processing of tool outputs and agent operations. | 2 |
 | **9.3.7** | **Verify that** external resources named in model output are verified against an approved allowlist or registry before the agent installs or invokes them. | 2 |
 | **9.3.8** | **検証:** ポリシー違反は自動ツール封じ込めをトリガーしている。 | 3 |
 
@@ -56,9 +59,8 @@
 | :--: | --- | :---: |
 | **9.4.1** | **検証:** 各エージェントインスタンスは一意の暗号アイデンティティを持ち、ダウンストリームシステムへのファーストクラスのプリンシパルとして認証している。 | 2 |
 | **9.4.2** | **検証:** エージェントが開始したアクションは、否認防止のために、実行チェーンの各ステップに暗号的にバインドされている。 | 2 |
-| **9.4.3** | **検証:** 監査ログレコードは、識別子、スコープ、認可決定、ツールパラメータ、結果を含んでいる。 | 2 |
-| **9.4.4** | **検証:** エージェントのアイデンティティクレデンシャルは定義されたスケジュールで入れ替えている。 | 3 |
-| **9.4.5** | **Verify that** agent state persisted between invocations is integrity-protected. | 3 |
+| **9.4.3** | **検証:** エージェントのアイデンティティクレデンシャルは定義されたスケジュールで入れ替えている。 | 3 |
+| **9.4.4** | **Verify that** agent state persisted between invocations is integrity-protected. | 3 |
 
 ---
 
@@ -79,14 +81,13 @@
 
 ## C9.6 Shutdown and Graceful Degradation
 
-Provide shutdown and graceful-degradation paths under human control, with mechanisms that remain reliable and exercised over time.
+Provide shutdown and graceful degradation paths under human control, with mechanisms that remain reliable and exercised over time.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **9.6.1** | **検証:** 手動キルスイッチメカニズムは、AI モデルの推論と出力を即座に停止するために、存在している。 | 1 |
 | **9.6.2** | **Verify that** when a human-approval gate is not satisfied within the defined approval time, the system blocks the pending action. | 2 |
-| **9.6.3** | **Verify that** kill-switch activations and override commands are logged. | 2 |
-| **9.6.4** | **Verify that** kill-switch commands are implemented through an out-of-band channel that is isolated from the agent runtime. | 3 |
+| **9.6.3** | **Verify that** kill-switch commands are implemented through an out-of-band channel that is isolated from the agent runtime. | 3 |
 
 ---
 
