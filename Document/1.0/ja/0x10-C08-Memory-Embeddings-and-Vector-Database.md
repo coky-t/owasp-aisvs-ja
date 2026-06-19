@@ -13,10 +13,8 @@
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **8.1.1** | **Verify that** vector identifiers and namespaces enforce uniqueness per tenant and prevent cross-tenant collisions. | 1 |
-| **8.1.2** | **検証:** 取り込まれたすべてのドキュメントは書き込み時に、ソース、書き込み者アイデンティティ、タイムスタンプでタグ付けされている。 | 2 |
-| **8.1.3** | **Verify that** document metadata tags are immutable after the initial write. | 2 |
-| **8.1.4** | **検証:** RAG パイプラインの取得イベント (クエリ、取得されたドキュメント、知識ソースなど) はログ記録されている。 | 2 |
-| **8.1.5** | **Verify that** retrieval operations enforces scope constraints. | 2 |
+| **8.1.2** | **Verify that** document metadata tags are immutable after the initial write. | 2 |
+| **8.1.3** | **Verify that** retrieval operations enforces scope constraints. | 2 |
 
 ---
 
