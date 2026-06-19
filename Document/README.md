@@ -93,9 +93,7 @@ Organizations should select a target level based on the risk profile of their AI
 9. [自律オーケストレーションとエージェントアクションセキュリティ (Autonomous Orchestration & Agentic Action Security)](1.0/ja/0x10-C09-Orchestration-and-Agentic-Action.md)
 10. [モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)](1.0/ja/0x10-C10-MCP-Security.md)
 11. [敵対的堅牢性と攻撃耐性 (Adversarial Robustness & Attack Resistance)](1.0/ja/0x10-C11-Adversarial-Robustness.md)
-12. [プライバシー保護と個人データ管理 (Privacy Protection & Personal Data Management)](1.0/ja/0x10-C12-Privacy.md)
-13. [監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](1.0/ja/0x10-C13-Monitoring-and-Logging.md)
-14. [人間による監視と信頼 (Human Oversight and Trust)](1.0/ja/0x10-C14-Human-Oversight.md)
+12. [監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](1.0/ja/0x10-C12-Monitoring-and-Logging.md)
 
 ## Appendices
 
