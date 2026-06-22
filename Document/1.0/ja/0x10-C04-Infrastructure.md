@@ -13,7 +13,7 @@ AI-specific infrastructure components must be hardened against model theft, data
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------ | :---: |
 | **4.1.1** | **検証:** AI モデルは分離されたサンドボックス内で実行している。 | 1 |
-| **4.1.2** | **Verify that** model artifact loading enforces an explicit allowlist of serialization formats that do not permit arbitrary code execution during deserialization.| 1 |
+| **4.1.2** | **Verify that** model artifact loading enforces an explicit allowlist of serialization formats that do not permit arbitrary code execution during deserialization. | 1 |
 | **4.1.3** | **検証:** ワークロードアテステーションはモデルをロードする前に実行されており、そのアテステーションは実行環境が改竄されていないことを証明で提供している。 | 2 |
 | **4.1.4** | **検証:** コンフィデンシャル推論サービスは分離された実行環境を通じて実行時にモデルの重みを保護している。 | 3 |
 
@@ -39,7 +39,7 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------ | :---: |
-| **4.3.1** | **検証:** エッジ AI デバイスは強力な認証を使用して中央インフラストラクチャに対して認証している。 | 1 |
+| **4.3.1** | **検証:** エッジ AI デバイスは強力な認証メカニズムを使用して中央インフラストラクチャに対して認証している。 | 1 |
 | **4.3.2** | **検証:** エッジデバイスまたはモバイルデバイスにデプロイされたモデルはパッケージ化時に暗号署名され、デバイス上のランタイムがロードまたは推論する前にこれらの署名またはチェックサムを検証している。 | 2 |
 | **4.3.3** | **検証:** 推論ランタイムは、プロセス、メモリ、ファイルアクセスの分離を強制している。 | 3 |
 | **4.3.4** | **検証:** ローカルに保存されるモデルの重みと機密パラメータは、ハードウェア基盤のキーストアまたはセキュアエンクレーブを使用して暗号化されている。 | 3 |
@@ -50,6 +50,6 @@ GPU、TPU、特殊な AI アクセラレータなどの AI 固有のハードウ
 ## 参考情報
 
 * [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
-* [NVIDIA Multi-Instance GPU (MIG) Documentation](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/)
+* [NIST SP 800-190: Application Container Security Guide](https://csrc.nist.gov/pubs/sp/800/190/final)
+* [NSA/CISA Kubernetes Hardening Guidance](https://www.cisa.gov/news-events/alerts/2022/03/15/updated-kubernetes-hardening-guide)
 * [Confidential Computing Consortium](https://confidentialcomputing.io/)
-* [ARM TrustZone for AI](https://www.arm.com/technologies/trustzone-for-cortex-a)
