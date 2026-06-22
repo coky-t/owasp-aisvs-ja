@@ -25,7 +25,7 @@ Every requirement in AISVS follows these principles derived from the standard's 
 
 ### 章構成
 
-Each of the 14 requirement chapters follows the same format:
+Each of the 12 requirement chapters follows the same format:
 
 * **Control Objective.** A brief statement of the security goal for the chapter.
 * **Sections.** Requirements are grouped into related sections, each with a short description of the defense goal.
