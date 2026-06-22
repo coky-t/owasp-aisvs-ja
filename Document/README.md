@@ -86,13 +86,13 @@ Organizations should select a target level based on the risk profile of their AI
 2. [入力バリデーション (Input Validation)](1.0/ja/0x10-C02-Input-Validation.md)
 3. [モデルライフサイクル管理と変更管理 (Model Lifecycle Management & Change Control)](1.0/ja/0x10-C03-Model-Lifecycle-Management.md)
 4. [インフラストラクチャ、構成、デプロイメントセキュリティ (Infrastructure, Configuration & Deployment Security)](1.0/ja/0x10-C04-Infrastructure.md)
-5. [アクセス制御とアイデンティティ (Access Control & Identity)](1.0/ja/0x10-C05-Access-Control-and-Identity.md)
-6. [モデル、フレームワーク、データのサプライチェーンセキュリティ (Supply Chain Security for Models, Frameworks & Data)](1.0/ja/0x10-C06-Supply-Chain.md)
+5. [AI コンポーネントとユーザーのアクセス制御とアイデンティティ (Access Control & Identity for AI Components & Users)](1.0/ja/0x10-C05-Access-Control-and-Identity.md)
+6. [モデルのサプライチェーンセキュリティ (Supply Chain Security for Models)](1.0/ja/0x10-C06-Supply-Chain.md)
 7. [モデル動作、出力制御、安全保証 (Model Behavior, Output Control & Safety Assurance)](1.0/ja/0x10-C07-Model-Behavior.md)
 8. [メモリ、エンベディング、ベクトルデータベースセキュリティ (Memory, Embeddings & Vector Database Security)](1.0/ja/0x10-C08-Memory-Embeddings-and-Vector-Database.md)
-9. [自律オーケストレーションとエージェントアクションセキュリティ (Autonomous Orchestration & Agentic Action Security)](1.0/ja/0x10-C09-Orchestration-and-Agentic-Action.md)
+9. [オーケストレーションとエージェントセキュリティ (Orchestration & Agentic Security)](1.0/ja/0x10-C09-Orchestration-and-Agentic-Action.md)
 10. [モデルコンテキストプロトコル (MCP) セキュリティ (Model Context Protocol (MCP) Security)](1.0/ja/0x10-C10-MCP-Security.md)
-11. [敵対的堅牢性と攻撃耐性 (Adversarial Robustness & Attack Resistance)](1.0/ja/0x10-C11-Adversarial-Robustness.md)
+11. [敵対的堅牢性 (Adversarial Robustness)](1.0/ja/0x10-C11-Adversarial-Robustness.md)
 12. [監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](1.0/ja/0x10-C12-Monitoring-and-Logging.md)
 
 ## Appendices
@@ -109,11 +109,11 @@ Organizations should select a target level based on the risk profile of their AI
 
 Each requirement has an identifier in the format `C<chapter>.<section>.<requirement>`, where each element is a number, for example `C9.4.3`.
 
-- The `C<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `C9.#.#` requirements are from the 'Autonomous Orchestration & Agentic Action Security' chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears; for example, all `C9.4.#` requirements are in the 'Identity & Audit' section.
+- The `C<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `C9.#.#` requirements are from the 'Orchestration & Agentic Security' chapter.
+- The `<section>` value corresponds to the section within that chapter where the requirement appears; for example, all `C9.4.#` requirements are in the 'Agent and Orchestrator Identity' section.
 - The `<requirement>` value identifies the specific requirement within the chapter and section; for example, `C9.4.3` which as of version 1.0 of this standard is:
 
-> Verify that audit logs are tamper-evident via append-only/WORM/immutable log store, cryptographic hash chaining where each record includes the hash of the prior record, or equivalent integrity guarantees that can be independently verified.
+> Verify that agent identity credentials rotate on a defined schedule.
 
 Since identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-C<chapter>.<section>.<requirement>`, where 'version' is the AISVS version tag. For example: `v1.0-C9.4.3`.
 
@@ -141,7 +141,7 @@ Each stable release of AISVS is published as a numbered folder in this repositor
 
 We welcome contributions from the community. Please [open an issue](https://github.com/OWASP/AISVS/issues) to report bugs or suggest improvements. We may ask you to [submit a pull request](https://github.com/OWASP/AISVS/pulls) based on the discussion.
 
-To report a security issue with the AISVS project itself, please follow the [Security Policy](https://github.com/OWASP/AISVS/blob/main/Security.md).
+To report a security issue with the AISVS project itself, please follow the [Security Policy](https://github.com/OWASP/AISVS/blob/main/SECURITY.md).
 
 ## ライセンス
 
