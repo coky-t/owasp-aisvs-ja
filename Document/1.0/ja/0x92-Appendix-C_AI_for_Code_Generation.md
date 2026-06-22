@@ -7,30 +7,6 @@
 
 This appendix lists organizational controls for using AI coding tools safely. The range is baseline to advanced. Scope is coding, code review, and the rest of the SSDLC.
 
-Treat the AI coding agent as an actor in the supply chain, not as a passive helper. It has identity, authority, and the ability to act on its own behalf or to be acted upon by an attacker.
-
-Two things follow from that framing.
-
-Your own agent can be turned against you. A code-review bot reading a malicious PR description can be prompt-injected into approving the same code it was meant to reject. The injection does not have to be subtle. It just has to reach the bot's context window.
-
-Attackers run AI of their own, often at scale. Familiar patterns include automated fork-and-pull-request campaigns aimed at `pull_request_target`-class triggers, AI-generated payloads tailored to a specific target repository, and abuse of long-lived CI secrets harvested along the way.
-
-The appendix aligns with NIST SSDF (SP 800-218 and SP 800-218A), NIST SP 800-204D, NIST AI RMF (AI 100-1), the NIST Generative AI Profile (AI 600-1), NIST SP 800-207 Zero Trust Architecture, SLSA v1.2 (Build and Source Tracks), OWASP ASVS v5, the OWASP Top 10 CI/CD Security Risks, the OWASP Top 10 for Large Language Model Applications (2025), the OWASP Top 10 for Agentic Applications (2026, ASI01-ASI10), ISO/IEC 42001:2023, and MITRE ATLAS and ATT&CK.
-
-> **Scope note:** Only the AI-specific delta is in scope here. Generic CI/CD pipeline security (branch protection, signed commits, runner hardening, secret scanning, dependency pinning) is already covered by OWASP ASVS v5, the OWASP Top 10 CI/CD Security Risks, NIST SP 800-204D, and SLSA v1.2. Those baselines must already be in place. The references to them in this appendix are reminders. AI augmentation must not weaken them. And the AI-specific threat classes (fork-PR trigger exploitation, prompt injection, adversaries running AI of their own) have to be addressed as well.
->
-> **Relationship to normative chapters:** Several controls in this appendix are really applications of an AISVS chapter control to the secure-coding case. The chapters that come up most often are C2.1 (Prompt Input Validation), C9.3 (Tool Sandboxing), and C9.6 (Action Authorization). The family introduction calls this out where it applies. For assessors: count an Appendix C finding either as an additional gap that the upstream chapter verification did not close, or as already counted under the chapter. Not as both.
-
----
-
-### Architectural Prerequisites
-
-Before you start verifying against Appendix C, the hosting environment needs to satisfy this baseline:
-
-* **OWASP ASVS v5 compliance.** This appendix supplements the ASVS v5 requirements for coding quality and CI/CD deployment security (V10 above all). It does not replace them. ASVS v5 coverage of CI/CD pipeline security has to be in place before Appendix C is verified. Same goes for coverage of the OWASP Top 10 CI/CD Security Risks.
-* **SLSA implementation.** SLSA Build Track Level 2 or higher on the core integration and delivery lines, with provenance generated and verified for release artifacts. If production AI agents are acting on source repositories, adopt the SLSA Source Track (v1.2) as well, for authorship and review controls.
-* **Platform control invariants.** Branch protection or ruleset constraints on the release paths. At a minimum: no unreviewed merges into default or release branches, signed commits where the platform supports them, required status checks, protected environments, and a trail for every human override.
-
 ---
 
 ## AC.1 AI 支援のセキュアコーディングワークフロー (AI-Assisted Secure-Coding Workflow)
@@ -70,7 +46,7 @@ Do not adopt an AI coding tool until it has been evaluated. Three areas in parti
 
 * **AC.2.1:** OWASP LLM Top 10 (2025) LLM01, LLM06; OWASP Agentic Top 10 (2026) ASI01, ASI02, ASI03; AISVS C9; MITRE ATLAS (Threat modeling).
 * **AC.2.2:** OWASP LLM Top 10 (2025) LLM03; OWASP Agentic Top 10 (2026) ASI04; NIST SSDF PO.1, PO.5; ISO/IEC 42001 Clause 8.
-* **AC.2.3:** MITRE ATLAS (Adversarial ML testing); AISVS C2.3; NIST AI 600-1 MEASURE.
+* **AC.2.3:** MITRE ATLAS (Adversarial ML testing); AISVS C2.1, C11.1; NIST AI 600-1 MEASURE.
 * **AC.2.4:** ISO/IEC 42001 Clause 9.2; NIST AI RMF GOVERN.
 
 ---
@@ -94,8 +70,8 @@ Two goals in this family. First: stop secrets, proprietary code, and personal da
 **Mappings & References:**
 
 * **AC.3.1:** OWASP LLM Top 10 (2025) LLM02 (Sensitive Information Disclosure); OWASP ASVS v5 V14 (Data Protection); ISO/IEC 27001:2022 A.8.12 (Data Leakage Prevention).
-* **AC.3.2:** AISVS C2.4; OWASP LLM Top 10 (2025) LLM02; NIST SSDF PW.3.
-* **AC.3.3:** AISVS C2.1, C2.4; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI06; MITRE ATLAS (Indirect prompt injection).
+* **AC.3.2:** AISVS C2.2; OWASP LLM Top 10 (2025) LLM02; NIST SSDF PW.3.
+* **AC.3.3:** AISVS C2.1; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI06; MITRE ATLAS (Indirect prompt injection).
 * **AC.3.4:** AISVS C2.1.2; OWASP LLM Top 10 (2025) LLM01; CISA Secure by Design.
 * **AC.3.5:** OWASP LLM Top 10 (2025) LLM10; AISVS C2.1.4.
 * **AC.3.6:** OWASP ASVS v5 V6 (Cryptography), V14 (Data Protection); ISO/IEC 27001:2022 A.8.24 (Use of Cryptography).
@@ -267,14 +243,14 @@ AI code-review bots, PR-comment bots, MCP-driven assistants (Model Context Proto
 
 **Mappings & References:**
 
-* **AC.11.1:** AISVS C2.1, C2.4; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI01, ASI06.
-* **AC.11.2:** AISVS C9.7; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI01.
-* **AC.11.3:** AISVS C9.6.4; OWASP LLM Top 10 (2025) LLM05; OWASP Agentic Top 10 (2026) ASI02, ASI05.
+* **AC.11.1:** AISVS C2.1; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI01, ASI06.
+* **AC.11.2:** AISVS C2.1; OWASP LLM Top 10 (2025) LLM01; OWASP Agentic Top 10 (2026) ASI01.
+* **AC.11.3:** AISVS C7.1; OWASP LLM Top 10 (2025) LLM05; OWASP Agentic Top 10 (2026) ASI02, ASI05.
 * **AC.11.4:** AISVS C9.3; OWASP Agentic Top 10 (2026) ASI02, ASI03, ASI05; NIST SP 800-204D (Workload isolation).
-* **AC.11.5:** AISVS C9.6.4; OWASP ASVS v5 V4 (Access Control); OWASP Agentic Top 10 (2026) ASI02, ASI03.
+* **AC.11.5:** AISVS C9.2, C5.2.5; OWASP ASVS v5 V4 (Access Control); OWASP Agentic Top 10 (2026) ASI02, ASI03.
 * **AC.11.6:** OWASP ASVS v5 V8 (Logging & Error Handling); OWASP LLM Top 10 (2025) LLM02; ISO/IEC 27001:2022 A.8.15, A.8.16.
 * **AC.11.7:** GitHub Security Lab "Preventing pwn requests" series (Parts 1-4); OWASP Agentic Top 10 (2026) ASI01, ASI03, ASI09; OWASP CI/CD Top 10 CICD-SEC-01.
-* **AC.11.8:** MITRE ATLAS (Indirect prompt injection); AISVS C2.3; OWASP SAMM Security Testing (ST).
+* **AC.11.8:** MITRE ATLAS (Indirect prompt injection); AISVS C2.1, C11.1; OWASP SAMM Security Testing (ST).
 
 ---
 
@@ -352,84 +328,3 @@ Things go wrong eventually. When an AI-adjacent compromise (a prompt-injected bo
 * **AC.14.3:** AISVS C9.4 (Identity Handling for AI/LLM Services); NIST SP 800-207 (Zero Trust Architecture); ISO/IEC 27001:2022 A.5.18 (Access Rights).
 * **AC.14.4:** OWASP SCVS (Bill-of-materials analysis); CycloneDX ML-BOM tracing; NIST SSDF RV.1.
 * **AC.14.5:** NIST SSDF RV.1; ISO/IEC 27001:2022 A.5.28 (Collection of Evidence); OWASP SAMM Incident Management (IM).
-
----
-
-## 参考情報
-
-### NIST
-
-* NIST Special Publication 800-218: Secure Software Development Framework (SSDF)
-  v1.1
-* NIST Special Publication 800-218A: Secure Software Development Practices for
-  Generative AI and Dual-Use Foundation Models
-* NIST Special Publication 800-204D: Strategies for the Integration of Software
-  Supply Chain Security in DevSecOps CI/CD Pipelines
-* NIST Special Publication 800-207: Zero Trust Architecture
-* NIST Special Publication 800-53 Rev. 5: Security and Privacy Controls for
-  Information Systems and Organizations
-* NIST AI 100-1: Artificial Intelligence Risk Management Framework (AI RMF 1.0)
-* NIST AI 600-1: AI RMF Generative AI Profile
-
-### OWASP
-
-* OWASP Application Security Verification Standard (ASVS) v5
-* OWASP Software Component Verification Standard (SCVS)
-* OWASP Top 10 CI/CD Security Risks (10 risks): (1) CICD-SEC-01 Insufficient
-  Flow Control Mechanisms, (2) CICD-SEC-02 Inadequate Identity and Access
-  Management, (3) CICD-SEC-03 Dependency Chain Abuse, (4) CICD-SEC-04 Poisoned
-  Pipeline Execution, (5) CICD-SEC-05 Insufficient PBAC (Pipeline-Based Access
-  Controls), (6) CICD-SEC-06 Insufficient Credential Hygiene, (7) CICD-SEC-07
-  Insecure System Configuration, (8) CICD-SEC-08 Ungoverned Usage of Third-Party
-  Services, (9) CICD-SEC-09 Improper Artifact Integrity Validation, (10)
-  CICD-SEC-10 Insufficient Logging and Visibility
-* OWASP Top 10 for Large Language Model Applications (2025): LLM01 Prompt
-  Injection, LLM02 Sensitive Information Disclosure, LLM03 Supply Chain, LLM05
-  Improper Output Handling, LLM06 Excessive Agency, LLM10 Unbounded Consumption
-* OWASP Top 10 for Agentic Applications (2026): ASI01 Agent Goal Hijacking,
-  ASI02 Tool Misuse and Exploitation, ASI03 Identity and Privilege Abuse, ASI04
-  Agentic Supply Chain Compromise, ASI05 Unexpected Code Execution, ASI06 Memory
-  and Context Poisoning, ASI07 Insecure Inter-Agent Communication, ASI08
-  Cascading Failures, ASI09 Human-Agent Trust Exploitation, ASI10 Rogue Agents
-* OWASP LLM Prompt Injection Prevention Cheat Sheet
-* OWASP Secure Coding Practices Quick Reference Guide
-* OWASP Software Assurance Maturity Model (SAMM) v2
-
-### Supply Chain & Provenance
-
-* SLSA (Supply-chain Levels for Software Artifacts) v1.2, Build Track and Source
-  Track (current Approved Specification)
-* in-toto: A Framework for Software Supply Chain Integrity
-* Sigstore and cosign: Software Artifact Signing and Verification
-* CycloneDX Software Bill of Materials and CycloneDX ML-BOM (Machine Learning
-  Bill of Materials)
-* SPDX Software Package Data Exchange
-* CISA Software Bill of Materials (SBOM) Overview
-* OpenSSF Best Practices Badge, OpenSSF Scorecard, OpenSSF Allstar
-
-### Adversarial AI & Threat Intelligence
-
-* MITRE ATLAS: Adversarial Threat Landscape for Artificial Intelligence Systems
-* MITRE ATT&CK (Enterprise), including T1195 Supply Chain Compromise and
-  CI/CD-relevant techniques
-
-### ISO/IEC and CISA
-
-* ISO/IEC 42001:2023: Artificial Intelligence Management System Requirements
-* ISO/IEC 27001:2022 and ISO/IEC 27002:2022: Information Security Management
-* ISO/IEC 5338:2023: Artificial Intelligence System Life Cycle Processes
-* CISA Secure by Design and Secure by Default Principles
-
-### Platform-Specific Hardening Guidance
-
-* GitHub Security Lab: "Keeping your GitHub Actions and workflows secure:
-  Preventing pwn requests" (Parts 1-4, including Alvaro Munoz, 2025), the
-  canonical reference on fork-PR trigger exploitation patterns, colloquially
-  known as "pwn requests"
-* GitHub Docs: Security hardening for GitHub Actions; Approving workflow runs
-  from public forks; Automatic token authentication and permissions; Branch
-  protection rules and rulesets
-* GitLab Docs: CI/CD security best practices; Protected variables and
-  environments
-* Equivalent vendor guidance for Jenkins, Argo Workflows, Tekton, CircleCI, and
-  Azure DevOps Pipelines
