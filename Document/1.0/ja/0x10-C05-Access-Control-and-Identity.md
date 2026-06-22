@@ -8,6 +8,8 @@ AI systems introduce access control challenges beyond traditional application se
 
 ## C5.1 Authentication
 
+Enforce identity checking of AI agents or human users accessing resources have proper authentication and are allowed for such level of access.
+
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.1.1** | **検証:** 高リスクの AI 操作 (モデルのデプロイメント、重みのエクスポート、トレーニングデータへのアクセス、本番構成の変更) は、ステップアップ認証を必要としている。 | 3 |
@@ -46,4 +48,6 @@ Prevent cross-tenant information leakage through AI-specific shared infrastructu
 
 * [NIST SP 800-207: Zero Trust Architecture](https://csrc.nist.gov/pubs/sp/800/207/final)
 * [NIST SP 800-63-3: Digital Identity Guidelines](https://csrc.nist.gov/pubs/sp/800/63/3/final)
+* [OAuth 2.1 (IETF Draft)](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-11)
+* [OpenID Connect Core 1.0](https://openid.net/specs/openid-connect-core-1_0.html)
 * [I Know What You Asked: Prompt Leakage via KV-Cache Sharing in Multi-Tenant LLM Serving (NDSS 2025)](https://www.ndss-symposium.org/ndss-paper/i-know-what-you-asked-prompt-leakage-via-kv-cache-sharing-in-multi-tenant-llm-serving/)
