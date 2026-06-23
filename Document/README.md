@@ -55,8 +55,7 @@ The latest stable version is **AISVS 1.0**, which can be found:
 
 | Format | Link |
 | --- | --- |
-| PDF | _(pending for 1.0 release)_ |
-| HTML | _(pending for 1.0 release)_ |
+| PDF | [AISVS 1.0 pre-release PDF](https://github.com/OWASP/AISVS/raw/main/1.0/dist/AISVS-1.0-pre-release.pdf) |
 | Markdown (source) | [Browse online](https://github.com/OWASP/AISVS/tree/main/1.0/en) |
 
 ---
@@ -98,10 +97,20 @@ Organizations should select a target level based on the risk profile of their AI
 ## Appendices
 
 * [付録 A: 用語集](1.0/ja/0x90-Appendix-A_Glossary.md)
-* [付録 B: 参考情報](1.0/ja/0x91-Appendix-B_References.md)
-* [[付録 C: AI 支援のセキュアコーディング (AI-Assisted Secure Coding)](1.0/ja/0x92-Appendix-C_AI_for_Code_Generation.md)
-* [付録 D: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](1.0/ja/0x93-Appendix-D_AI_Security_Controls_Inventory.md)
-* [付録 E: 執筆者](1.0/ja/0x94-Appendix-E_Contributors.md)
+* [付録 B: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](1.0/ja/0x91-Appendix-B_AI_Security_Controls_Inventory.md)
+* [付録 C: AI 支援のセキュアコーディング (AI-Assisted Secure Coding)](1.0/ja/0x92-Appendix-C_AI_for_Code_Generation.md)
+
+## Research Wiki
+
+For every requirement in the standard, the [Research Wiki](https://github.com/OWASP/AISVS/blob/main/research/README.md) provides implementation context beyond the requirement text:
+
+| Column | What it tells you |
+| --- | --- |
+| **Threat Mitigated** | Specific attack techniques, CVEs, and real-world incidents the control defends against |
+| **Verification Approach** | Concrete audit steps, tools, and evidence to collect |
+| **Gaps & Notes** | Tool maturity ratings, open research questions, and implementation caveats |
+
+The wiki covers all 191 requirements across 60 pages, with per-section threat landscape summaries, tooling recommendations, and references to current standards and research literature.
 
 ---
 
@@ -115,11 +124,11 @@ Each requirement has an identifier in the format `C<chapter>.<section>.<requirem
 
 > Verify that agent identity credentials rotate on a defined schedule.
 
-Since identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-C<chapter>.<section>.<requirement>`, where 'version' is the AISVS version tag. For example: `v1.0-C9.4.3`.
+Since identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-C<chapter>.<section>.<requirement>`, where `version` is the AISVS version tag. For example: `v1.0-C9.4.3`.
 
 Note: The `v` preceding the version number should always be lowercase.
 
-If identifiers are used without including the `v<version>` element they should be assumed to refer to the latest AISVS content. As the standard grows and changes this becomes problematic, which is why writers or developers should include the version element.
+If identifiers are used without including the `v<version>` element, they should be assumed to refer to the latest AISVS content. As the standard grows and changes, this becomes problematic, which is why writers or developers should include the version element.
 
 ---
 
@@ -127,7 +136,7 @@ If identifiers are used without including the `v<version>` element they should b
 
 AISVS uses a two-part version number, `v<MAJOR>.<MINOR>` (for example, `v1.0`, `v1.01`, `v2.0`). Major versions cover chapter and section changes, minor versions cover additions, removals, and material edits to requirements within the existing structure, and patch fixes ship in-branch without a separate version. The full policy is documented in [RELEASE.md](RELEASE.md).
 
-Each stable release of AISVS is published as a numbered folder in this repository. Once a version is released its folder is locked; all future work happens in a new folder. This mirrors the approach used by [OWASP ASVS](https://github.com/OWASP/ASVS).
+Each stable release of AISVS is published as a numbered folder in this repository. Once a version is released, its folder is locked; all future work happens in a new folder. This mirrors the approach used by [OWASP ASVS](https://github.com/OWASP/ASVS).
 
 ```text
 /
@@ -145,4 +154,4 @@ To report a security issue with the AISVS project itself, please follow the [Sec
 
 ## ライセンス
 
-本プロジェクトのすべてのコンテンツは **[Creative Commons Attribution-Share Alike v4.0](https://creativecommons.org/licenses/by-sa/4.0/)** ライセンスの下にあります。
+本プロジェクトのすべてのコンテンツは **[Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)** ライセンスの下にあります。
