@@ -2,13 +2,13 @@
 
 ## 管理目標
 
-AI systems introduce access control challenges beyond traditional application security: classification labels must follow data through AI-specific transformations (embeddings, caches, model outputs), multi-tenant inference infrastructure creates novel side channels, and retrieval-augmented pipelines must enforce caller entitlements at every stage. This chapter addresses AI-specific access control and identity concerns, including runtime isolation of the policy decision point from agent execution and authorization-aware output filtering where entitlements vary per caller.
+This chapter addresses access control challenges that AI systems introduce beyond traditional application security.
 
 ---
 
 ## C5.1 Authentication
 
-Enforce identity checking of AI agents or human users accessing resources have proper authentication and are allowed for such level of access.
+AI agents and human users accessing resources must be properly authenticated and authorized for their level of access.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
@@ -19,14 +19,14 @@ Enforce identity checking of AI agents or human users accessing resources have p
 
 ## C5.2 AI Resource Authorization & Classification
 
-Enforce the caller's authorization context through AI-specific query pipelines (RAG retrieval, embedding lookups, inference chains) so that the AI system does not return data that the caller is not entitled to access.
+The caller's authorization context must be enforced through AI-specific query pipelines (RAG retrieval, embedding lookups, inference chains) so the system does not return data the caller is not entitled to access.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
 | **5.2.1** | **検証:** すべての AI リソース (データセット、エンドポイント、ベクトルコレクション、エンベディングインデックス、計算インスタンス) は、明示的な許可リストとデフォルト拒否ポリシーで、アクセス制御を適用している。 | 2 |
 | **5.2.2** | **Verify that** retrieval pipelines (e.g., RAG queries, embedding lookups) enforce the end-user's authorization context at each retrieval and assembly stage, rather than relying solely on the service account's permissions. | 2 |
 | **5.2.3** | **Verify that** sensitive data is retrieved via retrieval pipelines (e.g., RAG queries, embedding lookups) to prevent permanent storage in models. | 2 |
-| **5.2.4** | **Verify that** post-inference filtering mechanisms prevent responses from including data that the requestor is not authorized to receive. | 2 |
+| **5.2.4** | **Verify that** post-inference filtering mechanisms prevent responses from including data that the requester is not authorized to receive. | 2 |
 | **5.2.5** | **Verify that** the policy decision point for agent authorization is isolated from the agent's execution environment. | 2 |
 | **5.2.6** | **Verify that** privileged access to model weights, training pipelines, and production AI configuration is granted just in time, with a defined maximum session duration and automatic expiry. Zero Standing Privilege (ZSP) to these resources is encouraged. | 3 |
 | **5.2.7** | **検証:** データ分類ラベルはダウンストリームリソース (エンベディング、プロンプトキャッシュ、モデル出力) に伝播している。 | 3 |
@@ -35,7 +35,7 @@ Enforce the caller's authorization context through AI-specific query pipelines (
 
 ## C5.3 マルチテナントの分離 (Multi-Tenant Isolation)
 
-Prevent cross-tenant information leakage through AI-specific shared infrastructure components such as inference caches and shared model state.
+Cross-tenant information leakage through AI-specific shared infrastructure, such as inference caches and shared model state, must be prevented.
 
 | # | 説明 | レベル |
 | :--------: | --------------------------------------------------------------------------------------------- | :---: |
