@@ -2,11 +2,13 @@
 
 ## 管理目標
 
-コンテキストの混乱、不正なツール呼び出し、テナント間のデータ露出を防ぐため、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を確保します。This chapter covers MCP-specific controls.
+この章は、MCP ベースのツールとリソースの統合における安全な発見、認証、認可、トランスポート、使用を取り扱います。
 
 ---
 
 ## C10.1 コンポーネントの完全性 (Component Integrity)
+
+Only trusted MCP components must be used, and locally launched servers must be secured.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
@@ -18,12 +20,14 @@
 
 ## C10.2 認証と認可 (Authentication & Authorization)
 
+Callers must be authenticated and access to MCP servers authorized, following protocol best practices.
+
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.2.1** | **Verify that** MCP servers validate access tokens for each request and do not rely on transport security alone. | 1 |
 | **10.2.2** | **Verify that** MCP servers validate the presented access token's issuer, audience, expiration, and scope claims in accordance with OAuth 2.1. | 1 |
 | **10.2.3** | **Verify that** MCP servers acting as OAuth 2.1 resource servers do not store or persist access tokens or user credentials. | 1 |
-| **10.2.4** | **Verify that** MCP tools/list only returns tools that the resource owners' authorized scopes allow. | 2 |
+| **10.2.4** | **Verify that** MCP tools/list returns only tools permitted by resource owners' authorized scopes. | 2 |
 | **10.2.5** | **検証:** MCP サーバーはすべてのツール呼び出しに対してアクセス制御を実施し、ユーザーのアクセストークンはリクエストされたツールと指定された特定の引数値の両方を認可することを検証している。 | 2 |
 | **10.2.6** | **Verify that** MCP servers ensure all session artifacts are removed when a session terminates. | 2 |
 | **10.2.7** | **Verify that** MCP servers do not pass through access tokens received from clients to downstream APIs. | 2 |
@@ -31,6 +35,8 @@
 ---
 
 ## C10.3 安全なトランスポート (Secure Transport)
+
+MCP communications must be secured following protocol best practices.
 
 | # | 説明 | レベル |
 | :--: | --- | :---: |
@@ -44,6 +50,8 @@
 
 ## C10.4 スキーマ、メッセージ、入力バリデーション (Schema, Message, and Input Validation)
 
+Schema, message, and input validation must be enforced in both MCP servers and clients.
+
 | # | 説明 | レベル |
 | :--: | --- | :---: |
 | **10.4.1** | **Verify that** MCP tools/list and tools/call responses are validated against their declared schemas before being injected into the model context. | 1 |
@@ -51,9 +59,9 @@
 | **10.4.3** | **Verify that** MCP servers reject unrecognized or oversized parameters in function calls. | 1 |
 | **10.4.4** | **Verify that** all MCP servers enforce strict schema validation. | 2 |
 | **10.4.5** | **Verify that** all MCP transports enforce maximum payload size limits. | 2 |
-| **10.4.6** | **Verify that** MCP servers sign tool responses with a unique nonce and timestamp so MCP clients can avoid replay attacks. | 2 |
-| **10.4.7** | **Verify that** MCP clients maintain a snapshot of tool definitions and that any change to a tool definition triggers re-approval before the modified tool can be invoked. | 3 |
-| **10.4.8** | **Verify that** MCP clients present users with explicit consent dialogue and cancellation options upon installation of a local MCP server. | 2 |
+| **10.4.6** | **Verify that** MCP servers sign tool responses with a unique nonce and timestamp so MCP clients can detect replay attempts. | 2 |
+| **10.4.7** | **Verify that** MCP clients present users with explicit consent dialogue and cancellation options upon installation of a local MCP server. | 2 |
+| **10.4.8** | **Verify that** MCP clients maintain a snapshot of tool definitions and that any change to a tool definition triggers re-approval before the modified tool can be invoked. | 3 |
 
 ---
 
