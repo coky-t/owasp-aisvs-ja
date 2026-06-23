@@ -1,4 +1,4 @@
-# 付録 D: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)
+# 付録 B: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)
 
 ## 目的
 
@@ -38,7 +38,7 @@ Enforce access decisions across users, agents, tools, and resources using policy
 | --- | --- |
 | Access controls on every AI resource (datasets, endpoints, vector collections, embedding indices, compute) with explicit allow-lists and default-deny | C5.2.1 |
 | End-user authorization context enforced at each retrieval and assembly stage, not the service account alone | C5.2.2 |
-| Post-inference filtering so responses exclude data the requestor is not entitled to receive | C5.2.4 |
+| Post-inference filtering so responses exclude data the requester is not entitled to receive | C5.2.4 |
 | Policy decision point isolated from the agent execution environment | C5.2.5 |
 | Just-in-time privileged access to model weights, training pipelines, and production configuration with automatic expiry | C5.2.6 |
 | Fine-grained, runtime-enforced authorization of agent actions (which tools, which parameter values) | C9.5.1 |
@@ -74,7 +74,7 @@ Protect data and secrets at rest, in transit, and in the model's observable cont
 
 | Control / Technique | Requirement IDs |
 | --- | --- |
-| Integrity protection of training data while stored and transferred | C1.1.4 |
+| Integrity protection of training data while stored and transferred | C1.1.3 |
 | Redaction, anonymization, or encryption of sensitive information in labels before use in any labeling artifact | C1.2.3 |
 | Encryption of locally stored model weights and sensitive parameters using hardware-backed key stores or secure enclaves | C4.3.4 |
 | Encryption at rest of models packaged in mobile, IoT, or embedded apps, decrypted only inside a trusted runtime or secure enclave | C4.3.5 |
@@ -90,7 +90,7 @@ Verify authenticity and detect tampering of models, artifacts, messages, tool de
 
 | Control / Technique | Requirement IDs |
 | --- | --- |
-| Integrity monitoring of training data against unauthorized modification or corruption | C1.1.5 |
+| Integrity monitoring of training data against unauthorized modification or corruption | C1.1.4 |
 | Cryptographic integrity for labeling artifacts | C1.2.2 |
 | Cryptographic signing of all model artifacts (weights, configs, tokenizers, base models, fine-tunes, adapters, safety/policy models) | C3.1.2 |
 | Signature verification at deployment admission and on load | C3.1.3 |
@@ -98,7 +98,7 @@ Verify authenticity and detect tampering of models, artifacts, messages, tool de
 | Cryptographic binding of agent-initiated actions to each step of the execution chain for non-repudiation | C9.4.2 |
 | Integrity protection of agent state persisted between invocations | C9.4.4 |
 | Signed MCP tool responses with a unique nonce and timestamp for replay defense | C10.4.6 |
-| Tool-definition snapshotting with re-approval required on any change before invocation | C10.4.7 |
+| Tool-definition snapshotting with re-approval required on any change before invocation | C10.4.8 |
 | Watermarking of AI-generated media to prove it was AI-generated | C7.4.4 |
 
 **Common pitfalls:** using mutable tags instead of immutable digests; not re-verifying tool definitions between MCP invocations; missing replay protection on tool responses.
@@ -142,7 +142,7 @@ Screen prompts and training content against policy before they reach the model o
 | Control / Technique | Requirement IDs |
 | --- | --- |
 | Inbound content classification (violence, self-harm, hate, sexual) against configurable thresholds, with rejection or sanitization before model context | C2.2.1 |
-| Evaluation of content classification for languages that are not supported | C2.2.2 |
+| Evaluation of content classification for unsupported languages | C2.2.2 |
 | Detection and removal of disallowed content before training | C1.3.4 |
 
 **Common pitfalls:** deploying classifiers tuned only for one language; screening prompts but not the training corpus.
@@ -193,10 +193,10 @@ Isolate models, tools, agents, and hardware workloads to contain failures and pr
 | Allow-list of serialization formats that do not permit code execution during deserialization | C4.1.2 |
 | Workload attestation before model loading | C4.1.3 |
 | Confidential inference protecting model weights at runtime through isolated execution | C4.1.4 |
-| Trusted execution environment with hardware-enforced isolation, memory encryption, and integrity protection | C4.2.1 |
-| GPU integrity validation via hardware attestation before each workload | C4.2.2 |
-| GPU memory partitioning with sanitization between jobs | C4.2.3 |
-| Version-pinned, signed, boot-attested accelerator firmware | C4.2.4 |
+| Trusted execution environment with hardware-enforced isolation, memory encryption, and integrity protection | C4.2.2 |
+| GPU integrity validation via hardware attestation before each workload | C4.2.3 |
+| GPU memory partitioning with sanitization between jobs | C4.2.4 |
+| Version-pinned, signed, boot-attested accelerator firmware | C4.2.1 |
 | Process, memory, and file-access isolation in edge inference runtimes | C4.3.3 |
 | Least-privilege sandbox or isolation for each tool or plugin | C9.3.1 |
 | Tool manifests declaring required privileges, resource limits, and output-validation requirements | C9.3.3 |
@@ -255,7 +255,7 @@ Manage model validation, deployment, rollback, and fine-tuning pipeline integrit
 | Control / Technique | Requirement IDs |
 | --- | --- |
 | Pre-deployment automated input-validation, safety-evaluation, and output-sanitization testing | C3.2.1 |
-| Re-evaluation of post-training-quantized models against the same safety and alignment test suite before deployment | C3.2.2 |
+| Re-evaluation of models subjected to post-training quantization against the same safety and alignment test suite before deployment | C3.2.2 |
 | Security re-evaluation triggered by provider model, version, or routing changes | C3.2.3 |
 | Rollout mechanisms with automated rollback triggers | C3.3.1 |
 | Complete model-state restoration on rollback | C3.3.2 |
@@ -277,15 +277,15 @@ Source, vet, and document training data so tampering, poisoning, and corruption 
 | --- | --- |
 | Data minimization to only the features, attributes, and fields required for the stated purpose | C1.1.1 |
 | Up-to-date inventory of every training-data source (origin, responsible party, license, collection method, use constraints, processing history) | C1.1.2 |
-| Dataset watermarking for usage attribution and detection of unauthorized use | C1.1.3 |
+| Dataset watermarking for usage attribution and detection of unauthorized use | C1.1.5 |
 | Labeling-platform access controls restricting who can create, modify, or approve annotations | C1.2.1 |
 | Poisoning detection in training and fine-tuning pipelines | C1.3.1 |
 | Confidence thresholds and consistency checks on automatically generated labels | C1.3.2 |
 | Bias evaluation for models used in security-relevant decisions | C1.3.3 |
 | Defenses against clean-label poisoning attacks | C1.3.5 |
-| Dataset lineage recording (transformations, augmentations, merges) | C12.6.1 |
-| Logging of all labeling activities | C12.6.2 |
-| Write-time tagging of every ingested document (source, writer identity, timestamp) | C12.6.4 |
+| Dataset lineage recording (transformations, augmentations, merges) | C12.5.1 |
+| Logging of all labeling activities | C12.5.2 |
+| Write-time tagging of every ingested document (source, writer identity, timestamp) | C12.5.4 |
 
 **Common pitfalls:** not scanning fine-tuning datasets for poisoning; collecting more attributes than the purpose requires; losing dataset lineage across transformations and merges.
 
@@ -301,9 +301,9 @@ Harden vector stores, memory pipelines, and retrieval-augmented generation again
 | Immutability of document metadata tags after the initial write | C8.1.2 |
 | Scope constraints enforced on retrieval operations | C8.1.3 |
 | Detection and masking, tokenization, or dropping of sensitive fields before embedding | C8.2.1 |
-| Detection, rejection, or quarantine of retrieval-manipulation content before vectorization | C8.2.2 |
-| Flagging and quarantine of outlier vectors before they enter production indices | C8.2.3 |
-| Source validation before agent or tool outputs are written to trusted memory | C8.2.4 |
+| Detection, rejection, or quarantine of retrieval-manipulation content before vectorization | C8.2.4 |
+| Flagging and quarantine of outlier vectors before they enter production indices | C8.2.2 |
+| Source validation before agent or tool outputs are written to trusted memory | C8.2.3 |
 | Contradiction checks on new memory writes, with conflicts triggering alerts | C8.2.5 |
 | Exclusion of expired vectors from retrieval results | C8.3.1 |
 | Memory reset capability | C8.3.2 |
@@ -349,9 +349,9 @@ Capture security-relevant events with sufficient context and integrity for foren
 | Logging of safety filtering and policy decisions in enough detail to audit content moderation | C12.1.2 |
 | Structured, interoperable log schema for inference events (model identifier, token usage, provider, operation type) | C12.1.3 |
 | Logging of RAG pipeline retrieval events (query, documents retrieved, knowledge source) | C12.1.4 |
-| Audit logs capturing the approval chain for security-critical proactive actions (approver identity, timestamp, parameters, outcome) | C12.5.2 |
-| Logging of kill-switch activations and override commands | C12.5.3 |
-| Immutable audit records for all model changes | C12.6.3 |
+| Audit logs capturing the approval chain for security-critical proactive actions (approver identity, timestamp, parameters, outcome) | C12.4.2 |
+| Logging of kill-switch activations and override commands | C12.4.3 |
+| Immutable audit records for all model changes | C12.5.3 |
 
 **Common pitfalls:** logging prompts without redaction; using mutable log storage without integrity protection; logging agent actions and approvals but not human-initiated overrides such as kill-switch activations.
 
@@ -376,11 +376,7 @@ Detect AI-specific abuse, drift, and anomalies, and respond to incidents.
 | Hallucination detection monitoring of model outputs | C12.3.2 |
 | Hallucination rates tracked as continuous time-series metrics | C12.3.3 |
 | Distinction of unexplained behavioral shifts from gradual operational drift | C12.3.4 |
-| AI-specific incident response plans with per-scenario containment and investigation steps | C12.4.1 |
-| AI-specific forensic tools and expertise for investigating model behavior | C12.4.2 |
-| Automated incident-response workflows that isolate compromised models and block malicious users | C12.4.3 |
-| Post-incident analysis feeding model retraining and safety filter updates | C12.4.4 |
-| Security evaluation and threat-landscape assessment on autonomous initiative triggers | C12.5.1 |
+| Security evaluation and threat-landscape assessment for autonomous action triggers | C12.4.1 |
 
 **Common pitfalls:** not correlating AI-specific events with broader SIEM alerts; treating drift as a scheduled check rather than continuous monitoring; lacking AI-specific forensic tooling during an incident.
 
@@ -406,7 +402,7 @@ Require human approval for high-impact actions and provide reliable, exercised s
 | Manual kill-switch to immediately halt model inference and outputs | C9.6.1 |
 | Fail-closed blocking of a pending action when a human-approval gate is not satisfied within the defined time | C9.6.2 |
 | Kill-switch commands delivered through an out-of-band channel isolated from the agent runtime | C9.6.3 |
-| Explicit consent dialogue and cancellation option on installation of a local MCP server | C10.4.8 |
+| Explicit consent dialogue and cancellation option on installation of a local MCP server | C10.4.7 |
 
 **Common pitfalls:** documenting a high-risk action policy never wired to a runtime gate; binding approval to parameters without binding to identity or context; defaulting to fail-open when the approver does not respond; assuming an in-band kill-switch will work against a compromised agent; implementing a kill-switch that is never exercised.
 
