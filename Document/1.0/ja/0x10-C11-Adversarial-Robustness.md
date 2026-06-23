@@ -2,17 +2,17 @@
 
 ## 管理目標
 
-Ensure that AI systems remain reliable, privacy-preserving, and abuse-resistant when facing evasion, inference, extraction, or poisoning attacks. These controls cover model alignment testing, adversarial hardening, privacy attack resistance, model theft deterrence, and security adaptation for autonomous agents.
+This chapter addresses keeping AI systems reliable and abuse-resistant when facing evasion, inference, extraction, or poisoning attacks.
 
 ---
 
-## C11.1 モデルの整合、安全性、堅牢性テスト、トレーニング (Model Alignment, Safety and Robustness Testing and Training)
+## C11.1 モデルの整合、安全性、堅牢性テスト、トレーニング (Model Alignment, Safety, and Robustness Testing and Training)
 
-Increase resilience to manipulated inputs designed to cause misclassification or policy bypass. Adversarial testing and robustness benchmarking are the current best practices.
+Model resilience to manipulated inputs designed to cause misclassification or policy bypass must be increased, primarily through adversarial testing and robustness benchmarking.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
-| **11.1.1** | **Verify that** model has been alignment and safety trained or fine-tuned to prevent the model from generating disallowed content categories. | 1 |
+| **11.1.1** | **Verify that** the model has undergone alignment and safety training or fine-tuning to prevent the model from generating disallowed content categories. | 1 |
 | **11.1.2** | **Verify that** a version-controlled alignment test suite is run on every model update or release. | 1 |
 | **11.1.3** | **Verify that** models are evaluated against known adversarial attack techniques relevant to their modality. | 1 |
 | **11.1.4** | **Verify that** models are hardened against adversarial inputs. | 2 |
@@ -22,7 +22,7 @@ Increase resilience to manipulated inputs designed to cause misclassification or
 
 ## C11.2 メンバーシップ推論の緩和 (Membership-Inference Mitigation)
 
-Limit the ability to determine whether a specific record was in the training data, and prevent reconstruction of private training data or sensitive attributes from model outputs.. Differential privacy and output calibration are the most effective known defenses.
+The ability to determine whether a specific record was in the training data must be limited, and reconstruction of private training data or sensitive attributes from model outputs prevented.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -30,13 +30,13 @@ Limit the ability to determine whether a specific record was in the training dat
 | **11.2.2** | **Verify that** inference endpoints enforce per-principal and global rate limits sized to the extraction threat model, and not solely as a generic API throttle. | 1 |
 | **11.2.3** | **Verify that** model outputs are calibrated to reduce overconfident predictions. | 2 |
 | **11.2.4** | **Verify that** training on sensitive datasets employs differentially-private optimization. | 2 |
-| **11.2.5** | **Verify that** membership-inference attack simulations demonstrate that attack accuracy does not exceed random guessing on data. | 3 |
+| **11.2.5** | **Verify that** membership-inference attack simulations demonstrate that attack accuracy does not exceed random guessing on evaluated data. | 3 |
 
 ---
 
 ## C11.3 モデル抽出の防御 (Model-Extraction Defense)
 
-Detect and deter unauthorized model cloning through API abuse. Rate limiting, query-pattern analysis, and watermarking are recommended defenses.
+Unauthorized model cloning through API abuse must be detected and deterred using rate limiting, query-pattern analysis, and watermarking.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -49,13 +49,13 @@ Detect and deter unauthorized model cloning through API abuse. Rate limiting, qu
 
 ## C11.4 Model Runtime Anomaly Detection
 
-Identify and neutralize manipulated, backdoored, or adversarial data entering the model context at inference time via external sources.
+Manipulated, backdoored, or adversarial data entering the model context at inference time via external sources must be identified and neutralized.
 
 | # | Description | Level |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
 | **11.4.1** | **Verify that** inputs from external or untrusted sources pass through anomaly detection before model inference. | 2 |
 | **11.4.2** | **Verify that** inputs flagged as anomalous trigger gating actions. | 2 |
-| **11.4.3** | **Verify that** the safety violation feedback pipeline includes poisoning detection, and human review gates to prevent adversarial manipulation of the improvement mechanism. | 3 |
+| **11.4.3** | **Verify that** the safety violation feedback pipeline includes poisoning detection and human review gates to prevent adversarial manipulation of the improvement mechanism. | 3 |
 
 ---
 
