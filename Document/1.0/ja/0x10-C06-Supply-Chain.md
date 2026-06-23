@@ -2,13 +2,13 @@
 
 ## 管理目標
 
-AI サプライチェーン攻撃は、バックドア、バイアス、実行可能コードを埋め込んで、サードパーティモデル、フレームワーク、データセットを悪用します。これらのコントロールは、モデルのライフサイクル全体を通して、AI 固有のサプライチェーンアーティファクトのトレーサビリティ、審査、監視を確保します。 This chapter focuses on supply chain risks unique to AI: model artifact integrity, backdoor detection in pretrained weights, dataset poisoning, AI-specific bills of materials, and model-publisher trust.
+この章は、バックドア、バイアス、実行可能コードを埋め込んで、サードパーティモデル、フレームワーク、データセットを悪用する AI サプライチェーン攻撃に対する防御を取り扱います。
 
 ---
 
 ## C6.1 モデルアーティファクトの完全性 (Model Artifact Integrity)
 
-Authenticate third-party model origins and check for hidden behavior before fine-tuning or deployment. Download AI artifacts only from approved sources.
+Third-party model origins must be authenticated and checked for hidden behavior before fine-tuning or deployment, and AI artifacts should be downloaded only from approved sources.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
@@ -21,7 +21,7 @@ Authenticate third-party model origins and check for hidden behavior before fine
 
 ## C6.2 AI BOM とサプライチェーンの監視 (AI BOM & Supply Chain Monitoring)
 
-Generate and sign detailed AI-specific bills of materials and ensure readiness to respond to supply chain compromise events.
+Detailed AI-specific bills of materials must be generated and signed, with readiness to respond to supply chain compromise events.
 
 | # | 説明 | レベル |
 | :--------: | ------------------------------------------------------------------------------------------------------------------- | :---: |
