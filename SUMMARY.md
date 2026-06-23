@@ -22,7 +22,5 @@
 - [C11 敵対的堅牢性 (Adversarial Robustness)](Document/1.0/ja/0x10-C11-Adversarial-Robustness.md)
 - [C12 監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](Document/1.0/ja/0x10-C12-Monitoring-and-Logging.md)
 - [付録 A: 用語集](Document/1.0/ja/0x90-Appendix-A_Glossary.md)
-- [付録 B: 参考情報](Document/1.0/ja/0x91-Appendix-B_References.md)
+- [付録 B: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](Document/1.0/ja/0x91-Appendix-B_AI_Security_Controls_Inventory.md)
 - [付録 C: AI 支援のセキュアコーディング (AI-Assisted Secure Coding)](Document/1.0/ja/0x92-Appendix-C_AI_for_Code_Generation.md)
-- [付録 D: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](Document/1.0/ja/0x93-Appendix-D_AI_Security_Controls_Inventory.md)
-- [付録 E: 執筆者](Document/1.0/ja/0x94-Appendix-E_Contributors.md)
