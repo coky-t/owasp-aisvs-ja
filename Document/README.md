@@ -55,7 +55,7 @@ The latest stable version is **AISVS 1.0**, which can be found:
 
 | Format | Link |
 | --- | --- |
-| PDF | [AISVS 1.0 pre-release PDF](https://github.com/OWASP/AISVS/raw/main/1.0/dist/AISVS-1.0-pre-release.pdf) |
+| PDF | [AISVS 1.0 PDF](https://github.com/OWASP/AISVS/raw/main/1.0/dist/AISVS-1.0.pdf) |
 | Markdown (source) | [Browse online](https://github.com/OWASP/AISVS/tree/main/1.0/en) |
 
 ---
@@ -102,7 +102,7 @@ Organizations should select a target level based on the risk profile of their AI
 
 ## Research Wiki
 
-For every requirement in the standard, the [Research Wiki](https://github.com/OWASP/AISVS/blob/main/research/README.md) provides implementation context beyond the requirement text:
+For every requirement in the standard, the [Research Wiki](https://github.com/OWASP/AISVS/blob/main/1.0/research/README.md) provides implementation context beyond the requirement text:
 
 | Column | What it tells you |
 | --- | --- |
@@ -140,8 +140,9 @@ Each stable release of AISVS is published as a numbered folder in this repositor
 
 ```text
 /
-├── 1.0/        <- current stable release (locked after release)
-├── 1.01-dev/   <- next minor release (pending)
+├── 1.0/        <- published stable release (locked)
+├── 1.01-dev/   <- next minor release (in progress)
+├── 2.0-dev/    <- next major release (in progress)
 ```
 
 ---
