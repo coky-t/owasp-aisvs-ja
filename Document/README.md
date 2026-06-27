@@ -49,14 +49,14 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ---
 
-## Latest Stable Version
+## 最新安定版
 
-The latest stable version is **AISVS 1.0**, which can be found:
+最新安定版は **AISVS 1.0** であり、以下にあります。
 
-| Format | Link |
+| 形式 | リンク |
 | --- | --- |
-| PDF | [AISVS 1.0 PDF](https://github.com/OWASP/AISVS/raw/main/1.0/dist/AISVS-1.0.pdf) |
-| Markdown (source) | [Browse online](https://github.com/OWASP/AISVS/tree/main/1.0/en) |
+| PDF | [AISVS 1.0 PDF (英語)](https://github.com/OWASP/AISVS/raw/main/1.0/dist/AISVS-1.0.pdf) |
+| マークダウン (ソース) | [オンラインで閲覧 (英語)](https://github.com/OWASP/AISVS/tree/main/1.0/en) |
 
 ---
 
