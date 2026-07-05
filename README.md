@@ -4,7 +4,7 @@ This is the unofficial Japanese translation of the [OWASP Artificial Intelligenc
 
 **!!! Work In Progress !!!**
 
-- Document Site - <https://coky-t.gitbook.io/owasp-aisvs-ja/>
+<!-- - Document Site - <https://coky-t.gitbook.io/owasp-aisvs-ja/> -->
 - Document Repository - <https://github.com/coky-t/owasp-aisvs-ja>
 
 ### Originator
