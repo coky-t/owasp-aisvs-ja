@@ -60,17 +60,17 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ---
 
-## Verification Levels
+## 検証レベル
 
-Each AISVS requirement is assigned a verification level (1, 2, or 3) indicating the depth of security assurance:
+各 AISVS 要件はセキュリティ保証の深度を示す検証レベル (1, 2, 3) を割り当てられています。
 
-| Level | Description | When to use |
+| レベル| 説明 | 使用対象 |
 | :---: | --- | --- |
-| **1** | Essential baseline controls that every AI system should implement. | All AI applications, including internal tools and low-risk systems. |
-| **2** | Standard controls for systems handling sensitive data or making consequential decisions. | Production systems, customer-facing AI, systems processing personal data. |
-| **3** | Advanced controls for high-assurance environments requiring defense against sophisticated attacks. | Critical infrastructure, safety-critical AI, high-value targets, regulated industries. |
+| **1** | すべての AI システムが実装すべき不可欠なベースラインコントロール。 | 内部ツールや低リスクシステムを含む、すべての AI アプリケーション。 |
+| **2** | 機密データを扱うシステムや重要な判断を行うシステム向けの標準コントロール。 | 本番システム、顧客向け AI、個人データを処理するシステム。 |
+| **3** | 高度な攻撃に対する防御を必要とする高保証環境向けの高度なコントロール。 | 重要インフラストラクチャ、安全性が極めて重要な AI、高価値ターゲット、規制対象の業界。 |
 
-Organizations should select a target level based on the risk profile of their AI system. Most production systems should aim for at least Level 2.
+組織は AI システムのリスクプロファイルに基づいてターゲットレベルを選択する必要があります。ほとんどの本番システムでは少なくともレベル 2 を目指すべきです。
 
 ## How to use AISVS
 
