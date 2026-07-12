@@ -72,14 +72,14 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 組織は AI システムのリスクプロファイルに基づいてターゲットレベルを選択する必要があります。ほとんどの本番システムでは少なくともレベル 2 を目指すべきです。
 
-## How to use AISVS
+## AISVS の使用方法
 
-* **During design.** Use requirements as a security checklist when architecting AI systems.
-* **During development.** Integrate requirements into CI/CD pipelines, code reviews, and testing.
-* **During security assessments.** Use as a verification framework for penetration testing and audits.
-* **For procurement.** Reference specific requirements when evaluating AI vendors and third-party models.
+* **設計時。** AI システムをアーキテクトする際、要件をセキュリティチェックリストとして使用します。
+* **開発時。** 要件を CI/CD パイプライン、コードレビュー、テストに統合します。
+* **セキュリティ評価時。** ペネトレーションテストや監査に対する検証フレームワークとして使用します。
+* **調達時。** AI ベンダーやサードパーティのモデルを評価する際、具体的な要件を参照します。
 
-## Requirement Chapters
+## 要件の章構成
 
 1. [トレーニングデータ完全性とトレーサビリティ (Training Data Integrity & Traceability)](1.0/ja/0x10-C01-Training-Data-Integrity-and-Traceability.md)
 2. [入力バリデーション (Input Validation)](1.0/ja/0x10-C02-Input-Validation.md)
@@ -94,7 +94,7 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 11. [敵対的堅牢性 (Adversarial Robustness)](1.0/ja/0x10-C11-Adversarial-Robustness.md)
 12. [監視、ログ記録、異常検出 (Monitoring, Logging & Anomaly Detection)](1.0/ja/0x10-C12-Monitoring-and-Logging.md)
 
-## Appendices
+## 付録
 
 * [付録 A: 用語集](1.0/ja/0x90-Appendix-A_Glossary.md)
 * [付録 B: AI セキュリティコントロールインベントリ (AI Security Controls Inventory)](1.0/ja/0x91-Appendix-B_AI_Security_Controls_Inventory.md)
