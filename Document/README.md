@@ -27,7 +27,7 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ## プロジェクトリーダー
 
-このプロジェクトは [Jim Manico](https://linkedin.com/in/jmanico) によって設立されました。現在のプロジェクトリーダーは [Jim Manico](https://linkedin.com/in/jmanico), [Otto Sulin](https://github.com/ottosulin), [Rico Komenda](https://github.com/RicoKomenda), [Russ Memisyazici](https://linkedin.com/in/vtxmm), [Raza Sharif](mailto:raza@cybersecai.co.uk) です。
+このプロジェクトは [Jim Manico](https://linkedin.com/in/jmanico) によって設立されました。現在のプロジェクトリーダーは [Jim Manico](https://linkedin.com/in/jmanico), [Otto Sulin](https://github.com/ottosulin), [Rico Komenda](https://github.com/RicoKomenda), [Russ Memisyazici](https://linkedin.com/in/vtxmm) です。
 
 ---
 
