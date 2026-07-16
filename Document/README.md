@@ -102,15 +102,15 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ## Research Wiki
 
-For every requirement in the standard, the [Research Wiki](https://github.com/OWASP/AISVS/blob/main/1.0/research/README.md) provides implementation context beyond the requirement text:
+本標準の各要件に対して、[Research Wiki](https://github.com/OWASP/AISVS/blob/main/1.0/research/README.md) は要件の記述にとどまらない実装上の背景を提供します。
 
-| Column | What it tells you |
+| 項目 | 内容 |
 | --- | --- |
-| **Threat Mitigated** | Specific attack techniques, CVEs, and real-world incidents the control defends against |
-| **Verification Approach** | Concrete audit steps, tools, and evidence to collect |
-| **Gaps & Notes** | Tool maturity ratings, open research questions, and implementation caveats |
+| **緩和される脅威 (Threat Mitigated)** | そのコントロールが防御する具体的な攻撃技法、CVE、実際のインシデント |
+| **検証アプローチ (Verification Approach)** | 具体的な監査手順、ツール、収集する証跡 |
+| **ギャップと注記 (Gaps & Notes)** | ツールの成熟度評価、未解決の調査課題、実装上の留意点 |
 
-The wiki covers all 191 requirements across 60 pages, with per-section threat landscape summaries, tooling recommendations, and references to current standards and research literature.
+この Wiki は 60 ページにわたる全 191 の要件をカバーしており、セクションごとの脅威動向の概要、推奨ツール、最新規格や研究文献への参照情報があります。
 
 ---
 
