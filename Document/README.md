@@ -114,21 +114,21 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ---
 
-## How to Reference AISVS Requirements
+## AISVS 要件の参照方法
 
-Each requirement has an identifier in the format `C<chapter>.<section>.<requirement>`, where each element is a number, for example `C9.4.3`.
+各要件は `C<chapter>.<section>.<requirement>` という形式の識別子を有します。各要素は数字です。例: `C9.4.3`
 
-- The `C<chapter>` value corresponds to the chapter from which the requirement comes; for example, all `C9.#.#` requirements are from the 'Orchestration & Agentic Security' chapter.
-- The `<section>` value corresponds to the section within that chapter where the requirement appears; for example, all `C9.4.#` requirements are in the 'Agent and Orchestrator Identity' section.
-- The `<requirement>` value identifies the specific requirement within the chapter and section; for example, `C9.4.3` which as of version 1.0 of this standard is:
+- `C<chapter>` の値はその要件に由来する章に対応しています。たとえば、`C9.#.#` という要件はすべて 'オーケストレーションとエージェントセキュリティ (Orchestration & Agentic Security)' の章のものです。
+- `<section>` の値は要件が現れる章内の節に対応しています。たとえば、`C9.4.#` という要件はすべて 'エージェントとオーケストレータのアイデンティティ (Agent and Orchestrator Identity)' の節のものです。
+- `<requirement>` の値は章および節内の特定の要件を識別するものです。たとえば、`C9.4.3` は本標準のバージョン 1.0 では以下のとおりです。
 
-> Verify that agent identity credentials rotate on a defined schedule.
+> **検証:** エージェントのアイデンティティクレデンシャルは定義されたスケジュールで入れ替えている。
 
-Since identifiers may change between versions of the standard, it is preferable for other documents, reports, or tools to use the following format: `v<version>-C<chapter>.<section>.<requirement>`, where `version` is the AISVS version tag. For example: `v1.0-C9.4.3`.
+本標準のバージョン間で識別子が変更となる可能性があるため、他のドキュメント、レポート、ツールでは `v<version>-C<chapter>.<section>.<requirement>` という形式を使用することを推奨します。`version` は AISVS のバージョンタグです。例: `v1.0-C9.4.3`
 
-Note: The `v` preceding the version number should always be lowercase.
+注: バージョン番号の前の `v` は常に小文字にする必要があります。
 
-If identifiers are used without including the `v<version>` element, they should be assumed to refer to the latest AISVS content. As the standard grows and changes, this becomes problematic, which is why writers or developers should include the version element.
+識別子が `v<version>` 要素を含めずに使用されている場合、それは最新の AISVS コンテンツを参照していると想定すべきです。本標準が成長して変更すると、これは問題となり、これが作成者や開発者がバージョン要素を含む必要がある理由です。
 
 ---
 
