@@ -132,11 +132,11 @@ AISVS は [OWASP Application Security Verification Standard (ASVS)](https://owas
 
 ---
 
-## Versioning
+## バージョン管理
 
-AISVS uses a two-part version number, `v<MAJOR>.<MINOR>` (for example, `v1.0`, `v1.01`, `v2.0`). Major versions cover chapter and section changes, minor versions cover additions, removals, and material edits to requirements within the existing structure, and patch fixes ship in-branch without a separate version. The full policy is documented in [RELEASE.md](RELEASE.md).
+AISVS では `v<MAJOR>.<MINOR>` (例: `v1.0`, `v1.01`, `v2.0`) という二つの部分からなるバージョン番号を使用します。メジャーバージョンは章や節の変更をカバーし、マイナーバージョンは既存の構成内での要件の追加、削除、内容の編集をカバーします。パッチ修正は個別のバージョンなしでブランチ内で出荷します。詳細なポリシーについては [RELEASE.md](https://github.com/OWASP/AISVS/blob/main/RELEASE.md) で説明しています。
 
-Each stable release of AISVS is published as a numbered folder in this repository. Once a version is released, its folder is locked; all future work happens in a new folder. This mirrors the approach used by [OWASP ASVS](https://github.com/OWASP/ASVS).
+AISVS の各安定板リリースはこのリポジトリ内で番号付けされたフォルダとして公開されます。バージョンがリリースされると、そのフォルダはロックされます。以降のすべての取り組みは新しいフォルダで行います。これは [OWASP ASVS](https://github.com/OWASP/ASVS) で使用されたアプローチを反映しています。
 
 ```text
 /
