@@ -146,11 +146,11 @@ AISVS の各安定板リリースはこのリポジトリ内で番号付けさ�
 
 ---
 
-## Contributing
+## 貢献
 
-We welcome contributions from the community. Please [open an issue](https://github.com/OWASP/AISVS/issues) to report bugs or suggest improvements. We may ask you to [submit a pull request](https://github.com/OWASP/AISVS/pulls) based on the discussion.
+コミュニティからの貢献を歓迎します。バグ報告や改善提案には [issue をオープン](https://github.com/OWASP/AISVS/issues) してください。議論に基づいて [プルリクエストの提出](https://github.com/OWASP/AISVS/pulls) をお願いすることがあります。
 
-To report a security issue with the AISVS project itself, please follow the [Security Policy](https://github.com/OWASP/AISVS/blob/main/SECURITY.md).
+AISVS プロジェクト自体のセキュリティ問題を報告するには、[セキュリティポリシー](https://github.com/OWASP/AISVS/blob/main/SECURITY.md) に従ってください。
 
 ## ライセンス
 
