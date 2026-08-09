@@ -30,7 +30,7 @@ AISVS v1.0 は、プロジェクトリーダー、ワーキンググループメ
 
 ## 執筆者とレビュー担当者
 
-The list below reflects authored and edited content. It does not fully capture contributors whose impact came mainly through reviews and issue discussion, and we thank them as well.
+以下のリストはコンテンツの執筆や編集を反映しています。レビューや issue の議論を通じて主に影響を与えた貢献者を完全には捕捉していませんが、そうした皆様にも感謝いたしております。
 
 * b1oo ([b1oo](https://github.com/b1oo))
 * Jim Schwoebel ([jim-schwoebel](https://github.com/jim-schwoebel))
