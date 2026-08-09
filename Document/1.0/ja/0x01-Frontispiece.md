@@ -17,9 +17,9 @@ Copyright &copy; 2025-2026 The AISVS Project.
 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/) の下で公開されています。
 再利用または配布する場合には、本著作物のライセンス条項を他者に対して明確に伝える必要があります。
 
-## Acknowledgments
+## 謝辞
 
-AISVS v1.0 is the result of a collaborative effort by its project leads, working group members, and community contributors. We thank everyone who has contributed requirements, reviews, and feedback to make this standard possible.
+AISVS v1.0 は、プロジェクトリーダー、ワーキンググループメンバー、コミュニティ貢献者による共同の取り組みの成果です。本標準の策定にあたり、要件、レビュー、フィードバックに貢献いただいた皆様に感謝いたします。
 
 ## プロジェクトリーダー
 
