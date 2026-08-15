@@ -2,7 +2,7 @@
 
 **人工知能セキュリティ検証標準 (AISVS) バージョン 1.0** へようこそ。
 
-By adopting AISVS, organizations can systematically evaluate and strengthen the security posture of their AI systems, building a foundation of secure AI engineering practices that evolves alongside the technology itself.
+AISVS を採用することで、組織は AI システムのセキュリティ態勢を体系的に評価および強化し、技術自体と並んで進化するセキュアな AI エンジニアリングプラクティスの基盤を構築できます。
 
 ## AISVS が存在する理由
 
