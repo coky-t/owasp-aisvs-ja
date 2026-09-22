@@ -12,13 +12,13 @@ AISVS は、組織がこれらのリスクのために専用に設計された�
 
 ## 設計原則
 
-AISVS is organized into 12 control families. Each control family is divided into focused sections that support its control objective. Each section contains verification requirements. AISVS defines three verification levels, defined under Using the AISVS; sections need not include requirements at every level.
+AISVS は 12 のコントロールファミリーで構成されています。各コントロールファミリーは、その管理目標を支援する、焦点を当てたセクションに分割されています。各セクションは検証要件を含みます。AISVS は「AISVS を使用するには」で三つの検証レベルを定義していますが、セクションはすべてのレベルの要件を含む必要はありません。
 
-Each requirement must address a single concern that can ordinarily be implemented and verified as one technical mechanism. Requirements must not duplicate controls defined elsewhere in AISVS. Higher assurance levels may introduce stricter criteria, but those criteria must be stated as separate requirements. Requirements should use clear, technology-neutral language, referencing specific technologies only as examples where they improve clarity.
+各要件は、大抵は単一の技術的メカニズムとして実装および検証可能な、一つの事項を取り扱う必要があります。要件は AISVS の他の箇所で定義されたコントロールと重複してはいけません。より高い保証レベルはより厳格な基準を導入することがありますが、それらの基準は個別の要件として記述されなければなりません。要件は明確で技術に依存しない表現を使用すべきであり、特定の技術への言及は明確さを高めるための例示に留めます。
 
-Every AISVS requirement follows four design principles derived from the standard’s name:
+すべての AISVS 要件はその標準の名称に由来する四つの設計原則に従っています。
 
-* **Artificial Intelligence.** Requirements must address AI/ML-specific assets, workflows, or runtime behavior, including datasets, models, training and evaluation pipelines, retrieval systems, agents, tools, memory, and inference-time operation. AISVS does not duplicate general application security controls from standards such as ASVS unless the control has AI-specific implementation or verification concerns.
-* **Security.** Requirements must mitigate an identifiable security, privacy, or safety risk. Controls that serve only operational, governance, compliance, or business objectives are out of scope.
-* **Verification.** Requirements must be objectively verifiable through testing, inspection, or audit. Sufficient implementation guidance or tooling must exist to support both implementation and verification. Purely theoretical, subjective, or aspirational guidance is excluded.
-* **Standard.** Requirements must use consistent structure, terminology, and assurance-level semantics so AISVS remains coherent, navigable, and suitable for repeatable assessment.
+* **人工知能 (Artificial Intelligence)。** 要件は、AI/ML 特有の資産、ワークフロー、または実行時の動作 (データセット、モデル、トレーニングおよび評価パイプライン、検索システム、エージェント、ツール、メモリ、推論時の操作など) を扱わなければなりません。AISVS は、そのコントロールが AI 特有の実装や検証に関する懸念がない限り、ASVS などの標準からの一般的なアプリケーションセキュリティコントロールを重複しません。
+* **セキュリティ (Security)。** 要件は、特定可能なセキュリティ、プライバシー、または安全性リスクを緩和しなければなりません。運用、ガバナンス、コンプライアンス、またはビジネス上の目的を果たすコントロールはスコープ外です。
+* **検証 (Verification)。** 要件は、テスト、検査、監査を通じて客観的に検証可能でなければなりません。実装と検証の両方を支援するために、十分な実装ガイダンスやツールが存在しなければなりません。純粋に理論的、主観的、あるいは理想的なガイダンスは除外されています。
+* **標準 (Standard)。** AISVS が一貫性を保ち、参照しやすく、反復可能な評価に適しているように、要件は一貫した構成、用語、保証レベルのセマンティクスを使用しなければなりません。
