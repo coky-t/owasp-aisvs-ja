@@ -2,7 +2,7 @@
 
 人工知能セキュリティ検証標準 (AISVS) は現代の AI アプリケーションとサービスのセキュリティ要件を定義しており、アプリケーション開発者が制御できる側面に重点を置いています。
 
-The AISVS is intended for anyone developing or evaluating the security of AI applications, including developers, architects, security engineers, and auditors. This chapter introduces the structure and use of the AISVS, including its verification levels, intended use cases, and how it is positioned alongside other security standards.
+AISVS は、開発者、アーキテクト、セキュリティエンジニア、監査人など、AI アプリケーションのセキュリティを開発したり評価するすべての方を想定しています。この章では、検証レベル、想定されるユースケース、他のセキュリティ標準との位置づけなど、AISVS の構成と使用について紹介します。
 
 ## How to Read This Standard
 
