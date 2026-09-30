@@ -4,21 +4,21 @@
 
 AISVS は、開発者、アーキテクト、セキュリティエンジニア、監査人など、AI アプリケーションのセキュリティを開発したり評価するすべての方を想定しています。この章では、検証レベル、想定されるユースケース、他のセキュリティ標準との位置づけなど、AISVS の構成と使用について紹介します。
 
-## How to Read This Standard
+## 本標準の読み方
 
-### Chapter Structure
+### 章の構成
 
-Each of the 12 requirement chapters follows the same format:
+12 の各要件の章は同じ以下の形式に従います。
 
-* **Control Objective.** A brief statement of the security goal for the chapter.
-* **Sections.** Requirements are grouped into related sections, each with a short description of the defense goal.
-* **Requirement Tables.** Individual requirements are presented in tables with the following columns:
+* **管理目標。** その章のセキュリティ目標を簡潔に示したものです。
+* **セクション。** 要件は関連するセクションにグループ化されており、それぞれには防御目標の簡単な説明があります。
+* **要件表。** 個々の要件は以下の列のある表で示されます。
 
-| Column | Meaning |
+| 列 | 意味 |
 | --- | --- |
-| **#** | Unique requirement identifier (e.g., 1.1.1, 9.3.2). |
-| **Description** | The requirement text, always beginning with "Verify that" to emphasize testability. |
-| **Level** | The verification level (1, 2, or 3) indicating the depth of assurance required; see the verification levels below. |
+| **#** | 一意の要件識別子 (例: 1.1.1, 9.3.2) |
+| **説明** | 要件の本文。検証可能性を強調するため、常に「検証:」で始まります。 |
+| **レベル** | 求められる保証の深さを示す検証レベル (1, 2, 3)。後述の検証レベルを参照してください。 |
 
 ### Appendices
 
