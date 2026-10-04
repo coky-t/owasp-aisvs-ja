@@ -20,13 +20,13 @@ AISVS は、開発者、アーキテクト、セキュリティエンジニア�
 | **説明** | 要件の本文。検証可能性を強調するため、常に「検証:」で始まります。 |
 | **レベル** | 求められる保証の深さを示す検証レベル (1, 2, 3)。後述の検証レベルを参照してください。 |
 
-### Appendices
+### 付録
 
-Three appendices support the core requirements:
+三つの付録が中核となる要件をサポートします。
 
-* **Appendix A (Glossary)** defines key terms and acronyms used throughout the standard.
-* **Appendix B (AI Security Controls Inventory)** is a cross-reference of every defense technique in AISVS, organized by security control category (authentication, authorization, encryption, input validation, and so on) with mappings back to specific requirement identifiers.
-* **Appendix C (AI-Assisted Secure Coding)** provides controls for the safe use of AI coding tools during software development.
+* **付録 A (用語集)** 本標準全体を通じて主要な用語や頭字語を定義します。
+* **付録 B (AI セキュリティコントロールインベントリ)** AISVS のすべての防御技法のクロスリファレンスであり、セキュリティコントロールカテゴリ (認証、認可、暗号化、入力バリデーションなど) ごとに整理され、特定の要件識別子とマッピングします。
+* **付録 C (AI 支援のセキュアコーディング)** ソフトウェア開発時における AI コーディングツールの安全な使用のためのコントロールを提示します。
 
 ## 人工知能セキュリティ検証レベル
 
