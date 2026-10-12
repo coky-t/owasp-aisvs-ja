@@ -50,17 +50,17 @@ AISVS v1.0 の各要件は以下のいずれかのレベルに割り当てられ
 
 レベル 3 は、一般的に実装が困難であったり、状況に応じて適用可能であるコントロールを含みます。これらは、ニッチな攻撃、標的型攻撃、高度に複雑な攻撃に対する多層防御や緩和策を表すことがよくあります。
 
-## Alignment with ASVS Levels
+## ASVS レベルとの整合性
 
-AISVS levels are aligned with [ASVS](https://owasp.org/www-project-application-security-verification-standard/) levels. Verifying an AI application against AISVS Level _N_ assumes the application has also been, or is being, verified against ASVS Level _N_. The two standards are designed to be applied together at matching levels:
+AISVS レベルは [ASVS](https://owasp.org/www-project-application-security-verification-standard/) レベルと整合しています。AI アプリケーションを AISVS レベル _N_ に照らして検証することは、そのアプリケーションが ASVS レベル _N_ でも検証済みであるか、検証中であることを想定しています。その二つの標準は、対応するレベルで共に適用されるように設計されています。
 
-| AISVS Level | Corresponding ASVS Level | Typical use |
+| AISVS レベル | 対応する ASVS レベル | 一般的な用途 |
 | :---: | :---: | --- |
-| 1 | 1 | Baseline security for any AI application that handles untrusted input or operates on data of any sensitivity. |
-| 2 | 2 | AI applications handling sensitive business data, regulated data, or operating in adversarial contexts. |
-| 3 | 3 | High-assurance AI applications such as those handling life-safety decisions, critical infrastructure, or highly sensitive personal data. |
+| 1 | 1 | 信頼できない入力を処理したり、機密性の高いデータを操作する、あらゆる AI アプリケーションのベースラインセキュリティ。 |
+| 2 | 2 | 機密性の高い業務データや規制対象データを扱ったり、敵対的なコンテキストで操作する、AI アプリケーション。 |
+| 3 | 3 | 人命の安全性に関わる判断、重要なインフラストラクチャ、極めて機密性の高い個人データを扱うものなど、高保証の AI アプリケーション。 |
 
-If an AISVS requirement appears to overlap with an ASVS requirement, the AISVS version is restated only because it has AI-specific implementation details, attack surface, or evidence that an auditor needs to evaluate differently.
+AISVS 要件が ASVS 要件と重複するように見える場合でも、AISVS バージョンでのみ言い換えられているのは、AI 特有の実装詳細、攻撃対象領域、あるいは監査人が異なって評価する必要がある証拠を持つためです。
 
 ## Scope of the AISVS
 
