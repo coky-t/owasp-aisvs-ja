@@ -32,7 +32,7 @@ AISVS は、開発者、アーキテクト、セキュリティエンジニア�
 
 AISVS は三段階のセキュリティ検証レベルを定義しています。各レベルは深さと複雑さを増していき、組織が AI システムのリスクレベルに合わせてセキュリティ態勢を調整できます。
 
-Organizations may begin at Level 1 and progressively adopt higher levels as security maturity and threat exposure increase. AISVS levels are aligned with [ASVS](https://owasp.org/www-project-application-security-verification-standard/) levels and are intended to be applied at the matching ASVS level (see Alignment with ASVS Levels below).
+組織はレベル 1 で開始し、セキュリティ成熟度や脅威への露出増加に応じて、段階的に上位のレベルを採用できます。AISVS レベルは [ASVS](https://owasp.org/www-project-application-security-verification-standard/) レベルと整合しており、対応する ASVS レベルに適用することを意図しています (以下の ASVS レベルとの整合性を参照)。
 
 ### レベルの定義
 
