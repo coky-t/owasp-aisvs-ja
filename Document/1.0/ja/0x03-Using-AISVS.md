@@ -62,21 +62,21 @@ AISVS レベルは [ASVS](https://owasp.org/www-project-application-security-ver
 
 AISVS 要件が ASVS 要件と重複するように見える場合でも、AISVS バージョンでのみ言い換えられているのは、AI 特有の実装詳細、攻撃対象領域、あるいは監査人が異なって評価する必要がある証拠を持つためです。
 
-## Scope of the AISVS
+## AISVS のスコープ
 
-AISVS is intentionally narrow. It only defines security requirements that are specific to AI and ML systems, or where general security controls have AI-specific nuances that warrant restating. It is not a self-contained security program for an AI application. AISVS assumes that the underlying application, infrastructure, and organizational practices are already verified against established general-purpose standards, and adds the AI-specific layer.
+AISVS は意図的に絞っています。これは、AI および ML システムに特有のセキュリティ要件、あるいは一般的なセキュリティコントロールだが AI 特有のニュアンスを有するので言い換える必要があるもののみを定義します。これは、AI アプリケーションのための自己完結したセキュリティプログラムではありません。AISVS は、基盤となるアプリケーション、インフラストラクチャ、組織的な慣行が、確立された汎用的な標準に基づいてすでに検証済みであることを前提としており、AI 特有のレイヤーを追加します。
 
-The following are intentionally out of scope and are not duplicated in AISVS chapters:
+以下は意図的にスコープ外としており、AISVS の章とは重複していません。
 
-* **General application security.** Authentication, session management, authorization, transport security, input and output handling for non-AI surfaces, secrets management, file upload handling, error handling, and similar controls are defined by the [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/).
-* **General software supply chain security.** Dependency scanning, version pinning, lockfile enforcement, build provenance, reproducible builds, generic SBOM generation, and CI/CD pipeline integrity are defined by the [OWASP Software Component Verification Standard (SCVS)](https://owasp.org/www-project-software-component-verification-standard/), [SLSA](https://slsa.dev/), and the [CIS Controls](https://www.cisecurity.org/controls).
-* **General infrastructure and platform hardening.** Container, host, network, cloud, and Kubernetes baseline hardening are defined by the [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), [NIST SP 800-53](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), [NIST SP 800-190](https://csrc.nist.gov/pubs/sp/800/190/final), and the [NIST Cybersecurity Framework (CSF)](https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20).
-* **General data protection and privacy operations.** Data classification, encryption at rest and in transit, retention scheduling, secure deletion of conventional storage, audit log immutability, and consent management platform operation are defined by ASVS, [ISO/IEC 27001](https://www.iso.org/standard/27001), and applicable privacy regulations such as the GDPR.
-* **General logging and monitoring.** Log storage access control, retention, backup, encryption, redaction, tamper protection, SIEM integration, and operational telemetry are defined by ASVS and standard observability practice.
-* **AI governance and risk management.** Organizational AI governance, AI impact assessments, fairness and ethics documentation, model cards, public transparency reports, and risk-management process design are defined by [ISO/IEC 42001](https://www.iso.org/standard/81230.html), [ISO/IEC 23894](https://www.iso.org/standard/77304.html), and the [NIST AI RMF](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10).
-* **Vendor-specific guidance.** AISVS is vendor-neutral. It specifies what to verify, not which product to use.
+* **一般的なアプリケーションセキュリティ。** 認証、セッション管理、認可、トランスポートセキュリティ、非 AI サーフェスの入出力処理、シークレット管理、ファイルアップロード処理、エラー処理、および類するコントロールは [OWASP Application Security Verification Standard (ASVS)](https://owasp.org/www-project-application-security-verification-standard/) で定義されています。
+* **一般的なソフトウェアサプライチェーンセキュリティ。** 依存関係スキャン、バージョンピン留め、ロックファイル強制、ビルド来歴、再現可能なビルド、一般的な SBOM 生成、CI/CD パイプライン完全性は、[OWASP Software Component Verification Standard (SCVS)](https://owasp.org/www-project-software-component-verification-standard/), [SLSA](https://slsa.dev/), [CIS Controls](https://www.cisecurity.org/controls) で定義されています。
+* **一般的なインフラストラクチャとプラットフォームの堅牢化。** コンテナ、ホスト、ネットワーク、クラウド、Kubernetes についてのベースラインの堅牢化は、[CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), [NIST SP 800-53](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final), [NIST SP 800-190](https://csrc.nist.gov/pubs/sp/800/190/final), [NIST Cybersecurity Framework (CSF)](https://www.nist.gov/publications/nist-cybersecurity-framework-csf-20) で定義されています。
+* **一般的なデータ保護とプライバシーの運用。** データ分類、保存時および転送時の暗号化、保持スケジューリング、従来のストレージの安全な削除、監査ログの不変性、同意管理プラットフォームの運用は、ASVS、[ISO/IEC 27001](https://www.iso.org/standard/27001)、および GDPR などの適用可能なプライバシー規制で定義されています。
+* **一般的なログ記録と監視。** ログストレージのアクセス制御、保持、バックアップ、暗号化、改訂、改竄保護、SIEM 統合、運用テレメトリは、ASVS と標準的な可観測性プラクティスで定義されています。
+* **AI ガバナンスとリスク管理。** 組織的 AI ガバナンス、AI 影響評価、公平性および倫理の文書化、モデルカード、公開透明性レポート、リスク管理プロセス設計は、[ISO/IEC 42001](https://www.iso.org/standard/81230.html), [ISO/IEC 23894](https://www.iso.org/standard/77304.html), [NIST AI RMF](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-ai-rmf-10) で定義されています。
+* **ベンダー固有のガイダンス。** AISVS はベンダー中立です。検証するものを規定しており、どの製品を使用するかではありません。
 
-When verifying an AI application against AISVS, the equivalent level of those underlying standards should be verified in parallel.
+AI アプリケーションを AISVS に基づいて検証する際には、それらの基盤となる標準を同等のレベルで並行して検証する必要があります。
 
 ## Cross-References Inside AISVS
 
